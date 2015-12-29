@@ -19,5 +19,3 @@
 void VBPrintSizeTypeTest();
 
 void VBPrintCountMacroTest();
-
-#define EnterLine printf("\n")

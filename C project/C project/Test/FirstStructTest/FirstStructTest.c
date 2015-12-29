@@ -8,6 +8,7 @@
 
 #include "FirstStructTest.h"
 #include "VBFirstStruct.h"
+#include "VBMacroHeader.h"
 
 // Test 1.
 void VBPrintSequenceNumber() {

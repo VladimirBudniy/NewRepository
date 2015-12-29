@@ -23,7 +23,8 @@
         printf("%d,\n", ((valueFirst) + (valueSecond))); \
     }
 
-#define EnterLine printf("\n")
+#define PrintNextString \
+    printf("\n");
 
 // Task 1.2
 #define VBPrintValue(qualifier, value) \

@@ -13,9 +13,5 @@
 
 int main() {
     
-    
-    VBPrintSequenceNumber();
-    VBPrintSizeStruct();
-    VBPrintSizeType();
     return 0;
 }

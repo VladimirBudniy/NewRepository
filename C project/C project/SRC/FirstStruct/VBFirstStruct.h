@@ -15,9 +15,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define PrintNextString \
-    printf("\n");
-
 #define PrintComment \
     printf("%s", "etc...");
 

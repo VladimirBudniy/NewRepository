@@ -1,19 +1,24 @@
 //
 //  main.c
-//  VBMacroTasks
+//  C project
 //
-//  Created by Vladimir Budniy on 28.12.15.
+//  Created by Vladimir Budniy on 29.12.15.
 //  Copyright © 2015 Vladimir Budniy. All rights reserved.
 //
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
 
+#include "FirstStructTest.h"
+#include "VBFirstStruct.h"
 #include "VBPrintTypeSizeTest.h"
 #include "VBPrintValueAccordingQualifierTest.h"
 #include "VBPrintValueTest.h"
 
-
 int main(int argc, const char * argv[]) {
+//  Macro Task
+    
     printf("%s\n", "Task 1");
     VBPrintSizeTypeTest();
     VBPrintCountMacroTest();
@@ -23,6 +28,12 @@ int main(int argc, const char * argv[]) {
     
     printf("\n%s\n", "Task 3");
     VBPrintResult();
+    
+//    Struct Task
+    
+    VBPrintSequenceNumber();
+    VBPrintSizeStruct();
+    VBPrintSizeType();
     
     return 0;
 }

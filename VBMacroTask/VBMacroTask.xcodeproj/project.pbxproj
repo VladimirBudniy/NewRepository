@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E707D0411C33337000EAE890 /* VBPrintTypeSizeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0391C33337000EAE890 /* VBPrintTypeSizeTest.c */; };
+		E707D0421C33337000EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D03C1C33337000EAE890 /* VBPrintValueAccordingQualifierTest.c */; };
+		E707D0431C33337000EAE890 /* VBPrintValueTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D03F1C33337000EAE890 /* VBPrintValueTest.c */; };
 		E73187851C305AD7003756ED /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E73187841C305AD7003756ED /* main.c */; };
-		E731879B1C3060BC003756ED /* VBPrintTypeSizeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73187991C3060BC003756ED /* VBPrintTypeSizeTest.c */; };
-		E73187B71C308FB5003756ED /* VBPrintValueAccordingQualifierTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73187B51C308FB5003756ED /* VBPrintValueAccordingQualifierTest.c */; };
-		E73187BF1C3094C3003756ED /* VBPrintValueTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73187BD1C3094C3003756ED /* VBPrintValueTest.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,14 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E707D0391C33337000EAE890 /* VBPrintTypeSizeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintTypeSizeTest.c; sourceTree = "<group>"; };
+		E707D03A1C33337000EAE890 /* VBPrintTypeSizeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintTypeSizeTest.h; sourceTree = "<group>"; };
+		E707D03C1C33337000EAE890 /* VBPrintValueAccordingQualifierTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueAccordingQualifierTest.c; sourceTree = "<group>"; };
+		E707D03D1C33337000EAE890 /* VBPrintValueAccordingQualifierTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueAccordingQualifierTest.h; sourceTree = "<group>"; };
+		E707D03F1C33337000EAE890 /* VBPrintValueTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueTest.c; sourceTree = "<group>"; };
+		E707D0401C33337000EAE890 /* VBPrintValueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueTest.h; sourceTree = "<group>"; };
 		E73187811C305AD7003756ED /* VBMacroTask */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VBMacroTask; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73187841C305AD7003756ED /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		E73187991C3060BC003756ED /* VBPrintTypeSizeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintTypeSizeTest.c; sourceTree = "<group>"; };
-		E731879A1C3060BC003756ED /* VBPrintTypeSizeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintTypeSizeTest.h; sourceTree = "<group>"; };
-		E73187B51C308FB5003756ED /* VBPrintValueAccordingQualifierTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueAccordingQualifierTest.c; sourceTree = "<group>"; };
-		E73187B61C308FB5003756ED /* VBPrintValueAccordingQualifierTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueAccordingQualifierTest.h; sourceTree = "<group>"; };
-		E73187BD1C3094C3003756ED /* VBPrintValueTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueTest.c; sourceTree = "<group>"; };
-		E73187BE1C3094C3003756ED /* VBPrintValueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueTest.h; sourceTree = "<group>"; };
 		E73188091C315E7C003756ED /* VBMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +48,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E707D0381C33337000EAE890 /* MacroTestTask1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0391C33337000EAE890 /* VBPrintTypeSizeTest.c */,
+				E707D03A1C33337000EAE890 /* VBPrintTypeSizeTest.h */,
+			);
+			path = MacroTestTask1.1;
+			sourceTree = "<group>";
+		};
+		E707D03B1C33337000EAE890 /* MacroTestTask1.2 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D03C1C33337000EAE890 /* VBPrintValueAccordingQualifierTest.c */,
+				E707D03D1C33337000EAE890 /* VBPrintValueAccordingQualifierTest.h */,
+			);
+			path = MacroTestTask1.2;
+			sourceTree = "<group>";
+		};
+		E707D03E1C33337000EAE890 /* MacroTestTask1.3 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D03F1C33337000EAE890 /* VBPrintValueTest.c */,
+				E707D0401C33337000EAE890 /* VBPrintValueTest.h */,
+			);
+			path = MacroTestTask1.3;
+			sourceTree = "<group>";
+		};
 		E73187781C305AD7003756ED = {
 			isa = PBXGroup;
 			children = (
@@ -85,38 +112,11 @@
 		E731878C1C305B17003756ED /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				E73187BC1C3094B4003756ED /* TestTask1.3 */,
-				E73187B11C308F1E003756ED /* TestTask1.2 */,
-				E73187981C3060BC003756ED /* TestTask1.1 */,
+				E707D0381C33337000EAE890 /* MacroTestTask1.1 */,
+				E707D03B1C33337000EAE890 /* MacroTestTask1.2 */,
+				E707D03E1C33337000EAE890 /* MacroTestTask1.3 */,
 			);
 			path = Test;
-			sourceTree = "<group>";
-		};
-		E73187981C3060BC003756ED /* TestTask1.1 */ = {
-			isa = PBXGroup;
-			children = (
-				E73187991C3060BC003756ED /* VBPrintTypeSizeTest.c */,
-				E731879A1C3060BC003756ED /* VBPrintTypeSizeTest.h */,
-			);
-			path = TestTask1.1;
-			sourceTree = "<group>";
-		};
-		E73187B11C308F1E003756ED /* TestTask1.2 */ = {
-			isa = PBXGroup;
-			children = (
-				E73187B51C308FB5003756ED /* VBPrintValueAccordingQualifierTest.c */,
-				E73187B61C308FB5003756ED /* VBPrintValueAccordingQualifierTest.h */,
-			);
-			path = TestTask1.2;
-			sourceTree = "<group>";
-		};
-		E73187BC1C3094B4003756ED /* TestTask1.3 */ = {
-			isa = PBXGroup;
-			children = (
-				E73187BD1C3094C3003756ED /* VBPrintValueTest.c */,
-				E73187BE1C3094C3003756ED /* VBPrintValueTest.h */,
-			);
-			path = TestTask1.3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,10 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E731879B1C3060BC003756ED /* VBPrintTypeSizeTest.c in Sources */,
-				E73187B71C308FB5003756ED /* VBPrintValueAccordingQualifierTest.c in Sources */,
-				E73187BF1C3094C3003756ED /* VBPrintValueTest.c in Sources */,
+				E707D0411C33337000EAE890 /* VBPrintTypeSizeTest.c in Sources */,
+				E707D0431C33337000EAE890 /* VBPrintValueTest.c in Sources */,
 				E73187851C305AD7003756ED /* main.c in Sources */,
+				E707D0421C33337000EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

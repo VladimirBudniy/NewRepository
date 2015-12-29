@@ -8,6 +8,7 @@
 
 #include "VBPrintTypeSizeTest.h"
 #include "VBMacroHeader.h"
+#include "VBMacroHeader.h"
 
 #include <stdio.h>
 
@@ -28,7 +29,7 @@ void VBPrintSizeTypeTest() {
     
     printf("%s ", "Print size of double - ");
     TypeLength(double);
-    EnterLine;
+    PrintNextString;
 
 }
 
@@ -44,6 +45,6 @@ void VBPrintCountMacroTest() {
     int thirdValue = 40;
     int fourthValue = 20;
     VBFirstMacro(thirdValue, fourthValue);
-    EnterLine;
+    PrintNextString;
 
 }
