@@ -12,6 +12,8 @@
 #include "FirstStructTest.h"
 
 int main() {
+    
+    
     VBPrintSequenceNumber();
     VBPrintSizeStruct();
     VBPrintSizeType();

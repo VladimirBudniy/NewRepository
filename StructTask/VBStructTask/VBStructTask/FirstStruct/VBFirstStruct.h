@@ -15,51 +15,57 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#define PrintNextString \
+    printf("\n");
+
+#define PrintComment \
+    printf("%s", "etc...");
+
 typedef struct {
-    bool bool1;
-    long long ll2;
-    bool bool3;
-    bool bool4;
-    short short5;
-    bool bool6;
-    short short11;
-    float float7;
-    bool bool8;
-    int int9;
-    double double10;
-    bool bool12;
-    short short13;
-    char *string14;
+    bool bool1; // 1
+    long long ll2; // 8
+    bool bool3; // 1
+    bool bool4; // 1
+    short short5; // 2
+    bool bool6; // 1
+    short short11; // 2
+    float float7; // 4
+    bool bool8; // 1
+    int int9; // 4
+    double double10; // 8
+    bool bool12; // 1
+    short short13; // 2
+    char *string14; // 8
 } RandomLocation;
 
 typedef struct {
-    long long ll2;
-    char *string14;
-    double double10;
-    int int9;
-    float float7;
-    short short5;
-    short short13;
-    short short11;
-    bool bool1;
-    bool bool3;
-    bool bool4;
-    bool bool6;
-    bool bool8;
-    bool bool12;
+    long long ll2; // 8
+    char *string14; // 8
+    double double10; // 8
+    int int9; // 4
+    float float7; // 4
+    short short5; // 2
+    short short13; // 2
+    short short11; // 2
+    bool bool1; // 1
+    bool bool3; // 1
+    bool bool4; // 1
+    bool bool6; // 1
+    bool bool8; // 1
+    bool bool12; // 1
 } TypeLocation;
 
 typedef struct {
-    long long ll2;
-    char *string14;
-    double double10;
-    int int9;
-    float float7;
-    short short5;
-    short short13;
-    short short11;
+    long long ll2;          // 8
+    char *string14;         // 8
+    double double10;        // 8
+    int int9;               // 4
+    float float7;           // 4
+    short short5;           // 2
+    short short13;          // 2
+    short short11;          // 2
     
-    union {
+    union {                 // 1
         struct {
             bool bool1 : 1;
             bool bool3 : 1;
@@ -68,6 +74,7 @@ typedef struct {
             bool bool8 : 1;
             bool bool12 : 1;
         };
+        char BoolStruct;
     };
 } LocationBool;
 
