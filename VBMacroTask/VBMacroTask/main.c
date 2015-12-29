@@ -14,12 +14,12 @@
 
 
 int main(int argc, const char * argv[]) {
-    printf("%s\n", "Task 1");
-    VBPrintSizeTypeTest();
-    VBPrintCountMacroTest();
-    
-    printf("\n%s\n", "Task 2");
-    VBPrintValueAccordingQualifierTest();
+//    printf("%s\n", "Task 1");
+//    VBPrintSizeTypeTest();
+//    VBPrintCountMacroTest();
+//    
+//    printf("\n%s\n", "Task 2");
+//    VBPrintValueAccordingQualifierTest();
     
     printf("\n%s\n", "Task 3");
     VBPrintResult();

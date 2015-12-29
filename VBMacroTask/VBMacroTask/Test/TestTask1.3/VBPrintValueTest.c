@@ -14,22 +14,17 @@ VBPrintTypeValue(int, "%d");
 VBPrintTypeValue(char, "%c");
 VBPrintTypeValue(float, "%.2f");
 
-
-//VBPrintValueType(int);
-//не работает, нет связи со спецификатором
-
-
 void VBPrintResult() {
     printf("%s ", "We are wait 20 - ");
-    VBOutput_int(20);
+    VBPrintValueType(int, 5);
     EnterLine;
     
     printf("%s ", "We are wait Y - ");
-    VBOutput_char('Y');
+    VBPrintValueType(char, 'Y');
     EnterLine;
 
     printf("%s ", "We are wait 3.14 - ");
-    VBOutput_float(3.14);
+    VBPrintValueType(float, 3.14);
     EnterLine;
 
 }

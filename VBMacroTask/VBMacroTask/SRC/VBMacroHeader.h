@@ -35,8 +35,8 @@
             VBPrintValue(qualifier, value); \
         }
 
-#define VBPrintValueType(type) \
-            VBPrintTypeValue(type, qualifier)
+#define VBPrintValueType(type, value) \
+                VBOutput_##type(value)
 
 
 
