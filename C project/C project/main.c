@@ -10,30 +10,58 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#include "VBMacroHeader.h"
 #include "FirstStructTest.h"
 #include "VBFirstStruct.h"
 #include "VBPrintTypeSizeTest.h"
 #include "VBPrintValueAccordingQualifierTest.h"
 #include "VBPrintValueTest.h"
+#include "VBBitStepTaskTest.h"
 
 int main(int argc, const char * argv[]) {
-//  Macro Task
+////  Macro Task
+//    
+//    printf("%s\n", "Task 1");
+//    VBPrintSizeTypeTest();
+//    VBPrintCountMacroTest();
+//    
+//    printf("\n%s\n", "Task 2");
+//    VBPrintValueAccordingQualifierTest();
+//    
+//    printf("\n%s\n", "Task 3");
+//    VBPrintResult();
+//    
+////    Struct Task
+//    
+//    VBPrintSequenceNumber();
+//    VBPrintSizeStruct();
+//    VBPrintSizeType();
     
-    printf("%s\n", "Task 1");
-    VBPrintSizeTypeTest();
-    VBPrintCountMacroTest();
+// Print Bit
+    char charTestValue = 1;
+    VBPrintBitValue(&charTestValue);
+    VBPrintNextString;
     
-    printf("\n%s\n", "Task 2");
-    VBPrintValueAccordingQualifierTest();
+    charTestValue = 2;
+    VBPrintBitValue(&charTestValue);
+    VBPrintNextString;
     
-    printf("\n%s\n", "Task 3");
-    VBPrintResult();
+    charTestValue = 4;
+    VBPrintBitValue(&charTestValue);
+    VBPrintNextString;
     
-//    Struct Task
+    charTestValue = UINT64_MAX;
+    VBPrintBitValue(&charTestValue);
+    VBPrintNextString;
     
-    VBPrintSequenceNumber();
-    VBPrintSizeStruct();
-    VBPrintSizeType();
+    
+    int firstTestValue = 16;
+    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
+    VBPrintNextString;
+    
+    float secondTestValue = 17.7;
+    VBPrintBitValueShift(&secondTestValue, sizeof(secondTestValue));
+    VBPrintNextString;
     
     return 0;
 }

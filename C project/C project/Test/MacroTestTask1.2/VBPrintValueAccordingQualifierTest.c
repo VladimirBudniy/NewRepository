@@ -13,14 +13,14 @@
 
 void VBPrintValueAccordingQualifierTest() {
     printf("%s ", "We are wait 20 - ");
-    VBPrintValue("%d", 20);
-    PrintNextString;
+    VBPrintValue(%d, 20);
+    VBPrintNextString;
     
     printf("%s ", "We are wait 4 - ");
-    VBPrintValue("%lu", sizeof(int));
-    PrintNextString;
+    VBPrintValue(%lu, sizeof(int));
+    VBPrintNextString;
     
     printf("%s ", "We are wait A - ");
-    VBPrintValue("%c", 'A');
-    PrintNextString;
+    VBPrintValue(%c, 'A');
+    VBPrintNextString;
 }

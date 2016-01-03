@@ -37,18 +37,18 @@ void VBPrintSizeStruct() {
     printf("Size the whole struct's -  %lu %lu %lu\n",
            sizeof(RandomLocation), sizeof(TypeLocation),
            sizeof(LocationBool));
-    PrintNextString;
+    VBPrintNextString;
     
     printf("Size of int int9 - %lu", sizeof(checkSize.int9));
-    PrintNextString;
+    VBPrintNextString;
     
     printf("Size of cahr *string14 - %lu", sizeof(checkSize.string14));
-    PrintNextString;
+    VBPrintNextString;
     
     printf("Size of bool1 - %lu", sizeof(checkSize.bool1));
-    PrintNextString;
+    VBPrintNextString;
     PrintComment;
-    PrintNextString;
+    VBPrintNextString;
     
 }
 

@@ -17,14 +17,14 @@ VBPrintTypeValue(float, "%.2f");
 void VBPrintResult() {
     printf("%s ", "We are wait 20 - ");
     VBPrintValueType(int, 5);
-    PrintNextString;
+    VBPrintNextString;
     
     printf("%s ", "We are wait Y - ");
     VBPrintValueType(char, 'Y');
-    PrintNextString
+    VBPrintNextString
 
     printf("%s ", "We are wait 3.14 - ");
     VBPrintValueType(float, 3.14);
-    PrintNextString;
+    VBPrintNextString;
 
 }

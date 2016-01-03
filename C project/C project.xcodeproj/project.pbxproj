@@ -13,6 +13,8 @@
 		E707D0511C33346500EAE890 /* VBPrintTypeSizeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0491C33346500EAE890 /* VBPrintTypeSizeTest.c */; };
 		E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D04C1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c */; };
 		E707D0531C33346500EAE890 /* VBPrintValueTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D04F1C33346500EAE890 /* VBPrintValueTest.c */; };
+		E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0981C39DADB00EAE890 /* VBBitStepTask.c */; };
+		E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +43,10 @@
 		E707D04D1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueAccordingQualifierTest.h; sourceTree = "<group>"; };
 		E707D04F1C33346500EAE890 /* VBPrintValueTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueTest.c; sourceTree = "<group>"; };
 		E707D0501C33346500EAE890 /* VBPrintValueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueTest.h; sourceTree = "<group>"; };
+		E707D0981C39DADB00EAE890 /* VBBitStepTask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBBitStepTask.c; sourceTree = "<group>"; };
+		E707D0991C39DADB00EAE890 /* VBBitStepTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBitStepTask.h; sourceTree = "<group>"; };
+		E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBBitStepTaskTest.c; sourceTree = "<group>"; };
+		E707D09C1C39DAFE00EAE890 /* VBBitStepTaskTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBitStepTaskTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,9 @@
 		E707D02E1C3332DF00EAE890 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				E707D0471C33344700EAE890 /* VBMacroHeader.h */,
 				E707D02F1C3332DF00EAE890 /* FirstStruct */,
+				E707D0961C39DAAC00EAE890 /* BitStepTask */,
+				E707D0471C33344700EAE890 /* VBMacroHeader.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -101,6 +108,7 @@
 		E707D0321C3332DF00EAE890 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				E707D0971C39DAB800EAE890 /* BitStepTaskTest */,
 				E707D0481C33346500EAE890 /* MacroTestTask1.1 */,
 				E707D04B1C33346500EAE890 /* MacroTestTask1.2 */,
 				E707D04E1C33346500EAE890 /* MacroTestTask1.3 */,
@@ -143,6 +151,24 @@
 				E707D0501C33346500EAE890 /* VBPrintValueTest.h */,
 			);
 			path = MacroTestTask1.3;
+			sourceTree = "<group>";
+		};
+		E707D0961C39DAAC00EAE890 /* BitStepTask */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0981C39DADB00EAE890 /* VBBitStepTask.c */,
+				E707D0991C39DADB00EAE890 /* VBBitStepTask.h */,
+			);
+			path = BitStepTask;
+			sourceTree = "<group>";
+		};
+		E707D0971C39DAB800EAE890 /* BitStepTaskTest */ = {
+			isa = PBXGroup;
+			children = (
+				E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */,
+				E707D09C1C39DAFE00EAE890 /* VBBitStepTaskTest.h */,
+			);
+			path = BitStepTaskTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +229,8 @@
 			files = (
 				E707D0511C33346500EAE890 /* VBPrintTypeSizeTest.c in Sources */,
 				E707D0201C3330F500EAE890 /* main.c in Sources */,
+				E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */,
+				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
 				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
 				E707D0531C33346500EAE890 /* VBPrintValueTest.c in Sources */,
 				E707D0371C3332DF00EAE890 /* FirstStructTest.c in Sources */,
@@ -325,6 +353,7 @@
 				E707D0251C3330F500EAE890 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

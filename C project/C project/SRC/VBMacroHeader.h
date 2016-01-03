@@ -13,8 +13,8 @@
 #endif /* VBMacroHeader_h */
 
 // Task 1.1
-#define TypeLength(type) \
-    printf("%lu\n", sizeof(type)); \
+#define VBTypeLength(type) \
+    printf("%lu\n", sizeof(type));
 
 #define VBFirstMacro(valueFirst, valueSecond) \
     if ((valueFirst) > (valueSecond)) { \
@@ -23,12 +23,12 @@
         printf("%d,\n", ((valueFirst) + (valueSecond))); \
     }
 
-#define PrintNextString \
+#define VBPrintNextString \
     printf("\n");
 
 // Task 1.2
 #define VBPrintValue(qualifier, value) \
-                printf(qualifier, value)
+                printf(#qualifier, value)
 
 //Task 1.3
 #define VBPrintTypeValue(type, qualifier) \
