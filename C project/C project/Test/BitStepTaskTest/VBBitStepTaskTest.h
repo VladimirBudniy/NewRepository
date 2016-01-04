@@ -14,10 +14,4 @@
 #endif /* VBBitStepTaskTest_h */
 
 extern
-void VBPrintBitValue(char *valueAdress);
-
-extern
-void VBPrintBitValueShift(void *valueAdress, size_t size);
-
-extern
-void VBPrintBitValueShiftByte(void *valueAdress, size_t size);
+void VBPrintBitStepTest(void);

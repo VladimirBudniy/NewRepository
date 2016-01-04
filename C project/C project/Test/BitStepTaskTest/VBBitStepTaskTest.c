@@ -7,25 +7,22 @@
 //
 
 #include "VBBitStepTaskTest.h"
+#include "VBBitStepTask.h"
+#include "VBMacroHeader.h"
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-static const char valueBiteSize = 8;
-
-void VBPrintBitValue(char *valueFirstPoint) {
-    char valueFirst = *valueFirstPoint;
-    for (int index = 0; index < valueBiteSize; index++) {
-        char stepBitValue = valueFirst >> index;
-        printf("%d", stepBitValue & 1);
-    }
+void VBPrintBitStepTest(void) {
+    
+    int firstTestValue = 16;
+    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
+    
+//    firstTestValue = 64;
+//    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
+    
+    firstTestValue = 16;
+    VBPrinttValueBitStep(&firstTestValue, sizeof(firstTestValue));
+    
+//    firstTestValue = 64;
+//    VBPrinttValueBitStep(&firstTestValue, sizeof(firstTestValue));
+    
 }
 
-void VBPrintBitValueShift(void *valueFirstPoint, size_t size) {
-    for (int index = 0; index < size; index++) {
-        char byte = ((char *)valueFirstPoint)[index];
-        VBPrintBitValue(&byte);
-        printf(" ");
-    }
-}

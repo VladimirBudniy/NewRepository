@@ -38,30 +38,7 @@ int main(int argc, const char * argv[]) {
 //    VBPrintSizeType();
     
 // Print Bit
-    char charTestValue = 1;
-    VBPrintBitValue(&charTestValue);
-    VBPrintNextString;
-    
-    charTestValue = 2;
-    VBPrintBitValue(&charTestValue);
-    VBPrintNextString;
-    
-    charTestValue = 4;
-    VBPrintBitValue(&charTestValue);
-    VBPrintNextString;
-    
-    charTestValue = UINT64_MAX;
-    VBPrintBitValue(&charTestValue);
-    VBPrintNextString;
-    
-    
-    int firstTestValue = 16;
-    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
-    VBPrintNextString;
-    
-    float secondTestValue = 17.7;
-    VBPrintBitValueShift(&secondTestValue, sizeof(secondTestValue));
-    VBPrintNextString;
+    VBPrintBitStepTest();
     
     return 0;
 }
