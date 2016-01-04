@@ -16,7 +16,7 @@ static const char valueBiteSize = 8;
 
 void VBPrintBitValue(char *valueFirstPoint) {
     char valueFirst = *valueFirstPoint;
-    for (int index = 0; index <= valueBiteSize; index++) {
+    for (int index = 0; index < valueBiteSize; index++) {
         char stepBitValue = valueFirst >> index;
         printf("%d", stepBitValue & 1);
     }
