@@ -11,18 +11,7 @@
 #include "VBMacroHeader.h"
 
 void VBPrintBitStepTest(void) {
-    
-    int firstTestValue = 16;
-    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
-    
-//    firstTestValue = 64;
-//    VBPrintBitValueShift(&firstTestValue, sizeof(firstTestValue));
-    
-    firstTestValue = 16;
-    VBPrinttValueBitStep(&firstTestValue, sizeof(firstTestValue));
-    
-//    firstTestValue = 64;
-//    VBPrinttValueBitStep(&firstTestValue, sizeof(firstTestValue));
-    
+    int firstTestValue = 1;
+    VBPrintBitField(&firstTestValue, sizeof(firstTestValue));
 }
 

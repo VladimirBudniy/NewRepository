@@ -10,11 +10,20 @@
 #define VBBitStepTask_h
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 #endif /* VBBitStepTask_h */
 
-extern
-void VBPrintBitValueShift(void *valueAdress, size_t size);
+typedef union {
+    bool boolCheckType : 1;
+    char charValye;
+} kVBCondition;
+
+typedef enum {
+    kVBUnknownType,
+    kVBBigEndianType,
+    kVBLittleEndianType,
+} EndianType;
 
 extern
-void VBPrinttValueBitStep(void *valueAdress, size_t size);
+void VBPrintBitField(void *valueBitField, size_t size);
