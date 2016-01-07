@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-// Task 1.1
+// Task 1
 
 void VBPrintSizeTypeTest() {
     printf("%s ", "Print size of char - ");
@@ -32,7 +32,7 @@ void VBPrintSizeTypeTest() {
 
 }
 
-// Task 1.2
+// Task 2
 
 void VBPrintCountMacroTest() {
     printf("%s ", "The sum of macro - ");
