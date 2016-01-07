@@ -18,11 +18,6 @@
 
 static const char kVBValueBiteSize = 8;
 
-typedef union {
-    bool boolCheckType : 1;
-    char charValue;
-} VBCondition;
-
 typedef enum {
     kVBUnknownType,
     kVBBigEndianType,
@@ -35,20 +30,20 @@ void VBPrintBitValueShift(void *valueBitField, size_t size, VBEndianType type);
 static
 void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type);
 
-VBCondition checkSystemType;
-
 #pragma mark -
 #pragma mark Private Implimentation
 
 VBEndianType CheckEndianType(void) {
-    checkSystemType.charValue = 1;
-    if (checkSystemType.boolCheckType) {
+    int8_t charValue = 1;
+    if (charValue & 1) {
         return kVBBigEndianType;
+    } else if (charValue & 0) {
+        return kVBLittleEndianType;
     }
     
-    return kVBLittleEndianType;
+    return kVBUnknownType;
 }
-
+    
 void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type) {
     int8_t value = *valueAdressFirst;
     for (int8_t increment = 0; increment < kVBValueBiteSize; increment++) {
@@ -61,6 +56,10 @@ void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type) {
 #pragma mark Public Implimentation
 
 void VBPrintBitValueShift(void *valueBitField, size_t size, VBEndianType type) {
+    if (type == kVBUnknownType) {
+        return;
+    }
+    
     int8_t *value = (int8_t *)valueBitField;
     for (size_t increment = 0; increment < size; increment++) {
         int8_t index = (type == kVBBigEndianType) ? (size - increment - 1) : (increment);
