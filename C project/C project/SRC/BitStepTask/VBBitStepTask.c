@@ -18,27 +18,38 @@
 
 static const char kVBValueBiteSize = 8;
 
-static
-void VBPrintBitValueShift(void *valueBitField, size_t size, EndianType type);
+typedef union {
+    bool boolCheckType : 1;
+    char charValue;
+} VBCondition;
+
+typedef enum {
+    kVBUnknownType,
+    kVBBigEndianType,
+    kVBLittleEndianType,
+} VBEndianType;
 
 static
-void VBPrintBitValue(int8_t *valueAdressFirst, EndianType type);
+void VBPrintBitValueShift(void *valueBitField, size_t size, VBEndianType type);
 
-kVBCondition checkSystemType;
+static
+void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type);
+
+VBCondition checkSystemType;
 
 #pragma mark -
 #pragma mark Private Implimentation
 
-EndianType CheckEndianType(void) {
-    checkSystemType.charValye = 1;
-    if (checkSystemType.charValye & 1) {
+VBEndianType CheckEndianType(void) {
+    checkSystemType.charValue = 1;
+    if (checkSystemType.boolCheckType) {
         return kVBBigEndianType;
-    } else {
-        return kVBLittleEndianType;
     }
+    
+    return kVBLittleEndianType;
 }
 
-void VBPrintBitValue(int8_t *valueAdressFirst, EndianType type) {
+void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type) {
     int8_t value = *valueAdressFirst;
     if (type == kVBBigEndianType) {
         for (int8_t index = 0; index < kVBValueBiteSize; index++) {
@@ -54,7 +65,7 @@ void VBPrintBitValue(int8_t *valueAdressFirst, EndianType type) {
 #pragma mark -
 #pragma mark Public Implimentation
 
-void VBPrintBitValueShift(void *valueBitField, size_t size, EndianType type) {
+void VBPrintBitValueShift(void *valueBitField, size_t size, VBEndianType type) {
     int8_t *value = (int8_t *)valueBitField;
     if (type == kVBBigEndianType) {
         for (size_t index = 0; index < size; index++) {
@@ -63,7 +74,7 @@ void VBPrintBitValueShift(void *valueBitField, size_t size, EndianType type) {
         }
     } else if (type == kVBLittleEndianType) {
         for (size_t index = 0; index < size; index++) {
-            VBPrintBitValue(value++, type);
+            VBPrintBitValue(&value[index], type);
             printf(" ");
         }
     }

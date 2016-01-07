@@ -14,16 +14,5 @@
 
 #endif /* VBBitStepTask_h */
 
-typedef union {
-    bool boolCheckType : 1;
-    char charValye;
-} kVBCondition;
-
-typedef enum {
-    kVBUnknownType,
-    kVBBigEndianType,
-    kVBLittleEndianType,
-} EndianType;
-
 extern
 void VBPrintBitField(void *valueBitField, size_t size);
