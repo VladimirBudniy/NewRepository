@@ -51,14 +51,9 @@ VBEndianType CheckEndianType(void) {
 
 void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type) {
     int8_t value = *valueAdressFirst;
-    if (type == kVBBigEndianType) {
-        for (int8_t increment = 0; increment < kVBValueBiteSize; increment++) {
-            printf((value >> (kVBValueBiteSize - increment - 1)) & 1 ? "1" : "0");
-        }
-    } else {
-        for (int8_t increment = 0; increment < kVBValueBiteSize; increment++) {
-            printf((value >> increment) & 1 ? "1" : "0");
-        }
+    for (int8_t increment = 0; increment < kVBValueBiteSize; increment++) {
+        int8_t index = (type == kVBBigEndianType) ? (kVBValueBiteSize - increment - 1) : (increment);
+            printf((value >> index) & 1 ? "1" : "0");
     }
 }
 
@@ -67,20 +62,14 @@ void VBPrintBitValue(int8_t *valueAdressFirst, VBEndianType type) {
 
 void VBPrintBitValueShift(void *valueBitField, size_t size, VBEndianType type) {
     int8_t *value = (int8_t *)valueBitField;
-    if (type == kVBBigEndianType) {
-        for (size_t increment = 0; increment < size; increment++) {
-            VBPrintBitValue(&value[size - increment - 1], type);
+    for (size_t increment = 0; increment < size; increment++) {
+        int8_t index = (type == kVBBigEndianType) ? (size - increment - 1) : (increment);
+        VBPrintBitValue(&value[index], type);
             printf(" ");
-        }
-    } else {
-        for (size_t increment = 0; increment < size; increment++) {
-            VBPrintBitValue(&value[increment], type);
-            printf(" ");
-        }
     }
-    printf("\n");
 }
 
 void VBPrintBitField(void *valueBitField, size_t size) {
     VBPrintBitValueShift(valueBitField, size, CheckEndianType());
+    printf("\n");
 }
