@@ -15,7 +15,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define PrintComment \
+#define VBPrintComment \
     printf("%s", "etc...");
 
 typedef struct {

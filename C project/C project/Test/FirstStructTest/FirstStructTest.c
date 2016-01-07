@@ -47,7 +47,7 @@ void VBPrintSizeStruct() {
     
     printf("Size of bool1 - %lu", sizeof(checkSize.bool1));
     VBPrintNextString;
-    PrintComment;
+    VBPrintComment;
     VBPrintNextString;
     
 }
