@@ -36,7 +36,6 @@
 		E707D0311C3332DF00EAE890 /* VBFirstStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFirstStruct.h; sourceTree = "<group>"; };
 		E707D0341C3332DF00EAE890 /* FirstStructTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FirstStructTest.c; sourceTree = "<group>"; };
 		E707D0351C3332DF00EAE890 /* FirstStructTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstStructTest.h; sourceTree = "<group>"; };
-		E707D0471C33344700EAE890 /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 		E707D0491C33346500EAE890 /* VBPrintTypeSizeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintTypeSizeTest.c; sourceTree = "<group>"; };
 		E707D04A1C33346500EAE890 /* VBPrintTypeSizeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintTypeSizeTest.h; sourceTree = "<group>"; };
 		E707D04C1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueAccordingQualifierTest.c; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		E78E48D21C4033E100D17F8C /* VBHumanObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHumanObject.h; sourceTree = "<group>"; };
 		E78E48D51C4033FF00D17F8C /* VBHumanObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBHumanObjectTest.c; sourceTree = "<group>"; };
 		E78E48D61C4033FF00D17F8C /* VBHumanObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHumanObjectTest.h; sourceTree = "<group>"; };
+		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +93,10 @@
 		E707D02E1C3332DF00EAE890 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				E78E48D81C40406F00D17F8C /* VBMacroHeader.h */,
 				E78E48D01C4033C600D17F8C /* HumanObject */,
 				E707D02F1C3332DF00EAE890 /* FirstStruct */,
 				E707D0961C39DAAC00EAE890 /* BitStepTask */,
-				E707D0471C33344700EAE890 /* VBMacroHeader.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";

@@ -14,3 +14,22 @@
 #endif /* VBHumanObject_h */
 
 typedef struct VBHumanDataObject VBHumanObject;
+
+VBHumanObject *_VBHumanObjectCreate(void);
+
+void _VBHumanObjectDeallocate(VBHumanObject *human);
+
+void VBHumanObjectSetName(VBHumanObject *human, char *name);
+char *VBHumanObjectGetName(VBHumanObject *human);
+    
+void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age);
+uint8_t *VBHumanObjectGetAge(VBHumanObject *human);
+
+void VBHumanObjectSetChild(VBHumanObject *human, uint8_t child);
+uint8_t *VBHumanObjectGetChild(VBHumanObject *human);
+
+void VBHumanObjectSetSex(VBHumanObject *human, bool sex);
+bool *VBHumanObjectGetSex(VBHumanObject *human);
+
+void VBHumanObjectSetMarried(VBHumanObject *human, bool merried);
+bool VBHumanObjectGetMarried(VBHumanObject *human);

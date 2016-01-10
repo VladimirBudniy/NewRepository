@@ -11,12 +11,14 @@
 #include <stddef.h>
 
 #include "VBMacroHeader.h"
-#include "FirstStructTest.h"
-#include "VBFirstStruct.h"
-#include "VBPrintTypeSizeTest.h"
-#include "VBPrintValueAccordingQualifierTest.h"
-#include "VBPrintValueTest.h"
-#include "VBBitStepTaskTest.h"
+//#include "FirstStructTest.h"
+//#include "VBFirstStruct.h"
+//#include "VBPrintTypeSizeTest.h"
+//#include "VBPrintValueAccordingQualifierTest.h"
+//#include "VBPrintValueTest.h"
+//#include "VBBitStepTaskTest.h"
+
+#include "VBHumanObject.h"
 
 int main(int argc, const char * argv[]) {
 ////  Macro Task
@@ -36,9 +38,22 @@ int main(int argc, const char * argv[]) {
 //    VBPrintSequenceNumber();
 //    VBPrintSizeStruct();
 //    VBPrintSizeType();
+//    
+//// Print Bit
+//    VBPrintBitStepTest();
+
+    VBHumanObject *human = _VBHumanObjectCreate();
+//    VBHumanObjectSetName(human, "Test name");
+    VBHumanObjectSetAge(human, 23);
+    VBHumanObjectSetSex(human, true);
+    VBHumanObjectSetChild(human, 3);
     
-// Print Bit
-    VBPrintBitStepTest();
+    puts(VBHumanObjectGetName(human));
+
+    
+
+    
+    VBPrintNextString;
     
     return 0;
 }
