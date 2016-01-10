@@ -17,8 +17,9 @@
 //#include "VBPrintValueAccordingQualifierTest.h"
 //#include "VBPrintValueTest.h"
 //#include "VBBitStepTaskTest.h"
+#include "VBHumanObjectTest.h"
 
-#include "VBHumanObject.h"
+
 
 int main(int argc, const char * argv[]) {
 ////  Macro Task
@@ -41,17 +42,10 @@ int main(int argc, const char * argv[]) {
 //    
 //// Print Bit
 //    VBPrintBitStepTest();
-
-    VBHumanObject *human = _VBHumanObjectCreate();
-//    VBHumanObjectSetName(human, "Test name");
-    VBHumanObjectSetAge(human, 23);
-    VBHumanObjectSetSex(human, true);
-    VBHumanObjectSetChild(human, 3);
+//
+// Print Human test
     
-    puts(VBHumanObjectGetName(human));
-
-    
-
+    VBPrintHumanTests();
     
     VBPrintNextString;
     

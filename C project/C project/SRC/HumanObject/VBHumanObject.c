@@ -12,14 +12,14 @@
 
 #include "VBHumanObject.h"
 
-struct VBHumanDataObject {
+struct VBHumanObject {
     VBHumanObject *parents;
     VBHumanObject *partner;
     VBHumanObject *children[20];
     char *_name;
+    char *_sex;
     uint8_t _age;
     uint8_t _child;
-    bool _sex;
     bool _married;
 };
 
@@ -39,30 +39,35 @@ void _VBHumanObjectDeallocate(VBHumanObject *human) {
 #pragma mark Accessors
 
 void VBHumanObjectSetName(VBHumanObject *human, char *name) {
-    human->_name = name;
+    human -> _name = name;
 }
 
 char *VBHumanObjectGetName(VBHumanObject *human) {
-    return human->_name;
+    return human -> _name;
 }
-//
+
+void VBHumanObjectSetSex(VBHumanObject *human, char *sex) {
+    human -> _sex = sex;
+}
+
+char *VBHumanObjectGetSex(VBHumanObject *human) {
+    return human -> _sex;
+}
+
 void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age) {
-    human->_age = age;
+    human -> _age = age;
 }
 uint8_t *VBHumanObjectGetAge(VBHumanObject *human) {
-    return human->_age;
+    return human -> _age;
 }
-//
+
 void VBHumanObjectSetChild(VBHumanObject *human, uint8_t child) {
-    human->_child = child;
+    human -> _child = child;
 }
 
 uint8_t *VBHumanObjectGetChild(VBHumanObject *human) {
-    return human->_child;
+    return human -> _child;
 }
-//
-void VBHumanObjectSetSex(VBHumanObject *human, bool sex);
-bool *VBHumanObjectGetSex(VBHumanObject *human);
 
 void VBHumanObjectSetMarried(VBHumanObject *human, bool merried);
 bool VBHumanObjectGetMarried(VBHumanObject *human);

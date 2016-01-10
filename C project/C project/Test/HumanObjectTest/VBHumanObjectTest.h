@@ -12,3 +12,6 @@
 #include <stdio.h>
 
 #endif /* VBHumanObjectTest_h */
+
+extern
+void VBPrintHumanTests(void);
