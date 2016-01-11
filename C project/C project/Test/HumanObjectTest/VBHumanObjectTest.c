@@ -8,23 +8,43 @@
 
 #include "VBHumanObjectTest.h"
 #include "VBHumanObject.h"
+#include "VBMacroHeader.h"
 
 #include <stdbool.h>
 
 
 
 void VBPrintHumanTests(void){
-    VBHumanObject *human = _VBHumanObjectCreate();
+    VBHumanObject *humanWithName = VBHumanObjectCreateWithName("Created with name");
+    puts(VBHumanObjectGetName(humanWithName));
+    VBPrintNextString;
     
+    VBHumanObject *human = __VBHumanObjectCreate();
     VBHumanObjectSetName(human, "Bob");
-    VBHumanObjectSetSex(human, "Male");
+    VBHumanObjectSetSex(human, kVBHumanMaleSexType);
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
+    VBHumanObject *partner = __VBHumanObjectCreate();
+    VBHumanObjectSetName(partner, "Elsa");
+    VBHumanObjectSetSex(partner, kVBHUmanFemaleSexType);
+    VBHumanObjectSetAge(partner, 20);
+    VBHumanObjectSetChild(partner, 2);
+    
+    VBHumanObjectMarry(human, partner);
     
     printf("The name is %s\n", VBHumanObjectGetName(human));
-    printf("Th sex is %s\n", VBHumanObjectGetSex(human));
+    VBHumanObjectGetSex(human);
     printf("The age is %d years\n", VBHumanObjectGetAge(human));
-    printf("There are %d children\n", VBHumanObjectGetChild(human));
-
+    printf("He have %d children\n", VBHumanObjectGetChild(human));
+    puts(VBHumanObjectGetMarried(human) ? "Married" : "Unmarried");
+    
+    VBPrintNextString;
+    
+    printf("The name is %s\n", VBHumanObjectGetName(partner));
+    VBHumanObjectGetSex(partner);
+    printf("The age is %d years\n", VBHumanObjectGetAge(partner));
+    printf("She have %d children\n", VBHumanObjectGetChild(partner));
+    puts(VBHumanObjectGetMarried(partner) ? "Married" : "Unmarried");
+    
 }

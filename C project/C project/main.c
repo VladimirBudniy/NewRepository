@@ -18,6 +18,7 @@
 //#include "VBPrintValueTest.h"
 //#include "VBBitStepTaskTest.h"
 #include "VBHumanObjectTest.h"
+#include "VBHumanObject.h"
 
 
 
@@ -46,7 +47,6 @@ int main(int argc, const char * argv[]) {
 // Print Human test
     
     VBPrintHumanTests();
-    
     VBPrintNextString;
     
     return 0;
