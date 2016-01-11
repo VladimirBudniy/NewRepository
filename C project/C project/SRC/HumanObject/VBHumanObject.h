@@ -27,10 +27,10 @@ void VBHumanObjectSetSex(VBHumanObject *human, char *sex);
 char *VBHumanObjectGetSex(VBHumanObject *human);
 
 void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age);
-uint8_t *VBHumanObjectGetAge(VBHumanObject *human);
+uint8_t VBHumanObjectGetAge(VBHumanObject *human);
 
 void VBHumanObjectSetChild(VBHumanObject *human, uint8_t child);
-uint8_t *VBHumanObjectGetChild(VBHumanObject *human);
+uint8_t VBHumanObjectGetChild(VBHumanObject *human);
 
 void VBHumanObjectSetMarried(VBHumanObject *human, bool merried);
 bool VBHumanObjectGetMarried(VBHumanObject *human);

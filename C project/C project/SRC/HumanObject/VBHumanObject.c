@@ -39,34 +39,34 @@ void _VBHumanObjectDeallocate(VBHumanObject *human) {
 #pragma mark Accessors
 
 void VBHumanObjectSetName(VBHumanObject *human, char *name) {
-    human -> _name = name;
+    human->_name = name;
 }
 
 char *VBHumanObjectGetName(VBHumanObject *human) {
-    return human -> _name;
+    return human->_name;
 }
 
 void VBHumanObjectSetSex(VBHumanObject *human, char *sex) {
-    human -> _sex = sex;
+    human->_sex = sex;
 }
 
 char *VBHumanObjectGetSex(VBHumanObject *human) {
-    return human -> _sex;
+    return human->_sex;
 }
 
 void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age) {
-    human -> _age = age;
+    human->_age = age;
 }
-uint8_t *VBHumanObjectGetAge(VBHumanObject *human) {
-    return human -> _age;
+uint8_t VBHumanObjectGetAge(VBHumanObject *human) {
+    return human->_age;
 }
 
 void VBHumanObjectSetChild(VBHumanObject *human, uint8_t child) {
-    human -> _child = child;
+    human->_child = child;
 }
 
-uint8_t *VBHumanObjectGetChild(VBHumanObject *human) {
-    return human -> _child;
+uint8_t VBHumanObjectGetChild(VBHumanObject *human) {
+    return human->_child;
 }
 
 void VBHumanObjectSetMarried(VBHumanObject *human, bool merried);
