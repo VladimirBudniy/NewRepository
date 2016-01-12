@@ -9,8 +9,6 @@
 #ifndef VBPrintTypeSizeTest_h
 #define VBPrintTypeSizeTest_h
 
-#endif /* VBPrintTypeSizeTest_h */
-
 #define SizeTypeChar char
 #define SizeTypeShort short
 #define SizeTypeInt int
@@ -19,3 +17,5 @@
 void VBPrintSizeTypeTest();
 
 void VBPrintCountMacroTest();
+
+#endif /* VBPrintTypeSizeTest_h */

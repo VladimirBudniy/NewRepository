@@ -21,20 +21,20 @@ void VBPrintHumanTests(void){
     
     VBHumanObject *human = __VBHumanObjectCreate();
     VBHumanObjectSetName(human, "Bob");
-    VBHumanObjectSetSex(human, kVBHumanMaleSexType);
+    VBHumanObjectSetGender(human, kVBHumanMaleGenderType);
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
     VBHumanObject *partner = __VBHumanObjectCreate();
     VBHumanObjectSetName(partner, "Elsa");
-    VBHumanObjectSetSex(partner, kVBHUmanFemaleSexType);
+    VBHumanObjectSetGender(partner, kVBHUmanFemaleGenderType);
     VBHumanObjectSetAge(partner, 20);
     VBHumanObjectSetChild(partner, 2);
     
     VBHumanObjectMarry(human, partner);
     
     printf("The name is %s\n", VBHumanObjectGetName(human));
-    VBHumanObjectGetSex(human);
+    VBHumanObjectGetGender(human);
     printf("The age is %d years\n", VBHumanObjectGetAge(human));
     printf("He have %d children\n", VBHumanObjectGetChild(human));
     puts(VBHumanObjectGetMarried(human) ? "Married" : "Unmarried");
@@ -42,7 +42,7 @@ void VBPrintHumanTests(void){
     VBPrintNextString;
     
     printf("The name is %s\n", VBHumanObjectGetName(partner));
-    VBHumanObjectGetSex(partner);
+    VBHumanObjectGetGender(partner);
     printf("The age is %d years\n", VBHumanObjectGetAge(partner));
     printf("She have %d children\n", VBHumanObjectGetChild(partner));
     puts(VBHumanObjectGetMarried(partner) ? "Married" : "Unmarried");

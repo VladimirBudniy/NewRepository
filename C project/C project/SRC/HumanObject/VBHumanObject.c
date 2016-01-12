@@ -17,7 +17,7 @@ struct VBHumanObject {
     VBHumanObject *_papa;
     VBHumanObject *_mama;
     VBHumanObject *_children[20];
-    VBHumanSexType _sex;          // +
+    VBHumanGenderType _gender;          // +
     char *_name;                  // +
     uint8_t _age;                 // +
     uint8_t _child;               // +
@@ -30,7 +30,7 @@ struct VBHumanObject {
 static
 void VBHumanObjectSetPartner(VBHumanObject *human, VBHumanObject *partner);
 static
-VBHumanObject *VBHUmanObjectGetPartner(VBHumanObject *human);
+VBHumanObject *VBHumanObjectGetPartner(VBHumanObject *human);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -60,15 +60,15 @@ char *VBHumanObjectGetName(VBHumanObject *human) {
     return human->_name;
 }
 
-void VBHumanObjectSetSex(VBHumanObject *human, VBHumanSexType sex) {
-    if (sex == kVBUndefindeSexType) {
+void VBHumanObjectSetGender(VBHumanObject *human, VBHumanGenderType sex) {
+    if (sex == kVBUndefindeGenderType) {
         return;
     }
-    human->_sex = sex;
+    human->_gender = sex;
 }
-VBHumanSexType VBHumanObjectGetSex(VBHumanObject *human) {
-    (human->_sex == kVBHumanMaleSexType) ? puts("Male") : puts("Female");
-    return human->_sex;
+VBHumanGenderType VBHumanObjectGetGender(VBHumanObject *human) {
+    (human->_gender == kVBHumanMaleGenderType) ? puts("Male") : puts("Female");
+    return human->_gender;
 }
 
 void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age) {
@@ -93,7 +93,7 @@ void VBHumanObjectSetPartner(VBHumanObject *human, VBHumanObject *partner) {
     human->_partner = partner;
 }
 
-VBHumanObject *VBHUmanObjectGetPartner(VBHumanObject *human) {
+VBHumanObject *VBHumanObjectGetPartner(VBHumanObject *human) {
     if (NULL == human) {
         return NULL;
     }
@@ -101,7 +101,7 @@ VBHumanObject *VBHUmanObjectGetPartner(VBHumanObject *human) {
 }
 
 bool VBHumanObjectGetMarried(VBHumanObject *human) {
-    return VBHUmanObjectGetPartner(human) ? true : false;
+    return VBHumanObjectGetPartner(human) ? true : false;
 }
 
 void VBHumanObjectMarry(VBHumanObject *human, VBHumanObject *partner) {
@@ -110,6 +110,6 @@ void VBHumanObjectMarry(VBHumanObject *human, VBHumanObject *partner) {
 }
 
 void VBHumanObjectDivorce(VBHumanObject *human) {
-    VBHumanObjectSetPartner(VBHUmanObjectGetPartner(human), NULL);
+    VBHumanObjectSetPartner(VBHumanObjectGetPartner(human), NULL);
     VBHumanObjectSetPartner(human, NULL);
 }

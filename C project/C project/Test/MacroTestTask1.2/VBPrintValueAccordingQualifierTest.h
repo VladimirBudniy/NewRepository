@@ -9,6 +9,6 @@
 #ifndef VBPrintValueAccordingQualifierTest_h
 #define VBPrintValueAccordingQualifierTest_h
 
-#endif /* VBPrintValueAccordingQualifierTest_h */
-
 void VBPrintValueAccordingQualifierTest();
+
+#endif /* VBPrintValueAccordingQualifierTest_h */

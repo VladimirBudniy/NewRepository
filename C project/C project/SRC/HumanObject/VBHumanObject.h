@@ -12,15 +12,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#endif /* VBHumanObject_h */
-
 typedef struct VBHumanObject VBHumanObject;
 
 typedef enum {
-    kVBUndefindeSexType,
-    kVBHumanMaleSexType,
-    kVBHUmanFemaleSexType,
-} VBHumanSexType;
+    kVBUndefindeGenderType,
+    kVBHumanMaleGenderType,
+    kVBHUmanFemaleGenderType,
+} VBHumanGenderType;
 
 VBHumanObject *__VBHumanObjectCreate(void);
 
@@ -36,9 +34,9 @@ extern
 char *VBHumanObjectGetName(VBHumanObject *human);
 
 extern
-void VBHumanObjectSetSex(VBHumanObject *human, VBHumanSexType sex);
+void VBHumanObjectSetGender(VBHumanObject *human, VBHumanGenderType sex);
 extern
-VBHumanSexType VBHumanObjectGetSex(VBHumanObject *human);
+VBHumanGenderType VBHumanObjectGetGender(VBHumanObject *human);
 
 extern
 void VBHumanObjectSetAge(VBHumanObject *human, uint8_t age);
@@ -58,10 +56,7 @@ void VBHumanObjectMarry(VBHumanObject *human, VBHumanObject *partner);
 extern
 void VBHumanObjectDivorce(VBHumanObject *human);
 
-
-
-
-
+#endif /* VBHumanObject_h */
 
 
 

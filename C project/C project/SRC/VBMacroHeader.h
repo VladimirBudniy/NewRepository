@@ -9,9 +9,6 @@
 #ifndef VBMacroHeader_h
 #define VBMacroHeader_h
 
-
-#endif /* VBMacroHeader_h */
-
 // Task 1.1
 #define VBTypeLength(type) \
     printf("%lu\n", sizeof(type));
@@ -40,5 +37,4 @@
                 VBOutput_##type(value)
 
 
-
-
+#endif /* VBMacroHeader_h */

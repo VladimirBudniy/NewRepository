@@ -9,10 +9,10 @@
 #ifndef FirstStructTest_h
 #define FirstStructTest_h
 
-#endif /* FirstStructTest_h */
-
 void VBPrintSequenceNumber();
 
 void VBPrintSizeStruct();
 
 void VBPrintSizeType();
+
+#endif /* FirstStructTest_h */
