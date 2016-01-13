@@ -12,39 +12,43 @@
 
 #include <stdbool.h>
 
-
-
 void VBPrintHumanTests(void){
-    VBHumanObject *humanWithName = VBHumanObjectCreateWithName("Created with name");
-    puts(VBHumanObjectGetName(humanWithName));
+    
+    
     VBPrintNextString;
     
-    VBHumanObject *human = __VBHumanObjectCreate();
-    VBHumanObjectSetName(human, "Bob");
-    VBHumanObjectSetGender(human, kVBHumanMaleGenderType);
+    VBHumanObject *human = VBHumanObjectCreateWithGenderNamed("Bob", kVBHumanMaleGenderType);
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
-    VBHumanObject *partner = __VBHumanObjectCreate();
-    VBHumanObjectSetName(partner, "Elsa");
-    VBHumanObjectSetGender(partner, kVBHUmanFemaleGenderType);
+    VBHumanObject *partner = VBHumanObjectCreateWithGenderNamed("Elsa", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(partner, 20);
     VBHumanObjectSetChild(partner, 2);
     
+    VBHumanObject *father = VBHumanObjectCreateWithGenderNamed("Bruce", kVBHumanFemaleGenderType);
+    VBHumanObjectSetAge(father, 43);
+    VBHumanObjectSetChild(father, 1);
+    
+    VBHumanObject *mother = VBHumanObjectCreateWithGenderNamed("Emma", kVBHumanFemaleGenderType);
+    VBHumanObjectSetAge(mother, 40);
+    VBHumanObjectSetChild(mother, 2);
+    
+    VBHUmanObjectSetParent(human, mother);
+    VBHUmanObjectSetParent(human, father);
+    
     VBHumanObjectMarry(human, partner);
     
-    printf("The name is %s\n", VBHumanObjectGetName(human));
+    puts(VBHumanObjectGetName(human));
     VBHumanObjectGetGender(human);
     printf("The age is %d years\n", VBHumanObjectGetAge(human));
     printf("He have %d children\n", VBHumanObjectGetChild(human));
     puts(VBHumanObjectGetMarried(human) ? "Married" : "Unmarried");
-    
+
     VBPrintNextString;
     
-    printf("The name is %s\n", VBHumanObjectGetName(partner));
+    puts(VBHumanObjectGetName(partner));
     VBHumanObjectGetGender(partner);
     printf("The age is %d years\n", VBHumanObjectGetAge(partner));
     printf("She have %d children\n", VBHumanObjectGetChild(partner));
     puts(VBHumanObjectGetMarried(partner) ? "Married" : "Unmarried");
-    
 }

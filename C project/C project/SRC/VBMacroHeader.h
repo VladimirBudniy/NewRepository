@@ -37,4 +37,10 @@
                 VBOutput_##type(value)
 
 
+#define VBReturnMacro(value) \
+            if (NULL == value) { \
+            return; \
+        }
+
+
 #endif /* VBMacroHeader_h */
