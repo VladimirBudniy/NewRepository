@@ -195,7 +195,7 @@ void VBHumanObjectSetFather(VBHumanObject *human, VBHumanObject *father) {
 }
 
 VBHumanObject *VBHumanObjectGetFather(VBHumanObject *human) {
-    VBReturnValueMacro(human);
+    VBReturnNullMacro(human);
     
     return human->_father;
 }
@@ -207,6 +207,27 @@ void VBHumanObjectAddParent(VBHumanObject *human, VBHumanObject *father, VBHuman
     
     VBHumanObjectSetMother(human, mother);
     VBHumanObjectSetFather(human, father);
+}
+
+void VBHumanObjectSetChildren(VBHumanObject *human, VBHumanObject *child) {
+    VBReturnMacro(human);
+    VBReturnMacro(child);
+    
+    int size = 1;
+        for (int index = 0; index < size; index++) {
+            human->_children[size - (size - index)] = child;
+        }
+    }
+
+VBHumanObject *VBHumanObjectGetChildren(VBHumanObject *human) {
+    return *human->_children; // don't sure that correct
+}
+
+void VBHumanObjectAddChild(VBHumanObject *human, VBHumanObject *child) {
+    VBReturnMacro(human);
+    VBReturnMacro(child);
+    
+    VBHumanObjectSetChildren(human, child);
 }
 
 #pragma mark -

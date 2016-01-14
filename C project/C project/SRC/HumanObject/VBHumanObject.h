@@ -71,6 +71,16 @@ VBHumanObject *VBHumanObjectGetMother(VBHumanObject *human);
 extern
 void VBHumanObjectAddParent(VBHumanObject *human, VBHumanObject *father, VBHumanObject *mother);
 
+extern
+void VBHumanObjectSetChildren(VBHumanObject *human, VBHumanObject *child);
+
+extern
+VBHumanObject *VBHumanObjectGetChildren(VBHumanObject *human);
+
+extern
+void VBHumanObjectAddChild(VBHumanObject *human, VBHumanObject *child);
+
+
 #endif /* VBHumanObject_h */
 
 

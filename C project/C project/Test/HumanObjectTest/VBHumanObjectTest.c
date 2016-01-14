@@ -1,4 +1,4 @@
-//
+
 //  VBHumanObjectTest.c
 //  C project
 //
@@ -22,6 +22,12 @@ void VBPrintHumanTests(void){
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
+    VBHumanObject *child = VBHumanObjectCreateWithGenderNamed("Piter", kVBHumanMaleGenderType);
+    VBHumanObjectSetAge(child, 10);
+    
+    VBHumanObject *child2 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
+    VBHumanObjectSetAge(child2, 10);
+    
     VBHumanObject *partner = VBHumanObjectCreateWithGenderNamed("Elsa", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(partner, 20);
     VBHumanObjectSetChild(partner, 2);
@@ -39,10 +45,12 @@ void VBPrintHumanTests(void){
     VBHumanObjectMarry(human, partner);
     VBHumanObjectMarry(father, mother);
     
-
-
+    VBHumanObjectAddChild(human, child);
+    VBHumanObjectAddChild(human, child2);
     
-//    puts(VBHumanObjectGetName(human));
+
+
+    puts(VBHumanObjectGetName(human));
 //    puts((VBHumanObjectGetGender(human) == kVBHumanMaleGenderType) ? "Male" : "Female");
 //    printf("The age is %d years\n", VBHumanObjectGetAge(human));
 //    printf("He have %d children\n", VBHumanObjectGetChild(human));
