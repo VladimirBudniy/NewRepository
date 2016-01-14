@@ -12,11 +12,12 @@
 
 #include <stdbool.h>
 
+
+
 void VBPrintHumanTests(void){
     
     
     VBPrintNextString;
-    
     VBHumanObject *human = VBHumanObjectCreateWithGenderNamed("Bob", kVBHumanMaleGenderType);
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
@@ -25,30 +26,51 @@ void VBPrintHumanTests(void){
     VBHumanObjectSetAge(partner, 20);
     VBHumanObjectSetChild(partner, 2);
     
-    VBHumanObject *father = VBHumanObjectCreateWithGenderNamed("Bruce", kVBHumanFemaleGenderType);
-    VBHumanObjectSetAge(father, 43);
-    VBHumanObjectSetChild(father, 1);
-    
     VBHumanObject *mother = VBHumanObjectCreateWithGenderNamed("Emma", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(mother, 40);
     VBHumanObjectSetChild(mother, 2);
     
-    VBHUmanObjectSetParent(human, mother);
-    VBHUmanObjectSetParent(human, father);
+    VBHumanObject *father = VBHumanObjectCreateWithGenderNamed("Bruce", kVBHumanMaleGenderType);
+    VBHumanObjectSetAge(father, 43);
+    VBHumanObjectSetChild(father, 1);
+    
+    VBHumanObjectAddParent(human, father, mother);
     
     VBHumanObjectMarry(human, partner);
+    VBHumanObjectMarry(father, mother);
     
-    puts(VBHumanObjectGetName(human));
-    VBHumanObjectGetGender(human);
-    printf("The age is %d years\n", VBHumanObjectGetAge(human));
-    printf("He have %d children\n", VBHumanObjectGetChild(human));
-    puts(VBHumanObjectGetMarried(human) ? "Married" : "Unmarried");
 
-    VBPrintNextString;
+
     
-    puts(VBHumanObjectGetName(partner));
-    VBHumanObjectGetGender(partner);
-    printf("The age is %d years\n", VBHumanObjectGetAge(partner));
-    printf("She have %d children\n", VBHumanObjectGetChild(partner));
-    puts(VBHumanObjectGetMarried(partner) ? "Married" : "Unmarried");
+//    puts(VBHumanObjectGetName(human));
+//    puts((VBHumanObjectGetGender(human) == kVBHumanMaleGenderType) ? "Male" : "Female");
+//    printf("The age is %d years\n", VBHumanObjectGetAge(human));
+//    printf("He have %d children\n", VBHumanObjectGetChild(human));
+//    puts(VBHumanObjectGetIsMarried(human) ? "Married" : "Unmarried");
+//    
+//
+//    VBPrintNextString;
+//    
+//    puts(VBHumanObjectGetName(partner));
+//    puts((VBHumanObjectGetGender(partner) == kVBHumanMaleGenderType) ? "Male" : "Female");
+//    printf("The age is %d years\n", VBHumanObjectGetAge(partner));
+//    printf("She have %d children\n", VBHumanObjectGetChild(partner));
+//    puts(VBHumanObjectGetIsMarried(partner) ? "Married" : "Unmarried");
+//    
+//    VBPrintNextString;
+//    
+//    puts(VBHumanObjectGetName(father));
+//    puts((VBHumanObjectGetGender(father) == kVBHumanMaleGenderType) ? "Male" : "Female");
+//    printf("The age is %d years\n", VBHumanObjectGetAge(father));
+//    printf("She have %d children\n", VBHumanObjectGetChild(father));
+//    puts(VBHumanObjectGetIsMarried(father) ? "Married" : "Unmarried");
+//    
+//    VBPrintNextString;
+//    
+//    puts(VBHumanObjectGetName(mother));
+//    puts((VBHumanObjectGetGender(mother) == kVBHumanMaleGenderType) ? "Male" : "Female");
+//    printf("The age is %d years\n", VBHumanObjectGetAge(mother));
+//    printf("She have %d children\n", VBHumanObjectGetChild(mother));
+//    puts(VBHumanObjectGetIsMarried(mother) ? "Married" : "Unmarried");
+    
 }

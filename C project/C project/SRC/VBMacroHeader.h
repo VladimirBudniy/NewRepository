@@ -42,5 +42,24 @@
             return; \
         }
 
+#define VBReturnValueMacro(value) \
+                if (NULL == value) { \
+                    return 0; \
+                }
+
+#define VBReturnNullMacro(value) \
+            if (NULL == value) { \
+                    return NULL; \
+            }
+
+#define VBAssignMacro(oldValue, newValue) \
+                    oldValue = newValue
+
+#define VBRetainMacro(oldValue, newValue) \
+        if (oldValue != newValue) { \
+            VBHumanObjectRelease(oldValue); \
+            oldValue = newValue; \
+            VBHUmanObjectRetain(oldValue); \
+        }
 
 #endif /* VBMacroHeader_h */

@@ -42,7 +42,7 @@ extern
 uint8_t VBHumanObjectGetChild(VBHumanObject *human);
 
 extern
-bool VBHumanObjectGetMarried(VBHumanObject *human);
+bool VBHumanObjectGetIsMarried(VBHumanObject *human);
 
 extern
 void VBHumanObjectMarry(VBHumanObject *human, VBHumanObject *partner);
@@ -57,19 +57,19 @@ extern
 void VBHumanObjectRelease(VBHumanObject *human);
 
 extern
+void VBHumanObjectSetFather(VBHumanObject *human, VBHumanObject *parent);
+
+extern
 VBHumanObject *VBHumanObjectGetFather(VBHumanObject *human);
+
+extern
+void VBHumanObjectSetMother(VBHumanObject *human, VBHumanObject *mother);
 
 extern
 VBHumanObject *VBHumanObjectGetMother(VBHumanObject *human);
 
 extern
-void VBHUmanObjectSetParent(VBHumanObject *human, VBHumanObject *parent);
-
-extern
-VBHumanObject *VBHumanObjectGetParent(VBHumanObject *human);
-
-extern
-void VBHumanObjectAddParent(VBHumanObject *human, VBHumanObject *parent);
+void VBHumanObjectAddParent(VBHumanObject *human, VBHumanObject *father, VBHumanObject *mother);
 
 #endif /* VBHumanObject_h */
 
