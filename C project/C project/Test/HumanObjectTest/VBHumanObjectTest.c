@@ -10,7 +10,7 @@
 #include "VBHumanObject.h"
 #include "VBMacroHeader.h"
 
-#include <stdbool.h>
+//#include <stdbool.h>
 
 
 
@@ -22,12 +22,10 @@ void VBPrintHumanTests(void){
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
-    VBHumanObject *child = VBHumanObjectCreateWithGenderNamed("Piter", kVBHumanMaleGenderType);
-    VBHumanObjectSetAge(child, 10);
-    
+    VBHumanObject *child1 = VBHumanObjectCreateWithGenderNamed("Piter", kVBHumanMaleGenderType);
     VBHumanObject *child2 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
-    VBHumanObjectSetAge(child2, 10);
-    
+    VBHumanObject *child3 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
+
     VBHumanObject *partner = VBHumanObjectCreateWithGenderNamed("Elsa", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(partner, 20);
     VBHumanObjectSetChild(partner, 2);
@@ -39,23 +37,41 @@ void VBPrintHumanTests(void){
     VBHumanObject *father = VBHumanObjectCreateWithGenderNamed("Bruce", kVBHumanMaleGenderType);
     VBHumanObjectSetAge(father, 43);
     VBHumanObjectSetChild(father, 1);
-    
-    VBHumanObjectAddParent(human, father, mother);
+
+    VBHumanObjectSetFather(human, father);
+    VBHumanObjectSetMother(human, mother);
     
     VBHumanObjectMarry(human, partner);
     VBHumanObjectMarry(father, mother);
     
-    VBHumanObjectAddChild(human, child);
-    VBHumanObjectAddChild(human, child2);
+    VBHumanObjectAddChildrenIndex(human, child1);
+    VBHumanObjectAddChildrenIndex(human, child2);
+    VBHumanObjectAddChildrenIndex(human, child3);
     
+    VBHumanObjectRemoveChildrenIndex(human, child1);
+    VBHumanObjectRemoveChildrenIndex(human, child2);
+    VBHumanObjectRemoveChildrenIndex(human, child3);
+    
+    VBHumanObjectDivorce(mother);
+    VBHumanObjectDivorce(partner);
 
-
+    VBHumanObjectRemoveMother(human, mother);
+    VBHumanObjectRemoveFather(human, father);
+    
+    VBHumanObjectRelease(child1);
+    VBHumanObjectRelease(child2);
+    VBHumanObjectRelease(child3);
+    VBHumanObjectRelease(mother);
+    VBHumanObjectRelease(partner);
+    VBHumanObjectRelease(father);
+    VBHumanObjectRelease(human);
+    
     puts(VBHumanObjectGetName(human));
 //    puts((VBHumanObjectGetGender(human) == kVBHumanMaleGenderType) ? "Male" : "Female");
 //    printf("The age is %d years\n", VBHumanObjectGetAge(human));
 //    printf("He have %d children\n", VBHumanObjectGetChild(human));
 //    puts(VBHumanObjectGetIsMarried(human) ? "Married" : "Unmarried");
-//    
+//
 //
 //    VBPrintNextString;
 //    
