@@ -9,6 +9,7 @@
 #include "VBMacroHeader.h"
 #include "VBPrintValueAccordingQualifierTest.h"
 
+#include <stdbool.h>
 #include <stdio.h>
 
 void VBPrintValueAccordingQualifierTest() {

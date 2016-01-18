@@ -9,6 +9,7 @@
 #include "VBPrintTypeSizeTest.h"
 #include "VBMacroHeader.h"
 
+#include <stdbool.h>
 #include <stdio.h>
 
 // Task 1
