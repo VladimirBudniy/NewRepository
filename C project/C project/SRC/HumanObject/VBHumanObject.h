@@ -60,25 +60,28 @@ extern
 void VBHumanObjectRemoveChildrenIndex(VBHumanObject *human, VBHumanObject *child);
 
 extern
-void VBHumanObjectSetFather(VBHumanObject *human, VBHumanObject *father);
-
-extern
 VBHumanObject *VBHumanObjectGetFather(VBHumanObject *human);
-
-extern
-void VBHumanObjectSetMother(VBHumanObject *human, VBHumanObject *mother);
 
 extern
 VBHumanObject *VBHumanObjectGetMother(VBHumanObject *human);
 
 extern
-void VBHumanObjectAddChildrenIndex(VBHumanObject *human, VBHumanObject *child);
+void VBHumanObjectAddChildren(VBHumanObject *human, VBHumanObject *child);
 
 extern
 void VBHumanObjectRemoveMother(VBHumanObject *human, VBHumanObject *mother);
 
 extern
 void VBHumanObjectRemoveFather(VBHumanObject *human, VBHumanObject *father);
+
+extern
+VBHumanObject *VBHumanObjectGetChildAtIndex(VBHumanObject *human, uint8_t index);
+
+extern
+void VBHumanObjectAddParents(VBHumanObject *human, VBHumanObject *father, VBHumanObject *mother);
+
+extern
+void VBHumanObjectBirthChild(VBHumanObject *human, VBHumanObject *partner, VBHumanObject *child);
 
 #endif /* VBHumanObject_h */
 
