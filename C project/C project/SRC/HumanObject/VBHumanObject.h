@@ -78,9 +78,6 @@ extern
 VBHumanObject *VBHumanObjectGetChildAtIndex(VBHumanObject *human, uint8_t index);
 
 extern
-void VBHumanObjectAddParents(VBHumanObject *human, VBHumanObject *father, VBHumanObject *mother);
-
-extern
 void VBHumanObjectBirthChild(VBHumanObject *human, VBHumanObject *partner, VBHumanObject *child);
 
 #endif /* VBHumanObject_h */

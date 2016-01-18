@@ -271,13 +271,6 @@ void VBHumanObjectRemoveChildrenIndex(VBHumanObject *human, VBHumanObject *child
     }
 }
 
-void VBHumanObjectAddParents(VBHumanObject *human, VBHumanObject *father, VBHumanObject *mother) {
-    VBReturnMacro(human);
-
-    VBHumanObjectSetMother(human, mother);
-    VBHumanObjectSetFather(human, father);
-}
-
 void VBHumanObjectBirthChild(VBHumanObject *human, VBHumanObject *partner, VBHumanObject *child) {
     VBReturnMacro(human);
     VBReturnMacro(partner);
