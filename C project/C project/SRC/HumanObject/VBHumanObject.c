@@ -18,7 +18,7 @@ struct VBHumanObject {
     VBHumanObject *_partner;      // +
     VBHumanObject *_father;       // +
     VBHumanObject *_mother;       // +
-    VBHumanObject *_children[7];
+    VBHumanObject *_children[7];  // +
     VBHumanGenderType _gender;    // +
     char *_name;                  // +
     uint8_t _age;                 // +
