@@ -14,38 +14,39 @@
 
 
 
-void VBPrintHumanTests(void){
-    
+void VBPrintHumanTests(void) {
     
     VBPrintNextString;
-    VBHumanObject *human = VBHumanObjectCreateWithGenderNamed("Bob", kVBHumanMaleGenderType);
+    VBHumanObject *human = VBHumanObjectCreateWithNameGender("Bob", kVBHumanMaleGenderType);
     VBHumanObjectSetAge(human, 23);
     VBHumanObjectSetChild(human, 3);
     
-    VBHumanObject *child1 = VBHumanObjectCreateWithGenderNamed("Piter", kVBHumanMaleGenderType);
-    VBHumanObject *child2 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
-//    VBHumanObject *child3 = VBHumanObjectCreateWithGenderNamed("Sonya", kVBHumanFemaleGenderType);
-//    VBHumanObject *child4 = VBHumanObjectCreateWithGenderNamed("Viktor", kVBHumanMaleGenderType);
-//    VBHumanObject *child5 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
-//    VBHumanObject *child6 = VBHumanObjectCreateWithGenderNamed("Letty", kVBHumanFemaleGenderType);
-
-    VBHumanObject *partner = VBHumanObjectCreateWithGenderNamed("Elsa", kVBHumanFemaleGenderType);
+    VBHumanObject *partner = VBHumanObjectCreateWithNameGender("Elsa", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(partner, 20);
+    VBHumanObjectSetChild(partner, 3);
     
-    VBHumanObject *mother = VBHumanObjectCreateWithGenderNamed("Emma", kVBHumanFemaleGenderType);
+    VBHumanObject *mother = VBHumanObjectCreateWithNameGender("Emma", kVBHumanFemaleGenderType);
     VBHumanObjectSetAge(mother, 40);
+    VBHumanObjectSetChild(mother, 1);
     
-    VBHumanObject *father = VBHumanObjectCreateWithGenderNamed("Bruce", kVBHumanMaleGenderType);
+    VBHumanObject *father = VBHumanObjectCreateWithNameGender("Bruce", kVBHumanMaleGenderType);
     VBHumanObjectSetAge(father, 43);
+    VBHumanObjectSetChild(father, 3);
+    
+    VBHumanObject *child1 = VBHumanObjectCreateWithNameGender("Piter", kVBHumanMaleGenderType);
+    VBHumanObject *child2 = VBHumanObjectCreateWithNameGender("Letty", kVBHumanFemaleGenderType);
+//    VBHumanObject *child3 = VBHumanObjectCreateWithNameGender("Sonya", kVBHumanFemaleGenderType);
+//    VBHumanObject *child4 = VBHumanObjectCreateWithNameGender("Viktor", kVBHumanMaleGenderType);
+//    VBHumanObject *child5 = VBHumanObjectCreateWithNameGender("Letty", kVBHumanFemaleGenderType);
+//    VBHumanObject *child6 = VBHumanObjectCreateWithNameGender("Letty", kVBHumanFemaleGenderType);
     
     VBHumanObjectMarry(human, partner);
     VBHumanObjectMarry(father, mother);
     
     VBHumanObjectBirthChild(father, mother, human);
-    
     VBHumanObjectBirthChild(human, partner, child1);
     VBHumanObjectBirthChild(human, partner, child2);
-    
+
     VBHumanObjectRemoveChildrenIndex(human, child1);
     VBHumanObjectRemoveChildrenIndex(partner, child1);
     VBHumanObjectRemoveChildrenIndex(human, child2);
@@ -55,9 +56,6 @@ void VBPrintHumanTests(void){
     
     VBHumanObjectDivorce(father);
     VBHumanObjectDivorce(human);
-
-//    VBHumanObjectRemoveFather(human, father);
-//    VBHumanObjectRemoveMother(human, mother);
     
     VBHumanObjectRelease(child1);
     VBHumanObjectRelease(child2);
@@ -68,7 +66,4 @@ void VBPrintHumanTests(void){
     
     puts(VBHumanObjectGetName(human));
     puts(VBHumanObjectGetName(human));
-    
-   
-    
 }

@@ -21,7 +21,7 @@ typedef enum {
 } VBHumanGenderType;
 
 extern
-VBHumanObject *VBHumanObjectCreateWithGenderNamed(char *name, VBHumanGenderType gender);
+VBHumanObject *VBHumanObjectCreateWithNameGender(char *name, VBHumanGenderType gender);
 
 extern
 char *VBHumanObjectGetName(VBHumanObject *human);
