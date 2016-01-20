@@ -46,7 +46,7 @@ void VBPrintHumanTests(void) {
     VBHumanObjectBirthChild(father, mother, human);
     VBHumanObjectBirthChild(human, partner, child1);
     VBHumanObjectBirthChild(human, partner, child2);
-
+    
     VBHumanObjectRemoveChildrenIndex(human, child1);
     VBHumanObjectRemoveChildrenIndex(partner, child1);
     VBHumanObjectRemoveChildrenIndex(human, child2);

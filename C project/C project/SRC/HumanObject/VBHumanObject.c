@@ -13,10 +13,12 @@
 
 #include "VBHumanObject.h"
 #include "VBMacroHeader.h"
+#include "VBObject.h"
 
 static const uint16_t kVBChildrenCount = 5;
 
 struct VBHumanObject {
+    VBObject _super;
     VBHumanObject *_partner;
     VBHumanObject *_father;
     VBHumanObject *_mother;
