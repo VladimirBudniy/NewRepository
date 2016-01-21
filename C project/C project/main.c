@@ -17,8 +17,8 @@
 //#include "VBPrintValueAccordingQualifierTest.h"
 //#include "VBPrintValueTest.h"
 //#include "VBBitStepTaskTest.h"
-#include "VBHumanObjectTest.h"
-#include "VBHumanObject.h"
+#include "VBHumanTest.h"
+#include "VBHuman.h"
 
 
 

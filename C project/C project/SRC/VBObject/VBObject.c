@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "VBHumanObject.h"
+#include "VBHuman.h"
 #include "VBMacroHeader.h"
 #include "VBObject.h"
 

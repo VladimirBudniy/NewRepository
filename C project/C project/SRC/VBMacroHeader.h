@@ -57,9 +57,9 @@
 
 #define VBRetainMacro(oldValue, newValue) \
         if (oldValue != newValue) { \
-            VBHumanObjectRelease(oldValue); \
+            VBHumanRelease(oldValue); \
             oldValue = newValue; \
-            VBHUmanObjectRetain(oldValue); \
+            VBHumanRetain(oldValue); \
         }
 
 #endif /* VBMacroHeader_h */
