@@ -110,13 +110,15 @@ VBHuman *__VBHumanCreate(void) {
 void VBHumanSetName(VBHuman *human, char *name) {
     VBReturnMacro(human);
     
-    if (NULL != human->_name) {
-        free(human->_name);
-    } else if (NULL == human->_name) {
+    free(human->_name);
+    
+    if (NULL != name) {
+        human->_name = strdup(name);
+    } else {
         return;
     }
-    human->_name = strdup(name);
 }
+
 
 char *VBHumanGetName(VBHuman *human) {
     VBReturnNullMacro(human);

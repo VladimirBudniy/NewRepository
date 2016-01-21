@@ -54,6 +54,6 @@ void VBObjectRelease(void *object) {
     newObject->_retainCount--;
     
     if (0 == newObject->_retainCount) {
-        __VBObjectDeallocate(object);
+        newObject->_deallocator(object);
     }
 }
