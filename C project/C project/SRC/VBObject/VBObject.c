@@ -17,23 +17,18 @@
 
 
 #pragma mark-
-#pragma mark Private Declarations
-
-
-
-
-#pragma mark-
 #pragma mark Initialization & Deallocation
 
-void __VBObjectDeallocate(VBObject *object) {
+void __VBObjectDeallocate(void *object) {
     free(object);
 }
 
-void *__VBObjectCreate(size_t size) {
-    VBObject *object = calloc(1, sizeof(size));
+void *__VBObjectCreate(size_t type, VBObjectDeallocator *deallocator) {
+    VBObject *object = calloc(1, sizeof(type));
     assert(object);
     
     object->_retainCount = 1;
+    object->_deallocator = deallocator;
     
     return object;
 }
@@ -41,22 +36,24 @@ void *__VBObjectCreate(size_t size) {
 #pragma mark-
 #pragma mark Public
 
-void VBObjectRelease(VBObject *object) {
-    VBReturnMacro(object);
-    
-    object->_retainCount--;
-    
-    if (0 == object->_retainCount) {
-        __VBObjectDeallocate(object);
-    }
-}
-
-void *VBObjectRetain(VBObject *object) {
+void *VBObjectRetain(void *object) {
     VBReturnNullMacro(object);
     
-    object->_retainCount++;
+    VBObject *newObject = object;
     
-    return object;
+    newObject->_retainCount++;
+    
+    return newObject;
 }
 
-
+void VBObjectRelease(void *object) {
+    VBReturnMacro(object);
+    
+    VBObject *newObject = object;
+    
+    newObject->_retainCount--;
+    
+    if (0 == newObject->_retainCount) {
+        __VBObjectDeallocate(newObject);
+    }
+}

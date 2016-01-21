@@ -28,14 +28,13 @@ struct VBHuman {
     char *_name;
     uint16_t _age;
     uint16_t _child;
-    uint16_t _retainCount;
 };
 
 #pragma mark-
 #pragma mark Private Declarations
 
 static
-void __VBHumanDeallocate(VBHuman *human);
+void __VBHumanDeallocate(void *human);
 
 static
 VBHuman *__VBHumanCreate(void);
@@ -64,7 +63,7 @@ void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
-void __VBHumanDeallocate(VBHuman *human) {
+void __VBHumanDeallocate(void *human) {
     VBHumanSetName(human, NULL);
     VBHumanDivorce(human);
     VBHumanSetPartner(human, NULL);
@@ -72,7 +71,7 @@ void __VBHumanDeallocate(VBHuman *human) {
     VBHumanSetMother(human, NULL);
     VBHumanRemoveAllChildren(human);
     
-    free(human);
+    __VBObjectDeallocate(human);
 }
 
 VBHuman *VBHumanCreateChildWithNameGenderParents(char *name,
@@ -100,10 +99,7 @@ VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender) {
 }
 
 VBHuman *__VBHumanCreate(void) {
-    VBHuman *human = calloc(1, sizeof(VBHuman));
-    assert(human);
-    
-    human->_retainCount = 1;
+    VBHuman *human = VBObjectCreate(VBHuman);
     
     return human;
 }
@@ -170,7 +166,7 @@ void VBHumanSetPartner(VBHuman *human, VBHuman *partner) {
     VBReturnMacro(human);
     
     VBHumanGenderType type = VBHumanGetGender(human);
-    
+
     if (type == kVBHumanFemaleGenderType) {
         VBAssignMacro(human->_partner, partner);
     } else {
@@ -299,21 +295,21 @@ void VBHumanRemoveAllChildren(VBHuman *human) {
     }
 }
 
-#pragma mark -
-#pragma mark Public
-
-void VBHumanRetain(VBHuman *human) {
-    VBReturnMacro(human);
-    
-    human->_retainCount++;
-}
-
-void VBHumanRelease(VBHuman *human) {
-    VBReturnMacro(human);
-    
-    human->_retainCount--;
-    
-    if (0 == human->_retainCount) {
-        __VBHumanDeallocate(human);
-    }
-}
+//#pragma mark -
+//#pragma mark Public
+//
+//void VBHumanRetain(VBHuman *human) {
+//    VBReturnMacro(human);
+//    
+//    human->_retainCount++;
+//}
+//
+//void VBHumanRelease(VBHuman *human) {
+//    VBReturnMacro(human);
+//    
+//    human->_retainCount--;
+//    
+//    if (0 == human->_retainCount) {
+//        __VBHumanDeallocate(human);
+//    }
+//}

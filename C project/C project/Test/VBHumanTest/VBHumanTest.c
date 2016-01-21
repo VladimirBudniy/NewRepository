@@ -10,9 +10,9 @@
 #include "VBHuman.h"
 #include "VBMacroHeader.h"
 
+#include "VBObject.h"
+
 //#include <stdbool.h>
-
-
 
 void VBPrintHumanTests(void) {
     
@@ -25,6 +25,8 @@ void VBPrintHumanTests(void) {
     VBHumanSetAge(partner, 20);
     VBHumanSetChild(partner, 3);
     
+    VBHumanMarry(human, partner); // retaine count not calculate
+    
     VBHuman *mother = VBHumanCreateWithNameGender("Emma", kVBHumanFemaleGenderType);
     VBHumanSetAge(mother, 40);
     VBHumanSetChild(mother, 1);
@@ -33,13 +35,12 @@ void VBPrintHumanTests(void) {
     VBHumanSetAge(father, 43);
     VBHumanSetChild(father, 3);
     
+    VBHumanMarry(father, mother); // retaine count not calculate
+    
     VBHuman *child1 = VBHumanCreateWithNameGender("Piter", kVBHumanMaleGenderType);
     VBHuman *child2 = VBHumanCreateWithNameGender("Letty", kVBHumanFemaleGenderType);
     
-    VBHumanMarry(human, partner);
-    VBHumanMarry(father, mother);
-    
-    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasia", kVBHumanMaleGenderType, human, partner);
+    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
     
     VBHumanAddChild(human, child1);
     VBHumanAddChild(human, child2);
@@ -52,13 +53,13 @@ void VBPrintHumanTests(void) {
     VBHumanDivorce(father);
     VBHumanDivorce(human);
 
-    VBHumanRelease(mother);
-    VBHumanRelease(father);
-    VBHumanRelease(partner);
-    VBHumanRelease(child1);
-    VBHumanRelease(child2);
-    VBHumanRelease(child);
-    VBHumanRelease(human);
+    VBObjectRelease(mother);
+    VBObjectRelease(father);
+    VBObjectRelease(partner);
+    VBObjectRelease(child1);
+    VBObjectRelease(child2);
+    VBObjectRelease(child);
+    VBObjectRelease(human);
     
     puts(VBHumanGetName(human));
     puts(VBHumanGetName(mother));

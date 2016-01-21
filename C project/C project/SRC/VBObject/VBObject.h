@@ -11,22 +11,25 @@
 
 #include <stdio.h>
 
+typedef void (VBObjectDeallocator)(void *object);
+
 typedef struct VBObject VBObject;
 
 struct VBObject {
     uint16_t _retainCount;
+    VBObjectDeallocator *_deallocator;
 };
 
 extern
-void __VBObjectDeallocate(VBObject *object);
+void __VBObjectDeallocate(void *object);
 
 extern
-void *__VBObjectCreate(size_t size);
+void *__VBObjectCreate(size_t size, VBObjectDeallocator *deallocator);
 
 extern
-void *VBObjectRetain(VBObject *object);
+void *VBObjectRetain(void *object);
 
 extern
-void VBObjectRelease(VBObject *object);
+void VBObjectRelease(void *object);
 
 #endif /* VBObject_h */

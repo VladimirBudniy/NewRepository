@@ -57,9 +57,12 @@
 
 #define VBRetainMacro(oldValue, newValue) \
         if (oldValue != newValue) { \
-            VBHumanRelease(oldValue); \
+            VBObjectRelease(oldValue); \
             oldValue = newValue; \
-            VBHumanRetain(oldValue); \
+            VBObjectRetain(oldValue); \
         }
+
+#define VBObjectCreate(type) \
+    __VBObjectCreate(sizeof(type), (VBObjectDeallocator *)__##type##Deallocate);
 
 #endif /* VBMacroHeader_h */
