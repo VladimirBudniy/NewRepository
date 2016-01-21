@@ -39,27 +39,27 @@ void VBPrintHumanTests(void) {
     VBHumanMarry(human, partner);
     VBHumanMarry(father, mother);
     
-    VBHumanBirthChild(father, mother, human);
-    VBHumanBirthChild(human, partner, child1);
-    VBHumanBirthChild(human, partner, child2);
+    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasia", kVBHumanMaleGenderType, human, partner);
     
-    VBHumanRemoveChildrenIndex(human, child1);
-    VBHumanRemoveChildrenIndex(partner, child1);
-    VBHumanRemoveChildrenIndex(human, child2);
-    VBHumanRemoveChildrenIndex(partner, child2);
-    VBHumanRemoveChildrenIndex(father, human);
-    VBHumanRemoveChildrenIndex(mother, human);
+    VBHumanAddChild(human, child1);
+    VBHumanAddChild(human, child2);
+    
+    VBHumanRemoveChild(human, child1);
+    VBHumanRemoveChildAtIndex(human, 2);
+    VBHumanRemoveAllChildren(human);
+    VBHumanRemoveAllChildren(partner);
     
     VBHumanDivorce(father);
     VBHumanDivorce(human);
-    
-    VBHumanRelease(child1);
-    VBHumanRelease(child2);
+
     VBHumanRelease(mother);
     VBHumanRelease(father);
     VBHumanRelease(partner);
+    VBHumanRelease(child1);
+    VBHumanRelease(child2);
+    VBHumanRelease(child);
     VBHumanRelease(human);
     
     puts(VBHumanGetName(human));
-    puts(VBHumanGetName(human));
+    puts(VBHumanGetName(mother));
 }

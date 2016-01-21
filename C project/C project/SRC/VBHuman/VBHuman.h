@@ -24,6 +24,9 @@ extern
 VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender);
 
 extern
+VBHuman *VBHumanCreateChildWithNameGenderParents(char *name, VBHumanGenderType gender, VBHuman *father, VBHuman *mother);
+
+extern
 char *VBHumanGetName(VBHuman *human);
 
 extern
@@ -57,7 +60,7 @@ extern
 void VBHumanRelease(VBHuman *human);
 
 extern
-void VBHumanRemoveChildrenIndex(VBHuman *human, VBHuman *child);
+void VBHumanRemoveAllChildren(VBHuman *human);
 
 extern
 VBHuman *VBHumanGetFather(VBHuman *human);
@@ -66,13 +69,17 @@ extern
 VBHuman *VBHumanGetMother(VBHuman *human);
 
 extern
-void VBHumanAddChildren(VBHuman *human, VBHuman *child);
+void VBHumanAddChild(VBHuman *human, VBHuman *child);
 
 extern
 VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index);
 
 extern
-void VBHumanBirthChild(VBHuman *human, VBHuman *partner, VBHuman *child);
+void VBHumanRemoveChild(VBHuman *human, VBHuman *child);
+
+extern
+void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
+
 
 #endif /* VBHuman_h */
 
