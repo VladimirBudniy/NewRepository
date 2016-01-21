@@ -24,7 +24,7 @@ void __VBObjectDeallocate(void *object) {
 }
 
 void *__VBObjectCreate(size_t type, VBObjectDeallocator *deallocator) {
-    VBObject *object = calloc(1, sizeof(type));
+    VBObject *object = calloc(1, type);
     assert(object);
     
     object->_retainCount = 1;
@@ -54,6 +54,6 @@ void VBObjectRelease(void *object) {
     newObject->_retainCount--;
     
     if (0 == newObject->_retainCount) {
-        __VBObjectDeallocate(newObject);
+        __VBObjectDeallocate(object);
     }
 }

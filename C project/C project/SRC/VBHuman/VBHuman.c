@@ -115,7 +115,6 @@ void VBHumanSetName(VBHuman *human, char *name) {
     } else if (NULL == human->_name) {
         return;
     }
-    
     human->_name = strdup(name);
 }
 

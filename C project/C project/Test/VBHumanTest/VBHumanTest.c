@@ -27,6 +27,10 @@ void VBPrintHumanTests(void) {
     
     VBHumanMarry(human, partner); // retaine count not calculate
     
+    VBObjectRelease(human);
+    
+    puts(VBHumanGetName(human));
+    
     VBHuman *mother = VBHumanCreateWithNameGender("Emma", kVBHumanFemaleGenderType);
     VBHumanSetAge(mother, 40);
     VBHumanSetChild(mother, 1);
@@ -37,10 +41,9 @@ void VBPrintHumanTests(void) {
     
     VBHumanMarry(father, mother); // retaine count not calculate
     
+    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
     VBHuman *child1 = VBHumanCreateWithNameGender("Piter", kVBHumanMaleGenderType);
     VBHuman *child2 = VBHumanCreateWithNameGender("Letty", kVBHumanFemaleGenderType);
-    
-    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
     
     VBHumanAddChild(human, child1);
     VBHumanAddChild(human, child2);
@@ -59,8 +62,6 @@ void VBPrintHumanTests(void) {
     VBObjectRelease(child1);
     VBObjectRelease(child2);
     VBObjectRelease(child);
-    VBObjectRelease(human);
-    
-    puts(VBHumanGetName(human));
+
     puts(VBHumanGetName(mother));
 }
