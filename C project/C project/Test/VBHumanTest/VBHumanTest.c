@@ -11,6 +11,7 @@
 #include "VBMacroHeader.h"
 
 #include "VBObject.h"
+#include "VBString.h"
 
 //#include <stdbool.h>
 
@@ -25,23 +26,23 @@ void VBPrintHumanTests(void) {
     VBHumanSetChild(partner, 3);
     
     VBHumanMarry(human, partner);
-    
-    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
-    VBHumanRemoveAllChildren(human);
-    VBHumanRemoveAllChildren(partner);
-    
+
+//    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
+//    VBHumanRemoveAllChildren(human);
+//    VBHumanRemoveAllChildren(partner);
+//    
     VBHumanDivorce(human);
-    
-    VBObjectRelease(human);
-    VBObjectRelease(partner);
-    VBObjectRelease(child);
-    
-    printf("The retaincount Father %d,\n", VBObjectGetRetaineCount(human));
-    printf("The retaincount Mother  %d,\n", VBObjectGetRetaineCount(partner));
-    printf("The retaincount Child %d,\n", VBObjectGetRetaineCount(child));
+//
+//    VBObjectRelease(human);
+//    VBObjectRelease(partner);
+//    VBObjectRelease(child);
+//    
+//    printf("The retaincount Father %d,\n", VBObjectGetRetaineCount(human));
+//    printf("The retaincount Mother  %d,\n", VBObjectGetRetaineCount(partner));
+//    printf("The retaincount Child %d,\n", VBObjectGetRetaineCount(child));
     
 //
-//    puts(VBHumanGetName(human));
+    puts(VBStringGetName(human));
 //    puts(VBHumanGetName(partner));
 //    puts(VBHumanGetName(child));
 //    

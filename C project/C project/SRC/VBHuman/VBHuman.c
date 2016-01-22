@@ -14,18 +14,20 @@
 #include "VBHuman.h"
 #include "VBMacroHeader.h"
 #include "VBObject.h"
+#include "VBString.h"
 
 static const uint16_t kVBChildrenCount = 5;
 
 struct VBHuman {
-    VBObject _super;
+//    VBObject _super;
+    VBString _superString;
     
     VBHuman *_partner;
     VBHuman *_father;
     VBHuman *_mother;
     VBHuman *_children[kVBChildrenCount];
     VBHumanGenderType _gender;
-    char *_name;
+//    char *_name;
     uint16_t _age;
     uint16_t _child;
 };
@@ -36,11 +38,11 @@ struct VBHuman {
 static
 void __VBHumanDeallocate(void *human);
 
-static
-VBHuman *__VBHumanCreate(void);
+//static
+//VBHuman *__VBHumanCreate(void);
 
-static
-void VBHumanSetName(VBHuman *human, char *name);
+//static
+//void VBHumanSetName(VBHuman *human, char *name);
 
 static
 void VBHumanSetPartner(VBHuman *human, VBHuman *partner);
@@ -64,14 +66,15 @@ void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
 #pragma mark Initialization & Deallocation
 
 void __VBHumanDeallocate(void *human) {
-    VBHumanSetName(human, NULL);
+//    VBHumanSetName(human, NULL);
     VBHumanDivorce(human);
     VBHumanSetPartner(human, NULL);
     VBHumanSetFather(human, NULL);
     VBHumanSetMother(human, NULL);
     VBHumanRemoveAllChildren(human);
     
-    __VBObjectDeallocate(human);
+//    __VBObjectDeallocate(human);
+    __VBStringDeallocate(human);
 }
 
 VBHuman *VBHumanCreateChildWithNameGenderParents(char *name,
@@ -91,40 +94,39 @@ VBHuman *VBHumanCreateChildWithNameGenderParents(char *name,
 }
 
 VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender) {
-    VBHuman *human = __VBHumanCreate();
-    VBHumanSetName(human, name);
+    VBHuman *human = VBStringCreateWithName(name);
+//    VBHumanSetName(human, name);
     VBHumanSetGender(human, gender);
     
     return human;
 }
 
-VBHuman *__VBHumanCreate(void) {
-    VBHuman *human = VBObjectCreate(VBHuman);
-    
-    return human;
-}
+//VBHuman *__VBHumanCreate(void) {
+//    VBHuman *human = VBObjectCreate(VBHuman);
+//    
+//    return human;
+//}
 
 #pragma mark-
 #pragma mark Accessors
 
-void VBHumanSetName(VBHuman *human, char *name) {
-    VBReturnMacro(human);
-    
-    free(human->_name);
-    
-    if (name) {
-        human->_name = strdup(name);
-    } else {
-        human->_name = NULL;
-    }
-}
+//void VBHumanSetName(VBHuman *human, char *name) {
+//    VBReturnMacro(human);
+//    
+//    free(human->_name);
+//    
+//    if (name) {
+//        human->_name = strdup(name);
+//    } else {
+//        human->_name = NULL;
+//    }
+//}
 
-
-char *VBHumanGetName(VBHuman *human) {
-    VBReturnNullMacro(human);
-    
-    return human->_name;
-}
+//char *VBHumanGetName(VBHuman *human) {
+//    VBReturnNullMacro(human);
+//    
+//    return human->_name;
+//}
 
 void VBHumanSetGender(VBHuman *human, VBHumanGenderType gender) {
     VBReturnMacro(human);

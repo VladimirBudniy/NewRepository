@@ -17,6 +17,7 @@
 		E73E93431C5116650045ED28 /* VBHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E933E1C5116650045ED28 /* VBHuman.c */; };
 		E73E93441C5116650045ED28 /* VBObject.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93411C5116650045ED28 /* VBObject.c */; };
 		E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93461C51166F0045ED28 /* VBHumanTest.c */; };
+		E73E934C1C5270700045ED28 /* VBString.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E934A1C52706F0045ED28 /* VBString.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		E73E93421C5116650045ED28 /* VBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObject.h; sourceTree = "<group>"; };
 		E73E93461C51166F0045ED28 /* VBHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBHumanTest.c; sourceTree = "<group>"; };
 		E73E93471C51166F0045ED28 /* VBHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHumanTest.h; sourceTree = "<group>"; };
+		E73E934A1C52706F0045ED28 /* VBString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBString.c; sourceTree = "<group>"; };
+		E73E934B1C52706F0045ED28 /* VBString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBString.h; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E73E93401C5116650045ED28 /* VBObject */,
+				E73E93491C5270580045ED28 /* VBString */,
 				E73E933D1C5116650045ED28 /* VBHuman */,
 				E78E48D81C40406F00D17F8C /* VBMacroHeader.h */,
 				E707D02F1C3332DF00EAE890 /* FirstStruct */,
@@ -207,6 +211,15 @@
 			path = VBHumanTest;
 			sourceTree = "<group>";
 		};
+		E73E93491C5270580045ED28 /* VBString */ = {
+			isa = PBXGroup;
+			children = (
+				E73E934A1C52706F0045ED28 /* VBString.c */,
+				E73E934B1C52706F0045ED28 /* VBString.h */,
+			);
+			path = VBString;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,6 +279,7 @@
 				E707D0511C33346500EAE890 /* VBPrintTypeSizeTest.c in Sources */,
 				E707D0201C3330F500EAE890 /* main.c in Sources */,
 				E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */,
+				E73E934C1C5270700045ED28 /* VBString.c in Sources */,
 				E73E93431C5116650045ED28 /* VBHuman.c in Sources */,
 				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
 				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,

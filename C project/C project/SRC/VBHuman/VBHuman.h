@@ -26,8 +26,8 @@ VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender);
 extern
 VBHuman *VBHumanCreateChildWithNameGenderParents(char *name, VBHumanGenderType gender, VBHuman *father, VBHuman *mother);
 
-extern
-char *VBHumanGetName(VBHuman *human);
+//extern
+//char *VBHumanGetName(VBHuman *human);
 
 extern
 VBHumanGenderType VBHumanGetGender(VBHuman *human);
