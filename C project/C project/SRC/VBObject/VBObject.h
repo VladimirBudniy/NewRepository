@@ -20,6 +20,10 @@ struct VBObject {
     VBObjectDeallocator *_deallocator;
 };
 
+
+#define VBObjectCreate(type) \
+    __VBObjectCreate(sizeof(type), (VBObjectDeallocator *)__##type##Deallocate);
+
 extern
 void __VBObjectDeallocate(void *object);
 
@@ -31,5 +35,8 @@ void *VBObjectRetain(void *object);
 
 extern
 void VBObjectRelease(void *object);
+
+extern
+uint16_t VBObjectGetRetaineCount(void *object);
 
 #endif /* VBObject_h */

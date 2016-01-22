@@ -36,10 +36,19 @@ void *__VBObjectCreate(size_t type, VBObjectDeallocator *deallocator) {
 #pragma mark-
 #pragma mark Public
 
+uint16_t VBObjectGetRetaineCount(void *object) {
+    VBObject *newObject = object;
+    
+    return newObject->_retainCount;
+}
+
 void *VBObjectRetain(void *object) {
     VBReturnNullMacro(object);
     
     VBObject *newObject = object;
+    
+    assert(VBObjectGetRetaineCount(newObject) != 0);
+    assert(UINT16_MAX > VBObjectGetRetaineCount(newObject));
     
     newObject->_retainCount++;
     

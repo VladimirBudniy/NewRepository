@@ -53,7 +53,7 @@
             }
 
 #define VBAssignMacro(oldValue, newValue) \
-                    oldValue = newValue
+                oldValue = newValue \
 
 #define VBRetainMacro(oldValue, newValue) \
         if (oldValue != newValue) { \
@@ -61,8 +61,5 @@
             oldValue = newValue; \
             VBObjectRetain(oldValue); \
         }
-
-#define VBObjectCreate(type) \
-    __VBObjectCreate(sizeof(type), (VBObjectDeallocator *)__##type##Deallocate);
 
 #endif /* VBMacroHeader_h */

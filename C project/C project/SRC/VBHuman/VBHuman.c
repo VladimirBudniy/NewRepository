@@ -82,7 +82,7 @@ VBHuman *VBHumanCreateChildWithNameGenderParents(char *name,
     VBHuman *child = VBHumanCreateWithNameGender(name, gender);
     VBHumanSetFather(child, father);
     VBHumanSetMother(child, mother);
-    if (VBHumanGetIsMarried(father) == true) {
+    if (VBHumanGetPartner(father) == mother) {
         VBHumanAddChild(father, child);
         VBHumanAddChild(mother, child);
     }
@@ -112,10 +112,10 @@ void VBHumanSetName(VBHuman *human, char *name) {
     
     free(human->_name);
     
-    if (NULL != name) {
+    if (name) {
         human->_name = strdup(name);
     } else {
-        return;
+        human->_name = NULL;
     }
 }
 
@@ -167,7 +167,7 @@ void VBHumanSetPartner(VBHuman *human, VBHuman *partner) {
     VBReturnMacro(human);
     
     VBHumanGenderType type = VBHumanGetGender(human);
-
+    
     if (type == kVBHumanFemaleGenderType) {
         VBAssignMacro(human->_partner, partner);
     } else {
@@ -216,12 +216,12 @@ void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index) {
     
     if (VBHumanGetChildAtIndex(human, index) == NULL) {
         if (VBHumanGetGender(human) == kVBHumanMaleGenderType) {
-            VBRetainMacro(child->_father, human);
+            VBHumanSetFather(child, human);
         } else {
-            VBRetainMacro(child->_mother, human);
+            VBHumanSetMother(child, human);
         }
     }
-    
+
     VBAssignMacro(human->_children[index], child);
 }
 
@@ -240,7 +240,7 @@ void VBHumanMarry(VBHuman *human, VBHuman *partner) {
     if (VBHumanGetGender(human) == VBHumanGetGender(partner)) {
         return;
     }
-    
+
     if ((VBHumanGetPartner(human) == NULL) && (VBHumanGetPartner(partner) == NULL)) {
         VBHumanSetPartner(human, partner);
         VBHumanSetPartner(partner, human);
