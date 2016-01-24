@@ -33,7 +33,7 @@ void VBPrintHumanTests(void) {
 //    
     VBHumanDivorce(human);
 //
-//    VBObjectRelease(human);
+    VBObjectRelease(human);
 //    VBObjectRelease(partner);
 //    VBObjectRelease(child);
 //    

@@ -14,10 +14,13 @@
 
 #include "VBObject.h"
 
+typedef void (VBStringDeallocator)(void *object);
+
 typedef struct VBString VBString;
 
 struct VBString {
     VBObject _super;
+    VBStringDeallocator *_deallocator;
     char *_name;
 };
 
@@ -25,7 +28,10 @@ extern
 void __VBStringDeallocate(void *string);
 
 extern
-void *VBStringCreateWithName(void *name);
+void *__VBStringCreateWithName(void *name, VBStringDeallocator *_deallocator);
+
+#define VBStringCreateWithName(type) \
+    __VBStringCreateWithName(name, (VBStringDeallocator *)__##type##Deallocate);
 
 extern
 void VBStringSetName(void *string, char *name);

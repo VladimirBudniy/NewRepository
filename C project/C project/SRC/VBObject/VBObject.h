@@ -20,7 +20,6 @@ struct VBObject {
     VBObjectDeallocator *_deallocator;
 };
 
-
 #define VBObjectCreate(type) \
     __VBObjectCreate(sizeof(type), (VBObjectDeallocator *)__##type##Deallocate);
 

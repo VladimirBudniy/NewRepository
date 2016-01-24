@@ -20,7 +20,7 @@ static const uint16_t kVBChildrenCount = 5;
 
 struct VBHuman {
 //    VBObject _super;
-    VBString _superString;
+    VBString _secondClass;
     
     VBHuman *_partner;
     VBHuman *_father;
@@ -94,7 +94,7 @@ VBHuman *VBHumanCreateChildWithNameGenderParents(char *name,
 }
 
 VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender) {
-    VBHuman *human = VBStringCreateWithName(name);
+    VBHuman *human = VBStringCreateWithName(VBHuman);
 //    VBHumanSetName(human, name);
     VBHumanSetGender(human, gender);
     
@@ -102,7 +102,7 @@ VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender) {
 }
 
 //VBHuman *__VBHumanCreate(void) {
-//    VBHuman *human = VBObjectCreate(VBHuman);
+//    VBHuman *human = VBStringCreate(VBHuman);
 //    
 //    return human;
 //}
@@ -121,7 +121,7 @@ VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender) {
 //        human->_name = NULL;
 //    }
 //}
-
+//
 //char *VBHumanGetName(VBHuman *human) {
 //    VBReturnNullMacro(human);
 //    

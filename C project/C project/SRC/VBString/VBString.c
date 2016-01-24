@@ -23,9 +23,11 @@ void __VBStringDeallocate(void *string) {
     __VBObjectDeallocate(string);
 }
 
-void *VBStringCreateWithName(void *name) {
+void *__VBStringCreateWithName(void *name, VBStringDeallocator *deallocator) {
     VBString *string = VBObjectCreate(VBString);
     VBStringSetName(string, name);
+    
+    string->_deallocator = deallocator;
     
     return string;
 }
