@@ -7,12 +7,21 @@
 //
 
 #include <stdlib.h>
+#include <assert.h>
 
 #include "VBMacroHeader.h"
 #include "VBString.h"
 #include "VBObject.h"
 
 
+#pragma mark-
+#pragma mark Private Declarations
+
+static
+VBString *VBStringCreate(void);
+
+static
+void VBStringSetName(void *string, char *stringName);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -23,32 +32,106 @@ void __VBStringDeallocate(void *string) {
     __VBObjectDeallocate(string);
 }
 
-void *__VBStringCreateWithName(void *name, VBStringDeallocator *deallocator) {
+VBString *VBStringCreate(void) {
     VBString *string = VBObjectCreate(VBString);
-    VBStringSetName(string, name);
     
-    string->_deallocator = deallocator;
+    return  string;
+}
+
+VBString *VBStringCreateWithName(char *stringName) {
+    VBString *string = VBStringCreate();
+    VBStringSetName(string, stringName);
     
     return string;
 }
 
-void VBStringSetName(void *string, char *name) {
+#pragma mark-
+#pragma mark Accessors
+
+void VBStringSetName(void *string, char *stringName) {
     VBReturnMacro(string);
 
     VBString *newString = string;
     free(newString->_name);
     
-    if (name) {
-        newString->_name = strdup(name);
+    if (stringName) {
+        newString->_name = strdup(stringName);
     } else {
         newString->_name = NULL;
     }
+    
+    VBStringSetSymbolsCount(string, stringName);
+    VBStringIsEmpty(string);
 }
 
-void *VBStringGetName(void *string) {
-    VBReturnNullMacro(string);
+void VBStringIsEmpty(void *string) {
+    VBReturnMacro(string);
     
-    VBString *newString = string;
-    
-    return newString->_name;
+    assert(VBStringGetSymbolsCount(string) != 0);
+//    if (0 == VBStringGetSymbolsCount(string)) {
+//        puts("!!!Error!!!");
+//    }
+    return;
 }
+
+char *VBStringGetName(VBString *string) {
+    VBReturnNullMacro(string);
+
+    return string->_name;
+}
+
+void VBStringSetSymbolsCount(VBString *string, char *stringName) {
+    VBReturnMacro(stringName);
+    
+    uint16_t count = strlen(VBStringGetName(string));
+    
+    string->_symbolsCount = count;
+}
+
+uint16_t VBStringGetSymbolsCount(VBString *stringName) {
+    VBReturnValueMacro(stringName);
+    
+    return stringName->_symbolsCount;
+}
+
+void VBStringPrintString(VBString *stringName) {
+    VBReturnMacro(stringName);
+    
+    puts(VBStringGetName(stringName));
+}
+
+bool VBStringIsEqual(VBString *firstName, VBString *secondName) {
+    VBReturnValueMacro(firstName);
+    VBReturnValueMacro(secondName);
+    
+    if (0 == strcmp(VBStringGetName(firstName), VBStringGetName(secondName))) {
+        return true;
+    }
+    
+    return false;
+}
+
+VBString *VBStringWithString(VBString *firstString, VBString *secondString) {
+    VBReturnNullMacro(firstString);
+    if (secondString == 0) {
+        return firstString;
+    }
+    
+    uint16_t count = VBStringGetSymbolsCount(firstString) + VBStringGetSymbolsCount(secondString);
+    
+    char *charString = calloc(count, sizeof(char));
+    charString = VBStringGetName(firstString);
+    
+    char *spacebar = " ";
+    
+    strcat(charString, spacebar);
+    strcat(charString, VBStringGetName(secondString));
+    
+    VBString *newString = VBStringCreateWithName(charString);
+    
+    return newString;
+}
+
+
+
+

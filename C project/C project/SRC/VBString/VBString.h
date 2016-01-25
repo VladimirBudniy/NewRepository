@@ -11,34 +11,43 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "VBObject.h"
-
-typedef void (VBStringDeallocator)(void *object);
 
 typedef struct VBString VBString;
 
 struct VBString {
     VBObject _super;
-    VBStringDeallocator *_deallocator;
     char *_name;
+    uint16_t _symbolsCount;
 };
 
 extern
 void __VBStringDeallocate(void *string);
 
 extern
-void *__VBStringCreateWithName(void *name, VBStringDeallocator *_deallocator);
-
-#define VBStringCreateWithName(type) \
-    __VBStringCreateWithName(name, (VBStringDeallocator *)__##type##Deallocate);
+VBString *VBStringCreateWithName(char *stringName);
 
 extern
-void VBStringSetName(void *string, char *name);
+char *VBStringGetName(VBString *string);
 
 extern
-void *VBStringGetName(void *string);
+void VBStringPrintString(VBString *stringName);
 
+extern
+void VBStringSetSymbolsCount(VBString *string, char *stringName);
 
+extern
+uint16_t VBStringGetSymbolsCount(VBString *stringName);
+
+extern
+VBString *VBStringWithString(VBString *firstString, VBString *secondString);
+
+extern
+bool VBStringIsEqual(VBString *firstName, VBString *secondName);
+
+extern
+void VBStringIsEmpty(void *string);
 
 #endif /* VBString_h */

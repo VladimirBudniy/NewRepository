@@ -13,38 +13,40 @@
 #include "VBObject.h"
 #include "VBString.h"
 
-//#include <stdbool.h>
 
 void VBPrintHumanTests(void) {
     
-    VBHuman *human = VBHumanCreateWithNameGender("Bob", kVBHumanMaleGenderType);
+    VBString *womanName = VBStringCreateWithName("Elsa");
+    VBString *childName =  VBStringCreateWithName("Vasia");
+    VBString *manName = VBStringCreateWithName("");
+    
+    VBStringPrintString(manName);
+    VBStringPrintString(womanName);
+    VBStringPrintString(childName);
+    
+    VBHuman *human = VBHumanCreateWithNameGender(manName, kVBHumanMaleGenderType);
     VBHumanSetAge(human, 23);
     VBHumanSetChild(human, 3);
     
-    VBHuman *partner = VBHumanCreateWithNameGender("Elsa", kVBHumanFemaleGenderType);
+    VBHuman *partner = VBHumanCreateWithNameGender(womanName, kVBHumanFemaleGenderType);
     VBHumanSetAge(partner, 20);
     VBHumanSetChild(partner, 3);
     
     VBHumanMarry(human, partner);
-
-//    VBHuman *child = VBHumanCreateChildWithNameGenderParents("Vasya", kVBHumanMaleGenderType, human, partner);
-//    VBHumanRemoveAllChildren(human);
-//    VBHumanRemoveAllChildren(partner);
-//    
-    VBHumanDivorce(human);
-//
-    VBObjectRelease(human);
-//    VBObjectRelease(partner);
-//    VBObjectRelease(child);
-//    
-//    printf("The retaincount Father %d,\n", VBObjectGetRetaineCount(human));
-//    printf("The retaincount Mother  %d,\n", VBObjectGetRetaineCount(partner));
-//    printf("The retaincount Child %d,\n", VBObjectGetRetaineCount(child));
     
-//
-    puts(VBStringGetName(human));
-//    puts(VBHumanGetName(partner));
-//    puts(VBHumanGetName(child));
-//    
-//    puts(VBHumanGetName(human));
+    VBHuman *child = VBHumanCreateChildWithNameGenderParents(childName, kVBHumanMaleGenderType, human, partner);
+    VBHumanRemoveAllChildren(human);
+    VBHumanRemoveAllChildren(partner);
+
+    VBHumanDivorce(human);
+
+    VBObjectRelease(human);
+    VBObjectRelease(partner);
+    VBObjectRelease(child);
+
+    puts(VBHumanGetName(human));
+    puts(VBHumanGetName(human));
+    
+    puts(VBHumanGetName(partner));
+    puts(VBHumanGetName(child));
 }

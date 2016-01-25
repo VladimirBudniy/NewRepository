@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include "VBString.h"
+
 typedef struct VBHuman VBHuman;
 
 typedef enum {
@@ -21,13 +23,13 @@ typedef enum {
 } VBHumanGenderType;
 
 extern
-VBHuman *VBHumanCreateWithNameGender(char *name, VBHumanGenderType gender);
+VBHuman *VBHumanCreateWithNameGender(VBString *name, VBHumanGenderType gender);
 
 extern
-VBHuman *VBHumanCreateChildWithNameGenderParents(char *name, VBHumanGenderType gender, VBHuman *father, VBHuman *mother);
+VBHuman *VBHumanCreateChildWithNameGenderParents(VBString *name, VBHumanGenderType gender, VBHuman *father, VBHuman *mother);
 
-//extern
-//char *VBHumanGetName(VBHuman *human);
+extern
+void *VBHumanGetName(VBHuman *human);
 
 extern
 VBHumanGenderType VBHumanGetGender(VBHuman *human);
