@@ -16,9 +16,9 @@
 
 void VBPrintHumanTests(void) {
     
-    VBString *womanName = VBStringCreateWithName("Elsa");
-    VBString *childName =  VBStringCreateWithName("Vasia");
-    VBString *manName = VBStringCreateWithName("");
+    VBString *womanName = VBStringCreateWithData("Elsa");
+    VBString *childName =  VBStringCreateWithData("Vasia");
+    VBString *manName = VBStringCreateWithData("");
     
     VBStringPrintString(manName);
     VBStringPrintString(womanName);

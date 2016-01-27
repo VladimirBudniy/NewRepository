@@ -21,13 +21,17 @@ static
 VBString *VBStringCreate(void);
 
 static
-void VBStringSetName(void *string, char *stringName);
+void VBStringSetData(VBString *string, char *data);
+
+static
+void VBStringSetSymbolsCount(VBString *string);
+
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
 void __VBStringDeallocate(void *string) {
-    VBStringSetName(string, NULL);
+    VBStringSetData(string, NULL);
     
     __VBObjectDeallocate(string);
 }
@@ -38,9 +42,9 @@ VBString *VBStringCreate(void) {
     return  string;
 }
 
-VBString *VBStringCreateWithName(char *stringName) {
+VBString *VBStringCreateWithData(char *data) {
     VBString *string = VBStringCreate();
-    VBStringSetName(string, stringName);
+    VBStringSetData(string, data);
     
     return string;
 }
@@ -48,63 +52,58 @@ VBString *VBStringCreateWithName(char *stringName) {
 #pragma mark-
 #pragma mark Accessors
 
-void VBStringSetName(void *string, char *stringName) {
+void VBStringSetData(VBString *string, char *data) {
     VBReturnMacro(string);
 
     VBString *newString = string;
     free(newString->_name);
     
-    if (stringName) {
-        newString->_name = strdup(stringName);
+    if (data) {
+        newString->_name = strdup(data);
     } else {
         newString->_name = NULL;
     }
-    
-    VBStringSetSymbolsCount(string, stringName);
+    VBStringSetSymbolsCount(string);
     VBStringIsEmpty(string);
 }
 
-void VBStringIsEmpty(void *string) {
-    VBReturnMacro(string);
-    
-    assert(VBStringGetSymbolsCount(string) != 0);
-//    if (0 == VBStringGetSymbolsCount(string)) {
-//        puts("!!!Error!!!");
-//    }
-    return;
+bool VBStringIsEmpty(VBString *string) {
+    VBReturnValueMacro(false);
+
+    return 0 == VBStringGetSymbolsCount(string);
 }
 
-char *VBStringGetName(VBString *string) {
+char *VBStringGetData(VBString *string) {
     VBReturnNullMacro(string);
 
     return string->_name;
 }
 
-void VBStringSetSymbolsCount(VBString *string, char *stringName) {
-    VBReturnMacro(stringName);
+void VBStringSetSymbolsCount(VBString *string) {
+    VBReturnMacro(string);
     
-    uint16_t count = strlen(VBStringGetName(string));
+    uint16_t count = strlen(VBStringGetData(string));
     
     string->_symbolsCount = count;
 }
 
-uint16_t VBStringGetSymbolsCount(VBString *stringName) {
-    VBReturnValueMacro(stringName);
+uint16_t VBStringGetSymbolsCount(VBString *data) {
+    VBReturnValueMacro(data);
     
-    return stringName->_symbolsCount;
+    return data->_symbolsCount;
 }
 
-void VBStringPrintString(VBString *stringName) {
-    VBReturnMacro(stringName);
+void VBStringPrintString(VBString *data) {
+    VBReturnMacro(data);
     
-    puts(VBStringGetName(stringName));
+    puts(VBStringGetData(data));
 }
 
-bool VBStringIsEqual(VBString *firstName, VBString *secondName) {
-    VBReturnValueMacro(firstName);
-    VBReturnValueMacro(secondName);
+bool VBStringIsEqual(VBString *firstString, VBString *secondString) {
+    VBReturnValueMacro(firstString);
+    VBReturnValueMacro(secondString);
     
-    if (0 == strcmp(VBStringGetName(firstName), VBStringGetName(secondName))) {
+    if (0 == strcmp(VBStringGetData(firstString), VBStringGetData(secondString))) {
         return true;
     }
     
@@ -120,18 +119,14 @@ VBString *VBStringWithString(VBString *firstString, VBString *secondString) {
     uint16_t count = VBStringGetSymbolsCount(firstString) + VBStringGetSymbolsCount(secondString);
     
     char *charString = calloc(count, sizeof(char));
-    charString = VBStringGetName(firstString);
+    charString = VBStringGetData(firstString);
     
     char *spacebar = " ";
     
     strcat(charString, spacebar);
-    strcat(charString, VBStringGetName(secondString));
+    strcat(charString, VBStringGetData(secondString));
     
-    VBString *newString = VBStringCreateWithName(charString);
+    VBString *string = VBStringCreateWithData(charString);
     
-    return newString;
+    return string;
 }
-
-
-
-

@@ -27,16 +27,13 @@ extern
 void __VBStringDeallocate(void *string);
 
 extern
-VBString *VBStringCreateWithName(char *stringName);
+VBString *VBStringCreateWithData(char *string);
 
 extern
-char *VBStringGetName(VBString *string);
+char *VBStringGetData(VBString *string);
 
 extern
 void VBStringPrintString(VBString *stringName);
-
-extern
-void VBStringSetSymbolsCount(VBString *string, char *stringName);
 
 extern
 uint16_t VBStringGetSymbolsCount(VBString *stringName);
@@ -48,6 +45,6 @@ extern
 bool VBStringIsEqual(VBString *firstName, VBString *secondName);
 
 extern
-void VBStringIsEmpty(void *string);
+bool VBStringIsEmpty(VBString *string);
 
 #endif /* VBString_h */
