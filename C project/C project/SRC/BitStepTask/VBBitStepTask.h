@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#endif /* VBBitStepTask_h */
-
 extern
 void VBPrintBitField(void *valueBitField, size_t size);
+
+#endif /* VBBitStepTask_h */

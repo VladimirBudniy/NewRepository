@@ -9,8 +9,6 @@
 #ifndef VBFirstStruct_h
 #define VBFirstStruct_h
 
-#endif /* VBFirstStruct_h */
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -75,7 +73,5 @@ typedef struct {
     };
 } LocationBool;
 
-
-
-
+#endif /* VBFirstStruct_h */
 

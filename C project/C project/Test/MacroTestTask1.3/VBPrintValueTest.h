@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-#endif /* VBPrintValueTest_h */
-
 void VBPrintResult();
+
+#endif /* VBPrintValueTest_h */

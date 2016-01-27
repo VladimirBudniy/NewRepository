@@ -9,9 +9,6 @@
 #ifndef VBMacroHeader_h
 #define VBMacroHeader_h
 
-
-#endif /* VBMacroHeader_h */
-
 // Task 1.1
 #define VBTypeLength(type) \
     printf("%lu\n", sizeof(type));
@@ -40,5 +37,29 @@
                 VBOutput_##type(value)
 
 
+#define VBReturnMacro(value) \
+            if (NULL == value) { \
+            return; \
+        }
 
+#define VBReturnValueMacro(value) \
+                if (NULL == value) { \
+                    return 0; \
+                }
 
+#define VBReturnNullMacro(value) \
+            if (NULL == value) { \
+                    return NULL; \
+            }
+
+#define VBAssignMacro(oldValue, newValue) \
+                oldValue = newValue \
+
+#define VBRetainMacro(oldValue, newValue) \
+        if (oldValue != newValue) { \
+            VBObjectRelease(oldValue); \
+            oldValue = newValue; \
+            VBObjectRetain(oldValue); \
+        }
+
+#endif /* VBMacroHeader_h */

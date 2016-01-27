@@ -11,7 +11,7 @@
 
 #include <stdlib.h>
 
-#endif /* VBBitStepTaskTest_h */
-
 extern
 void VBPrintBitStepTest(void);
+
+#endif /* VBBitStepTaskTest_h */
