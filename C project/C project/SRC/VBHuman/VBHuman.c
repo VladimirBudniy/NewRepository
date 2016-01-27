@@ -24,10 +24,8 @@ struct VBHuman {
     VBHuman *_partner;
     VBHuman *_father;
     VBHuman *_mother;
-    
     VBArray *_childrenArray;
-    
-    VBHuman *_children[kVBChildrenCount];
+//    VBHuman *_children[kVBChildrenCount];
     VBHumanGenderType _gender;
     VBString *_string;
     uint16_t _age;
