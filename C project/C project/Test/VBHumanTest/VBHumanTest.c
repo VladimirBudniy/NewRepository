@@ -12,7 +12,7 @@
 
 #include "VBObject.h"
 #include "VBString.h"
-
+#include "VBArray.h"
 
 void VBPrintHumanTests(void) {
     
@@ -23,7 +23,7 @@ void VBPrintHumanTests(void) {
     VBStringPrintString(manName);
     VBStringPrintString(womanName);
     VBStringPrintString(childName);
-    
+
     VBHuman *human = VBHumanCreateWithNameGender(manName, kVBHumanMaleGenderType);
     VBHumanSetAge(human, 23);
     VBHumanSetChild(human, 3);
@@ -34,7 +34,10 @@ void VBPrintHumanTests(void) {
     
     VBHumanMarry(human, partner);
     
-    VBHuman *child = VBHumanCreateChildWithNameGenderParents(childName, kVBHumanMaleGenderType, human, partner);
+    VBHuman *child = VBHumanCreateWithNameGender(childName, kVBHumanMaleGenderType);
+    
+    VBHumanAddChild(human, child);
+    
     VBHumanRemoveAllChildren(human);
     VBHumanRemoveAllChildren(partner);
 
@@ -44,8 +47,4 @@ void VBPrintHumanTests(void) {
     VBObjectRelease(partner);
     VBObjectRelease(child);
 
-    puts(VBHumanGetName(human));
-    puts(VBHumanGetName(human));
-    puts(VBHumanGetName(partner));
-    puts(VBHumanGetName(child));
 }

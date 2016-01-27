@@ -58,16 +58,17 @@ VBString *VBStringCreateWithData(char *data) {
 void VBStringSetData(VBString *string, char *data) {
     VBReturnMacro(string);
 
-    VBString *newString = string;
-    free(newString->_name);
+    if (!VBStringIsEmpty(string)) {
+        free(string->_name);
+    }
     
     if (data) {
-        newString->_name = strdup(data);
+        string->_name = strdup(data);
     } else {
-        newString->_name = NULL;
+        string->_name = NULL;
     }
+    
     VBStringSetSymbolsCount(string);
-    VBStringIsEmpty(string);
 }
 
 bool VBStringIsEmpty(VBString *string) {
@@ -99,7 +100,11 @@ uint16_t VBStringGetSymbolsCount(VBString *data) {
 void VBStringPrintString(VBString *data) {
     VBReturnMacro(data);
     
-    puts(VBStringGetData(data));
+    if (0 == VBStringGetSymbolsCount(data)) {
+        puts("ERROR");
+    } else {
+        puts(VBStringGetData(data));
+    }
 }
 
 bool VBStringIsEqual(VBString *firstString, VBString *secondString) {
@@ -115,7 +120,7 @@ bool VBStringIsEqual(VBString *firstString, VBString *secondString) {
 
 VBString *VBStringWithString(VBString *firstString, VBString *secondString) {
     VBReturnNullMacro(firstString);
-    if (secondString == 0) {
+    if (VBStringIsEmpty(secondString)) {
         return firstString;
     }
     

@@ -26,13 +26,19 @@ struct VBArray {
 };
 
 extern
-VBArray *VBArrayCreateWithData();
+void *VBArrayCreate(void);
 
 extern
-VBArray *VBArrayGetDataAtIndex(VBArray *array, uint8_t index);
+void VBArrayRemoveAllElements(VBArray *array);
 
 extern
-void VBArrayAddData(VBArray *array, void *data);
+void VBArraySetDatadAtIndex(VBArray *array, void *data, uint8_t index);
+
+extern
+void *VBArrayGetDataAtIndex(VBArray *array, uint8_t index);
+
+extern
+void VBArrayAddData(void *array, void *data);
 
 extern
 void VBArrayRemoveData(VBArray *array, void *data);

@@ -8,22 +8,11 @@
 
 #include "VBArray.h"
 
-
-
 #pragma mark-
 #pragma mark Private Declarations
 
 static
 void __VBArrayDeallocate(void *string);
-
-static
-VBArray *VBArrayCreate(void);
-
-static
-void VBArrayRemoveAllElements(VBArray *array);
-
-static
-void VBArraySetDatadAtIndex(VBArray *array, void *data, uint8_t index);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -34,15 +23,8 @@ void __VBArrayDeallocate(void *array) {
     __VBObjectDeallocate(array);
 }
 
-VBArray *VBArrayCreate(void) {
+void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
-    
-    return array;
-}
-
-VBArray *VBArrayCreateWithData(void *data) {
-    VBArray *array = VBArrayCreate();
-    VBArrayAddData(array, data);
     
     return array;
 }
@@ -57,13 +39,13 @@ void VBArraySetDatadAtIndex(VBArray *array, void *data, uint8_t index) {
     VBRetainMacro(array->_arrayData[index], data);
 }
 
-VBArray *VBArrayGetDataAtIndex(VBArray *array, uint8_t index) {
+void *VBArrayGetDataAtIndex(VBArray *array, uint8_t index) {
     VBReturnNullMacro(array);
     
     return array->_arrayData[index];
 }
 
-void VBArrayAddData(VBArray *array, void *data) {
+void VBArrayAddData(void *array, void *data) {
     VBReturnMacro(array);
     
     int index = 0;
