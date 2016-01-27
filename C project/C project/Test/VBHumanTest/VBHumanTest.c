@@ -46,7 +46,6 @@ void VBPrintHumanTests(void) {
 
     puts(VBHumanGetName(human));
     puts(VBHumanGetName(human));
-    
     puts(VBHumanGetName(partner));
     puts(VBHumanGetName(child));
 }

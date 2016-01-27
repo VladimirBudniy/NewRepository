@@ -24,9 +24,6 @@ struct VBString {
 };
 
 extern
-void __VBStringDeallocate(void *string);
-
-extern
 VBString *VBStringCreateWithData(char *string);
 
 extern

@@ -18,6 +18,9 @@
 #pragma mark Private Declarations
 
 static
+void __VBStringDeallocate(void *string);
+
+static
 VBString *VBStringCreate(void);
 
 static
