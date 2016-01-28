@@ -17,12 +17,13 @@
 
 static const uint16_t kVBArrayCount = 20;
 
+extern const uint16_t kVBUndefindeIndex;
+
 typedef struct VBArray VBArray;
 
 struct VBArray {
     VBObject _super;
     void *_arrayData[kVBArrayCount];
-    uint16_t _arrayCount;
 };
 
 extern
@@ -32,18 +33,21 @@ extern
 void VBArrayRemoveAllElements(VBArray *array);
 
 extern
-void VBArraySetDatadAtIndex(VBArray *array, void *data, uint8_t index);
+void VBArraySetObjectAtIndex(VBArray *array, void *data, uint16_t index);
 
 extern
-void *VBArrayGetDataAtIndex(VBArray *array, uint8_t index);
+void *VBArrayGetObjectAtIndex(VBArray *array, uint16_t index);
 
 extern
-void VBArrayAddData(void *array, void *data);
+void VBArrayAddObject(VBArray *array, void *data);
 
 extern
-void VBArrayRemoveData(VBArray *array, void *data);
+void VBArrayRemoveObject(VBArray *array, void *data);
 
 extern
-void VBArrayRemoveDataAtIndex(VBArray *array, uint8_t index);
+void VBArrayRemoveObjectAtIndex(VBArray *array, uint16_t index);
+
+extern
+uint16_t VBArrayGetCount(VBArray *array);
 
 #endif /* VBArray_h */

@@ -15,36 +15,31 @@
 #include "VBArray.h"
 
 void VBPrintHumanTests(void) {
-    
-    VBString *womanName = VBStringCreateWithData("Elsa");
-    VBString *childName =  VBStringCreateWithData("Vasia");
-    VBString *manName = VBStringCreateWithData("");
-    
-    VBStringPrintString(manName);
-    VBStringPrintString(womanName);
-    VBStringPrintString(childName);
 
-    VBHuman *human = VBHumanCreateWithNameGender(manName, kVBHumanMaleGenderType);
+    VBHuman *human = VBHumanCreateWithNameGender(VBStringCreateWithData("Bob"), kVBHumanMaleGenderType);
     VBHumanSetAge(human, 23);
     VBHumanSetChild(human, 3);
     
-    VBHuman *partner = VBHumanCreateWithNameGender(womanName, kVBHumanFemaleGenderType);
+    VBHuman *partner = VBHumanCreateWithNameGender(VBStringCreateWithData("Elsa"), kVBHumanFemaleGenderType);
     VBHumanSetAge(partner, 20);
     VBHumanSetChild(partner, 3);
     
     VBHumanMarry(human, partner);
     
-    VBHuman *child = VBHumanCreateWithNameGender(childName, kVBHumanMaleGenderType);
+    VBHuman *child = VBHumanCreateChildWithNameGenderParents(VBStringCreateWithData("Vasia"), kVBHumanMaleGenderType, human, partner);
+    VBHuman *child2 = VBHumanCreateChildWithNameGenderParents(VBStringCreateWithData("Masia"), kVBHumanFemaleGenderType, human, partner);
+    VBHuman *child3 = VBHumanCreateChildWithNameGenderParents(VBStringCreateWithData("Petya"), kVBHumanMaleGenderType, human, partner);
+    VBHuman *child4 = VBHumanCreateChildWithNameGenderParents(VBStringCreateWithData("Katya"), kVBHumanFemaleGenderType, human, partner);
     
-    VBHumanAddChild(human, child);
+    VBHumanRemoveChild(human, child3);
+    VBHumanRemoveChild(human, child2);
     
     VBHumanRemoveAllChildren(human);
     VBHumanRemoveAllChildren(partner);
 
     VBHumanDivorce(human);
-
+    
     VBObjectRelease(human);
     VBObjectRelease(partner);
-    VBObjectRelease(child);
 
 }

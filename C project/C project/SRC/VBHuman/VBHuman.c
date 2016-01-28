@@ -17,15 +17,12 @@
 #include "VBString.h"
 #include "VBArray.h"
 
-static const uint16_t kVBChildrenCount = 5;
-
 struct VBHuman {
     VBObject _super;
     VBHuman *_partner;
     VBHuman *_father;
     VBHuman *_mother;
     VBArray *_childrenArray;
-//    VBHuman *_children[kVBChildrenCount];
     VBHumanGenderType _gender;
     VBString *_string;
     uint16_t _age;
@@ -60,7 +57,10 @@ static
 void VBHumanSetFather(VBHuman *human, VBHuman *father);
 
 static
-void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
+void VBHumanSetChildren(VBHuman *human, VBArray *array);
+
+static
+VBArray *VBHumanGetChildren(VBHuman *human);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -102,12 +102,23 @@ VBHuman *VBHumanCreateWithNameGender(VBString *string, VBHumanGenderType gender)
 
 VBHuman *__VBHumanCreate(void) {
     VBHuman *human = VBObjectCreate(VBHuman);
+    VBHumanSetChildren(human, VBArrayCreate());
     
     return human;
 }
 
 #pragma mark-
 #pragma mark Accessors
+
+void VBHumanSetChildren(VBHuman *human, VBArray *array) {
+    VBReturnMacro(human);
+    
+    human->_childrenArray = array;
+}
+
+VBArray *VBHumanGetChildren(VBHuman *human) {
+    return human->_childrenArray;
+}
 
 void VBHumanSetName(VBHuman *human, VBString *string) {
     VBReturnMacro(human);
@@ -207,74 +218,36 @@ VBHuman *VBHumanGetFather(VBHuman *human) {
     return human->_father;
 }
 
-////////////////////////////////////////////////////////////////////////////
-
-void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index) {
-    VBReturnMacro(human);
-    
-    if (VBHumanGetChildAtIndex(human, index) == NULL) {
-        if (VBHumanGetGender(human) == kVBHumanMaleGenderType) {
-            VBHumanSetFather(child, human);
-        } else {
-            VBHumanSetMother(child, human);
-        }
-    }
-
-    VBAssignMacro(human->_children[index], child);
-}
-
-VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index) {
-    VBReturnNullMacro(human);
-    
-    return human->_children[index];
-}
-
 #pragma mark-
 #pragma mark Public Implementations
 
 void VBHumanAddChild(VBHuman *human, VBHuman *child) {
     VBReturnMacro(human);
     
-    int index = 0;
-    for (index = 0; VBHumanGetChildAtIndex(human, index) != NULL; index++) {
-        if (index == (kVBChildrenCount - 1)) {
-            return;
-        }
-    }
-    
-    VBHumanSetChildAtIndex(human, child, index);
-}
-
-void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index) {
-    VBReturnMacro(human);
-    
-    if (VBHumanGetChildAtIndex(human, index) != NULL) {
-        VBHumanGetGender(human) == kVBHumanMaleGenderType
-        ? VBHumanSetFather(VBHumanGetChildAtIndex(human, index), NULL)
-        : VBHumanSetMother(VBHumanGetChildAtIndex(human, index), NULL);
-        VBHumanSetChildAtIndex(human, NULL, index);
-    }
+    VBArrayAddObject(VBHumanGetChildren(human), child);
 }
 
 void VBHumanRemoveChild(VBHuman *human, VBHuman *child) {
     VBReturnMacro(human);
     
-    for (int index = 0; index < kVBChildrenCount; index++) {
-        if (VBHumanGetChildAtIndex(human, index) == child) {
-            VBHumanRemoveChildAtIndex(human, index);
-        }
-    }
+    VBHumanGetGender(human) == kVBHumanMaleGenderType
+        ? VBHumanSetFather(child, NULL)
+        : VBHumanSetMother(child, NULL);
+    
+    VBArrayRemoveObject(VBHumanGetChildren(human), child);
 }
 
 void VBHumanRemoveAllChildren(VBHuman *human) {
     VBReturnMacro(human);
     
-    for (int index = 0; index < kVBChildrenCount; index++) {
-        VBHumanRemoveChildAtIndex(human, index);
+    VBArray *array = VBHumanGetChildren(human);
+    uint16_t count = VBArrayGetCount(array);
+    
+    for (int index = 0; index < count; index++) {
+        VBHuman *child = VBArrayGetObjectAtIndex(array, index);
+        VBHumanRemoveChild(human, child);
     }
 }
-
-////////////////////////////////////////////////////////////////////
 
 void VBHumanMarry(VBHuman *human, VBHuman *partner) {
     VBReturnMacro(human);
@@ -296,3 +269,41 @@ void VBHumanDivorce(VBHuman *human) {
     VBHumanSetPartner(human, NULL);
 }
 
+
+//static
+//void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
+//extern
+//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
+//extern
+//VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index);
+
+//void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index) {
+//    VBReturnMacro(human);
+//
+//    if (VBHumanGetChildAtIndex(human, index) == NULL) {
+//        if (VBHumanGetGender(human) == kVBHumanMaleGenderType) {
+//            VBHumanSetFather(child, human);
+//        } else {
+//            VBHumanSetMother(child, human);
+//        }
+//    }
+//
+//    VBAssignMacro(human->_childrenArray[index], child);
+//}
+
+//VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index) {
+//    VBReturnNullMacro(human);
+//
+//    return human->_childrenArray[index];
+//}
+
+//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index) {
+//    VBReturnMacro(human);
+//
+//    if (VBHumanGetChildAtIndex(human, index) != NULL) {
+//        VBHumanGetGender(human) == kVBHumanMaleGenderType
+//        ? VBHumanSetFather(VBHumanGetChildAtIndex(human, index), NULL)
+//        : VBHumanSetMother(VBHumanGetChildAtIndex(human, index), NULL);
+//        VBHumanSetChildAtIndex(human, NULL, index);
+//    }
+//}
