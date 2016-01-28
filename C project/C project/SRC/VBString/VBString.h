@@ -30,10 +30,10 @@ extern
 char *VBStringGetData(VBString *string);
 
 extern
-void VBStringPrintString(VBString *stringName);
+void VBStringPrintString(VBString *string);
 
 extern
-uint16_t VBStringGetSymbolsCount(VBString *stringName);
+uint16_t VBStringGetSymbolsCount(VBString *string);
 
 extern
 VBString *VBStringWithString(VBString *firstString, VBString *secondString);

@@ -18,7 +18,7 @@
 #pragma mark Private Declarations
 
 static
-void __VBStringDeallocate(void *string);
+void __VBStringDeallocate(VBString *string);
 
 static
 VBString *VBStringCreate(void);
@@ -27,13 +27,13 @@ static
 void VBStringSetData(VBString *string, char *data);
 
 static
-void VBStringSetSymbolsCount(VBString *string);
+void VBStringSetSymbolsCount(VBString *string, uint16_t count);
 
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
-void __VBStringDeallocate(void *string) {
+void __VBStringDeallocate(VBString *string) {
     VBStringSetData(string, NULL);
     
     __VBObjectDeallocate(string);
@@ -68,7 +68,7 @@ void VBStringSetData(VBString *string, char *data) {
         string->_name = NULL;
     }
     
-    VBStringSetSymbolsCount(string);
+    VBStringSetSymbolsCount(string, strlen(VBStringGetData(string)));
 }
 
 bool VBStringIsEmpty(VBString *string) {
@@ -83,27 +83,25 @@ char *VBStringGetData(VBString *string) {
     return string->_name;
 }
 
-void VBStringSetSymbolsCount(VBString *string) {
+void VBStringSetSymbolsCount(VBString *string, uint16_t count) {
     VBReturnMacro(string);
-    
-    uint16_t count = strlen(VBStringGetData(string));
     
     string->_symbolsCount = count;
 }
 
-uint16_t VBStringGetSymbolsCount(VBString *data) {
-    VBReturnValueMacro(data);
+uint16_t VBStringGetSymbolsCount(VBString *string) {
+    VBReturnValueMacro(string);
     
-    return data->_symbolsCount;
+    return string->_symbolsCount;
 }
 
-void VBStringPrintString(VBString *data) {
-    VBReturnMacro(data);
+void VBStringPrintString(VBString *string) {
+    VBReturnMacro(string);
     
-    if (0 == VBStringGetSymbolsCount(data)) {
+    if (0 == VBStringGetSymbolsCount(string)) {
         puts("ERROR");
     } else {
-        puts(VBStringGetData(data));
+        puts(VBStringGetData(string));
     }
 }
 
