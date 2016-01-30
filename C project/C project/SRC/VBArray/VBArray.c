@@ -69,7 +69,6 @@ void VBArrayAddObject(VBArray *array, void *object) {
     VBReturnMacro(array);
     
     uint16_t index = VBArrayGetIndexOfObject(array, NULL);
-    
     if (index != kVBUndefindeIndex) {
         VBArraySetObjectAtIndex(array, object, index);
     }
@@ -88,14 +87,13 @@ void VBArrayRemoveObject(VBArray *array, void *object) {
     VBReturnMacro(array);
     
     uint16_t index = VBArrayGetIndexOfObject(array, object);
-    
     if (index != kVBUndefindeIndex) {
         VBArrayRemoveObjectAtIndex(array, index);
         VBArrayShiftForIndex(array, index);
     }
 }
 
-void VBArrayRemoveAllElements(VBArray *array) { // не происходит релиз, ретейн каунт без изменения
+void VBArrayRemoveAllElements(VBArray *array) {
     VBReturnMacro(array);
     
     for (int index = 0; index < kVBArrayCount; index++) {
@@ -111,7 +109,7 @@ uint16_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
     
     for (int index = 0; index < kVBArrayCount; index++) {
         if (VBArrayGetObjectAtIndex(array, index) == object) {
-            return index; // если меняю на переменную - не добавляет объект в масив! 
+            return index;
         }
     }
     

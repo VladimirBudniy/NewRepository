@@ -76,6 +76,9 @@ void VBHumanAddChild(VBHuman *human, VBHuman *child);
 extern
 void VBHumanRemoveChild(VBHuman *human, VBHuman *child);
 
+extern
+VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint16_t index);
+
 
 #endif /* VBHuman_h */
 

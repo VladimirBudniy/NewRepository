@@ -85,7 +85,7 @@ VBHuman *VBHumanCreateChildWithNameGenderParents(VBString *string,
     VBHuman *child = VBHumanCreateWithNameGender(string, gender);
     VBHumanSetFather(child, father);
     VBHumanSetMother(child, mother);
-    if (VBHumanGetPartner(father) == mother) {
+    if (VBHumanGetPartner(father) == mother) { // пееделать по полу
         VBHumanAddChild(father, child);
         VBHumanAddChild(mother, child);
     }
@@ -230,6 +230,12 @@ void VBHumanAddChild(VBHuman *human, VBHuman *child) {
     VBArrayAddObject(VBHumanGetChildren(human), child);
 }
 
+VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint16_t index) {
+    VBReturnValueMacro(human);
+    
+    return VBArrayGetObjectAtIndex(VBHumanGetChildren(human), index);
+}
+
 void VBHumanRemoveChild(VBHuman *human, VBHuman *child) {
     VBReturnMacro(human);
     
@@ -240,14 +246,13 @@ void VBHumanRemoveChild(VBHuman *human, VBHuman *child) {
     VBArrayRemoveObject(VBHumanGetChildren(human), child);
 }
 
-void VBHumanRemoveAllChildren(VBHuman *human) {
+void VBHumanRemoveAllChildren(VBHuman *human) {   // removed only half of array
     VBReturnMacro(human);
     
     VBArray *array = VBHumanGetChildren(human);
-    
     for (int index = 0; index < VBArrayGetCount(array); index++) {
-        VBHuman *child = VBArrayGetObjectAtIndex(array, index);
-        VBHumanRemoveChild(human, child); // нужен метод удалить всех детей
+        VBHuman *child = VBHumanGetChildAtIndex(human, index);
+        VBHumanRemoveChild(human, child);
     }
 }
 
@@ -276,9 +281,8 @@ void VBHumanDivorce(VBHuman *human) {
 //void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
 //extern
 //void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
-//extern
-//VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index);
-
+//static
+//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
 //void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index) {
 //    VBReturnMacro(human);
 //
