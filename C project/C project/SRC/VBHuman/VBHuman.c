@@ -72,6 +72,7 @@ void __VBHumanDeallocate(void *human) {
     VBHumanSetFather(human, NULL);
     VBHumanSetMother(human, NULL);
     VBHumanRemoveAllChildren(human);
+    VBHumanSetChildren(human, NULL);
     
     __VBObjectDeallocate(human);
 }
@@ -102,7 +103,9 @@ VBHuman *VBHumanCreateWithNameGender(VBString *string, VBHumanGenderType gender)
 
 VBHuman *__VBHumanCreate(void) {
     VBHuman *human = VBObjectCreate(VBHuman);
-    VBHumanSetChildren(human, VBArrayCreate());
+    VBArray *array = VBArrayCreate();
+    VBHumanSetChildren(human, array);
+    VBObjectRelease(array);
     
     return human;
 }
@@ -113,7 +116,7 @@ VBHuman *__VBHumanCreate(void) {
 void VBHumanSetChildren(VBHuman *human, VBArray *array) {
     VBReturnMacro(human);
     
-    human->_childrenArray = array;
+    VBRetainMacro(human->_childrenArray, array);
 }
 
 VBArray *VBHumanGetChildren(VBHuman *human) {
@@ -241,11 +244,10 @@ void VBHumanRemoveAllChildren(VBHuman *human) {
     VBReturnMacro(human);
     
     VBArray *array = VBHumanGetChildren(human);
-    uint16_t count = VBArrayGetCount(array);
     
-    for (int index = 0; index < count; index++) {
+    for (int index = 0; index < VBArrayGetCount(array); index++) {
         VBHuman *child = VBArrayGetObjectAtIndex(array, index);
-        VBHumanRemoveChild(human, child);
+        VBHumanRemoveChild(human, child); // нужен метод удалить всех детей
     }
 }
 

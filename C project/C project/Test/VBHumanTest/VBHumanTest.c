@@ -33,7 +33,11 @@ void VBPrintHumanTests(void) {
     
     VBHumanRemoveChild(human, child3);
     VBHumanRemoveChild(human, child2);
+//    VBHumanRemoveChild(human, child4);
+//    VBHumanRemoveChild(human, child);
+
     
+    VBHumanRemoveAllChildren(human);
     VBHumanRemoveAllChildren(human);
     VBHumanRemoveAllChildren(partner);
 

@@ -24,6 +24,7 @@ typedef struct VBArray VBArray;
 struct VBArray {
     VBObject _super;
     void *_arrayData[kVBArrayCount];
+    uint16_t _countObject;
 };
 
 extern
@@ -33,16 +34,16 @@ extern
 void VBArrayRemoveAllElements(VBArray *array);
 
 extern
-void VBArraySetObjectAtIndex(VBArray *array, void *data, uint16_t index);
+void VBArraySetObjectAtIndex(VBArray *array, void *object, uint16_t index);
 
 extern
 void *VBArrayGetObjectAtIndex(VBArray *array, uint16_t index);
 
 extern
-void VBArrayAddObject(VBArray *array, void *data);
+void VBArrayAddObject(VBArray *array, void *object);
 
 extern
-void VBArrayRemoveObject(VBArray *array, void *data);
+void VBArrayRemoveObject(VBArray *array, void *object);
 
 extern
 void VBArrayRemoveObjectAtIndex(VBArray *array, uint16_t index);
