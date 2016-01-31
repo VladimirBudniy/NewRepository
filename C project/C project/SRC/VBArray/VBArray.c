@@ -8,6 +8,9 @@
 
 #include "VBArray.h"
 
+#include <stdlib.h>
+#include <assert.h>
+
 const uint16_t kVBUndefindeIndex = UINT16_MAX;
 
 #pragma mark-
