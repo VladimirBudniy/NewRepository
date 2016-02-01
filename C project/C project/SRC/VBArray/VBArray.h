@@ -15,29 +15,26 @@
 #include "VBMacroHeader.h"
 #include "VBObject.h"
 
-static const uint16_t kVBArrayCount = 20;
+static const uint64_t kVBArrayCount = 20;
 
-extern const uint16_t kVBUndefindeIndex;
+extern const uint64_t kVBUndefindeIndex;
 
 typedef struct VBArray VBArray;
 
 struct VBArray {
     VBObject _super;
     void *_arrayData[kVBArrayCount];
-    uint16_t _countObject;
+    uint64_t _countObject;
 };
 
 extern
 void *VBArrayCreate(void);
 
 extern
-void VBArrayRemoveAllElements(VBArray *array);
+uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object);
 
 extern
-void VBArraySetObjectAtIndex(VBArray *array, void *object, uint16_t index);
-
-extern
-void *VBArrayGetObjectAtIndex(VBArray *array, uint16_t index);
+void *VBArrayGetObjectAtIndex(VBArray *array, uint64_t index);
 
 extern
 void VBArrayAddObject(VBArray *array, void *object);
@@ -46,9 +43,9 @@ extern
 void VBArrayRemoveObject(VBArray *array, void *object);
 
 extern
-void VBArrayRemoveObjectAtIndex(VBArray *array, uint16_t index);
+void VBArrayRemoveAllElements(VBArray *array);
 
 extern
-uint16_t VBArrayGetCount(VBArray *array);
+uint64_t VBArrayGetCount(VBArray *array);
 
 #endif /* VBArray_h */

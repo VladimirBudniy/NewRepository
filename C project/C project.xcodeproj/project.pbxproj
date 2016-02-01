@@ -15,7 +15,6 @@
 		E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0981C39DADB00EAE890 /* VBBitStepTask.c */; };
 		E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */; };
 		E7134FC31C59229200E30CAF /* VBArray.c in Sources */ = {isa = PBXBuildFile; fileRef = E7134FC11C59229200E30CAF /* VBArray.c */; };
-		E7134FC71C5EB4A000E30CAF /* VBDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = E7134FC51C5EB49E00E30CAF /* VBDynamicArray.c */; };
 		E73E93431C5116650045ED28 /* VBHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E933E1C5116650045ED28 /* VBHuman.c */; };
 		E73E93441C5116650045ED28 /* VBObject.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93411C5116650045ED28 /* VBObject.c */; };
 		E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93461C51166F0045ED28 /* VBHumanTest.c */; };
@@ -52,8 +51,6 @@
 		E707D09C1C39DAFE00EAE890 /* VBBitStepTaskTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBitStepTaskTest.h; sourceTree = "<group>"; };
 		E7134FC11C59229200E30CAF /* VBArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBArray.c; sourceTree = "<group>"; };
 		E7134FC21C59229200E30CAF /* VBArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArray.h; sourceTree = "<group>"; };
-		E7134FC51C5EB49E00E30CAF /* VBDynamicArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBDynamicArray.c; sourceTree = "<group>"; };
-		E7134FC61C5EB49F00E30CAF /* VBDynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDynamicArray.h; sourceTree = "<group>"; };
 		E73E933E1C5116650045ED28 /* VBHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBHuman.c; sourceTree = "<group>"; };
 		E73E933F1C5116650045ED28 /* VBHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHuman.h; sourceTree = "<group>"; };
 		E73E93411C5116650045ED28 /* VBObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBObject.c; sourceTree = "<group>"; };
@@ -105,7 +102,6 @@
 		E707D02E1C3332DF00EAE890 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				E7134FC41C5EB44E00E30CAF /* VBDynamicArray */,
 				E7134FC01C59227E00E30CAF /* VBArray */,
 				E73E93401C5116650045ED28 /* VBObject */,
 				E73E93491C5270580045ED28 /* VBString */,
@@ -199,15 +195,6 @@
 				E7134FC21C59229200E30CAF /* VBArray.h */,
 			);
 			path = VBArray;
-			sourceTree = "<group>";
-		};
-		E7134FC41C5EB44E00E30CAF /* VBDynamicArray */ = {
-			isa = PBXGroup;
-			children = (
-				E7134FC51C5EB49E00E30CAF /* VBDynamicArray.c */,
-				E7134FC61C5EB49F00E30CAF /* VBDynamicArray.h */,
-			);
-			path = VBDynamicArray;
 			sourceTree = "<group>";
 		};
 		E73E933D1C5116650045ED28 /* VBHuman */ = {
@@ -307,7 +294,6 @@
 				E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */,
 				E73E934C1C5270700045ED28 /* VBString.c in Sources */,
 				E73E93431C5116650045ED28 /* VBHuman.c in Sources */,
-				E7134FC71C5EB4A000E30CAF /* VBDynamicArray.c in Sources */,
 				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
 				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
 				E73E93441C5116650045ED28 /* VBObject.c in Sources */,

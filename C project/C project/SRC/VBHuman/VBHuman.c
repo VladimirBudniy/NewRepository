@@ -246,11 +246,11 @@ void VBHumanRemoveChild(VBHuman *human, VBHuman *child) {
     VBArrayRemoveObject(VBHumanGetChildren(human), child);
 }
 
-void VBHumanRemoveAllChildren(VBHuman *human) {   // removed only half of array
+void VBHumanRemoveAllChildren(VBHuman *human) {
     VBReturnMacro(human);
     
     VBArray *array = VBHumanGetChildren(human);
-    for (int index = 0; index < VBArrayGetCount(array); index++) {
+    for (int index = VBArrayGetCount(array); index >= 0; index--) {
         VBHuman *child = VBHumanGetChildAtIndex(human, index);
         VBHumanRemoveChild(human, child);
     }
@@ -276,40 +276,3 @@ void VBHumanDivorce(VBHuman *human) {
     VBHumanSetPartner(human, NULL);
 }
 
-
-//static
-//void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index);
-//extern
-//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
-//static
-//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
-//void VBHumanSetChildAtIndex(VBHuman *human, VBHuman *child, uint8_t index) {
-//    VBReturnMacro(human);
-//
-//    if (VBHumanGetChildAtIndex(human, index) == NULL) {
-//        if (VBHumanGetGender(human) == kVBHumanMaleGenderType) {
-//            VBHumanSetFather(child, human);
-//        } else {
-//            VBHumanSetMother(child, human);
-//        }
-//    }
-//
-//    VBAssignMacro(human->_childrenArray[index], child);
-//}
-
-//VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index) {
-//    VBReturnNullMacro(human);
-//
-//    return human->_childrenArray[index];
-//}
-
-//void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index) {
-//    VBReturnMacro(human);
-//
-//    if (VBHumanGetChildAtIndex(human, index) != NULL) {
-//        VBHumanGetGender(human) == kVBHumanMaleGenderType
-//        ? VBHumanSetFather(VBHumanGetChildAtIndex(human, index), NULL)
-//        : VBHumanSetMother(VBHumanGetChildAtIndex(human, index), NULL);
-//        VBHumanSetChildAtIndex(human, NULL, index);
-//    }
-//}

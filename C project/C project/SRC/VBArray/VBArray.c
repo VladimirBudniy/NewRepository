@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-const uint16_t kVBUndefindeIndex = UINT16_MAX;
+const uint64_t kVBUndefindeIndex = UINT16_MAX;
 
 #pragma mark-
 #pragma mark Private Declarations
@@ -20,13 +20,16 @@ static
 void __VBArrayDeallocate(void *array);
 
 static
-uint16_t VBArrayGetIndexOfObject(VBArray *array, void *object);
+void VBArraySetObjectAtIndex(VBArray *array, void *object, uint64_t index);
 
 static
-void VBArrayShiftForIndex(VBArray *array, uint16_t index);
+void VBArrayShiftForIndex(VBArray *array, uint64_t index);
 
 static
-void VBArrayAddCountObject(VBArray *array);
+void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index);
+
+static
+void VBArraySetCount(VBArray *array, uint64_t count);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -39,6 +42,7 @@ void __VBArrayDeallocate(void *array) {
 
 void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
+    VBArraySetCount(array, 0);
     
     return array;
 }
@@ -47,41 +51,44 @@ void *VBArrayCreate(void) {
 #pragma mark Accessors
 
 
-void VBArraySetObjectAtIndex(VBArray *array, void *object, uint16_t index) {
+void VBArraySetObjectAtIndex(VBArray *array, void *object, uint64_t index) {
     VBReturnMacro(array);
     
-    if (VBArrayGetCount(array) == kVBArrayCount) {
-        return;
-    }
-    
     VBRetainMacro(array->_arrayData[index], object);
-    VBArrayAddCountObject(array);
 }
 
-void *VBArrayGetObjectAtIndex(VBArray *array, uint16_t index) {
+void *VBArrayGetObjectAtIndex(VBArray *array, uint64_t index) {
     VBReturnNullMacro(array);
     
     return array->_arrayData[index];
 }
 
-uint16_t VBArrayGetCount(VBArray *array) {
+void VBArraySetCount(VBArray *array, uint64_t count) {
+    VBReturnMacro(array);
+    
+    VBAssignMacro(array->_countObject, count);
+}
+
+uint64_t VBArrayGetCount(VBArray *array) {
     return array->_countObject;
 }
 
 void VBArrayAddObject(VBArray *array, void *object) {
     VBReturnMacro(array);
     
-    uint16_t index = VBArrayGetIndexOfObject(array, NULL);
+    uint64_t index = VBArrayGetIndexOfObject(array, NULL);
     if (index != kVBUndefindeIndex) {
         VBArraySetObjectAtIndex(array, object, index);
     }
+    VBArraySetCount(array, VBArrayGetCount(array) + 1);
 }
 
-void VBArrayRemoveObjectAtIndex(VBArray *array, uint16_t index) {
+void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
     VBReturnMacro(array);
     
     if (VBArrayGetObjectAtIndex(array, index) != NULL) {
         VBArraySetObjectAtIndex(array, NULL, index);
+        VBArraySetCount(array, VBArrayGetCount(array) - 1);
     }
 }
 
@@ -89,7 +96,7 @@ void VBArrayRemoveObject(VBArray *array, void *object) {
 
     VBReturnMacro(array);
     
-    uint16_t index = VBArrayGetIndexOfObject(array, object);
+    uint64_t index = VBArrayGetIndexOfObject(array, object);
     if (index != kVBUndefindeIndex) {
         VBArrayRemoveObjectAtIndex(array, index);
         VBArrayShiftForIndex(array, index);
@@ -99,7 +106,7 @@ void VBArrayRemoveObject(VBArray *array, void *object) {
 void VBArrayRemoveAllElements(VBArray *array) {
     VBReturnMacro(array);
     
-    for (int index = 0; index < kVBArrayCount; index++) {
+    for (int index = 0; index < VBArrayGetCount(array); index++) {
         VBArrayRemoveObjectAtIndex(array, index);
     }
 }
@@ -107,10 +114,10 @@ void VBArrayRemoveAllElements(VBArray *array) {
 #pragma mark - 
 #pragma mark Private
 
-uint16_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
+uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
     VBReturnValueMacro(array);
     
-    for (int index = 0; index < kVBArrayCount; index++) {
+    for (int index = 0; index <= VBArrayGetCount(array); index++) {
         if (VBArrayGetObjectAtIndex(array, index) == object) {
             return index;
         }
@@ -119,7 +126,7 @@ uint16_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
     return kVBUndefindeIndex;
 }
 
-void VBArrayShiftForIndex(VBArray *array, uint16_t index) {
+void VBArrayShiftForIndex(VBArray *array, uint64_t index) {
     VBReturnMacro(array);
     
     for (; index < VBArrayGetCount(array); index++) {
@@ -130,18 +137,5 @@ void VBArrayShiftForIndex(VBArray *array, uint16_t index) {
             VBArraySetObjectAtIndex(array, secondObject, index);
             VBArraySetObjectAtIndex(array, NULL, index + 1);
         }
-    }
-}
-
-void VBArrayAddCountObject(VBArray *array) {
-    VBReturnMacro(array);
-    
-    uint16_t count = 0;
-    for (int index = 0; index < kVBArrayCount; index++) {
-        if (VBArrayGetObjectAtIndex(array, index) != 0) {
-            count++;
-        }
-        
-        array->_countObject = count;
     }
 }
