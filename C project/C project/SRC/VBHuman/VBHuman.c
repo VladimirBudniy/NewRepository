@@ -250,7 +250,7 @@ void VBHumanRemoveAllChildren(VBHuman *human) {
     VBReturnMacro(human);
     
     VBArray *array = VBHumanGetChildren(human);
-    for (int index = VBArrayGetCount(array); index >= 0; index--) {
+    for (uint64_t index = VBArrayGetCount(array); index > 0; index--) {
         VBHuman *child = VBHumanGetChildAtIndex(human, index);
         VBHumanRemoveChild(human, child);
     }

@@ -47,7 +47,7 @@ void *VBObjectRetain(void *object) {
     
     VBObject *newObject = object;
     
-    assert(VBObjectGetRetaineCount(newObject) != 0);
+//    assert(VBObjectGetRetaineCount(newObject) != 0);
     assert(UINT16_MAX > VBObjectGetRetaineCount(newObject));
     
     newObject->_retainCount++;
