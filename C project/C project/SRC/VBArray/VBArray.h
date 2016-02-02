@@ -50,5 +50,7 @@ uint64_t VBArrayGetCount(VBArray *array);
 extern
 uint64_t VBArrayGetCapacity(VBArray *array);
 
+extern
+void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index);
 
 #endif /* VBArray_h */

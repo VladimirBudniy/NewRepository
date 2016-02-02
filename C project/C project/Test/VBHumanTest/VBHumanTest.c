@@ -27,7 +27,7 @@ void VBPrintHumanTests(void) {
 //    VBHuman *child7 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child7"), kVBHumanFemaleGenderType);
 //    VBHuman *child8 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child8"), kVBHumanFemaleGenderType);
 //    VBHuman *child9 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child9"), kVBHumanFemaleGenderType);
-    
+    VBString *string = VBStringCreateWithData("name");
     
     VBArray *array = VBArrayCreate();
     
@@ -44,9 +44,11 @@ void VBPrintHumanTests(void) {
 //    VBArrayAddObject(array, child9);
     
     for (int i = 0; i < 50; i++) {
-        VBArrayAddObject(array, i);
+        VBArrayAddObjectAtIndex(array, string, i);
     }
+    
     VBArrayRemoveAllElements(array);
     
+    VBArray *array1 = VBArrayCreate();
 
 }

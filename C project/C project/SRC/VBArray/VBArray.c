@@ -19,8 +19,7 @@ const uint64_t kVBUndefindeIndex = UINT16_MAX;
 static
 void __VBArrayDeallocate(void *array);
 
-static
-void VBArraySetObjectAtIndex(VBArray *array, void *object, uint64_t index);
+
 
 static
 void VBArrayShiftForIndex(VBArray *array, uint64_t index);
@@ -139,6 +138,16 @@ void VBArrayRemoveAllElements(VBArray *array) {
         VBArrayRemoveObjectAtIndex(array, index);
     }
 }
+
+void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) { // remove after tests
+    VBReturnMacro(array);
+    
+    VBArraySetCapacity(array, VBArrayGetCount(array) + 1);
+
+    VBArraySetObjectAtIndex(array, object, index);
+    VBArraySetCount(array, VBArrayGetCount(array) + 1);
+}
+
 
 #pragma mark - 
 #pragma mark Private
