@@ -59,5 +59,6 @@ void VBPrintHumanTests(void) {
     for (int i = 0; i < 50; i++) {
         VBArrayAddObjectAtIndex(array1, string, i);
     }
+    VBArrayRemoveAllElements(array1);
 
 }

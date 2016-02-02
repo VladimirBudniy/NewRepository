@@ -38,6 +38,11 @@ void **VBArrayGetData(VBArray *array);
 static
 void VBArraySetCapacity(VBArray *array, uint64_t capacity);
 
+// создать bool проверку каунт == капасити или превышен шаг
+// добавить метот изменения размера Resize он же и зануление пустых ячеек
+
+// добавить метот Resize в сет капасити
+
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
@@ -49,7 +54,7 @@ void __VBArrayDeallocate(void *array) {
 
 void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
-    VBArraySetCapacity(array, 1);
+    VBArraySetCapacity(array, 0); // создовать сразу с N кол-вом памяти //////////////////////////////////////
     VBArraySetCount(array, 0);
     
     return array;
@@ -59,8 +64,10 @@ void *VBArrayCreate(void) {
 #pragma mark Accessors
 
 
-void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
+void VBArraySetCapacity(VBArray *array, uint64_t capacity) { /////////// добавить очистку при удалении (оставлять запас) и проверить работу очистки ///////// заменить капасити на каунт
+    
     VBReturnMacro(array);
+    
     if (array->_capacity == capacity) {
         return;
     }
@@ -117,7 +124,7 @@ uint64_t VBArrayGetCount(VBArray *array) {
 void VBArrayAddObject(VBArray *array, void *object) {
     VBReturnMacro(array);
     
-    VBArraySetCapacity(array, VBArrayGetCount(array) + 1);
+    VBArraySetCapacity(array, VBArrayGetCount(array) + 1); // добавить проверку и метот расширения массива resize
     
     uint64_t index = VBArrayGetIndexOfObject(array, NULL);
     
@@ -133,8 +140,7 @@ void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
         VBArrayShiftForIndex(array, index);
         VBArraySetCount(array, VBArrayGetCount(array) - 1);
         VBArraySetCapacity(array, VBArrayGetCount(array));
-        
-//        добавить метод занулени пустых ячеек вместо капасити ///////////////////////////////
+//        добавить метот сужения масива тоже самое что зануление и удаление неиспользуемых строк ///////////////////////////////
     
     }
 }
@@ -159,7 +165,7 @@ void VBArrayRemoveAllElements(VBArray *array) {
 void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) { // remove after tests
     VBReturnMacro(array);
     
-    VBArraySetCapacity(array, VBArrayGetCount(array) + 1);
+    VBArraySetCapacity(array, VBArrayGetCount(array) + 1); // добавить проверку и метот расширения массива resize
 
     VBArraySetObjectAtIndex(array, object, index);
     VBArraySetCount(array, VBArrayGetCount(array) + 1);
