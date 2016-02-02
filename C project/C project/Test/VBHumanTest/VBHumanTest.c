@@ -15,7 +15,7 @@
 #include "VBArray.h"
 
 void VBPrintHumanTests(void) {
-//
+
 //    VBHuman *human = VBHumanCreateWithNameGender(VBStringCreateWithData("firdt name"), kVBHumanMaleGenderType);
 //    VBHuman *partner = VBHumanCreateWithNameGender(VBStringCreateWithData("second name"), kVBHumanFemaleGenderType);
 //    VBHuman *child1 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child1"), kVBHumanFemaleGenderType);
@@ -28,9 +28,9 @@ void VBPrintHumanTests(void) {
 //    VBHuman *child8 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child8"), kVBHumanFemaleGenderType);
 //    VBHuman *child9 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child9"), kVBHumanFemaleGenderType);
     VBString *string = VBStringCreateWithData("name");
-    
+
     VBArray *array = VBArrayCreate();
-    
+//
 //    VBArrayAddObject(array, human);
 //    VBArrayAddObject(array, partner);
 //    VBArrayAddObject(array, child1);
@@ -43,12 +43,21 @@ void VBPrintHumanTests(void) {
 //    VBArrayAddObject(array, child8);
 //    VBArrayAddObject(array, child9);
     
-    for (int i = 0; i < 50; i++) {
+    
+    
+    for (int i = 0; i < 100; i++) {
         VBArrayAddObjectAtIndex(array, string, i);
     }
+    
+//    for (int i = 50; i >= 0; i--) {
+//    VBArrayRemoveObject(array, VBArrayGetObjectAtIndex(array, i));
+//    }
     
     VBArrayRemoveAllElements(array);
     
     VBArray *array1 = VBArrayCreate();
+    for (int i = 0; i < 50; i++) {
+        VBArrayAddObjectAtIndex(array1, string, i);
+    }
 
 }

@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 const uint64_t kVBUndefindeIndex = UINT16_MAX;
 
@@ -18,8 +19,6 @@ const uint64_t kVBUndefindeIndex = UINT16_MAX;
 
 static
 void __VBArrayDeallocate(void *array);
-
-
 
 static
 void VBArrayShiftForIndex(VBArray *array, uint64_t index);
@@ -33,8 +32,8 @@ void VBArraySetCount(VBArray *array, uint64_t count);
 static
 void VBArraySetData(VBArray *array, void **data);
 
-//static
-//void **VBArrayGetData(VBArray *array);
+static
+void **VBArrayGetData(VBArray *array);
 
 static
 void VBArraySetCapacity(VBArray *array, uint64_t capacity);
@@ -50,8 +49,7 @@ void __VBArrayDeallocate(void *array) {
 
 void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
-    VBArraySetCapacity(array, 0);
-//    array->_arrayData = calloc(0, sizeof(void *));
+    VBArraySetCapacity(array, 1);
     VBArraySetCount(array, 0);
     
     return array;
@@ -62,12 +60,20 @@ void *VBArrayCreate(void) {
 
 
 void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
-    VBAssignMacro(array->_capacity, capacity);
+    VBReturnMacro(array);
+    if (array->_capacity == capacity) {
+        return;
+    }
     
+    uint64_t count = VBArrayGetCount(array);
     size_t size = sizeof(void *);
     
-    void **pointer = realloc(array->_arrayData, array->_capacity * size);
-    VBArraySetData(array, pointer);
+    if (array->_capacity < capacity) {
+        VBArraySetData(array, realloc(VBArrayGetData(array), capacity * size));
+        memset(&array->_arrayData[count], 0, (capacity - count) * sizeof(void *));
+    }
+    
+    VBAssignMacro(array->_capacity, capacity);
 }
 
 uint64_t VBArrayGetCapacity(VBArray *array) {
@@ -75,7 +81,15 @@ uint64_t VBArrayGetCapacity(VBArray *array) {
 }
 
 void VBArraySetData(VBArray *array, void **data) {
+    VBReturnMacro(array);
+    
     VBAssignMacro(array->_arrayData, data);
+}
+
+void **VBArrayGetData(VBArray *array) {
+    VBReturnNullMacro(array);
+    
+    return array->_arrayData;
 }
 
 void VBArraySetObjectAtIndex(VBArray *array, void *object, uint64_t index) {
@@ -116,10 +130,13 @@ void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
     
     if (VBArrayGetObjectAtIndex(array, index) != NULL) {
         VBArraySetObjectAtIndex(array, NULL, index);
+        VBArrayShiftForIndex(array, index);
         VBArraySetCount(array, VBArrayGetCount(array) - 1);
-    }
+        VBArraySetCapacity(array, VBArrayGetCount(array));
+        
+//        добавить метод занулени пустых ячеек вместо капасити ///////////////////////////////
     
-    VBArraySetCapacity(array, VBArrayGetCount(array));
+    }
 }
 
 void VBArrayRemoveObject(VBArray *array, void *object) {
@@ -134,7 +151,7 @@ void VBArrayRemoveObject(VBArray *array, void *object) {
 void VBArrayRemoveAllElements(VBArray *array) {
     VBReturnMacro(array);
     
-    for (int index = 0; index <= VBArrayGetCount(array); index++) {
+    for (int index = VBArrayGetCount(array); index >= 0; index--) {
         VBArrayRemoveObjectAtIndex(array, index);
     }
 }
@@ -177,3 +194,16 @@ void VBArrayShiftForIndex(VBArray *array, uint64_t index) {
         }
     }
 }
+
+void *VBArrayGetFirstObject(VBArray *array) {
+    VBReturnNullMacro(array);
+    
+    return VBArrayGetObjectAtIndex(array, 0);
+}
+
+void *VBArrayGetLastObject(VBArray *array) {
+    VBReturnNullMacro(array);
+    
+    return VBArrayGetObjectAtIndex(array, VBArrayGetCount(array) - 1);
+}
+
