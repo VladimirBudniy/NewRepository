@@ -59,5 +59,4 @@ void *VBArrayGetFirstObject(VBArray *array);
 extern
 void *VBArrayGetLastObject(VBArray *array);
 
-
 #endif /* VBArray_h */

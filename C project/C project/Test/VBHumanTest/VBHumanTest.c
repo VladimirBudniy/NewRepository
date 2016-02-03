@@ -45,13 +45,13 @@ void VBPrintHumanTests(void) {
     
     
     
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         VBArrayAddObjectAtIndex(array, string, i);
     }
     
-//    for (int i = 50; i >= 0; i--) {
-//    VBArrayRemoveObject(array, VBArrayGetObjectAtIndex(array, i));
-//    }
+    for (int i = 19; i >= 0; i--) {
+    VBArrayRemoveObject(array, VBArrayGetObjectAtIndex(array, i));
+    }
     
     VBArrayRemoveAllElements(array);
     
@@ -62,3 +62,6 @@ void VBPrintHumanTests(void) {
     VBArrayRemoveAllElements(array1);
 
 }
+
+
+

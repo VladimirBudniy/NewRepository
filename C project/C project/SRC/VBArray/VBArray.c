@@ -12,7 +12,9 @@
 #include <assert.h>
 #include <string.h>
 
-const uint64_t kVBUndefindeIndex = UINT16_MAX;
+static const uint64_t kVBArryInitialCapacity = 5;
+
+const uint64_t kVBUndefindeIndex = UINT64_MAX;
 
 #pragma mark-
 #pragma mark Private Declarations
@@ -38,7 +40,14 @@ void **VBArrayGetData(VBArray *array);
 static
 void VBArraySetCapacity(VBArray *array, uint64_t capacity);
 
-// создать bool проверку каунт == капасити или превышен шаг
+static
+bool VBArrayNeedChangeSize(VBArray *array);
+
+static
+void VBArrayChangeSizeArrayIfNeeded(VBArray *array);
+
+
+// добавить в bool параметр превышен шаг
 // добавить метот изменения размера Resize он же и зануление пустых ячеек
 
 // добавить метот Resize в сет капасити
@@ -54,7 +63,7 @@ void __VBArrayDeallocate(void *array) {
 
 void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
-    VBArraySetCapacity(array, 0); // создовать сразу с N кол-вом памяти //////////////////////////////////////
+    VBArraySetCapacity(array, kVBArryInitialCapacity);
     VBArraySetCount(array, 0);
     
     return array;
@@ -64,7 +73,7 @@ void *VBArrayCreate(void) {
 #pragma mark Accessors
 
 
-void VBArraySetCapacity(VBArray *array, uint64_t capacity) { /////////// добавить очистку при удалении (оставлять запас) и проверить работу очистки ///////// заменить капасити на каунт
+void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
     
     VBReturnMacro(array);
     
@@ -76,8 +85,9 @@ void VBArraySetCapacity(VBArray *array, uint64_t capacity) { /////////// доб�
     size_t size = sizeof(void *);
     
     if (array->_capacity < capacity) {
-        VBArraySetData(array, realloc(VBArrayGetData(array), capacity * size));
-        memset(&array->_arrayData[count], 0, (capacity - count) * sizeof(void *));
+        void *pointer = realloc(VBArrayGetData(array), capacity * size);
+        VBArraySetData(array, pointer);
+        memset(&array->_arrayData[count], 0, (capacity - count) * size);
     }
     
     VBAssignMacro(array->_capacity, capacity);
@@ -121,10 +131,10 @@ uint64_t VBArrayGetCount(VBArray *array) {
     return array->_countObject;
 }
 
-void VBArrayAddObject(VBArray *array, void *object) {
+void VBArrayAddObject(VBArray *array, void *object) { // добавить проверку и метот расширения массива resize
     VBReturnMacro(array);
     
-    VBArraySetCapacity(array, VBArrayGetCount(array) + 1); // добавить проверку и метот расширения массива resize
+    VBArraySetCapacity(array, VBArrayGetCount(array) + 1);
     
     uint64_t index = VBArrayGetIndexOfObject(array, NULL);
     
@@ -139,8 +149,7 @@ void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
         VBArraySetObjectAtIndex(array, NULL, index);
         VBArrayShiftForIndex(array, index);
         VBArraySetCount(array, VBArrayGetCount(array) - 1);
-        VBArraySetCapacity(array, VBArrayGetCount(array));
-//        добавить метот сужения масива тоже самое что зануление и удаление неиспользуемых строк ///////////////////////////////
+        VBArrayChangeSizeArrayIfNeeded(array);
     
     }
 }
@@ -165,15 +174,40 @@ void VBArrayRemoveAllElements(VBArray *array) {
 void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) { // remove after tests
     VBReturnMacro(array);
     
-    VBArraySetCapacity(array, VBArrayGetCount(array) + 1); // добавить проверку и метот расширения массива resize
-
-    VBArraySetObjectAtIndex(array, object, index);
     VBArraySetCount(array, VBArrayGetCount(array) + 1);
+    VBArrayChangeSizeArrayIfNeeded(array);
+    VBArraySetObjectAtIndex(array, object, index);
+    
 }
-
 
 #pragma mark - 
 #pragma mark Private
+
+bool VBArrayNeedChangeSize(VBArray *array) {
+    uint64_t count = VBArrayGetCount(array);
+    uint64_t capacity = VBArrayGetCapacity(array);
+    
+    if (count == capacity || count * 2 <= capacity) {
+        return true;
+    }
+    
+    return false;
+}
+
+void VBArrayChangeSizeArrayIfNeeded(VBArray *array) {
+    VBReturnMacro(array);
+    
+    uint64_t count = VBArrayGetCount(array);
+    uint64_t capacity = VBArrayGetCapacity(array);
+    
+    if (VBArrayNeedChangeSize(array)) {
+        if ( count >= capacity) {
+            VBArraySetCapacity(array, (capacity + count));
+        } else {
+            VBArraySetCapacity(array, (capacity - (count / 2)));
+        }
+    }
+}
 
 uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
     VBReturnValueMacro(array);
