@@ -1,4 +1,4 @@
-
+ 
 //  VBHumanTest.c
 //  C project
 //
@@ -45,15 +45,15 @@ void VBPrintHumanTests(void) {
     
     
     
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 1000; i++) {
         VBArrayAddObjectAtIndex(array, string, i);
     }
     
-    for (int i = 19; i >= 0; i--) {
-    VBArrayRemoveObject(array, VBArrayGetObjectAtIndex(array, i));
+    for (int i = 999; i >= 0; i--) {
+        VBArrayRemoveObjectAtIndex(array, i);
     }
     
-    VBArrayRemoveAllElements(array);
+//    VBArrayRemoveAllElements(array);
     
     VBArray *array1 = VBArrayCreate();
     for (int i = 0; i < 50; i++) {

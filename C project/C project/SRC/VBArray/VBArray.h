@@ -59,4 +59,10 @@ void *VBArrayGetFirstObject(VBArray *array);
 extern
 void *VBArrayGetLastObject(VBArray *array);
 
+extern
+bool VBArrayContainObject(VBArray *array, void *object);
+
+extern
+void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index);
+
 #endif /* VBArray_h */

@@ -12,7 +12,9 @@
 #include <assert.h>
 #include <string.h>
 
-static const uint64_t kVBArryInitialCapacity = 5;
+static const uint64_t kVBArrayStockValue = 5;
+static const uint64_t kVBArrayIncreaseValue  = 1.2;
+static const uint64_t kVBArrayDecreaseValue  = 0.8;
 
 const uint64_t kVBUndefindeIndex = UINT64_MAX;
 
@@ -24,9 +26,6 @@ void __VBArrayDeallocate(void *array);
 
 static
 void VBArrayShiftForIndex(VBArray *array, uint64_t index);
-
-static
-void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index);
 
 static
 void VBArraySetCount(VBArray *array, uint64_t count);
@@ -44,13 +43,10 @@ static
 bool VBArrayNeedChangeSize(VBArray *array);
 
 static
-void VBArrayChangeSizeArrayIfNeeded(VBArray *array);
+void VBArrayChangeSizeIfNeeded(VBArray *array);
 
-
-// добавить в bool параметр превышен шаг
-// добавить метот изменения размера Resize он же и зануление пустых ячеек
-
-// добавить метот Resize в сет капасити
+static
+uint64_t VBArrayProvideSize(VBArray *array);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -63,7 +59,7 @@ void __VBArrayDeallocate(void *array) {
 
 void *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
-    VBArraySetCapacity(array, kVBArryInitialCapacity);
+    VBArraySetCapacity(array, 0);
     VBArraySetCount(array, 0);
     
     return array;
@@ -71,27 +67,6 @@ void *VBArrayCreate(void) {
 
 #pragma mark-
 #pragma mark Accessors
-
-
-void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
-    
-    VBReturnMacro(array);
-    
-    if (array->_capacity == capacity) {
-        return;
-    }
-    
-    uint64_t count = VBArrayGetCount(array);
-    size_t size = sizeof(void *);
-    
-    if (array->_capacity < capacity) {
-        void *pointer = realloc(VBArrayGetData(array), capacity * size);
-        VBArraySetData(array, pointer);
-        memset(&array->_arrayData[count], 0, (capacity - count) * size);
-    }
-    
-    VBAssignMacro(array->_capacity, capacity);
-}
 
 uint64_t VBArrayGetCapacity(VBArray *array) {
     return array->_capacity;
@@ -104,7 +79,7 @@ void VBArraySetData(VBArray *array, void **data) {
 }
 
 void **VBArrayGetData(VBArray *array) {
-    VBReturnNullMacro(array);
+    VBReturnValueMacro(array, NULL);
     
     return array->_arrayData;
 }
@@ -116,7 +91,7 @@ void VBArraySetObjectAtIndex(VBArray *array, void *object, uint64_t index) {
 }
 
 void *VBArrayGetObjectAtIndex(VBArray *array, uint64_t index) {
-    VBReturnNullMacro(array);
+    VBReturnValueMacro(array, NULL);
     
     return array->_arrayData[index];
 }
@@ -131,86 +106,79 @@ uint64_t VBArrayGetCount(VBArray *array) {
     return array->_countObject;
 }
 
-void VBArrayAddObject(VBArray *array, void *object) { // добавить проверку и метот расширения массива resize
-    VBReturnMacro(array);
+void *VBArrayGetFirstObject(VBArray *array) {
+    VBReturnValueMacro(array, NULL);
     
-    VBArraySetCapacity(array, VBArrayGetCount(array) + 1);
-    
-    uint64_t index = VBArrayGetIndexOfObject(array, NULL);
-    
-    VBArraySetObjectAtIndex(array, object, index);
-    VBArraySetCount(array, VBArrayGetCount(array) + 1);
+    return VBArrayGetObjectAtIndex(array, 0);
 }
 
-void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
+void *VBArrayGetLastObject(VBArray *array) {
+    VBReturnValueMacro(array, NULL);
+    
+    return VBArrayGetObjectAtIndex(array, VBArrayGetCount(array) - 1);
+}
+
+void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
     VBReturnMacro(array);
     
-    if (VBArrayGetObjectAtIndex(array, index) != NULL) {
-        VBArraySetObjectAtIndex(array, NULL, index);
-        VBArrayShiftForIndex(array, index);
-        VBArraySetCount(array, VBArrayGetCount(array) - 1);
-        VBArrayChangeSizeArrayIfNeeded(array);
-    
+    if (array->_capacity == capacity) {
+        return;
     }
-}
-
-void VBArrayRemoveObject(VBArray *array, void *object) {
-
-    VBReturnMacro(array);
     
-    uint64_t index = VBArrayGetIndexOfObject(array, object);
-    VBArrayRemoveObjectAtIndex(array, index);
-    VBArrayShiftForIndex(array, index);
-}
-
-void VBArrayRemoveAllElements(VBArray *array) {
-    VBReturnMacro(array);
+    uint64_t count = VBArrayGetCount(array);
+    size_t size = sizeof(void *);
     
-    for (int index = VBArrayGetCount(array); index >= 0; index--) {
-        VBArrayRemoveObjectAtIndex(array, index);
+    if (array->_capacity < capacity) {
+        VBArraySetData(array, realloc(VBArrayGetData(array), capacity * size));
+        memset(&array->_arrayData[count], 0, (capacity - count) * size);
     }
-}
-
-void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) { // remove after tests
-    VBReturnMacro(array);
     
-    VBArraySetCount(array, VBArrayGetCount(array) + 1);
-    VBArrayChangeSizeArrayIfNeeded(array);
-    VBArraySetObjectAtIndex(array, object, index);
-    
+    VBAssignMacro(array->_capacity, capacity);
 }
 
 #pragma mark - 
 #pragma mark Private
 
-bool VBArrayNeedChangeSize(VBArray *array) {
+bool VBArrayNeedChangeSize(VBArray *array) { // причесать бульку
     uint64_t count = VBArrayGetCount(array);
     uint64_t capacity = VBArrayGetCapacity(array);
     
-    if (count == capacity || count * 2 <= capacity) {
+    if (count == capacity || count + kVBArrayStockValue < capacity) {
         return true;
     }
     
     return false;
 }
 
-void VBArrayChangeSizeArrayIfNeeded(VBArray *array) {
-    VBReturnMacro(array);
+bool VBArrayContainObject(VBArray *array, void *object) {
+    return VBArrayGetIndexOfObject(array, object) != kVBUndefindeIndex
+                                                        ? true : false;
+}
+
+uint64_t VBArrayProvideSize(VBArray *array) {
+    VBReturnValueMacro(array,kVBUndefindeIndex);
     
     uint64_t count = VBArrayGetCount(array);
     uint64_t capacity = VBArrayGetCapacity(array);
     
-    if (VBArrayNeedChangeSize(array)) {
-        if ( count >= capacity) {
-            VBArraySetCapacity(array, (capacity + count));
+    if (count == capacity) {
+            capacity = (capacity + kVBArrayStockValue) * kVBArrayIncreaseValue;
         } else {
-            VBArraySetCapacity(array, (capacity - (count / 2)));
+            capacity = capacity * kVBArrayDecreaseValue;
         }
+    
+    return capacity;
+}
+
+void VBArrayChangeSizeIfNeeded(VBArray *array) {
+    VBReturnMacro(array);
+    if (VBArrayNeedChangeSize(array)) {
+        VBArraySetCapacity(array, VBArrayProvideSize(array));
     }
 }
 
 uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
-    VBReturnValueMacro(array);
+    VBReturnValueMacro(object, kVBUndefindeIndex);
     
     for (int index = 0; index <= VBArrayGetCount(array); index++) {
         if (VBArrayGetObjectAtIndex(array, index) == object) {
@@ -224,10 +192,10 @@ uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
 void VBArrayShiftForIndex(VBArray *array, uint64_t index) {
     VBReturnMacro(array);
     
+    void *firstObject = VBArrayGetObjectAtIndex(array, index);
+    void *secondObject = VBArrayGetObjectAtIndex(array, index + 1);
+    
     for (; index < VBArrayGetCount(array); index++) {
-        void *firstObject = VBArrayGetObjectAtIndex(array, index);
-        void *secondObject = VBArrayGetObjectAtIndex(array, index + 1);
-        
         if (firstObject == NULL) {
             VBArraySetObjectAtIndex(array, secondObject, index);
             VBArraySetObjectAtIndex(array, NULL, index + 1);
@@ -235,15 +203,52 @@ void VBArrayShiftForIndex(VBArray *array, uint64_t index) {
     }
 }
 
-void *VBArrayGetFirstObject(VBArray *array) {
-    VBReturnNullMacro(array);
+void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) {
+    VBReturnMacro(array);
+
+    VBArrayChangeSizeIfNeeded(array);
+    VBArraySetCount(array, VBArrayGetCount(array) + 1);
+    VBArraySetObjectAtIndex(array, object, index);
     
-    return VBArrayGetObjectAtIndex(array, 0);
 }
 
-void *VBArrayGetLastObject(VBArray *array) {
-    VBReturnNullMacro(array);
+void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
+    VBReturnMacro(array);
     
-    return VBArrayGetObjectAtIndex(array, VBArrayGetCount(array) - 1);
+    if (VBArrayGetObjectAtIndex(array, index) != NULL) {
+        VBArraySetObjectAtIndex(array, NULL, index);
+        VBArrayShiftForIndex(array, index);
+        VBArraySetCount(array, VBArrayGetCount(array) - 1);
+        VBArrayChangeSizeIfNeeded(array);
+        
+    }
+}
+
+#pragma mark-
+#pragma mark Public Implementations
+
+void VBArrayRemoveObject(VBArray *array, void *object) {
+    VBReturnMacro(array);
+    
+    uint64_t index = VBArrayGetIndexOfObject(array, object);
+    VBArrayRemoveObjectAtIndex(array, index);
+    
+}
+
+void VBArrayRemoveAllElements(VBArray *array) {
+    VBReturnMacro(array);
+    
+    for (int64_t index = VBArrayGetCount(array); index >= 0; index--) {
+        VBArrayRemoveObjectAtIndex(array, index);
+        
+    }
+}
+
+void VBArrayAddObject(VBArray *array, void *object) {
+    VBReturnMacro(array);
+    
+    uint64_t index = VBArrayGetIndexOfObject(array, NULL);
+    VBArrayAddObjectAtIndex(array, object, index);
+    
 }
 

@@ -131,7 +131,7 @@ void VBHumanSetName(VBHuman *human, VBString *string) {
 }
 
 void *VBHumanGetName(VBHuman *human) {
-    VBReturnNullMacro(human);
+    VBReturnValueMacro(human, NULL);
     
     return human->_string;
 }
@@ -157,7 +157,7 @@ void VBHumanSetAge(VBHuman *human, uint8_t age) {
 }
 
 uint8_t VBHumanGetAge(VBHuman *human) {
-    VBReturnValueMacro(human);
+    VBReturnValueMacro(human, 0);
     
     return human->_age;
 }
@@ -168,7 +168,7 @@ void VBHumanSetChild(VBHuman *human, uint8_t child) {
 }
 
 uint8_t VBHumanGetChild(VBHuman *human) {
-    VBReturnValueMacro(human);
+    VBReturnValueMacro(human, 0);
     
     return human->_child;
 }
@@ -186,13 +186,13 @@ void VBHumanSetPartner(VBHuman *human, VBHuman *partner) {
 }
 
 VBHuman *VBHumanGetPartner(VBHuman *human) {
-    VBReturnNullMacro(human);
+    VBReturnValueMacro(human, NULL);
 
     return human->_partner;
 }
 
 bool VBHumanGetIsMarried(VBHuman *human) {
-    VBReturnNullMacro(human);
+    VBReturnValueMacro(human, NULL);
     
     return VBHumanGetPartner(human) ? true : false;
 }
@@ -204,7 +204,7 @@ void VBHumanSetMother(VBHuman *human, VBHuman *mother) {
 }
 
 VBHuman *VBHumanGetMother(VBHuman *human) {
-    VBReturnNullMacro(human);
+    VBReturnValueMacro(human, NULL);
 
     return human->_mother;
 }
@@ -216,7 +216,7 @@ void VBHumanSetFather(VBHuman *human, VBHuman *father) {
 }
 
 VBHuman *VBHumanGetFather(VBHuman *human) {
-    VBReturnNullMacro(human);
+    VBReturnValueMacro(human, NULL);
     
     return human->_father;
 }
@@ -231,7 +231,7 @@ void VBHumanAddChild(VBHuman *human, VBHuman *child) {
 }
 
 VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint16_t index) {
-    VBReturnValueMacro(human);
+    VBReturnValueMacro(human, NULL);
     
     return VBArrayGetObjectAtIndex(VBHumanGetChildren(human), index);
 }

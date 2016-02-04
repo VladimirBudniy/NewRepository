@@ -36,6 +36,6 @@ extern
 void VBObjectRelease(void *object);
 
 extern
-uint16_t VBObjectGetRetaineCount(void *object);
+uint64_t VBObjectGetRetaineCount(void *object);
 
 #endif /* VBObject_h */
