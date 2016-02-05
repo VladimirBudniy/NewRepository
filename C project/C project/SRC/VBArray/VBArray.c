@@ -12,9 +12,9 @@
 #include <assert.h>
 #include <string.h>
 
-static const uint64_t kVBArrayStockValue = 5;
-static const uint64_t kVBArrayIncreaseValue  = 1.2;
-static const uint64_t kVBArrayDecreaseValue  = 0.8;
+static const uint64_t kVBArrayStockValue     = 5;
+static const float    kVBArrayIncreaseValue  = 1.2;
+static const float    kVBArrayDecreaseValue  = 0.8;
 
 const uint64_t kVBUndefindeIndex = UINT64_MAX;
 
@@ -25,7 +25,7 @@ static
 void __VBArrayDeallocate(void *array);
 
 static
-void VBArrayShiftForIndex(VBArray *array, uint64_t index);
+void VBArrayShiftFromIndex(VBArray *array, uint64_t index);
 
 static
 void VBArraySetCount(VBArray *array, uint64_t count);
@@ -52,7 +52,7 @@ uint64_t VBArrayProvideSize(VBArray *array);
 #pragma mark Initialization & Deallocation
 
 void __VBArrayDeallocate(void *array) {
-    VBArrayRemoveAllElements(array);
+    VBArrayRemoveAllObjects(array);
     
     __VBObjectDeallocate(array);
 }
@@ -139,20 +139,15 @@ void VBArraySetCapacity(VBArray *array, uint64_t capacity) {
 #pragma mark - 
 #pragma mark Private
 
-bool VBArrayNeedChangeSize(VBArray *array) { // причесать бульку
+bool VBArrayNeedChangeSize(VBArray *array) {
     uint64_t count = VBArrayGetCount(array);
     uint64_t capacity = VBArrayGetCapacity(array);
     
-    if (count == capacity || count + kVBArrayStockValue < capacity) {
-        return true;
-    }
-    
-    return false;
+    return count == capacity || count + kVBArrayStockValue < capacity * kVBArrayDecreaseValue;
 }
 
-bool VBArrayContainObject(VBArray *array, void *object) {
-    return VBArrayGetIndexOfObject(array, object) != kVBUndefindeIndex
-                                                        ? true : false;
+bool VBArrayContainsObject(VBArray *array, void *object) {
+    return VBArrayGetIndexOfObject(array, object) != kVBUndefindeIndex;
 }
 
 uint64_t VBArrayProvideSize(VBArray *array) {
@@ -189,7 +184,7 @@ uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object) {
     return kVBUndefindeIndex;
 }
 
-void VBArrayShiftForIndex(VBArray *array, uint64_t index) {
+void VBArrayShiftFromIndex(VBArray *array, uint64_t index) {
     VBReturnMacro(array);
     
     void *firstObject = VBArrayGetObjectAtIndex(array, index);
@@ -209,7 +204,6 @@ void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index) {
     VBArrayChangeSizeIfNeeded(array);
     VBArraySetCount(array, VBArrayGetCount(array) + 1);
     VBArraySetObjectAtIndex(array, object, index);
-    
 }
 
 void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
@@ -217,10 +211,9 @@ void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index) {
     
     if (VBArrayGetObjectAtIndex(array, index) != NULL) {
         VBArraySetObjectAtIndex(array, NULL, index);
-        VBArrayShiftForIndex(array, index);
+        VBArrayShiftFromIndex(array, index);
         VBArraySetCount(array, VBArrayGetCount(array) - 1);
         VBArrayChangeSizeIfNeeded(array);
-        
     }
 }
 
@@ -232,23 +225,20 @@ void VBArrayRemoveObject(VBArray *array, void *object) {
     
     uint64_t index = VBArrayGetIndexOfObject(array, object);
     VBArrayRemoveObjectAtIndex(array, index);
-    
 }
 
-void VBArrayRemoveAllElements(VBArray *array) {
+void VBArrayRemoveAllObjects(VBArray *array) {
     VBReturnMacro(array);
     
     for (int64_t index = VBArrayGetCount(array); index >= 0; index--) {
         VBArrayRemoveObjectAtIndex(array, index);
-        
     }
 }
 
 void VBArrayAddObject(VBArray *array, void *object) {
     VBReturnMacro(array);
     
-    uint64_t index = VBArrayGetIndexOfObject(array, NULL);
+    uint64_t index = VBArrayGetCount(array);
     VBArrayAddObjectAtIndex(array, object, index);
-    
 }
 

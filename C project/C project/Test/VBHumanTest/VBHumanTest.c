@@ -45,21 +45,21 @@ void VBPrintHumanTests(void) {
     
     
     
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 10000; i++) {
         VBArrayAddObjectAtIndex(array, string, i);
     }
     
-    for (int i = 999; i >= 0; i--) {
+    for (int i = 9999; i >= 0; i--) {
         VBArrayRemoveObjectAtIndex(array, i);
     }
     
-//    VBArrayRemoveAllElements(array);
+//    VBArrayRemoveAllObjects(array);
     
     VBArray *array1 = VBArrayCreate();
     for (int i = 0; i < 50; i++) {
         VBArrayAddObjectAtIndex(array1, string, i);
     }
-    VBArrayRemoveAllElements(array1);
+    VBArrayRemoveAllObjects(array1);
 
 }
 

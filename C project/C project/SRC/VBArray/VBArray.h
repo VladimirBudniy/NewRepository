@@ -42,7 +42,7 @@ extern
 void VBArrayRemoveObject(VBArray *array, void *object);
 
 extern
-void VBArrayRemoveAllElements(VBArray *array);
+void VBArrayRemoveAllObjects(VBArray *array);
 
 extern
 uint64_t VBArrayGetCount(VBArray *array);
@@ -60,7 +60,7 @@ extern
 void *VBArrayGetLastObject(VBArray *array);
 
 extern
-bool VBArrayContainObject(VBArray *array, void *object);
+bool VBArrayContainsObject(VBArray *array, void *object);
 
 extern
 void VBArrayRemoveObjectAtIndex(VBArray *array, uint64_t index);
