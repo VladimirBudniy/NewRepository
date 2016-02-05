@@ -42,15 +42,21 @@
             return; \
         }
 
-#define VBReturnValueMacro(value) \
-                if (NULL == value) { \
-                    return 0; \
-                }
-
-#define VBReturnNullMacro(value) \
+#define VBReturnValueMacro(value, returnValue) \
             if (NULL == value) { \
-                    return NULL; \
+                return returnValue; \
             }
+
+
+//#define VBReturnValueMacro(value) \
+//                if (NULL == value) { \
+//                    return 0; \
+//                }
+
+//#define VBReturnNullMacro(value) \
+//            if (NULL == value) { \
+//                    return NULL; \
+//            }
 
 #define VBAssignMacro(oldValue, newValue) \
                 oldValue = newValue \

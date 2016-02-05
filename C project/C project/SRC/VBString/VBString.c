@@ -18,19 +18,22 @@
 #pragma mark Private Declarations
 
 static
+void __VBStringDeallocate(VBString *string);
+
+static
 VBString *VBStringCreate(void);
 
 static
 void VBStringSetData(VBString *string, char *data);
 
 static
-void VBStringSetSymbolsCount(VBString *string);
+void VBStringSetSymbolsCount(VBString *string, uint16_t count);
 
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
-void __VBStringDeallocate(void *string) {
+void __VBStringDeallocate(VBString *string) {
     VBStringSetData(string, NULL);
     
     __VBObjectDeallocate(string);
@@ -55,53 +58,49 @@ VBString *VBStringCreateWithData(char *data) {
 void VBStringSetData(VBString *string, char *data) {
     VBReturnMacro(string);
 
-    VBString *newString = string;
-    free(newString->_name);
+    if (!VBStringIsEmpty(string)) {
+        free(string->_name);
+    }
     
     if (data) {
-        newString->_name = strdup(data);
+        string->_name = strdup(data);
     } else {
-        newString->_name = NULL;
+        string->_name = NULL;
     }
-    VBStringSetSymbolsCount(string);
-    VBStringIsEmpty(string);
-}
-
-bool VBStringIsEmpty(VBString *string) {
-    VBReturnValueMacro(false);
-
-    return 0 == VBStringGetSymbolsCount(string);
+    
+    VBStringSetSymbolsCount(string, strlen(VBStringGetData(string)));
 }
 
 char *VBStringGetData(VBString *string) {
-    VBReturnNullMacro(string);
+    VBReturnValueMacro(string, NULL);
 
     return string->_name;
 }
 
-void VBStringSetSymbolsCount(VBString *string) {
+void VBStringSetSymbolsCount(VBString *string, uint16_t count) {
     VBReturnMacro(string);
-    
-    uint16_t count = strlen(VBStringGetData(string));
     
     string->_symbolsCount = count;
 }
 
-uint16_t VBStringGetSymbolsCount(VBString *data) {
-    VBReturnValueMacro(data);
+uint16_t VBStringGetSymbolsCount(VBString *string) {
+    VBReturnValueMacro(string, 0);
     
-    return data->_symbolsCount;
+    return string->_symbolsCount;
 }
 
-void VBStringPrintString(VBString *data) {
-    VBReturnMacro(data);
+#pragma mark -
+#pragma mark Private
+
+bool VBStringIsEmpty(VBString *string) {
+    VBReturnValueMacro(string, NULL);
     
-    puts(VBStringGetData(data));
+    return 0 == VBStringGetSymbolsCount(string);
 }
 
 bool VBStringIsEqual(VBString *firstString, VBString *secondString) {
-    VBReturnValueMacro(firstString);
-    VBReturnValueMacro(secondString);
+    VBReturnValueMacro(firstString, 0);
+    VBReturnValueMacro(secondString, 0);
     
     if (0 == strcmp(VBStringGetData(firstString), VBStringGetData(secondString))) {
         return true;
@@ -110,9 +109,23 @@ bool VBStringIsEqual(VBString *firstString, VBString *secondString) {
     return false;
 }
 
+#pragma mark-
+#pragma mark Public Implementations
+
+void VBStringPrintString(VBString *string) {
+    VBReturnMacro(string);
+    
+    if (0 == VBStringGetSymbolsCount(string)) {
+        puts("ERROR");
+    } else {
+        puts(VBStringGetData(string));
+    }
+}
+
 VBString *VBStringWithString(VBString *firstString, VBString *secondString) {
-    VBReturnNullMacro(firstString);
-    if (secondString == 0) {
+    VBReturnValueMacro(firstString, 0);
+    
+    if (VBStringIsEmpty(secondString)) {
         return firstString;
     }
     

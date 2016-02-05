@@ -1,4 +1,4 @@
-
+ 
 //  VBHumanTest.c
 //  C project
 //
@@ -12,41 +12,56 @@
 
 #include "VBObject.h"
 #include "VBString.h"
-
+#include "VBArray.h"
 
 void VBPrintHumanTests(void) {
-    
-    VBString *womanName = VBStringCreateWithData("Elsa");
-    VBString *childName =  VBStringCreateWithData("Vasia");
-    VBString *manName = VBStringCreateWithData("");
-    
-    VBStringPrintString(manName);
-    VBStringPrintString(womanName);
-    VBStringPrintString(childName);
-    
-    VBHuman *human = VBHumanCreateWithNameGender(manName, kVBHumanMaleGenderType);
-    VBHumanSetAge(human, 23);
-    VBHumanSetChild(human, 3);
-    
-    VBHuman *partner = VBHumanCreateWithNameGender(womanName, kVBHumanFemaleGenderType);
-    VBHumanSetAge(partner, 20);
-    VBHumanSetChild(partner, 3);
-    
-    VBHumanMarry(human, partner);
-    
-    VBHuman *child = VBHumanCreateChildWithNameGenderParents(childName, kVBHumanMaleGenderType, human, partner);
-    VBHumanRemoveAllChildren(human);
-    VBHumanRemoveAllChildren(partner);
 
-    VBHumanDivorce(human);
+//    VBHuman *human = VBHumanCreateWithNameGender(VBStringCreateWithData("firdt name"), kVBHumanMaleGenderType);
+//    VBHuman *partner = VBHumanCreateWithNameGender(VBStringCreateWithData("second name"), kVBHumanFemaleGenderType);
+//    VBHuman *child1 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child1"), kVBHumanFemaleGenderType);
+//    VBHuman *child2 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child2"), kVBHumanFemaleGenderType);
+//    VBHuman *child3 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child3"), kVBHumanFemaleGenderType);
+//    VBHuman *child4 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child4"), kVBHumanFemaleGenderType);
+//    VBHuman *child5 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child5"), kVBHumanFemaleGenderType);
+//    VBHuman *child6 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child6"), kVBHumanFemaleGenderType);
+//    VBHuman *child7 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child7"), kVBHumanFemaleGenderType);
+//    VBHuman *child8 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child8"), kVBHumanFemaleGenderType);
+//    VBHuman *child9 = VBHumanCreateWithNameGender(VBStringCreateWithData("Child9"), kVBHumanFemaleGenderType);
+    VBString *string = VBStringCreateWithData("name");
 
-    VBObjectRelease(human);
-    VBObjectRelease(partner);
-    VBObjectRelease(child);
-
-    puts(VBHumanGetName(human));
-    puts(VBHumanGetName(human));
+    VBArray *array = VBArrayCreate();
+//
+//    VBArrayAddObject(array, human);
+//    VBArrayAddObject(array, partner);
+//    VBArrayAddObject(array, child1);
+//    VBArrayAddObject(array, child2);
+//    VBArrayAddObject(array, child3);
+//    VBArrayAddObject(array, child4);
+//    VBArrayAddObject(array, child5);
+//    VBArrayAddObject(array, child6);
+//    VBArrayAddObject(array, child7);
+//    VBArrayAddObject(array, child8);
+//    VBArrayAddObject(array, child9);
     
-    puts(VBHumanGetName(partner));
-    puts(VBHumanGetName(child));
+    
+    
+    for (int i = 0; i < 10000; i++) {
+        VBArrayAddObjectAtIndex(array, string, i);
+    }
+    
+    for (int i = 9999; i >= 0; i--) {
+        VBArrayRemoveObjectAtIndex(array, i);
+    }
+    
+//    VBArrayRemoveAllObjects(array);
+    
+    VBArray *array1 = VBArrayCreate();
+    for (int i = 0; i < 50; i++) {
+        VBArrayAddObjectAtIndex(array1, string, i);
+    }
+    VBArrayRemoveAllObjects(array1);
+
 }
+
+
+

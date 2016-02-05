@@ -74,13 +74,10 @@ extern
 void VBHumanAddChild(VBHuman *human, VBHuman *child);
 
 extern
-VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint8_t index);
-
-extern
 void VBHumanRemoveChild(VBHuman *human, VBHuman *child);
 
 extern
-void VBHumanRemoveChildAtIndex(VBHuman *human, uint8_t index);
+VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint16_t index);
 
 
 #endif /* VBHuman_h */
