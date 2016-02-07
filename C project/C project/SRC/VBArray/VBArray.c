@@ -57,7 +57,7 @@ void __VBArrayDeallocate(void *array) {
     __VBObjectDeallocate(array);
 }
 
-void *VBArrayCreate(void) {
+VBArray *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
     VBArraySetCapacity(array, 0);
     VBArraySetCount(array, 0);

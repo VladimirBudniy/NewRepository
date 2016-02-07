@@ -27,7 +27,7 @@ struct VBArray {
 };
 
 extern
-void *VBArrayCreate(void);
+VBArray *VBArrayCreate(void);
 
 extern
 uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object);
