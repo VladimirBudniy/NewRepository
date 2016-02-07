@@ -18,10 +18,10 @@ static
 void __VBLinkedListDeallocate(VBLinkedList *node);
 
 static
-void VBLinkedListSetHeadObject(VBLinkedList *list, void *object); //maybe is not void?
+void VBLinkedListSetFirstNode(VBLinkedList *list, VBLinkedListNode *node); //maybe is not void?
 
 static
-void *VBLinkedListGetHeadObject(VBLinkedList *list); // maybe is not void????
+VBLinkedListNode *VBLinkedListGetFirstNode(VBLinkedList *list); // maybe is not void????
 
 static
 void VBLinkedListSetObject(VBLinkedList *list, void *object);
@@ -39,7 +39,7 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object);
 #pragma mark Initialization & Deallocation
 
 void __VBLinkedListDeallocate(VBLinkedList *list) {
-    VBLinkedListSetHeadObject(list, NULL);
+    VBLinkedListSetFirstNode(list, NULL);
     VBLinkedListSetObject(list, NULL);
     
     __VBObjectDeallocate(list);
@@ -54,13 +54,13 @@ VBLinkedList *VBLinkedlistCreate(void) {
 #pragma mark-
 #pragma mark Accessors
 
-void VBLinkedListSetHeadObject(VBLinkedList *list, void *object) { //maybe is not void?
+void VBLinkedListSetFirstNode(VBLinkedList *list, VBLinkedListNode *node) {
     VBReturnMacro(list);
     
-    VBRetainMacro(list->_head, object);
+    VBRetainMacro(list->_head, node);
 }
 
-void *VBLinkedListGetHeadObject(VBLinkedList *list) { // maybe is not void????
+VBLinkedListNode *VBLinkedListGetFirstNode(VBLinkedList *list) {
     return list->_head;
 }
 

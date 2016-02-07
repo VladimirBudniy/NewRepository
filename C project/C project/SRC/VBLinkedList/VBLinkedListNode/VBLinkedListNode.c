@@ -44,16 +44,6 @@ VBLinkedListNode *VBLinkedListNodeCreateWithObject(void *object) {
 #pragma mark-
 #pragma mark Accessors
 
-void VBLinkedLisNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode) {
-    VBReturnMacro(node);
-    
-    VBAssignMacro(node, nextNode);
-}
-
-VBLinkedListNode *VBLinkedLisNodeGetNextNode(VBLinkedListNode *node) {
-    return node->_nextNode;
-}
-
 void VBLinkedListNodeSetObject(VBLinkedListNode *node, void *object) {
     VBReturnMacro(node);
     
@@ -65,6 +55,17 @@ void *VBLinkedListNodeGetObject(VBLinkedListNode *node) {
     
     return node->object;
 }
+
+void VBLinkedLisNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode) {
+    VBReturnMacro(node);
+    
+    VBAssignMacro(node, nextNode);
+}
+
+VBLinkedListNode *VBLinkedLisNodeGetNextNode(VBLinkedListNode *node) {
+    return node->_nextNode;
+}
+
 
 
 
