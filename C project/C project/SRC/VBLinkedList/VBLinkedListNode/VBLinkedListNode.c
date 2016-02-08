@@ -16,26 +16,18 @@
 static
 void __VBLinkedListNodeDeallocate(VBLinkedListNode *node);
 
-static
-VBLinkedListNode *VBLinkedListNodeCreate(void);
-
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
 void __VBLinkedListNodeDeallocate(VBLinkedListNode *node) {
     VBLinkedListNodeSetObject(node, NULL);
+    VBLinkedListNodeSetNextNode(node, NULL);
     
     __VBObjectDeallocate(node);
 }
 
-VBLinkedListNode *VBLinkedListNodeCreate(void) {
-    VBLinkedListNode *node = VBObjectCreate(VBLinkedListNode);
-    
-    return node;
-}
-
 VBLinkedListNode *VBLinkedListNodeCreateWithObject(void *object) {
-    VBLinkedListNode *node = VBLinkedListNodeCreate();
+    VBLinkedListNode *node = VBObjectCreate(VBLinkedListNode);
     VBLinkedListNodeSetObject(node, object);
     
     return node;
@@ -47,7 +39,7 @@ VBLinkedListNode *VBLinkedListNodeCreateWithObject(void *object) {
 void VBLinkedListNodeSetObject(VBLinkedListNode *node, void *object) {
     VBReturnMacro(node);
     
-    VBAssignMacro(node->object, object);
+    VBRetainMacro(node->object, object);
 }
 
 void *VBLinkedListNodeGetObject(VBLinkedListNode *node) {
@@ -56,13 +48,13 @@ void *VBLinkedListNodeGetObject(VBLinkedListNode *node) {
     return node->object;
 }
 
-void VBLinkedLisNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode) {
+void VBLinkedListNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode) {
     VBReturnMacro(node);
     
-    VBAssignMacro(node, nextNode);
+    VBRetainMacro(node->_nextNode, nextNode);
 }
 
-VBLinkedListNode *VBLinkedLisNodeGetNextNode(VBLinkedListNode *node) {
+VBLinkedListNode *VBLinkedListNodeGetNextNode(VBLinkedListNode *node) {
     return node->_nextNode;
 }
 

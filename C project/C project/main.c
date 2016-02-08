@@ -11,43 +11,33 @@
 #include <stddef.h>
 
 #include "VBMacroHeader.h"
-//#include "FirstStructTest.h"
-//#include "VBFirstStruct.h"
-//#include "VBPrintTypeSizeTest.h"
-//#include "VBPrintValueAccordingQualifierTest.h"
-//#include "VBPrintValueTest.h"
-//#include "VBBitStepTaskTest.h"
-#include "VBHumanTest.h"
+#include "VBString.h"
 #include "VBHuman.h"
-
-
+#include "VBLinkedList.h"
+#include "VBArray.h"
 
 int main(int argc, const char * argv[]) {
-////  Macro Task
-//    
-//    printf("%s\n", "Task 1");
-//    VBPrintSizeTypeTest();
-//    VBPrintCountMacroTest();
-//    
-//    printf("\n%s\n", "Task 2");
-//    VBPrintValueAccordingQualifierTest();
-//    
-//    printf("\n%s\n", "Task 3");
-//    VBPrintResult();
-//    
-////    Struct Task
-//    
-//    VBPrintSequenceNumber();
-//    VBPrintSizeStruct();
-//    VBPrintSizeType();
-//    
-//// Print Bit
-//    VBPrintBitStepTest();
-//
-// Print Human test
+    VBString *string = VBStringCreateWithData("Test");
+    VBString *string1 = VBStringCreateWithData("SecondTest");
+    VBString *string2 = VBStringCreateWithData("ThirdTest");
+    VBString *string3 = VBStringCreateWithData("ThirdTest");
+    VBArray *array = VBArrayCreate();
+
+
     
-    VBPrintHumanTests();
-    VBPrintNextString;
+    VBLinkedList *list = VBLinkedlistCreate();
+    VBLinkedListAddObject(list, string);
+    VBLinkedListAddObject(list, string1);
+    VBLinkedListAddObject(list, string2);
+    VBLinkedListAddObject(list, string3);
+    VBLinkedListAddObject(list, array);
+
+//    VBLInkedListRemoveAllObjects(list);
+    
+    VBLinkedListRemoveObject(list, string);
+    VBLinkedListRemoveObject(list, array);
+
+
     
     return 0;
 }

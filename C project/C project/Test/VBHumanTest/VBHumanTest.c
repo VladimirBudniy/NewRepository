@@ -14,8 +14,8 @@
 #include "VBString.h"
 #include "VBArray.h"
 
-void VBPrintHumanTests(void) {
-
+//void VBPrintHumanTests(void) {
+//
 //    VBString *string = VBStringCreateWithData("name");
 //
 //    VBArray *array = VBArrayCreate();
@@ -35,8 +35,8 @@ void VBPrintHumanTests(void) {
 //        VBArrayAddObjectAtIndex(array1, string, i);
 //    }
 //    VBArrayRemoveAllObjects(array1);
-
-}
+//
+//}
 
 
 

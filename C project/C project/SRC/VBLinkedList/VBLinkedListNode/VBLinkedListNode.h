@@ -32,10 +32,9 @@ extern
 void *VBLinkedListNodeGetObject(VBLinkedListNode *node);
 
 extern
-void VBLinkedLisNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode);
+void VBLinkedListNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode);
 
 extern
-VBLinkedListNode *VBLinkedLisNodeGetNextNode(VBLinkedListNode *node);
-
+VBLinkedListNode *VBLinkedListNodeGetNextNode(VBLinkedListNode *node);
 
 #endif /* VBLinkedListNode_h */

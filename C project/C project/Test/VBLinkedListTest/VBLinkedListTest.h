@@ -11,4 +11,7 @@
 
 #include <stdio.h>
 
+extern
+void VBPrintLinkedListTests(void);
+
 #endif /* VBLinkedListTest_h */

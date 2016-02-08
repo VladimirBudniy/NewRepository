@@ -26,18 +26,24 @@ extern
 VBLinkedList *VBLinkedlistCreate(void);
 
 extern
-VBLinkedList *VBLinkedListGetObject(void *object);
+void *VBLinkedListGetFirstObject(VBLinkedList *list);
 
 extern
-void *VBLinkedListAddObject(VBLinkedList *list, void *object);
+void *VBLinkedListGetLastObject(VBLinkedList *list);
 
 extern
-void *VBLinkedListRemoveObject(VBLinkedList *list, void *object);
+void VBLinkedListAddObject(VBLinkedList *list, void *object);
 
 extern
-void *VBLinkedListRemoveAllObjects(VBLinkedList *list, uint64_t count);
+void VBLinkedListRemoveObject(VBLinkedList *list, void *object);
 
 extern
 uint64_t VBLinkedListGetCount(VBLinkedList *list);
+
+extern
+bool VBLinkedListContainsObject(VBLinkedList *list, void *object);
+
+extern
+void VBLInkedListRemoveAllObjects(VBLinkedList *list);
 
 #endif /* VBLinkedList_h */

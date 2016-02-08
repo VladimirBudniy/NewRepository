@@ -7,3 +7,4 @@
 //
 
 #include "VBLinkedListTest.h"
+#include "VBLinkedList.h"
