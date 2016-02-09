@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 
-
 #pragma mark-
 #pragma mark Private Declarations
 
@@ -25,13 +24,16 @@ static
 VBLinkedListNode *VBLinkedListGetHead(VBLinkedList *list);
 
 static
-void VBLinkedListSetFirstObject(VBLinkedList *list, void *object);
-
-static
 void VBLinkedListSetCount(VBLinkedList *list, uint64_t count);
 
 static
 void *VBLinkedListGetLastNode(VBLinkedList *list);
+
+static
+void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node);
+
+static
+void VBLinkedListRemoveNode(VBLinkedList *list, VBLinkedListNode *node);
 
 #pragma mark-
 #pragma mark Initialization & Deallocation
@@ -60,17 +62,9 @@ void VBLinkedListSetHead(VBLinkedList *list, VBLinkedListNode *node) {
 }
 
 VBLinkedListNode *VBLinkedListGetHead(VBLinkedList *list) {
+    VBReturnValueMacro(list, NULL);
+    
     return list->_head;
-}
-
-void VBLinkedListSetFirstObject(VBLinkedList *list, void *object) {
-    VBReturnMacro(list);
-    
-    VBLinkedListNode *node = VBLinkedListNodeCreateWithObject(object);
-    VBLinkedListSetHead(list, node);
-    VBLinkedListSetCount(list, VBLinkedListGetCount(list) +1);
-    
-    VBObjectRelease(node);
 }
 
 void VBLinkedListSetCount(VBLinkedList *list, uint64_t count) {
@@ -90,7 +84,7 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     VBReturnValueMacro(list, NULL);
     
     VBLinkedListNode *node = VBLinkedListGetHead(list);
-    while (NULL != VBLinkedListNodeGetNextNode(node)) {
+    while (NULL != node) {
         if (VBLinkedListNodeGetObject(node) == object) {
             return true;
         }
@@ -100,6 +94,7 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     
     return false;
 }
+
 void *VBLinkedListGetFirstObject(VBLinkedList *list) {
     VBLinkedListNode *node = VBLinkedListGetHead(list);
     
@@ -123,45 +118,33 @@ void *VBLinkedListGetLastNode(VBLinkedList *list) {
     return node;
 }
 
-void VBLinkedListAddObject(VBLinkedList *list, void *object) { // check method
+void VBLinkedListAddObject(VBLinkedList *list, void *object) {
     VBReturnMacro(list);
     
-    if (NULL == VBLinkedListGetFirstObject(list)) {
-        VBLinkedListSetFirstObject(list, object);
-    } else {
-        VBLinkedListNode *node = VBLinkedListNodeCreateWithObject(object);
-        VBLinkedListNodeSetNextNode(node, VBLinkedListGetHead(list));
-        VBLinkedListSetHead(list, node);
-        VBLinkedListSetCount(list, VBLinkedListGetCount(list) + 1);
-        
-        VBObjectRelease(node);
-    }
+    VBLinkedListNode *node = VBLinkedListNodeCreateWithObject(object);
+    VBLinkedListAddNode(list, node);
+    VBObjectRelease(node);
 }
 
 void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
     VBReturnMacro(list);
     
-    if (VBLinkedListContainsObject(list, object)) {
-        VBLinkedListNode *node = VBLinkedListGetHead(list);
-        VBLinkedListNode *nextNode = VBLinkedListNodeGetNextNode(node);
-        
+    VBLinkedListNode *node = VBLinkedListGetHead(list);
+    VBLinkedListNode *nextNode = VBLinkedListNodeGetNextNode(node);
+    
+    while (NULL != node) {
         if (object == VBLinkedListNodeGetObject(node)) {
-            VBLinkedListSetHead(list, nextNode);
-        } else {
-            while (object != VBLinkedListNodeGetObject(nextNode)) {
-                node = nextNode;
-                nextNode = VBLinkedListNodeGetNextNode(node);
-            }
-            
-            VBLinkedListNodeSetNextNode(node, VBLinkedListNodeGetNextNode(nextNode));
+            VBLinkedListRemoveNode(list, node);
         }
         
-        VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
+        node = nextNode;
+        nextNode = VBLinkedListNodeGetNextNode(node);
     }
 }
 
-void VBLInkedListRemoveAllObjects(VBLinkedList *list) {
+void VBLinkedListRemoveAllObjects(VBLinkedList *list) {
     VBReturnMacro(list);
+    
     VBLinkedListSetHead(list, NULL);
     VBLinkedListSetCount(list, 0);
 }
@@ -169,5 +152,31 @@ void VBLInkedListRemoveAllObjects(VBLinkedList *list) {
 #pragma mark -
 #pragma mark Private
 
+void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node) {
+    VBReturnMacro(list);
+    
+    VBLinkedListNodeSetNextNode(node, VBLinkedListGetHead(list));
+    VBLinkedListSetHead(list, node);
+    VBLinkedListSetCount(list, VBLinkedListGetCount(list) + 1);
+}
 
+void VBLinkedListRemoveNode(VBLinkedList *list, VBLinkedListNode *node) {
+    VBReturnMacro(list);
+    
+    VBLinkedListNode *firstNode = VBLinkedListGetHead(list);
+    VBLinkedListNode *secondNode = VBLinkedListNodeGetNextNode(firstNode);
+    
+    if (firstNode == node) {
+        VBLinkedListSetHead(list, VBLinkedListNodeGetNextNode(firstNode));
+    } else {
+        while (secondNode != node) {
+            firstNode = secondNode;
+            secondNode = VBLinkedListNodeGetNextNode(secondNode);
+        }
+        
+        VBLinkedListNodeSetNextNode(firstNode, VBLinkedListNodeGetNextNode(node));
+    }
+    
+    VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
+}
 

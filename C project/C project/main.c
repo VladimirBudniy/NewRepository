@@ -17,13 +17,13 @@
 #include "VBArray.h"
 
 int main(int argc, const char * argv[]) {
+    
     VBString *string = VBStringCreateWithData("Test");
     VBString *string1 = VBStringCreateWithData("SecondTest");
     VBString *string2 = VBStringCreateWithData("ThirdTest");
     VBString *string3 = VBStringCreateWithData("ThirdTest");
+    
     VBArray *array = VBArrayCreate();
-
-
     
     VBLinkedList *list = VBLinkedlistCreate();
     VBLinkedListAddObject(list, string);
@@ -31,13 +31,27 @@ int main(int argc, const char * argv[]) {
     VBLinkedListAddObject(list, string2);
     VBLinkedListAddObject(list, string3);
     VBLinkedListAddObject(list, array);
-
-//    VBLInkedListRemoveAllObjects(list);
+    
+    printf("%s", "We waiting count equal 5");
+    VBPrintNextString
+    printf("%s %llu", "Test result is ", VBLinkedListGetCount(list));
+    VBPrintNextString
+    VBPrintNextString
+    
+//    VBLinkedListRemoveAllObjects(list);
+//    printf("%s", "We waiting count equal 0");
+//    VBPrintNextString
+//    printf("%s %llu", "Test result is ", VBLinkedListGetCount(list));
+//    VBPrintNextString
+//    VBPrintNextString
     
     VBLinkedListRemoveObject(list, string);
     VBLinkedListRemoveObject(list, array);
-
-
+    printf("%s", "We waiting count equal 3");
+    VBPrintNextString
+    printf("%s %llu", "Test result is ", VBLinkedListGetCount(list));
+    VBPrintNextString
+    VBPrintNextString
     
     return 0;
 }
