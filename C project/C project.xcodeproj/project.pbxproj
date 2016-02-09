@@ -22,6 +22,7 @@
 		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
 		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
 		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
+		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,8 @@
 		E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListNode.h; sourceTree = "<group>"; };
 		E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListTest.c; sourceTree = "<group>"; };
 		E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListTest.h; sourceTree = "<group>"; };
+		E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListEnumerator.c; sourceTree = "<group>"; };
+		E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,7 @@
 		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
 			isa = PBXGroup;
 			children = (
+				E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */,
 				E7C104131C669F8600E0CE62 /* VBLinkedListNode */,
 				E7C104101C669D7500E0CE62 /* VBLinkedList.c */,
 				E7C104111C669D7500E0CE62 /* VBLinkedList.h */,
@@ -270,6 +274,15 @@
 				E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */,
 			);
 			path = VBLinkedListTest;
+			sourceTree = "<group>";
+		};
+		E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */,
+				E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */,
+			);
+			path = VBLinkedListEnumerator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +347,7 @@
 				E73E934C1C5270700045ED28 /* VBString.c in Sources */,
 				E73E93431C5116650045ED28 /* VBHuman.c in Sources */,
 				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
+				E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */,
 				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
 				E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */,
 				E73E93441C5116650045ED28 /* VBObject.c in Sources */,

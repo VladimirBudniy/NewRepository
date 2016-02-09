@@ -20,6 +20,7 @@ struct VBLinkedList {
     VBObject _super;
     VBLinkedListNode *_head;
     uint64_t _count;
+    uint64_t _mutationCount;
 };
 
 extern
