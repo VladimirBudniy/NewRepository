@@ -20,7 +20,7 @@ struct VBLinkedList {
     VBObject _super;
     VBLinkedListNode *_head;
     uint64_t _count;
-    uint64_t _mutationCount;
+    uint64_t _mutationsCount;
 };
 
 extern
@@ -28,9 +28,6 @@ VBLinkedList *VBLinkedlistCreate(void);
 
 extern
 void *VBLinkedListGetFirstObject(VBLinkedList *list);
-
-extern
-void *VBLinkedListGetLastObject(VBLinkedList *list);
 
 extern
 void VBLinkedListAddObject(VBLinkedList *list, void *object);

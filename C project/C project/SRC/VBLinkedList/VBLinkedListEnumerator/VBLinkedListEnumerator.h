@@ -20,8 +20,9 @@ typedef struct VBLinkedListEnumerator VBLinkedListEnumerator;
 struct VBLinkedListEnumerator {
     VBObject _super;
     VBLinkedList *_list;
-    VBLinkedListNode *_node;
-    uint64_t _mutationCount;
+    VBLinkedListNode *_carentNode;
+    uint64_t _mutationsCount;
+    bool _valid;
 };
 
 extern
@@ -31,10 +32,6 @@ extern
 void __VBLinkedListEnumeratorDeallocate(VBLinkedListEnumerator *enumerator);
 
 extern
-VBLinkedListNode *VBLinkedListEnumeratorGetNextNode(VBLinkedListEnumerator *enumerator);
-
-extern
 bool VBLinkedListEnumeratorIsValid(VBLinkedListEnumerator *enumerator);
-
 
 #endif /* VBLinkedListEnumerator_h */

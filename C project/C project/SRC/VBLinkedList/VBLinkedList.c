@@ -8,6 +8,9 @@
 
 #include "VBLinkedList.h"
 #include "VBMacroHeader.h"
+#include "VBLinkedListEnumerator.h"
+#include "VBLinkedListPrivate.h"
+#include "VBLinkedListEnumeratorPrivate.h"
 
 #include <stdio.h>
 
@@ -21,13 +24,7 @@ static
 void VBLinkedListSetHead(VBLinkedList *list, VBLinkedListNode *node);
 
 static
-VBLinkedListNode *VBLinkedListGetHead(VBLinkedList *list);
-
-static
 void VBLinkedListSetCount(VBLinkedList *list, uint64_t count);
-
-static
-void *VBLinkedListGetLastNode(VBLinkedList *list);
 
 static
 void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node);
@@ -35,11 +32,15 @@ void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node);
 static
 void VBLinkedListRemoveNode(VBLinkedList *list, VBLinkedListNode *node);
 
+static
+void VBLinkedListSetMutationsCount(VBLinkedList *list, uint64_t mutationsCount);
+
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
 void __VBLinkedListDeallocate(VBLinkedList *list) {
     VBLinkedListSetHead(list, NULL);
+    VBLinkedListSetMutationsCount(list, 0);
     VBLinkedListSetCount(list, 0);
     
     __VBObjectDeallocate(list);
@@ -47,6 +48,7 @@ void __VBLinkedListDeallocate(VBLinkedList *list) {
 
 VBLinkedList *VBLinkedlistCreate(void) {
     VBLinkedList *list = VBObjectCreate(VBLinkedList);
+    VBLinkedListSetMutationsCount(list, 0);
     VBLinkedListSetCount(list, 0);
     
     return list;
@@ -71,10 +73,25 @@ void VBLinkedListSetCount(VBLinkedList *list, uint64_t count) {
     VBReturnMacro(list)
     
     VBAssignMacro(list->_count, count);
+    VBLinkedListSetMutationsCount(list, VBLinkedListGetMutaitonsCount(list) + 1);
 }
 
 uint64_t VBLinkedListGetCount(VBLinkedList *list) {
     return  list->_count;
+}
+
+void VBLinkedListSetMutationsCount(VBLinkedList *list, uint64_t mutationsCount) {
+    VBReturnMacro(list);
+    
+    VBAssignMacro(list->_mutationsCount, mutationsCount);
+}
+
+uint64_t VBLinkedListGetMutaitonsCount(VBLinkedList *list) {
+    return list->_mutationsCount;
+}
+
+uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list) {
+    return list->_mutationsCount;
 }
 
 #pragma mark-
@@ -83,39 +100,37 @@ uint64_t VBLinkedListGetCount(VBLinkedList *list) {
 bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     VBReturnValueMacro(list, NULL);
     
-    VBLinkedListNode *node = VBLinkedListGetHead(list);
-    while (NULL != node) {
-        if (VBLinkedListNodeGetObject(node) == object) {
+    VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
+    
+    while (VBLinkedListEnumeratorIsValid(enumerator)) {
+        VBLinkedListNode *node = VBLinkedListEnumeratorGetNextNode(enumerator);
+        if (object == VBLinkedListNodeGetObject(node)) {
             return true;
         }
         
-        node = VBLinkedListNodeGetNextNode(node);
     }
+    
+    VBObjectRelease(enumerator);
     
     return false;
 }
+
+//    VBLinkedListNode *node = VBLinkedListGetHead(list);
+//    while (NULL != node) {
+//        if (VBLinkedListNodeGetObject(node) == object) {
+//            return true;
+//        }
+//        
+//        node = VBLinkedListNodeGetNextNode(node);
+//    }
+//    
+//    return false;
+//}
 
 void *VBLinkedListGetFirstObject(VBLinkedList *list) {
     VBLinkedListNode *node = VBLinkedListGetHead(list);
     
     return NULL != node ? VBLinkedListNodeGetObject(node): NULL;
-}
-
-void *VBLinkedListGetLastObject(VBLinkedList *list) {
-    VBLinkedListNode *node = VBLinkedListGetLastNode(list);
-    
-    return NULL != node ? VBLinkedListNodeGetObject(node): NULL;
-}
-
-void *VBLinkedListGetLastNode(VBLinkedList *list) {
-    VBReturnValueMacro(list, NULL);
-    
-    VBLinkedListNode *node = VBLinkedListGetHead(list);
-    while (NULL != VBLinkedListNodeGetNextNode(node)) {
-        node = VBLinkedListNodeGetNextNode(node);
-    }
-    
-    return node;
 }
 
 void VBLinkedListAddObject(VBLinkedList *list, void *object) {
@@ -128,19 +143,29 @@ void VBLinkedListAddObject(VBLinkedList *list, void *object) {
 
 void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
     VBReturnMacro(list);
+
+    VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
     
-    VBLinkedListNode *node = VBLinkedListGetHead(list);
-    VBLinkedListNode *nextNode = VBLinkedListNodeGetNextNode(node);
-    
-    while (NULL != node) {
+    while (VBLinkedListEnumeratorIsValid(enumerator)) {
+        VBLinkedListNode *node = VBLinkedListEnumeratorGetNextNode(enumerator);
         if (object == VBLinkedListNodeGetObject(node)) {
             VBLinkedListRemoveNode(list, node);
         }
-        
-        node = nextNode;
-        nextNode = VBLinkedListNodeGetNextNode(node);
     }
+
+    VBObjectRelease(enumerator);
 }
+
+//    VBLinkedListNode *node = VBLinkedListGetHead(list);
+//    VBLinkedListNode *nextNode = VBLinkedListNodeGetNextNode(node);
+//    while (NULL != node) {
+//        if (object == VBLinkedListNodeGetObject(node)) {
+//            VBLinkedListRemoveNode(list, node);
+//        }
+//        
+//        node = nextNode;
+//        nextNode = VBLinkedListNodeGetNextNode(node);
+//    }
 
 void VBLinkedListRemoveAllObjects(VBLinkedList *list) {
     VBReturnMacro(list);

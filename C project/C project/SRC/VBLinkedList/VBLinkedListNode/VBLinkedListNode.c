@@ -48,7 +48,9 @@ void *VBLinkedListNodeGetObject(VBLinkedListNode *node) {
     return node->object;
 }
 
-void VBLinkedListNodeSetNextNode(VBLinkedListNode *node, VBLinkedListNode *nextNode) {
+void VBLinkedListNodeSetNextNode(VBLinkedListNode *node,
+                                                VBLinkedListNode *nextNode)
+{
     VBReturnMacro(node);
     
     VBRetainMacro(node->_nextNode, nextNode);
