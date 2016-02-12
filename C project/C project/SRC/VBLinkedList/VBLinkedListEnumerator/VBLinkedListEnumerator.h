@@ -20,7 +20,7 @@ typedef struct VBLinkedListEnumerator VBLinkedListEnumerator;
 struct VBLinkedListEnumerator {
     VBObject _super;
     VBLinkedList *_list;
-    VBLinkedListNode *_carentNode;
+    VBLinkedListNode *_currentNode;
     uint64_t _mutationsCount;
     bool _valid;
 };

@@ -9,10 +9,16 @@
 #ifndef VBLinkedListPrivate_h
 #define VBLinkedListPrivate_h
 
-typedef struct VBLinkedList VBLinkedList;
+typedef struct {
+    void *_object;
+    void *_previosNode;
+    void *_node;
+} VBLinkedListContext;
+
+
 
 extern
-uint64_t VBLinkedListGetMutaitonsCount(VBLinkedList *list);
+uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list);
 
 extern
 VBLinkedListNode *VBLinkedListGetHead(VBLinkedList *list);

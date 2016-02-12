@@ -59,7 +59,7 @@ void VBLinkedListNodeSetNextNode(VBLinkedListNode *node,
 VBLinkedListNode *VBLinkedListNodeGetNextNode(VBLinkedListNode *node) {
     VBReturnValueMacro(node, NULL);
     
-    return node ? node->_nextNode : NULL;
+    return node->_nextNode;
 }
 
 

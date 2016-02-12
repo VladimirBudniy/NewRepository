@@ -73,7 +73,7 @@ void VBLinkedListSetCount(VBLinkedList *list, uint64_t count) {
     VBReturnMacro(list)
     
     VBAssignMacro(list->_count, count);
-    VBLinkedListSetMutationsCount(list, VBLinkedListGetMutaitonsCount(list) + 1);
+    VBLinkedListSetMutationsCount(list, VBLinkedListGetMutationsCount(list) + 1);
 }
 
 uint64_t VBLinkedListGetCount(VBLinkedList *list) {
@@ -86,11 +86,9 @@ void VBLinkedListSetMutationsCount(VBLinkedList *list, uint64_t mutationsCount) 
     VBAssignMacro(list->_mutationsCount, mutationsCount);
 }
 
-uint64_t VBLinkedListGetMutaitonsCount(VBLinkedList *list) {
-    return list->_mutationsCount;
-}
-
 uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list) {
+    VBReturnValueMacro(list, 0);
+    
     return list->_mutationsCount;
 }
 
@@ -101,31 +99,19 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     VBReturnValueMacro(list, NULL);
     
     VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
+    bool result = false;
     
     while (VBLinkedListEnumeratorIsValid(enumerator)) {
         VBLinkedListNode *node = VBLinkedListEnumeratorGetNextNode(enumerator);
         if (object == VBLinkedListNodeGetObject(node)) {
-            return true;
+            result = true;
         }
-        
     }
     
     VBObjectRelease(enumerator);
     
-    return false;
+    return result;
 }
-
-//    VBLinkedListNode *node = VBLinkedListGetHead(list);
-//    while (NULL != node) {
-//        if (VBLinkedListNodeGetObject(node) == object) {
-//            return true;
-//        }
-//        
-//        node = VBLinkedListNodeGetNextNode(node);
-//    }
-//    
-//    return false;
-//}
 
 void *VBLinkedListGetFirstObject(VBLinkedList *list) {
     VBLinkedListNode *node = VBLinkedListGetHead(list);
@@ -155,17 +141,6 @@ void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
 
     VBObjectRelease(enumerator);
 }
-
-//    VBLinkedListNode *node = VBLinkedListGetHead(list);
-//    VBLinkedListNode *nextNode = VBLinkedListNodeGetNextNode(node);
-//    while (NULL != node) {
-//        if (object == VBLinkedListNodeGetObject(node)) {
-//            VBLinkedListRemoveNode(list, node);
-//        }
-//        
-//        node = nextNode;
-//        nextNode = VBLinkedListNodeGetNextNode(node);
-//    }
 
 void VBLinkedListRemoveAllObjects(VBLinkedList *list) {
     VBReturnMacro(list);
