@@ -61,7 +61,3 @@ VBLinkedListNode *VBLinkedListNodeGetNextNode(VBLinkedListNode *node) {
     
     return node->_nextNode;
 }
-
-
-
-
