@@ -15,17 +15,15 @@ typedef struct {
     void *_node;
 } VBLinkedListContext;
 
-//typedef bool VBLinkedListComparison(VBLinkedListNode *node,
-//                                               VBLinkedListContext *context);
+typedef bool (VBLinkedListComparison)(VBLinkedListContext *context);
 
 extern
 VBLinkedListNode *VBLinkedListGetNodeWithContext(VBLinkedList *list,
-//                                                 VBLinkedListComparison comparator,
+                                                 VBLinkedListComparison *comparator,
                                                  VBLinkedListContext *context);
 
 extern
-bool VBLinkedListNodeContainseObject(VBLinkedListNode *node,
-                                       VBLinkedListContext *context);
+bool VBLinkedListNodeContainseObject(VBLinkedListContext *context);
 
 extern
 uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list);

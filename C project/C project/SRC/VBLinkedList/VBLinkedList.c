@@ -14,9 +14,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #pragma mark-
 #pragma mark Private Declarations
+
+#define VBLinkedListContextCreateMacro(type, name, object) \
+        type *name = calloc(1, sizeof(type)); \
+        assert(name); \
+        name->_object = object;
 
 static
 void __VBLinkedListDeallocate(VBLinkedList *node);
@@ -29,9 +35,6 @@ void VBLinkedListSetCount(VBLinkedList *list, uint64_t count);
 
 static
 void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node);
-
-//static
-//void VBLinkedListRemoveNode(VBLinkedList *list, VBLinkedListNode *node);
 
 static
 void VBLinkedListSetMutationsCount(VBLinkedList *list, uint64_t mutationsCount);
@@ -99,30 +102,16 @@ uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list) {
 bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     VBReturnValueMacro(list, NULL);
     
-    VBLinkedListContext *context = calloc(1, sizeof(VBLinkedListContext));
-    context->_object = object;
+    VBLinkedListContextCreateMacro(VBLinkedListContext, context, object);
     
-    VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list, context);
+    VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list,
+                                                            VBLinkedListNodeContainseObject,
+                                                            context);
     
     free(context);
     
     return node;
 }
-
-//    VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
-//    bool result = false;
-//    
-//    while (VBLinkedListEnumeratorIsValid(enumerator)) {
-//        VBLinkedListNode *node = VBLinkedListEnumeratorGetNextNode(enumerator);
-//        if (object == VBLinkedListNodeGetObject(node)) {
-//            result = true;
-//        }
-//    }
-//    
-//    VBObjectRelease(enumerator);
-//    
-//    return result;
-//}
 
 void *VBLinkedListGetFirstObject(VBLinkedList *list) {
     VBLinkedListNode *node = VBLinkedListGetHead(list);
@@ -140,11 +129,12 @@ void VBLinkedListAddObject(VBLinkedList *list, void *object) {
 
 void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
     VBReturnMacro(list);
+
+    VBLinkedListContextCreateMacro(VBLinkedListContext, context, object);
     
-    VBLinkedListContext *context = calloc(1, sizeof(VBLinkedListContext));
-    context->_object = object;
-    
-    VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list, context);
+    VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list,
+                                                            VBLinkedListNodeContainseObject,
+                                                            context);
     
     if (node) {
         VBLinkedListNodeSetNextNode(context->_previosNode, VBLinkedListNodeGetNextNode(node));
@@ -154,18 +144,6 @@ void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
     
     VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
 }
-
-//    VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
-//    
-//    while (VBLinkedListEnumeratorIsValid(enumerator)) {
-//        VBLinkedListNode *node = VBLinkedListEnumeratorGetNextNode(enumerator);
-//        if (object == VBLinkedListNodeGetObject(node)) {
-//            VBLinkedListRemoveNode(list, node);
-//        }
-//    }
-//
-//    VBObjectRelease(enumerator);
-//}
 
 void VBLinkedListRemoveAllObjects(VBLinkedList *list) {
     VBReturnMacro(list);
@@ -185,38 +163,13 @@ void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node) {
     VBLinkedListSetCount(list, VBLinkedListGetCount(list) + 1);
 }
 
-//void VBLinkedListRemoveNode(VBLinkedList *list, VBLinkedListNode *node) {
-//    VBReturnMacro(list);
-//    
-//    VBLinkedListNode *firstNode = VBLinkedListGetHead(list);
-//    VBLinkedListNode *secondNode = VBLinkedListNodeGetNextNode(firstNode);
-//    
-//    if (firstNode == node) {
-//        VBLinkedListSetHead(list, VBLinkedListNodeGetNextNode(firstNode));
-//    } else {
-//        while (secondNode != node) {
-//            firstNode = secondNode;
-//            secondNode = VBLinkedListNodeGetNextNode(secondNode);
-//        }
-//        
-//        VBLinkedListNodeSetNextNode(firstNode, VBLinkedListNodeGetNextNode(node));
-//    }
-//    
-//    VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
-//}
-
-
-
-bool VBLinkedListNodeContainseObject(VBLinkedListNode *node,
-                                       VBLinkedListContext *context)
-{
-    return node && VBLinkedListNodeGetObject(node) == context->_object;
+bool VBLinkedListNodeContainseObject(VBLinkedListContext *context) {
+    return VBLinkedListNodeGetObject(context->_node) == context->_object;
 }
-
 
 extern
 VBLinkedListNode *VBLinkedListGetNodeWithContext(VBLinkedList *list,
-//                                                 VBLinkedListComparison comparator,
+                                                 VBLinkedListComparison *comparator,
                                                  VBLinkedListContext *context)
 {
     VBLinkedListEnumerator *enumerator = VBLinkedListEnumeratorCreateWithList(list);
@@ -225,7 +178,9 @@ VBLinkedListNode *VBLinkedListGetNodeWithContext(VBLinkedList *list,
     while (VBLinkedListEnumeratorIsValid(enumerator)) {
         node = VBLinkedListEnumeratorGetNextNode(enumerator);
         
-        if (VBLinkedListNodeContainseObject(node, context)) {
+        context->_node = node;
+        
+        if (comparator(context)) {
             break;
         }
         
