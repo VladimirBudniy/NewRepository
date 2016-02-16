@@ -105,7 +105,7 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
     VBLinkedListContextCreateMacro(VBLinkedListContext, context, object);
     
     VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list,
-                                                            VBLinkedListNodeContainseObject,
+                                                            VBLinkedListNodeContainsObject,
                                                             context);
     
     free(context);
@@ -114,9 +114,9 @@ bool VBLinkedListContainsObject(VBLinkedList *list, void *object) {
 }
 
 void *VBLinkedListGetFirstObject(VBLinkedList *list) {
-    VBLinkedListNode *node = VBLinkedListGetHead(list);
+    VBReturnValueMacro(list, NULL);
     
-    return NULL != node ? VBLinkedListNodeGetObject(node): NULL;
+    return list->_head;
 }
 
 void VBLinkedListAddObject(VBLinkedList *list, void *object) {
@@ -133,16 +133,19 @@ void VBLinkedListRemoveObject(VBLinkedList *list, void *object) {
     VBLinkedListContextCreateMacro(VBLinkedListContext, context, object);
     
     VBLinkedListNode *node = VBLinkedListGetNodeWithContext(list,
-                                                            VBLinkedListNodeContainseObject,
+                                                            VBLinkedListNodeContainsObject,
                                                             context);
-    
     if (node) {
-        VBLinkedListNodeSetNextNode(context->_previosNode, VBLinkedListNodeGetNextNode(node));
+        if (node == VBLinkedListGetHead(list)) {
+            VBLinkedListSetHead(list, VBLinkedListNodeGetNextNode(node));
+        } else {
+            VBLinkedListNodeSetNextNode(context->_previosNode, VBLinkedListNodeGetNextNode(node));
+        }
+        VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
     }
     
     free(context);
-    
-    VBLinkedListSetCount(list, VBLinkedListGetCount(list) - 1);
+    VBReturnMacro(node);
 }
 
 void VBLinkedListRemoveAllObjects(VBLinkedList *list) {
@@ -163,7 +166,7 @@ void VBLinkedListAddNode(VBLinkedList *list, VBLinkedListNode *node) {
     VBLinkedListSetCount(list, VBLinkedListGetCount(list) + 1);
 }
 
-bool VBLinkedListNodeContainseObject(VBLinkedListContext *context) {
+bool VBLinkedListNodeContainsObject(VBLinkedListContext *context) {
     return VBLinkedListNodeGetObject(context->_node) == context->_object;
 }
 

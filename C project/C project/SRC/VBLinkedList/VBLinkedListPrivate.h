@@ -23,7 +23,7 @@ VBLinkedListNode *VBLinkedListGetNodeWithContext(VBLinkedList *list,
                                                  VBLinkedListContext *context);
 
 extern
-bool VBLinkedListNodeContainseObject(VBLinkedListContext *context);
+bool VBLinkedListNodeContainsObject(VBLinkedListContext *context);
 
 extern
 uint64_t VBLinkedListGetMutationsCount(VBLinkedList *list);
