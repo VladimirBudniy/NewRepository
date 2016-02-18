@@ -11,16 +11,16 @@
 
 #include <stdio.h>
 
-void VBPrintValueAccordingQualifierTest() {
-    printf("%s ", "We are wait 20 - ");
-    VBPrintValue(%d, 20);
-    VBPrintNextString;
-    
-    printf("%s ", "We are wait 4 - ");
-    VBPrintValue(%lu, sizeof(int));
-    VBPrintNextString;
-    
-    printf("%s ", "We are wait A - ");
-    VBPrintValue(%c, 'A');
-    VBPrintNextString;
-}
+//void VBPrintValueAccordingQualifierTest() {
+//    printf("%s ", "We are wait 20 - ");
+//    VBPrintValue(%d, 20);
+//    VBPrintNextString;
+//    
+//    printf("%s ", "We are wait 4 - ");
+//    VBPrintValue(%lu, sizeof(int));
+//    VBPrintNextString;
+//    
+//    printf("%s ", "We are wait A - ");
+//    VBPrintValue(%c, 'A');
+//    VBPrintNextString;
+//}

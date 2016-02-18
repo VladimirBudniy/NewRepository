@@ -10,8 +10,8 @@
 #include "VBBitStepTask.h"
 #include "VBMacroHeader.h"
 
-void VBPrintBitStepTest(void) {
-    int firstTestValue = 1;
-    VBPrintBitField(&firstTestValue, sizeof(firstTestValue));
-}
+//void VBPrintBitStepTest(void) {
+//    int firstTestValue = 1;
+//    VBPrintBitField(&firstTestValue, sizeof(firstTestValue));
+//}
 

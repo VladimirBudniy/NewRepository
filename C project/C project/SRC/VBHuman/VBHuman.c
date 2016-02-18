@@ -85,7 +85,7 @@ VBHuman *VBHumanCreateChildWithNameGenderParents(VBString *string,
     VBHuman *child = VBHumanCreateWithNameGender(string, gender);
     VBHumanSetFather(child, father);
     VBHumanSetMother(child, mother);
-    if (VBHumanGetPartner(father) == mother) { // пееделать по полу
+    if (VBHumanGetPartner(father) == mother) { // переделать по полу
         VBHumanAddChild(father, child);
         VBHumanAddChild(mother, child);
     }

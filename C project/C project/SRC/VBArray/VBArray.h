@@ -27,7 +27,7 @@ struct VBArray {
 };
 
 extern
-void *VBArrayCreate(void);
+VBArray *VBArrayCreate(void);
 
 extern
 uint64_t VBArrayGetIndexOfObject(VBArray *array, void *object);
@@ -49,9 +49,6 @@ uint64_t VBArrayGetCount(VBArray *array);
 
 extern
 uint64_t VBArrayGetCapacity(VBArray *array);
-
-extern
-void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index);
 
 extern
 void *VBArrayGetFirstObject(VBArray *array);

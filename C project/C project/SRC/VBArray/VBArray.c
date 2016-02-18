@@ -48,6 +48,9 @@ void VBArrayChangeSizeIfNeeded(VBArray *array);
 static
 uint64_t VBArrayProvideSize(VBArray *array);
 
+static
+void VBArrayAddObjectAtIndex(VBArray *array, void *object, int64_t index);
+
 #pragma mark-
 #pragma mark Initialization & Deallocation
 
@@ -57,7 +60,7 @@ void __VBArrayDeallocate(void *array) {
     __VBObjectDeallocate(array);
 }
 
-void *VBArrayCreate(void) {
+VBArray *VBArrayCreate(void) {
     VBArray *array = VBObjectCreate(VBArray);
     VBArraySetCapacity(array, 0);
     VBArraySetCount(array, 0);

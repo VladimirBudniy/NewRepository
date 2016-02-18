@@ -19,10 +19,24 @@
 		E73E93441C5116650045ED28 /* VBObject.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93411C5116650045ED28 /* VBObject.c */; };
 		E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93461C51166F0045ED28 /* VBHumanTest.c */; };
 		E73E934C1C5270700045ED28 /* VBString.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E934A1C52706F0045ED28 /* VBString.c */; };
+		E78D20ED1C751870004AA9CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
+		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
+		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
+		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
+		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E707D01A1C3330F500EAE890 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		E78D20E81C751870004AA9CB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -59,11 +73,30 @@
 		E73E93471C51166F0045ED28 /* VBHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHumanTest.h; sourceTree = "<group>"; };
 		E73E934A1C52706F0045ED28 /* VBString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBString.c; sourceTree = "<group>"; };
 		E73E934B1C52706F0045ED28 /* VBString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBString.h; sourceTree = "<group>"; };
+		E78D20EA1C751870004AA9CB /* ObjC project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ObjC project"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E78D20EC1C751870004AA9CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
+		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
+		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
+		E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListNode.c; sourceTree = "<group>"; };
+		E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListNode.h; sourceTree = "<group>"; };
+		E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListTest.c; sourceTree = "<group>"; };
+		E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListTest.h; sourceTree = "<group>"; };
+		E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListEnumerator.c; sourceTree = "<group>"; };
+		E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumerator.h; sourceTree = "<group>"; };
+		E7EF16EB1C6CEBCF00355F76 /* VBLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListPrivate.h; sourceTree = "<group>"; };
+		E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E707D0191C3330F500EAE890 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E78D20E71C751870004AA9CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E707D01E1C3330F500EAE890 /* C project */,
+				E78D20EB1C751870004AA9CB /* ObjC project */,
 				E707D01D1C3330F500EAE890 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				E707D01C1C3330F500EAE890 /* C project */,
+				E78D20EA1C751870004AA9CB /* ObjC project */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +137,7 @@
 		E707D02E1C3332DF00EAE890 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				E7C1040F1C669D5F00E0CE62 /* VBLinkedList */,
 				E7134FC01C59227E00E30CAF /* VBArray */,
 				E73E93401C5116650045ED28 /* VBObject */,
 				E73E93491C5270580045ED28 /* VBString */,
@@ -124,6 +160,7 @@
 		E707D0321C3332DF00EAE890 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				E7C104171C66B31100E0CE62 /* VBLinkedListTest */,
 				E73E93451C51166F0045ED28 /* VBHumanTest */,
 				E707D0971C39DAB800EAE890 /* BitStepTaskTest */,
 				E707D0481C33346500EAE890 /* MacroTestTask1.1 */,
@@ -233,6 +270,70 @@
 			path = VBString;
 			sourceTree = "<group>";
 		};
+		E78D20EB1C751870004AA9CB /* ObjC project */ = {
+			isa = PBXGroup;
+			children = (
+				E78D20F11C7518B2004AA9CB /* SRC */,
+				E78D20F21C7518BB004AA9CB /* Test */,
+				E78D20EC1C751870004AA9CB /* main.m */,
+			);
+			path = "ObjC project";
+			sourceTree = "<group>";
+		};
+		E78D20F11C7518B2004AA9CB /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
+		E78D20F21C7518BB004AA9CB /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */,
+				E7C104131C669F8600E0CE62 /* VBLinkedListNode */,
+				E7C104101C669D7500E0CE62 /* VBLinkedList.c */,
+				E7C104111C669D7500E0CE62 /* VBLinkedList.h */,
+				E7EF16EB1C6CEBCF00355F76 /* VBLinkedListPrivate.h */,
+			);
+			path = VBLinkedList;
+			sourceTree = "<group>";
+		};
+		E7C104131C669F8600E0CE62 /* VBLinkedListNode */ = {
+			isa = PBXGroup;
+			children = (
+				E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */,
+				E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */,
+			);
+			path = VBLinkedListNode;
+			sourceTree = "<group>";
+		};
+		E7C104171C66B31100E0CE62 /* VBLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */,
+				E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */,
+			);
+			path = VBLinkedListTest;
+			sourceTree = "<group>";
+		};
+		E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */,
+				E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */,
+				E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */,
+			);
+			path = VBLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +354,23 @@
 			productReference = E707D01C1C3330F500EAE890 /* C project */;
 			productType = "com.apple.product-type.tool";
 		};
+		E78D20E91C751870004AA9CB /* ObjC project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E78D20F01C751870004AA9CB /* Build configuration list for PBXNativeTarget "ObjC project" */;
+			buildPhases = (
+				E78D20E61C751870004AA9CB /* Sources */,
+				E78D20E71C751870004AA9CB /* Frameworks */,
+				E78D20E81C751870004AA9CB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjC project";
+			productName = "ObjC project";
+			productReference = E78D20EA1C751870004AA9CB /* ObjC project */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -264,6 +382,9 @@
 				TargetAttributes = {
 					E707D01B1C3330F500EAE890 = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					E78D20E91C751870004AA9CB = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
@@ -280,6 +401,7 @@
 			projectRoot = "";
 			targets = (
 				E707D01B1C3330F500EAE890 /* C project */,
+				E78D20E91C751870004AA9CB /* ObjC project */,
 			);
 		};
 /* End PBXProject section */
@@ -295,12 +417,24 @@
 				E73E934C1C5270700045ED28 /* VBString.c in Sources */,
 				E73E93431C5116650045ED28 /* VBHuman.c in Sources */,
 				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
+				E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */,
 				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
+				E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */,
 				E73E93441C5116650045ED28 /* VBObject.c in Sources */,
+				E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */,
 				E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */,
 				E7134FC31C59229200E30CAF /* VBArray.c in Sources */,
 				E707D0531C33346500EAE890 /* VBPrintValueTest.c in Sources */,
+				E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */,
 				E707D0371C3332DF00EAE890 /* FirstStructTest.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E78D20E61C751870004AA9CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78D20ED1C751870004AA9CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +534,20 @@
 			};
 			name = Release;
 		};
+		E78D20EE1C751870004AA9CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E78D20EF1C751870004AA9CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,6 +568,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E78D20F01C751870004AA9CB /* Build configuration list for PBXNativeTarget "ObjC project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E78D20EE1C751870004AA9CB /* Debug */,
+				E78D20EF1C751870004AA9CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
