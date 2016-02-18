@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VBHumanClass.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSLog(@"Hello, World!");
+        NSString *name = @"Vasya";
+        NSUInteger age = 30;
+        NSUInteger weight = 80;
+        
+        VBHuman *human = [VBHuman createHumanWithName:name age:age weight:weight gender:kVBMaleGenderType];
+        [human sayHi];
+        
+        NSLog(@"The human name is %@, age %lu, weigth %lu, gender %d",name, (unsigned long)age, (unsigned long)weight, kVBMaleGenderType);
     }
     return 0;
 }
