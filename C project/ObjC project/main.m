@@ -8,18 +8,41 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VBHumanClass.h"
+#import "VBEssence.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSString *name = @"Vasya";
-        NSUInteger age = 30;
-        NSUInteger weight = 80;
         
-        VBHuman *human = [VBHuman createHumanWithName:name age:age weight:weight gender:kVBMaleGenderType];
-        [human sayHi];
+        VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5 gender:kVBMaleGenderType];
+//        VBEssence *woman = [VBEssence essenceWithName:@"Lena" age:2 weight:11.4 gender:kVBFemaleGenderType];
+        VBEssence *child1 = [VBEssence essenceWithName:@"child1" age:30 weight:85.5 gender:kVBMaleGenderType];
+        VBEssence *child2 = [VBEssence essenceWithName:@"child2" age:2 weight:11.4 gender:kVBFemaleGenderType];
+        VBEssence *child3 = [VBEssence essenceWithName:@"child3" age:30 weight:85.5 gender:kVBMaleGenderType];
+        VBEssence *child4 = [VBEssence essenceWithName:@"child4" age:2 weight:11.4 gender:kVBFemaleGenderType];
+        VBEssence *child5 = [VBEssence essenceWithName:@"child5" age:30 weight:85.5 gender:kVBMaleGenderType];
+        VBEssence *child6 = [VBEssence essenceWithName:@"child6" age:2 weight:11.4 gender:kVBFemaleGenderType];
         
-        NSLog(@"The human name is %@, age %lu, weigth %lu, gender %d",name, (unsigned long)age, (unsigned long)weight, kVBMaleGenderType);
+        [man addChild:child1];
+        [man addChild:child2];
+        [man addChild:child3];
+        [man addChild:child4];
+        [man addChild:child5];
+        [man addChild:child6];
+        
+        
+        NSUInteger count = [man arrayCount];
+         NSLog(@"The array count = %lu", count);
+        
+        [man removeChild:child3];
+        
+        NSUInteger count1 = [man arrayCount];
+        NSLog(@"The array count = %lu", count1);
+    
+        [man removeChildren];
+        
+        NSUInteger count2 = [man arrayCount];
+        NSLog(@"The array count = %lu", count2);
+        
     }
     return 0;
 }

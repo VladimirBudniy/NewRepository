@@ -10,4 +10,6 @@
 
 @interface VBEssenceTest : VBEssence
 
++(void)performTesting;
+
 @end
