@@ -34,5 +34,6 @@ typedef enum {
 - (void)removeChild:(id)child;
 - (void)removeChildren;
 - (NSUInteger)arrayCount;
+- (void)checkSkillsObjects;
 
 @end

@@ -15,13 +15,9 @@
 @property (nonatomic, assign)   VBGenderType    genderType;
 @property (nonatomic, retain)   NSMutableArray  *childrenArray;
 
-@end
+- (void)skillObject;
 
-//@interface VBEssence ()
-//
-//- (void)addChild:(id)child;
-//
-//@end
+@end
 
 @implementation VBEssence
 
@@ -49,7 +45,7 @@
     VBEssence *essence = [[[self alloc]initWithName:name]autorelease];
     essence.essenceAge = age;
     essence.essenceWeight = weight;
-    essence.genderType = kVBMaleGenderType;
+    essence.genderType = gender;
     
     return essence;
 }
@@ -62,11 +58,7 @@
 }
 
 #pragma mark -
-#pragma mark Private
-
-- (void)sayHi {
-    NSLog(@"human say Hi!");
-}
+#pragma mark Public
 
 - (void)addChild:(id)child {
     [self.childrenArray addObject:child];
@@ -83,6 +75,31 @@
 - (NSUInteger)arrayCount {
     NSUInteger count = [self.childrenArray count];
     return count;
+}
+
+- (void)checkSkillsObjects {
+    for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
+        VBEssence *object = [self.childrenArray objectAtIndex:index];
+        [object skillObject];
+    }
+}
+
+- (void)skillObject {
+    if (self.genderType == kVBMaleGenderType) {
+        NSLog(@"The %@ can fight", self.essenceName);
+    } else {
+        NSLog(@"The %@ can birth", self.essenceName);
+    }
+}
+
+- (void)sayHi {
+    NSLog(@"%@ say Hi!", self.essenceName);
+    if (self.childrenArray) {
+        for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
+            VBEssence *object = [self.childrenArray objectAtIndex:index];
+            NSLog(@"%@ say Hi!", object.essenceName);
+        }
+    }
 }
 
 @end
