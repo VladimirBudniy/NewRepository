@@ -58,7 +58,6 @@
         [human addChild:woman];
         
         NSLog(@"\n\nThe test for addition children\n");
-
         
         NSUInteger countM = [man arrayCount];
         NSLog(@"The man array count = %lu", countM);

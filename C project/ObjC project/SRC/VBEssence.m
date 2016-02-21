@@ -85,6 +85,9 @@
 }
 
 - (void)skillObject {
+    
+    assert(self.genderType != kVBUndefindeGenderType);
+    
     if (self.genderType == kVBMaleGenderType) {
         NSLog(@"The %@ can fight", self.essenceName);
     } else {
