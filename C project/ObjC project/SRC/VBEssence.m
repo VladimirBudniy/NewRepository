@@ -13,9 +13,6 @@
 @property (nonatomic, retain)   NSMutableArray  *childrenArray;
 @property (nonatomic, assign)   NSUInteger      essenceAge;
 @property (nonatomic, assign)   CGFloat         essenceWeight;
-@property (nonatomic, assign)   VBGenderType    genderType;
-
-- (void)skillObject;
 
 @end
 
@@ -31,8 +28,14 @@
     [super dealloc];
 }
 
-- (instancetype)initWithName:(NSString *)name {
+- (instancetype)init {
     self = [super init];
+    
+    return self;
+}
+
+- (instancetype)initWithName:(NSString *)name {
+    self = [self init];
     if (self) {
         self.essenceName = name;
         self.childrenArray = [NSMutableArray array];
@@ -47,12 +50,10 @@
 + (id)essenceWithName:(NSString *)name
                   age:(NSUInteger)age
                weight:(NSUInteger)weight
-               gender:(VBGenderType)gender
 {
     VBEssence *essence = [[[self alloc]initWithName:name] autorelease];
     essence.essenceAge = age;
     essence.essenceWeight = weight;
-    essence.genderType = gender;
     
     return essence;
 }
@@ -79,24 +80,6 @@
     [self.childrenArray removeAllObjects];
 }
 
-- (void)checkSkillsObjects {
-    for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
-        VBEssence *object = [self.childrenArray objectAtIndex:index];
-        [object skillObject];
-    }
-}
-
-- (void)skillObject {
-    
-    assert(self.genderType != kVBUndefindeGenderType);
-    
-    if (self.genderType == kVBMaleGenderType) {
-        [self canGoToWar];
-    } else {
-        [self canBirthChild];
-    }
-}
-
 - (void)sayHi {
     NSLog(@"%@ say Hi!", self.essenceName);
     for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
@@ -114,6 +97,10 @@
 
 - (void)canGoToWar {
     NSLog(@"He can fight");
+}
+
+- (void)performGenderSpecificOperation {
+    
 }
 
 @end

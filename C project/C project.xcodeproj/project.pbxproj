@@ -22,6 +22,9 @@
 		E78D20ED1C751870004AA9CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
 		E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20FD1C7731ED004AA9CB /* VBEssence.m */; };
 		E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
+		E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D210B1C7B982A004AA9CB /* VBMale.m */; };
+		E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21121C7B9889004AA9CB /* VBFemale.m */; };
+		E78D211A1C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */; };
 		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
 		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
 		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
@@ -81,6 +84,12 @@
 		E78D20FD1C7731ED004AA9CB /* VBEssence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssence.m; sourceTree = "<group>"; };
 		E78D20FF1C773724004AA9CB /* VBEssenceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssenceTest.h; sourceTree = "<group>"; };
 		E78D21001C773724004AA9CB /* VBEssenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssenceTest.m; sourceTree = "<group>"; };
+		E78D210A1C7B982A004AA9CB /* VBMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMale.h; sourceTree = "<group>"; };
+		E78D210B1C7B982A004AA9CB /* VBMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBMale.m; sourceTree = "<group>"; };
+		E78D21111C7B9889004AA9CB /* VBFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFemale.h; sourceTree = "<group>"; };
+		E78D21121C7B9889004AA9CB /* VBFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFemale.m; sourceTree = "<group>"; };
+		E78D21181C7BBE23004AA9CB /* NSObject+VBEssenceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VBEssenceCategory.h"; sourceTree = "<group>"; };
+		E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBEssenceCategory.m"; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
 		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
@@ -298,10 +307,40 @@
 		E78D20FB1C7731ED004AA9CB /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				E78D21171C7BBE23004AA9CB /* VBEssenceCategory */,
+				E78D21101C7B9889004AA9CB /* VBFemale */,
+				E78D21091C7B982A004AA9CB /* VBMale */,
 				E78D20FC1C7731ED004AA9CB /* VBEssence.h */,
 				E78D20FD1C7731ED004AA9CB /* VBEssence.m */,
 			);
 			path = SRC;
+			sourceTree = "<group>";
+		};
+		E78D21091C7B982A004AA9CB /* VBMale */ = {
+			isa = PBXGroup;
+			children = (
+				E78D210A1C7B982A004AA9CB /* VBMale.h */,
+				E78D210B1C7B982A004AA9CB /* VBMale.m */,
+			);
+			path = VBMale;
+			sourceTree = "<group>";
+		};
+		E78D21101C7B9889004AA9CB /* VBFemale */ = {
+			isa = PBXGroup;
+			children = (
+				E78D21111C7B9889004AA9CB /* VBFemale.h */,
+				E78D21121C7B9889004AA9CB /* VBFemale.m */,
+			);
+			path = VBFemale;
+			sourceTree = "<group>";
+		};
+		E78D21171C7BBE23004AA9CB /* VBEssenceCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E78D21181C7BBE23004AA9CB /* NSObject+VBEssenceCategory.h */,
+				E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */,
+			);
+			path = VBEssenceCategory;
 			sourceTree = "<group>";
 		};
 		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
@@ -446,6 +485,9 @@
 			files = (
 				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
 				E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */,
+				E78D211A1C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m in Sources */,
+				E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */,
+				E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */,
 				E78D20ED1C751870004AA9CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
