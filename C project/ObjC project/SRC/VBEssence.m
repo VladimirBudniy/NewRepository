@@ -10,10 +10,10 @@
 
 @interface VBEssence ()
 @property (nonatomic, copy)     NSString        *essenceName;
+@property (nonatomic, retain)   NSMutableArray  *childrenArray;
 @property (nonatomic, assign)   NSUInteger      essenceAge;
 @property (nonatomic, assign)   CGFloat         essenceWeight;
 @property (nonatomic, assign)   VBGenderType    genderType;
-@property (nonatomic, retain)   NSMutableArray  *childrenArray;
 
 - (void)skillObject;
 
@@ -23,6 +23,13 @@
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
+
+- (void) dealloc {
+    self.essenceName = nil;
+    self.childrenArray = nil;
+    
+    [super dealloc];
+}
 
 - (instancetype)initWithName:(NSString *)name {
     self = [super init];
@@ -42,7 +49,7 @@
                weight:(NSUInteger)weight
                gender:(VBGenderType)gender
 {
-    VBEssence *essence = [[[self alloc]initWithName:name]autorelease];
+    VBEssence *essence = [[[self alloc]initWithName:name] autorelease];
     essence.essenceAge = age;
     essence.essenceWeight = weight;
     essence.genderType = gender;
@@ -72,11 +79,6 @@
     [self.childrenArray removeAllObjects];
 }
 
-- (NSUInteger)arrayCount {
-    NSUInteger count = [self.childrenArray count];
-    return count;
-}
-
 - (void)checkSkillsObjects {
     for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
         VBEssence *object = [self.childrenArray objectAtIndex:index];
@@ -89,20 +91,29 @@
     assert(self.genderType != kVBUndefindeGenderType);
     
     if (self.genderType == kVBMaleGenderType) {
-        NSLog(@"The %@ can fight", self.essenceName);
+        [self canGoToWar];
     } else {
-        NSLog(@"The %@ can birth", self.essenceName);
+        [self canBirthChild];
     }
 }
 
 - (void)sayHi {
     NSLog(@"%@ say Hi!", self.essenceName);
-    if (self.childrenArray) {
-        for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
-            VBEssence *object = [self.childrenArray objectAtIndex:index];
-            NSLog(@"%@ say Hi!", object.essenceName);
-        }
+    for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
+        VBEssence *object = [self.childrenArray objectAtIndex:index];
+        NSLog(@"%@ say Hi!", object.essenceName);
     }
+}
+
+- (VBEssence *)canBirthChild {
+    VBEssence *child = [[VBEssence new] autorelease];
+    NSLog(@"She can birth");
+    
+    return child;
+}
+
+- (void)canGoToWar {
+    NSLog(@"He can fight");
 }
 
 @end

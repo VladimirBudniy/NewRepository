@@ -15,10 +15,10 @@ typedef enum {
 } VBGenderType;
 
 @interface VBEssence : NSObject
-@property (nonatomic, readonly) NSUInteger   essenceAge;
-@property (nonatomic, readonly) CGFloat      essenceWeight;
 @property (nonatomic, readonly) NSString     *essenceName;
 @property (nonatomic, readonly) NSArray      *children;
+@property (nonatomic, readonly) NSUInteger   essenceAge;
+@property (nonatomic, readonly) CGFloat      essenceWeight;
 @property (nonatomic, readonly) VBGenderType genderType;
 
 + (id)essenceWithName:(NSString *)name
@@ -33,7 +33,8 @@ typedef enum {
 - (void)addChild:(id)child;
 - (void)removeChild:(id)child;
 - (void)removeChildren;
-- (NSUInteger)arrayCount;
+- (VBEssence *)canBirthChild;
+- (void)canGoToWar;
 - (void)checkSkillsObjects;
 
 @end

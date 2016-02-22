@@ -30,6 +30,9 @@
         VBEssence *human = [VBEssence essenceWithName:@"Human" age:30 weight:85.5 gender:kVBMaleGenderType];
         VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5 gender:kVBMaleGenderType];
         VBEssence *woman = [VBEssence essenceWithName:@"Lena" age:2 weight:11.4 gender:kVBFemaleGenderType];
+        
+        NSArray *newArray = @[human, man, woman];
+        
         VBEssence *child1 = [VBEssence essenceWithName:@"child1" age:30 weight:85.5 gender:kVBMaleGenderType];
         VBEssence *child2 = [VBEssence essenceWithName:@"child2" age:2 weight:11.4 gender:kVBFemaleGenderType];
         VBEssence *child3 = [VBEssence essenceWithName:@"child3" age:30 weight:85.5 gender:kVBMaleGenderType];
@@ -59,13 +62,16 @@
         
         NSLog(@"\n\nThe test for addition children\n");
         
-        NSUInteger countM = [man arrayCount];
+        NSUInteger countA = [newArray count];
+        NSLog(@"The man array count = %lu", countA);
+        
+        NSUInteger countM = [man.children count];
         NSLog(@"The man array count = %lu", countM);
 
-        NSUInteger countW = [woman arrayCount];
+        NSUInteger countW = [woman.children count];
         NSLog(@"The women array count = %lu", countW);
         
-        NSUInteger countH = [human arrayCount];
+        NSUInteger countH = [human.children count];
         NSLog(@"The human array count = %lu", countH);
         
         NSLog(@"\n\nThe test on skills\n");
@@ -81,13 +87,13 @@
         [man removeChild:child3];
         [woman removeChild:child7];
         
-        NSUInteger countM1 = [man arrayCount];
+        NSUInteger countM1 = [man.children count];
         NSLog(@"The array count = %lu", countM1);
         
-        NSUInteger countW1 = [woman arrayCount];
+        NSUInteger countW1 = [woman.children count];
         NSLog(@"The woman array count = %lu", countW1);
         
-        NSUInteger countH1 = [human arrayCount];
+        NSUInteger countH1 = [human.children count];
         NSLog(@"The human array count = %lu", countH1);
         
         NSLog(@"\n\nThe test for removing children\n");
@@ -96,13 +102,13 @@
         [woman removeChildren];
         [human removeChildren];
         
-        NSUInteger countM2 = [man arrayCount];
+        NSUInteger countM2 = [man.children count];
         NSLog(@"The man array count = %lu", countM2);
         
-        NSUInteger countW2 = [woman arrayCount];
+        NSUInteger countW2 = [woman.children count];
         NSLog(@"The woman array count = %lu", countW2);
         
-        NSUInteger countH2 = [human arrayCount];
+        NSUInteger countH2 = [human.children count];
         NSLog(@"The human array count = %lu", countH2);
         
     }
