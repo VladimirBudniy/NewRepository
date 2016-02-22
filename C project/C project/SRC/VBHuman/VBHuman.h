@@ -62,9 +62,6 @@ extern
 void VBHumanRelease(VBHuman *human);
 
 extern
-void VBHumanRemoveAllChildren(VBHuman *human);
-
-extern
 VBHuman *VBHumanGetFather(VBHuman *human);
 
 extern
@@ -75,6 +72,9 @@ void VBHumanAddChild(VBHuman *human, VBHuman *child);
 
 extern
 void VBHumanRemoveChild(VBHuman *human, VBHuman *child);
+
+extern
+void VBHumanRemoveAllChildren(VBHuman *human);
 
 extern
 VBHuman *VBHumanGetChildAtIndex(VBHuman *human, uint16_t index);

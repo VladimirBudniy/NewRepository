@@ -20,6 +20,8 @@
 		E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93461C51166F0045ED28 /* VBHumanTest.c */; };
 		E73E934C1C5270700045ED28 /* VBString.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E934A1C52706F0045ED28 /* VBString.c */; };
 		E78D20ED1C751870004AA9CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
+		E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20FD1C7731ED004AA9CB /* VBEssence.m */; };
+		E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
 		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
 		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
 		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
@@ -75,6 +77,10 @@
 		E73E934B1C52706F0045ED28 /* VBString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBString.h; sourceTree = "<group>"; };
 		E78D20EA1C751870004AA9CB /* ObjC project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ObjC project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78D20EC1C751870004AA9CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E78D20FC1C7731ED004AA9CB /* VBEssence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssence.h; sourceTree = "<group>"; };
+		E78D20FD1C7731ED004AA9CB /* VBEssence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssence.m; sourceTree = "<group>"; };
+		E78D20FF1C773724004AA9CB /* VBEssenceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssenceTest.h; sourceTree = "<group>"; };
+		E78D21001C773724004AA9CB /* VBEssenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssenceTest.m; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
 		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
@@ -273,25 +279,29 @@
 		E78D20EB1C751870004AA9CB /* ObjC project */ = {
 			isa = PBXGroup;
 			children = (
-				E78D20F11C7518B2004AA9CB /* SRC */,
-				E78D20F21C7518BB004AA9CB /* Test */,
+				E78D20FB1C7731ED004AA9CB /* SRC */,
+				E78D20F41C75EC95004AA9CB /* Test */,
 				E78D20EC1C751870004AA9CB /* main.m */,
 			);
 			path = "ObjC project";
 			sourceTree = "<group>";
 		};
-		E78D20F11C7518B2004AA9CB /* SRC */ = {
+		E78D20F41C75EC95004AA9CB /* Test */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = SRC;
-			sourceTree = "<group>";
-		};
-		E78D20F21C7518BB004AA9CB /* Test */ = {
-			isa = PBXGroup;
-			children = (
+				E78D20FF1C773724004AA9CB /* VBEssenceTest.h */,
+				E78D21001C773724004AA9CB /* VBEssenceTest.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		E78D20FB1C7731ED004AA9CB /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				E78D20FC1C7731ED004AA9CB /* VBEssence.h */,
+				E78D20FD1C7731ED004AA9CB /* VBEssence.m */,
+			);
+			path = SRC;
 			sourceTree = "<group>";
 		};
 		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
@@ -434,6 +444,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
+				E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */,
 				E78D20ED1C751870004AA9CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +549,7 @@
 		E78D20EE1C751870004AA9CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -544,6 +557,7 @@
 		E78D20EF1C751870004AA9CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -576,6 +590,7 @@
 				E78D20EF1C751870004AA9CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

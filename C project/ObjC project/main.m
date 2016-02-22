@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VBEssence.h"
+#import "VBEssenceTest.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        [VBEssenceTest performTesting];
+
     }
     return 0;
 }
