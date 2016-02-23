@@ -90,6 +90,8 @@
 		E78D21121C7B9889004AA9CB /* VBFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFemale.m; sourceTree = "<group>"; };
 		E78D21181C7BBE23004AA9CB /* NSObject+VBEssenceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VBEssenceCategory.h"; sourceTree = "<group>"; };
 		E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBEssenceCategory.m"; sourceTree = "<group>"; };
+		E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E78D211D1C7C74CB004AA9CB /* VBObjCproject - Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBObjCproject - Prefix.pch"; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
 		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		E707D0131C3330F400EAE890 = {
 			isa = PBXGroup;
 			children = (
+				E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */,
 				E707D01E1C3330F500EAE890 /* C project */,
 				E78D20EB1C751870004AA9CB /* ObjC project */,
 				E707D01D1C3330F500EAE890 /* Products */,
@@ -290,6 +293,7 @@
 			children = (
 				E78D20FB1C7731ED004AA9CB /* SRC */,
 				E78D20F41C75EC95004AA9CB /* Test */,
+				E78D211C1C7C746B004AA9CB /* Supported Files */,
 				E78D20EC1C751870004AA9CB /* main.m */,
 			);
 			path = "ObjC project";
@@ -341,6 +345,15 @@
 				E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */,
 			);
 			path = VBEssenceCategory;
+			sourceTree = "<group>";
+		};
+		E78D211C1C7C746B004AA9CB /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				E78D211D1C7C74CB004AA9CB /* VBObjCproject - Prefix.pch */,
+			);
+			name = "Supported Files";
+			path = "SRC/Supported Files";
 			sourceTree = "<group>";
 		};
 		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
@@ -592,6 +605,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supported Files/VBObjCproject - Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -600,6 +615,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supported Files/VBObjCproject - Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

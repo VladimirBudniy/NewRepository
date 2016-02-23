@@ -30,22 +30,22 @@
 + (void)performFirstTest {
 //    @autoreleasepool {
 //        
-//        VBEssence *human = [VBEssence essenceWithName:@"Human" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *woman = [VBEssence essenceWithName:@"Lena" age:2 weight:11.4 gender:kVBFemaleGenderType];
+//        VBEssence *human = [VBEssence essenceWithName:@"Human" age:30 weight:85.5];
+//        VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5];
+//        VBEssence *woman = [VBEssence essenceWithName:@"Lena" age:2 weight:11.4];
 //        
 //        NSArray *newArray = @[human, man, woman];
 //        
-//        VBEssence *child1 = [VBEssence essenceWithName:@"child1" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *child2 = [VBEssence essenceWithName:@"child2" age:2 weight:11.4 gender:kVBFemaleGenderType];
-//        VBEssence *child3 = [VBEssence essenceWithName:@"child3" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *child4 = [VBEssence essenceWithName:@"child4" age:2 weight:11.4 gender:kVBFemaleGenderType];
-//        VBEssence *child5 = [VBEssence essenceWithName:@"child5" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *child6 = [VBEssence essenceWithName:@"child6" age:2 weight:11.4 gender:kVBFemaleGenderType];
-//        VBEssence *child7 = [VBEssence essenceWithName:@"child7" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *child8 = [VBEssence essenceWithName:@"child8" age:2 weight:11.4 gender:kVBFemaleGenderType];
-//        VBEssence *child9 = [VBEssence essenceWithName:@"child9" age:30 weight:85.5 gender:kVBMaleGenderType];
-//        VBEssence *child10 = [VBEssence essenceWithName:@"child10" age:2 weight:11.4 gender:kVBFemaleGenderType];
+//        VBEssence *child1 = [VBEssence essenceWithName:@"child1" age:30 weight:85.5];
+//        VBEssence *child2 = [VBEssence essenceWithName:@"child2" age:2 weight:11.4];
+//        VBEssence *child3 = [VBEssence essenceWithName:@"child3" age:30 weight:85.5];
+//        VBEssence *child4 = [VBEssence essenceWithName:@"child4" age:2 weight:11.4];
+//        VBEssence *child5 = [VBEssence essenceWithName:@"child5" age:30 weight:85.5];
+//        VBEssence *child6 = [VBEssence essenceWithName:@"child6" age:2 weight:11.4];
+//        VBEssence *child7 = [VBEssence essenceWithName:@"child7" age:30 weight:85.5];
+//        VBEssence *child8 = [VBEssence essenceWithName:@"child8" age:2 weight:11.4];
+//        VBEssence *child9 = [VBEssence essenceWithName:@"child9" age:30 weight:85.5];
+//        VBEssence *child10 = [VBEssence essenceWithName:@"child10" age:2 weight:11.4];
 //        
 //        
 //        [man addChild:child1];
@@ -119,7 +119,7 @@
 
 + (void)performSecondTest {
     @autoreleasepool {
-//        VBFemale *womentest = [VBFemale createObject];
+        VBFemale *womentest = [VBFemale createObject];
         VBFemale *woman = [[[VBFemale alloc] initWithName:@"Lena"] autorelease];
         VBMale *man = [[[VBMale alloc] initWithName:@"Kolya"] autorelease];
         VBFemale *woman1 = [[[VBFemale alloc] initWithName:@"Sveta"] autorelease];
@@ -127,7 +127,7 @@
         VBMale *man2 = [[[VBMale alloc] initWithName:@"Tolya"] autorelease];
         VBFemale *woman2 = [[[VBFemale alloc] initWithName:@"Tanya"] autorelease];
         
-        NSArray *array = @[woman, man, man1, woman1, woman2, man2];
+        NSArray *array = @[womentest, woman, man, man1, woman1, woman2, man2];
         
         for (id skills in array) {
             [skills performGenderSpecificOperation];

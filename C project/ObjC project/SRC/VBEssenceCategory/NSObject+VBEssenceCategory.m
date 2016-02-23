@@ -11,7 +11,7 @@
 @implementation NSObject (VBEssenceCategory)
 
 + (instancetype)createObject {
-    return [[[NSObject alloc]init] autorelease];
+    return [[[[self class] alloc] init] autorelease];
 }
 
 @end

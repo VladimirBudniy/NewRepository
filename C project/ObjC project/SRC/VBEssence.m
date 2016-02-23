@@ -82,14 +82,13 @@
 
 - (void)sayHi {
     NSLog(@"%@ say Hi!", self.essenceName);
-    for (NSUInteger index = 0; index < [self.childrenArray count]; index++) {
-        VBEssence *object = [self.childrenArray objectAtIndex:index];
-        NSLog(@"%@ say Hi!", object.essenceName);
+    for (VBEssence *object in self.childrenArray) {
+        [object sayHi];
     }
 }
 
 - (VBEssence *)canBirthChild {
-    VBEssence *child = [[VBEssence new] autorelease];
+    VBEssence *child = [VBEssence createObject];
     NSLog(@"She can birth");
     
     return child;
