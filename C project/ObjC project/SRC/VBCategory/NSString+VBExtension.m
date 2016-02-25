@@ -32,6 +32,7 @@ static NSString * const kVBTestAlphabet = @"ABCabc123";
     }
 
     return string;
+//    return [self randomStringWithLenght:length alphabet:kVBTestAlphabet];
 }
 
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet {
