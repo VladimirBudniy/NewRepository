@@ -9,9 +9,9 @@
 #import "VBEssence.h"
 
 @interface VBEssence ()
-@property (nonatomic, copy)     NSString        *essenceName;
+@property (nonatomic, copy)     NSString        *name;
 @property (nonatomic, retain)   NSMutableArray  *childrenArray;
-@property (nonatomic, assign)   NSUInteger      essenceAge;
+@property (nonatomic, assign)   NSUInteger      age;
 @property (nonatomic, assign)   CGFloat         essenceWeight;
 
 @end
@@ -19,32 +19,6 @@
 @implementation VBEssence
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
-
-- (void) dealloc {
-    self.essenceName = nil;
-    self.childrenArray = nil;
-    
-    [super dealloc];
-}
-
-- (instancetype)init {
-    self = [super init];
-    
-    return self;
-}
-
-- (instancetype)initWithName:(NSString *)name {
-    self = [self init];
-    if (self) {
-        self.essenceName = name;
-        self.childrenArray = [NSMutableArray array];
-    }
-    
-    return self;
-}
-
-#pragma mark - 
 #pragma mark Class Methods
 
 + (id)essenceWithName:(NSString *)name
@@ -52,10 +26,36 @@
                weight:(NSUInteger)weight
 {
     VBEssence *essence = [[[self alloc]initWithName:name] autorelease];
-    essence.essenceAge = age;
+    essence.age = age;
     essence.essenceWeight = weight;
     
     return essence;
+}
+
+#pragma mark -
+#pragma mark Initializations and Deallocatins
+
+- (void) dealloc {
+    self.name = nil;
+    self.childrenArray = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    self.childrenArray = [NSMutableArray array];
+    
+    return self;
+}
+
+- (instancetype)initWithName:(NSString *)name {
+    self = [self init];
+    if (self) {
+        self.name = name;
+    }
+    
+    return self;
 }
 
 #pragma mark -
@@ -81,21 +81,10 @@
 }
 
 - (void)sayHi {
-    NSLog(@"%@ say Hi!", self.essenceName);
+    NSLog(@"%@ say Hi!", self.name);
     for (VBEssence *object in self.childrenArray) {
         [object sayHi];
     }
-}
-
-- (VBEssence *)canBirthChild {
-    VBEssence *child = [VBEssence createObject];
-    NSLog(@"She can birth");
-    
-    return child;
-}
-
-- (void)canGoToWar {
-    NSLog(@"He can fight");
 }
 
 - (void)performGenderSpecificOperation {

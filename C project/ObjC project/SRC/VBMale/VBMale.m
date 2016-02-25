@@ -10,7 +10,7 @@
 
 @interface VBMale ();
 
-- (void)mustGoFight;
+- (void)goFight;
 
 @end
 
@@ -19,12 +19,12 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)mustGoFight {
+- (void)goFight {
     NSLog(@"He must will go to fight");
 }
 
 - (void)performGenderSpecificOperation {
-    [self mustGoFight];
+    [self goFight];
 }
 
 @end

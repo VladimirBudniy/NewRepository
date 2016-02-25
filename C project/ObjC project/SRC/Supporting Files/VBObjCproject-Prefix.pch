@@ -9,6 +9,7 @@
 #ifndef VBObjCproject___Prefix_pch
 #define VBObjCproject___Prefix_pch
 
-#import "NSObject+VBEssenceCategory.h"
+#import "NSObject+VBCategory.h"
+#import "NSString+VBExtension.h"
 
 #endif /* VBObjCproject___Prefix_pch */

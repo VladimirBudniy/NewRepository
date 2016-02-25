@@ -1,5 +1,5 @@
 //
-//  NSObject+VBEssenceCategory.h
+//  NSObject+VBCategory.h
 //  C project
 //
 //  Created by Vladimir Budniy on 23.02.16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (VBEssenceCategory)
+@interface NSObject (VBCategory)
 
 + (instancetype)createObject;
 

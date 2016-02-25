@@ -9,11 +9,12 @@
 #import "VBEssenceTest.h"
 #import "VBFemale.h"
 #import "VBMale.h"
-#import "NSObject+VBEssenceCategory.h"
+#import "NSObject+VBCategory.h"
 
 @interface VBEssenceTest ()
 + (void)performFirstTest;
 + (void)performSecondTest;
+
 
 @end
 
@@ -25,11 +26,11 @@
 + (void)performTesting {
     [VBEssenceTest performFirstTest];
     [VBEssenceTest performSecondTest];
+    [VBEssenceTest performStringTest];
 }
 
 + (void)performFirstTest {
-//    @autoreleasepool {
-//        
+//
 //        VBEssence *human = [VBEssence essenceWithName:@"Human" age:30 weight:85.5];
 //        VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5];
 //        VBEssence *woman = [VBEssence essenceWithName:@"Lena" age:2 weight:11.4];
@@ -113,27 +114,36 @@
 //        
 //        NSUInteger countH2 = [human.children count];
 //        NSLog(@"The human array count = %lu", countH2);
-//        
-//    }
+//
 }
 
 + (void)performSecondTest {
-    @autoreleasepool {
-        VBFemale *womentest = [VBFemale createObject];
-        VBFemale *woman = [[[VBFemale alloc] initWithName:@"Lena"] autorelease];
-        VBMale *man = [[[VBMale alloc] initWithName:@"Kolya"] autorelease];
-        VBFemale *woman1 = [[[VBFemale alloc] initWithName:@"Sveta"] autorelease];
-        VBMale *man1 = [[[VBMale alloc] initWithName:@"Vasya"] autorelease];
-        VBMale *man2 = [[[VBMale alloc] initWithName:@"Tolya"] autorelease];
-        VBFemale *woman2 = [[[VBFemale alloc] initWithName:@"Tanya"] autorelease];
-        
-        NSArray *array = @[womentest, woman, man, man1, woman1, woman2, man2];
-        
-        for (id skills in array) {
-            [skills performGenderSpecificOperation];
-        }
-
-    }
+//        VBFemale *womentest = [VBFemale createObject];
+//        VBFemale *woman = [[[VBFemale alloc] initWithName:@"Lena"] autorelease];
+//        VBMale *man = [[[VBMale alloc] initWithName:@"Kolya"] autorelease];
+//        VBFemale *woman1 = [[[VBFemale alloc] initWithName:@"Sveta"] autorelease];
+//        VBMale *man1 = [[[VBMale alloc] initWithName:@"Vasya"] autorelease];
+//        VBMale *man2 = [[[VBMale alloc] initWithName:@"Tolya"] autorelease];
+//        VBFemale *woman2 = [[[VBFemale alloc] initWithName:@"Tanya"] autorelease];
+//        
+//        NSArray *array = @[womentest, woman, man, man1, woman1, woman2, man2];
+//        
+//        for (id skills in array) {
+//            [skills performGenderSpecificOperation];
+//    }
 }
+
++ (void)performStringTest {
+    NSString *string = [NSString randomString];
+    NSString *stringWithLenght = [NSString randomStringWithLength:10];
+    NSString *stringWithAlphabet = [NSString randomStringWithAlphabet:@"ABCabc123"];
+    NSString *stringWithLenghtAlphabet = [NSString randomStringWithLenght:5 alphabet:@"ABCabc123"];
+    
+    NSLog(@"random string - %@", string);
+    NSLog(@"rendom string with lenght - %@", stringWithLenght);
+    NSLog(@"rendom string with alphabet - %@", stringWithAlphabet);
+    NSLog(@"rendom string with lenght and alphabet - %@", stringWithLenghtAlphabet);
+}
+
 
 @end

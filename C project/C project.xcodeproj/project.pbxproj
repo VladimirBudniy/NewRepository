@@ -24,11 +24,12 @@
 		E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
 		E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D210B1C7B982A004AA9CB /* VBMale.m */; };
 		E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21121C7B9889004AA9CB /* VBFemale.m */; };
-		E78D211A1C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */; };
 		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
 		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
 		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
 		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
+		E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
+		E7EF6DB41C7F78F9000BE913 /* NSString+VBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,10 +89,7 @@
 		E78D210B1C7B982A004AA9CB /* VBMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBMale.m; sourceTree = "<group>"; };
 		E78D21111C7B9889004AA9CB /* VBFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFemale.h; sourceTree = "<group>"; };
 		E78D21121C7B9889004AA9CB /* VBFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFemale.m; sourceTree = "<group>"; };
-		E78D21181C7BBE23004AA9CB /* NSObject+VBEssenceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VBEssenceCategory.h"; sourceTree = "<group>"; };
-		E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBEssenceCategory.m"; sourceTree = "<group>"; };
 		E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../iOS Study Plan.txt"; sourceTree = "<group>"; };
-		E78D211D1C7C74CB004AA9CB /* VBObjCproject - Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBObjCproject - Prefix.pch"; sourceTree = "<group>"; };
 		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
 		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
 		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
@@ -103,6 +101,11 @@
 		E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumerator.h; sourceTree = "<group>"; };
 		E7EF16EB1C6CEBCF00355F76 /* VBLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListPrivate.h; sourceTree = "<group>"; };
 		E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		E7EF6DA51C7F74AD000BE913 /* VBObjCproject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBObjCproject-Prefix.pch"; sourceTree = "<group>"; };
+		E7EF6DAF1C7F77A5000BE913 /* NSObject+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VBCategory.h"; sourceTree = "<group>"; };
+		E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBCategory.m"; sourceTree = "<group>"; };
+		E7EF6DB21C7F78F9000BE913 /* NSString+VBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VBExtension.h"; sourceTree = "<group>"; };
+		E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VBExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,7 +296,7 @@
 			children = (
 				E78D20FB1C7731ED004AA9CB /* SRC */,
 				E78D20F41C75EC95004AA9CB /* Test */,
-				E78D211C1C7C746B004AA9CB /* Supported Files */,
+				E7EF6DA41C7F74AD000BE913 /* Supporting Files */,
 				E78D20EC1C751870004AA9CB /* main.m */,
 			);
 			path = "ObjC project";
@@ -311,7 +314,7 @@
 		E78D20FB1C7731ED004AA9CB /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				E78D21171C7BBE23004AA9CB /* VBEssenceCategory */,
+				E7EF6DAE1C7F77A5000BE913 /* VBCategory */,
 				E78D21101C7B9889004AA9CB /* VBFemale */,
 				E78D21091C7B982A004AA9CB /* VBMale */,
 				E78D20FC1C7731ED004AA9CB /* VBEssence.h */,
@@ -336,24 +339,6 @@
 				E78D21121C7B9889004AA9CB /* VBFemale.m */,
 			);
 			path = VBFemale;
-			sourceTree = "<group>";
-		};
-		E78D21171C7BBE23004AA9CB /* VBEssenceCategory */ = {
-			isa = PBXGroup;
-			children = (
-				E78D21181C7BBE23004AA9CB /* NSObject+VBEssenceCategory.h */,
-				E78D21191C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m */,
-			);
-			path = VBEssenceCategory;
-			sourceTree = "<group>";
-		};
-		E78D211C1C7C746B004AA9CB /* Supported Files */ = {
-			isa = PBXGroup;
-			children = (
-				E78D211D1C7C74CB004AA9CB /* VBObjCproject - Prefix.pch */,
-			);
-			name = "Supported Files";
-			path = "SRC/Supported Files";
 			sourceTree = "<group>";
 		};
 		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
@@ -394,6 +379,26 @@
 				E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */,
 			);
 			path = VBLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		E7EF6DA41C7F74AD000BE913 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF6DA51C7F74AD000BE913 /* VBObjCproject-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = "SRC/Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7EF6DAE1C7F77A5000BE913 /* VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF6DAF1C7F77A5000BE913 /* NSObject+VBCategory.h */,
+				E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */,
+				E7EF6DB21C7F78F9000BE913 /* NSString+VBExtension.h */,
+				E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */,
+			);
+			path = VBCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,10 +503,11 @@
 			files = (
 				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
 				E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */,
-				E78D211A1C7BBE23004AA9CB /* NSObject+VBEssenceCategory.m in Sources */,
 				E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */,
+				E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */,
 				E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */,
 				E78D20ED1C751870004AA9CB /* main.m in Sources */,
+				E7EF6DB41C7F78F9000BE913 /* NSString+VBExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +612,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supported Files/VBObjCproject - Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -616,7 +622,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supported Files/VBObjCproject - Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

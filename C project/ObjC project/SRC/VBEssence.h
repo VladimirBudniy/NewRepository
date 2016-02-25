@@ -9,16 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface VBEssence : NSObject
-@property (nonatomic, readonly) NSString     *essenceName;
+@property (nonatomic, readonly) NSString     *name;
 @property (nonatomic, readonly) NSArray      *children;
-@property (nonatomic, readonly) NSUInteger   essenceAge;
-@property (nonatomic, readonly) CGFloat      essenceWeight;
+@property (nonatomic, readonly) NSUInteger   age;
+@property (nonatomic, readonly) CGFloat      weight;
 
 + (id)essenceWithName:(NSString *)name
-                      age:(NSUInteger)age
+                  age:(NSUInteger)age
                weight:(NSUInteger)weight;
-
-- (instancetype)init;
 
 - (instancetype)initWithName:(NSString *)name;
 
@@ -27,7 +25,5 @@
 - (void)removeChild:(id)child;
 - (void)removeChildren;
 - (void)performGenderSpecificOperation;
-- (VBEssence *)canBirthChild;
-- (void)canGoToWar;
 
 @end

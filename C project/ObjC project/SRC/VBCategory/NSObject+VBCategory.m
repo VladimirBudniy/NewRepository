@@ -1,14 +1,14 @@
 //
-//  NSObject+VBEssenceCategory.m
+//  NSObject+VBCategory.m
 //  C project
 //
 //  Created by Vladimir Budniy on 23.02.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "NSObject+VBEssenceCategory.h"
+#import "NSObject+VBCategory.h"
 
-@implementation NSObject (VBEssenceCategory)
+@implementation NSObject (VBCategory)
 
 + (instancetype)createObject {
     return [[[[self class] alloc] init] autorelease];
