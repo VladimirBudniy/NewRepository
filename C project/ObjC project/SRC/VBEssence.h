@@ -8,24 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    kVBUndefindeGenderType,
-    kVBMaleGenderType,
-    kVBFemaleGenderType,
-} VBGenderType;
-
 @interface VBEssence : NSObject
-@property (nonatomic, readonly) NSString     *essenceName;
+@property (nonatomic, readonly) NSString     *name;
 @property (nonatomic, readonly) NSArray      *children;
-@property (nonatomic, readonly) NSUInteger   essenceAge;
-@property (nonatomic, readonly) CGFloat      essenceWeight;
-@property (nonatomic, readonly) VBGenderType genderType;
+@property (nonatomic, readonly) NSUInteger   age;
+@property (nonatomic, readonly) CGFloat      weight;
 
 + (id)essenceWithName:(NSString *)name
-                      age:(NSUInteger)age
-               weight:(NSUInteger)weight
-               gender:(VBGenderType)gender;
-
+                  age:(NSUInteger)age
+               weight:(NSUInteger)weight;
 
 - (instancetype)initWithName:(NSString *)name;
 
@@ -33,8 +24,6 @@ typedef enum {
 - (void)addChild:(id)child;
 - (void)removeChild:(id)child;
 - (void)removeChildren;
-- (VBEssence *)canBirthChild;
-- (void)canGoToWar;
-- (void)checkSkillsObjects;
+- (void)performGenderSpecificOperation;
 
 @end

@@ -12,6 +12,4 @@
 
 +(void)performTesting;
 
-
-
 @end
