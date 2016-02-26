@@ -10,6 +10,15 @@
 
 @interface NSString (VBExtension)
 
++ (instancetype)lowLettersAlphabet;
++ (instancetype)highLettersAlphabet;
++ (instancetype)numericAlphabet;
++ (instancetype)highLowLettersAlphabet;
++ (instancetype)alphanumericAlphabet;
+
++ (instancetype)Alphabet;
+
+
 + (instancetype)randomString;
 + (instancetype)randomStringWithLength:(NSUInteger)length;
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet;

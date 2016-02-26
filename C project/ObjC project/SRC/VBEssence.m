@@ -25,7 +25,7 @@
                   age:(NSUInteger)age
                weight:(NSUInteger)weight
 {
-    VBEssence *essence = [[[self alloc]initWithName:name] autorelease];
+    VBEssence *essence = [[[self alloc] initWithName:name] autorelease];
     essence.age = age;
     essence.essenceWeight = weight;
     
@@ -44,8 +44,9 @@
 
 - (instancetype)init {
     self = [super init];
-    self.childrenArray = [NSMutableArray array];
-    
+    if (self) {
+        self.childrenArray = [NSMutableArray array];
+    }
     return self;
 }
 
