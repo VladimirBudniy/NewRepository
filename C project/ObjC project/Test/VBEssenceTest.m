@@ -134,25 +134,26 @@
 }
 
 + (void)performStringTest {
-//    NSString *string = [NSString randomString];
-//    NSString *stringWithLenght = [NSString randomStringWithLength:10];
-//    NSString *stringWithAlphabet = [NSString randomStringWithAlphabet:[NSString lowLettersAlphabet]];
-//    NSString *stringWithLenghtAlphabet = [NSString randomStringWithLenght:5 alphabet:[NSString numericAlphabet]];
-//    
-//    NSString *stringHighAlphabet = [NSString highLettersAlphabet];
-//    NSString *stringLowAlphabet = [NSString lowLettersAlphabet];
-//    NSString *stringWithNumbers = [NSString numericAlphabet];
-//    NSString *stringFullAlphabet = [NSString alphanumericAlphabet];
+    NSString *string = [NSString randomString];
+    NSString *stringWithLenght = [NSString randomStringWithLength:10];
+    NSString *stringWithAlphabet = [NSString randomStringWithAlphabet:[NSString lowLettersAlphabet]];
+    NSString *stringWithLenghtAlphabet = [NSString randomStringWithLenght:5 alphabet:[NSString numericAlphabet]];
+    
+    NSString *stringHighAlphabet = [NSString highLettersAlphabet];
+    NSString *stringLowAlphabet = [NSString lowLettersAlphabet];
+    NSString *stringWithNumbers = [NSString numericAlphabet];
+    NSString *stringFullAlphabet = [NSString alphanumericAlphabet];
     NSString *alphabet = [NSString Alphabet];
     
-//    NSLog(@"random string - %@", string);
-//    NSLog(@"random string with lenght - %@", stringWithLenght);
-//    NSLog(@"random string with alphabet - %@", stringWithAlphabet);
-//    NSLog(@"random string with lenght and alphabet - %@", stringWithLenghtAlphabet);
-//    NSLog(@"string with high alphabet - %@", stringHighAlphabet);
-//    NSLog(@"string with low alphabet - %@", stringLowAlphabet);
-//    NSLog(@"string with numbers - %@", stringWithNumbers);
-//    NSLog(@"string with high, low and numbers alphabet - %@", stringFullAlphabet);
+    NSLog(@"random string - %@", string);
+    NSLog(@"random string with lenght - %@", stringWithLenght);
+    NSLog(@"random string with alphabet - %@", stringWithAlphabet);
+    NSLog(@"random string with lenght and alphabet - %@", stringWithLenghtAlphabet);
+    
+    NSLog(@"string with high alphabet - %@", stringHighAlphabet);
+    NSLog(@"string with low alphabet - %@", stringLowAlphabet);
+    NSLog(@"string with numbers - %@", stringWithNumbers);
+    NSLog(@"string with high, low and numbers alphabet - %@", stringFullAlphabet);
     NSLog(@"string alphabet - %@", alphabet);
 }
 
