@@ -10,6 +10,6 @@
 
 @interface NSObject (VBCategory)
 
-+ (instancetype)createObject;
++ (instancetype)object;
 
 @end

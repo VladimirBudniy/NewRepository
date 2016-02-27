@@ -30,6 +30,14 @@
 		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
 		E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
 		E7EF6DB41C7F78F9000BE913 /* NSString+VBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */; };
+		E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */; };
+		E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21121C7B9889004AA9CB /* VBFemale.m */; };
+		E7EF6DD11C824960000BE913 /* VBMale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D210B1C7B982A004AA9CB /* VBMale.m */; };
+		E7EF6DD21C824963000BE913 /* VBEssence.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20FD1C7731ED004AA9CB /* VBEssence.m */; };
+		E7EF6DD31C824965000BE913 /* NSString+VBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */; };
+		E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
+		E7EF6DD51C82496F000BE913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
+		E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +114,9 @@
 		E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBCategory.m"; sourceTree = "<group>"; };
 		E7EF6DB21C7F78F9000BE913 /* NSString+VBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VBExtension.h"; sourceTree = "<group>"; };
 		E7EF6DB31C7F78F9000BE913 /* NSString+VBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VBExtension.m"; sourceTree = "<group>"; };
+		E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBObjCTests.m; sourceTree = "<group>"; };
+		E7EF6DCC1C82493E000BE913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +134,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7EF6DC51C82493D000BE913 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -132,6 +150,7 @@
 				E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */,
 				E707D01E1C3330F500EAE890 /* C project */,
 				E78D20EB1C751870004AA9CB /* ObjC project */,
+				E7EF6DC91C82493E000BE913 /* VBObjCTests */,
 				E707D01D1C3330F500EAE890 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 			children = (
 				E707D01C1C3330F500EAE890 /* C project */,
 				E78D20EA1C751870004AA9CB /* ObjC project */,
+				E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,6 +421,15 @@
 			path = VBCategory;
 			sourceTree = "<group>";
 		};
+		E7EF6DC91C82493E000BE913 /* VBObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */,
+				E7EF6DCC1C82493E000BE913 /* Info.plist */,
+			);
+			path = VBObjCTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -438,6 +467,23 @@
 			productReference = E78D20EA1C751870004AA9CB /* ObjC project */;
 			productType = "com.apple.product-type.tool";
 		};
+		E7EF6DC71C82493D000BE913 /* VBObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7EF6DCF1C82493E000BE913 /* Build configuration list for PBXNativeTarget "VBObjCTests" */;
+			buildPhases = (
+				E7EF6DC41C82493D000BE913 /* Sources */,
+				E7EF6DC51C82493D000BE913 /* Frameworks */,
+				E7EF6DC61C82493D000BE913 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VBObjCTests;
+			productName = VBObjCTests;
+			productReference = E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -451,6 +497,9 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					E78D20E91C751870004AA9CB = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					E7EF6DC71C82493D000BE913 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -469,9 +518,20 @@
 			targets = (
 				E707D01B1C3330F500EAE890 /* C project */,
 				E78D20E91C751870004AA9CB /* ObjC project */,
+				E7EF6DC71C82493D000BE913 /* VBObjCTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7EF6DC61C82493D000BE913 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E707D0181C3330F500EAE890 /* Sources */ = {
@@ -508,6 +568,21 @@
 				E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */,
 				E78D20ED1C751870004AA9CB /* main.m in Sources */,
 				E7EF6DB41C7F78F9000BE913 /* NSString+VBExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7EF6DC41C82493D000BE913 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
+				E7EF6DD21C824963000BE913 /* VBEssence.m in Sources */,
+				E7EF6DD11C824960000BE913 /* VBMale.m in Sources */,
+				E7EF6DD31C824965000BE913 /* NSString+VBExtension.m in Sources */,
+				E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */,
+				E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */,
+				E7EF6DD51C82496F000BE913 /* main.m in Sources */,
+				E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +702,34 @@
 			};
 			name = Release;
 		};
+		E7EF6DCD1C82493E000BE913 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				INFOPLIST_FILE = VBObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E7EF6DCE1C82493E000BE913 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				INFOPLIST_FILE = VBObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -656,6 +759,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E7EF6DCF1C82493E000BE913 /* Build configuration list for PBXNativeTarget "VBObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7EF6DCD1C82493E000BE913 /* Debug */,
+				E7EF6DCE1C82493E000BE913 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
