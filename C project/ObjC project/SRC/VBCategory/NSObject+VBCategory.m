@@ -10,7 +10,7 @@
 
 @implementation NSObject (VBCategory)
 
-+ (instancetype)createObject {
++ (instancetype)object {
     return [[[[self class] alloc] init] autorelease];
 }
 

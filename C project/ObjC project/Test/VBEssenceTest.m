@@ -30,6 +30,7 @@
 }
 
 + (void)performFirstTest {
+        @autoreleasepool {
 //
 //        VBEssence *human = [VBEssence essenceWithName:@"Human" age:30 weight:85.5];
 //        VBEssence *man = [VBEssence essenceWithName:@"Vasya" age:30 weight:85.5];
@@ -115,10 +116,12 @@
 //        NSUInteger countH2 = [human.children count];
 //        NSLog(@"The human array count = %lu", countH2);
 //
+        }
 }
 
 + (void)performSecondTest {
-//        VBFemale *womentest = [VBFemale createObject];
+        @autoreleasepool {
+//        VBFemale *womentest = [VBFemale object];
 //        VBFemale *woman = [[[VBFemale alloc] initWithName:@"Lena"] autorelease];
 //        VBMale *man = [[[VBMale alloc] initWithName:@"Kolya"] autorelease];
 //        VBFemale *woman1 = [[[VBFemale alloc] initWithName:@"Sveta"] autorelease];
@@ -130,31 +133,32 @@
 //        
 //        for (id skills in array) {
 //            [skills performGenderSpecificOperation];
-//    }
+//            }
+        }
 }
 
 + (void)performStringTest {
-    NSString *string = [NSString randomString];
-    NSString *stringWithLenght = [NSString randomStringWithLength:10];
-    NSString *stringWithAlphabet = [NSString randomStringWithAlphabet:[NSString lowLettersAlphabet]];
-    NSString *stringWithLenghtAlphabet = [NSString randomStringWithLenght:5 alphabet:[NSString numericAlphabet]];
-    
-    NSString *stringHighAlphabet = [NSString highLettersAlphabet];
-    NSString *stringLowAlphabet = [NSString lowLettersAlphabet];
-    NSString *stringWithNumbers = [NSString numericAlphabet];
-    NSString *stringFullAlphabet = [NSString alphanumericAlphabet];
-    NSString *alphabet = [NSString Alphabet];
-    
-    NSLog(@"random string - %@", string);
-    NSLog(@"random string with lenght - %@", stringWithLenght);
-    NSLog(@"random string with alphabet - %@", stringWithAlphabet);
-    NSLog(@"random string with lenght and alphabet - %@", stringWithLenghtAlphabet);
-    
-    NSLog(@"string with high alphabet - %@", stringHighAlphabet);
-    NSLog(@"string with low alphabet - %@", stringLowAlphabet);
-    NSLog(@"string with numbers - %@", stringWithNumbers);
-    NSLog(@"string with high, low and numbers alphabet - %@", stringFullAlphabet);
-    NSLog(@"string alphabet - %@", alphabet);
+//    NSString *string = [NSString randomString];
+//    NSString *stringWithLenght = [NSString randomStringWithLength:10];
+//    NSString *stringWithAlphabet = [NSString randomStringWithAlphabet:[NSString lowLettersAlphabet]];
+//    NSString *stringWithLenghtAlphabet = [NSString randomStringWithLenght:5 alphabet:[NSString numericAlphabet]];
+//    
+//    NSString *stringHighAlphabet = [NSString highLettersAlphabet];
+//    NSString *stringLowAlphabet = [NSString lowLettersAlphabet];
+//    NSString *stringWithNumbers = [NSString numericAlphabet];
+//    NSString *stringFullAlphabet = [NSString alphanumericAlphabet];
+//    NSString *alphabet = [NSString Alphabet];
+//    
+//    NSLog(@"random string - %@", string);
+//    NSLog(@"random string with lenght - %@", stringWithLenght);
+//    NSLog(@"random string with alphabet - %@", stringWithAlphabet);
+//    NSLog(@"random string with lenght and alphabet - %@", stringWithLenghtAlphabet);
+//    
+//    NSLog(@"string with high alphabet - %@", stringHighAlphabet);
+//    NSLog(@"string with low alphabet - %@", stringLowAlphabet);
+//    NSLog(@"string with numbers - %@", stringWithNumbers);
+//    NSLog(@"string with high, low and numbers alphabet - %@", stringFullAlphabet);
+//    NSLog(@"string alphabet - %@", alphabet);
 }
 
 

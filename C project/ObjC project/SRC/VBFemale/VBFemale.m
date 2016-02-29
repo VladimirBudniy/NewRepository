@@ -16,7 +16,7 @@
 
 @implementation VBFemale
 - (VBFemale *)giveBirthChild {
-    VBFemale *child = [VBFemale createObject];
+    VBFemale *child = [VBFemale object];
     NSLog(@"She can give birth child");
     
     return child;

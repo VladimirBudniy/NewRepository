@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        [VBEssenceTest performTesting];
+//        [VBEssenceTest performTesting];
 
     }
     return 0;
