@@ -10,6 +10,9 @@
 
 @implementation NSObject (VBCategory)
 
+#pragma mark -
+#pragma mark Initializations and Deallocatins
+
 + (instancetype)object {
     return [[[[self class] alloc] init] autorelease];
 }

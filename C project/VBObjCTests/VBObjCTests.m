@@ -10,7 +10,7 @@
 
 #import "VBFemale.h"
 #import "VBMale.h"
-#import "NSObject+VBCategory.h"
+#import "VBAlphabet.h"
 
 @interface VBObjCTests : XCTestCase
 
