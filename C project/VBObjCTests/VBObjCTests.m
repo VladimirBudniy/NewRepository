@@ -68,7 +68,7 @@
     XCTAssert(stringFullAlphabet.length == 62);
     NSLog(@" -- String with high, low and numbers alphabet -- %@", stringFullAlphabet);
     
-    NSString *alphabet = [NSString Alphabet];
+    NSString *alphabet = [NSString lettersAlphabet];
     XCTAssert(alphabet.length == 78);
     NSLog(@" -- String alphabet -- %@", alphabet);
     NSLog(@"\n");

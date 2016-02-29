@@ -46,7 +46,7 @@ static const NSUInteger kVBStringLength = 5;
     return [string stringByAppendingString:[NSString numericAlphabet]];
 }
 
-+ (instancetype)Alphabet {
++ (instancetype)lettersAlphabet {
     NSString *string = [NSString string];
     NSString *highAphabet = [NSString highLettersAlphabet];
     NSString *lowAphabet = [NSString lowLettersAlphabet];
@@ -57,7 +57,7 @@ static const NSUInteger kVBStringLength = 5;
         string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", charIndex]];
         
         unichar charValue = [lowAphabet characterAtIndex:index];
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c ", charValue]];
+        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", charValue]];
     }
 
     return string;
@@ -74,20 +74,23 @@ static const NSUInteger kVBStringLength = 5;
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet {
     NSUInteger lenght = arc4random_uniform(kVBStringLength) + 1;
     
-    return [self randomStringWithLenght:lenght alphabet:[self highLettersAlphabet]];
+    return [self randomStringWithLenght:lenght alphabet:alphabet];
 }
 
 + (instancetype)randomStringWithLenght:(NSUInteger)length
                               alphabet:(NSString *)alphabet
 {
-    NSString *string = [NSString string];
+//    NSString *string = [NSString string];
+    NSMutableString *string = [NSMutableString mutableCopy];
     for (NSUInteger index = 0; index < length; index++) {
         NSUInteger charIndex = arc4random_uniform((uint32_t)alphabet.length - 1);
         unichar charValue = [alphabet characterAtIndex:charIndex];
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", charValue]];
+//        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", charValue]];
+        [string appendString:[NSString stringWithFormat:@"%c", charValue]];
     }
     
-    return string;
+    return [string copy];
+//    return string;
 }
 
 #pragma mark -
@@ -100,12 +103,18 @@ static const NSUInteger kVBStringLength = 5;
 }
 
 + (NSString *)stringWithRange:(NSRange)range {
-    NSString *string = [NSString string];
+    NSMutableString *string = [NSMutableString string];
     for (NSUInteger index = range.location; index <= range.location + range.length; index++) {
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", (unichar)index]];
+        [string appendString:[NSString stringWithFormat:@"%c", (unichar)index]];
     }
     
-    return string;
+//    NSString *string = [NSString string];
+//    for (NSUInteger index = range.location; index <= range.location + range.length; index++) {
+//        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", (unichar)index]];
+//    }
+    
+    return [string copy];
+//    return string;
 }
 
 @end

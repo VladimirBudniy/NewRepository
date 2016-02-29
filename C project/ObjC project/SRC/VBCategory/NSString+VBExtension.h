@@ -16,12 +16,16 @@
 + (instancetype)highLowLettersAlphabet;
 + (instancetype)alphanumericAlphabet;
 
-+ (instancetype)Alphabet;
++ (instancetype)lettersAlphabet;
 
+// Methods with alphabet and length with default values:
+// - default value for length is 5;
+// - default alphabet is lowLettersAlphabet;
 
 + (instancetype)randomString;
 + (instancetype)randomStringWithLength:(NSUInteger)length;
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet;
+
 + (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(NSString *)alphabet;
 
 @end
