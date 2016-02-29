@@ -74,6 +74,10 @@
     NSLog(@"\n");
 }
 
+- (void)testAlphabetWithRange {
+    VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
+    NSLog(@"%@", alphabet);
+}
 
 
 - (void)testPerformanceExample {
