@@ -69,7 +69,7 @@
     NSLog(@" -- String with high, low and numbers alphabet -- %@", stringFullAlphabet);
     
     NSString *alphabet = [NSString lettersAlphabet];
-    XCTAssert(alphabet.length == 78);
+    XCTAssert(alphabet.length == 52);
     NSLog(@" -- String alphabet -- %@", alphabet);
     NSLog(@"\n");
 }
