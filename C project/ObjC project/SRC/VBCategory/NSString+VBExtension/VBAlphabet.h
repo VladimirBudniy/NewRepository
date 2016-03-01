@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface VBAlphabet : NSObject
+@property (nonatomic, readonly) NSString    *string;
+@property (nonatomic, readonly) NSUInteger  count;
 
 + (instancetype)alphabetWithRange:(NSRange)range;
++ (instancetype)alphabetWithLowercaseLettersRange;
++ (instancetype)alphabetWithUppercaseLettersRange;
++ (instancetype)alphabetWithNumbers;
+
+- (instancetype)initWithRange:(NSRange)range;
 
 @end
