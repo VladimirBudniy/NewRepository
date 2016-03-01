@@ -17,6 +17,8 @@
 + (instancetype)alphabetWithUppercaseLettersRange;
 + (instancetype)alphabetWithNumbers;
 
++ (instancetype)alphabetWithString:(NSString *)string;
+
 - (instancetype)initWithRange:(NSRange)range;
 
 @end

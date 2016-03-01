@@ -8,6 +8,7 @@
 
 #import "VBAlphabet.h"
 #import "VBRangeAlphabet.h"
+#import "VBStringAlphabet.h"
 
 @implementation VBAlphabet
 
@@ -15,7 +16,7 @@
 @dynamic count;
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
+#pragma mark Class Methods
 
 + (instancetype)alphabetWithRange:(NSRange)range {
     return [[[VBRangeAlphabet alloc] initWithRange:range] autorelease];
@@ -25,11 +26,18 @@
     return [[[VBRangeAlphabet alloc] initWithLowercaseLettersRange] autorelease];
 }
 + (instancetype)alphabetWithUppercaseLettersRange {
-    return [[[VBRangeAlphabet alloc] initWithUppercaseLettersRange] autorelease];;
+    return [[[VBRangeAlphabet alloc] initWithUppercaseLettersRange] autorelease];
 }
 + (instancetype)alphabetWithNumbers {
     return [[[VBRangeAlphabet alloc] initWithNumericRange] autorelease];
 }
+
++ (instancetype)alphabetWithString:(NSString *)string {
+    return [[[VBStringAlphabet alloc] initWithString:string] autorelease];
+}
+
+#pragma mark -
+#pragma mark Initializations and Deallocatins
 
 - (instancetype)initWithRange:(NSRange)range {
     [self autorelease];
