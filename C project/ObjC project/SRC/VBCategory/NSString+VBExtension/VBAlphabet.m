@@ -45,6 +45,12 @@
     return [[VBRangeAlphabet alloc] initWithRange:range];
 }
 
+- (instancetype)initWithString:(NSString *)string {
+    [self autorelease];
+    
+    return [[VBStringAlphabet alloc] initWithString:string];
+}
+
 #pragma mark -
 #pragma mark Accessors
 
