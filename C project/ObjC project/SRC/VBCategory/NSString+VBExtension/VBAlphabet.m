@@ -9,6 +9,7 @@
 #import "VBAlphabet.h"
 #import "VBRangeAlphabet.h"
 #import "VBStringAlphabet.h"
+#import "VBArrayAlphabet.h"
 
 @implementation VBAlphabet
 
@@ -34,6 +35,10 @@
 
 + (instancetype)alphabetWithString:(NSString *)string {
     return [[[VBStringAlphabet alloc] initWithString:string] autorelease];
+}
+
++ (instancetype)alphabetWithArray:(NSArray *)array {
+    return [[[VBArrayAlphabet alloc] initWithArray:array] autorelease];
 }
 
 #pragma mark -

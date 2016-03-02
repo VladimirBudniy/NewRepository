@@ -19,6 +19,8 @@
 
 + (instancetype)alphabetWithString:(NSString *)string;
 
++ (instancetype)alphabetWithArray:(NSArray *)array;
+
 - (instancetype)initWithRange:(NSRange)range;
 - (instancetype)initWithString:(NSString *)string;
 

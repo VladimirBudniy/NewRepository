@@ -94,11 +94,25 @@
 }
 
 - (void)testAlphabetWithString {
+//    NSLog(@"\n");
+//    VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
+//    NSLog(@"%@", alphabetWithString.string);
+//    NSLog(@"%lu", alphabetWithString.count);
+//    XCTAssert(alphabetWithString.string.length == 9);
+//    NSLog(@"\n");
+}
+
+- (void)testAlphabetWithArray {
     NSLog(@"\n");
+    VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
     VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
-    NSLog(@"%@", alphabetWithString.string);
-    NSLog(@"%lu", alphabetWithString.count);
-    XCTAssert(alphabetWithString.string.length == 9);
+//    VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
+//    VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
+    
+    VBAlphabet *arrayAlphabets = [VBAlphabet alphabetWithArray:@[alphabet, alphabetWithString]];
+    NSLog(@"%@", arrayAlphabets.string);
+    NSLog(@"%lu", arrayAlphabets.count);
+
     NSLog(@"\n");
 }
 

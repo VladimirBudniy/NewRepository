@@ -9,7 +9,7 @@
 #import "VBStringAlphabet.h"
 
 @interface VBStringAlphabet ()
-@property (nonatomic, assign) NSString *stringAlphabet;
+@property (nonatomic, copy) NSString *stringAlphabet;
 
 @end
 
