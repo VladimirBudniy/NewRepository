@@ -33,9 +33,8 @@
 - (NSString *)string {
     NSMutableString *string = [NSMutableString string];
     for (NSUInteger index = 0; index < self.array.count; index++) {
-        [string appendString:[NSString stringWithFormat:@"%@", self.array[index]]];
         for (NSUInteger charIndex = 0; charIndex < [self.array[index] count]; charIndex++) {
-            unichar charValue = [string characterAtIndex:charIndex];
+            unichar charValue = [self.array[index] characterAtIndex:charIndex];
             [string appendString:[NSString stringWithFormat:@"%c", charValue]];
         }
     }

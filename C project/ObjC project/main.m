@@ -13,7 +13,8 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
+//        NSArray *pathArray = [NSArray arrayWithObjects:@"here", @"be", @"dragons", nil];
+//        NSLog(@"%@",[pathArray componentsJoinedByString:@""]);
 //        [VBEssenceTest performTesting];
 
     }
