@@ -92,7 +92,7 @@
         [string appendString:[NSString stringWithFormat:@"%c", (unichar)index]];
     }
     
-    return [string copy];
+    return [[string copy] autorelease];
 }
 
 - (NSUInteger)count {

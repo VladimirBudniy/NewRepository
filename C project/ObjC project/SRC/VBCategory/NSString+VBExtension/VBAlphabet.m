@@ -56,6 +56,12 @@
     return [[VBStringAlphabet alloc] initWithString:string];
 }
 
+- (instancetype)initWithArray:(NSArray *)array {
+    [self autorelease];
+    
+    return [[VBArrayAlphabet alloc] initWithArray:array];
+}
+
 #pragma mark -
 #pragma mark Accessors
 

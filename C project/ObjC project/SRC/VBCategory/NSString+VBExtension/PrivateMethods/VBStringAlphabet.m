@@ -18,6 +18,12 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
+- (void) dealloc {
+    self.stringAlphabet = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)initWithString:(NSString *)stringAlphabet {
     self = [super init];
     if (self) {
@@ -35,7 +41,7 @@
 }
 
 - (NSUInteger)count {
-    return (self.string.length - 1);
+    return (self.string.length);
 }
 
 @end

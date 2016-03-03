@@ -9,17 +9,22 @@
 #import "VBArrayAlphabet.h"
 
 @interface VBArrayAlphabet ()
-@property (nonatomic, retain) NSMutableArray * array;
+@property (nonatomic, retain) NSArray * array;
 
 @end
 
 @implementation VBArrayAlphabet
 
-
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithArray:(NSMutableArray *)array {
+- (void) dealloc {
+    self.array = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
         self.array = array;
@@ -31,19 +36,18 @@
 #pragma mark Accessors
 
 - (NSString *)string {
-    NSMutableString *string = [NSMutableString string];
-    for (NSUInteger index = 0; index < self.array.count; index++) {
-        for (NSUInteger charIndex = 0; charIndex < [self.array[index] count]; charIndex++) {
-            unichar charValue = [self.array[index] characterAtIndex:charIndex];
-            [string appendString:[NSString stringWithFormat:@"%c", charValue]];
-        }
+    NSArray *array = self.array;
+    
+    NSMutableString *mutableString = [NSMutableString string];
+    for (VBAlphabet *alphabet in array) {
+    [mutableString appendString:alphabet.string];
     }
-
-    return [string copy];
+    
+    return [[mutableString copy] autorelease];
 }
 
 - (NSUInteger)count {
-    return (self.string.length - 1);
+    return (self.string.length);
 }
 
 @end
