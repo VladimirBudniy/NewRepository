@@ -50,70 +50,79 @@
 }
 
 - (void)testRandomStringWithAlphabet {
-//    NSLog(@"\n");
-//    NSString *randomString = [NSString randomString];
-//    XCTAssert(randomString.length != 0);
-//    NSLog(@" -- Random string -- %@", randomString);
-//    
-//    NSString *randomStringWithLength = [NSString randomStringWithLength:5];
-//    XCTAssert(randomStringWithLength.length == 5);
-//    NSLog(@" -- Random string with length -- %@", randomStringWithLength);
-//    
-//    NSString *randomStringWithAlphabet = [NSString randomStringWithAlphabet:@"ABC123abc"];
-//    XCTAssert(randomString.length != 0);
-//    NSLog(@" -- Random string with alphabet -- %@", randomStringWithAlphabet);
-//    
-//    NSString *randomStringWithLenghtAlphabet = [NSString randomStringWithLenght:6 alphabet:@"ABCabc"];
-//    XCTAssert(randomStringWithLenghtAlphabet.length == 6);
-//    NSLog(@" -- Random string with length and alphabet -- %@", randomStringWithLenghtAlphabet);
-//    NSLog(@"\n");
+    NSLog(@"\n");
+    NSString *randomString = [NSString randomString];
+    XCTAssert(randomString.length != 0);
+    NSLog(@" -- Random string -- %@", randomString);
+    NSLog(@"%lu", randomString.length);
+    
+    NSString *randomStringWithLength = [NSString randomStringWithLength:5];
+    XCTAssert(randomStringWithLength.length == 5);
+    NSLog(@" -- Random string with length -- %@", randomStringWithLength);
+    NSLog(@"%lu", randomStringWithLength.length);
+    
+    VBAlphabet *alphabetLowCase = [VBAlphabet alphabetWithLowercaseLettersRange];
+    NSString *randomStringWithAlphabet = [NSString randomStringWithAlphabet:alphabetLowCase];
+    XCTAssert(randomStringWithAlphabet.length != 0);
+    NSLog(@" -- Random string with alphabet -- %@", randomStringWithAlphabet);
+    NSLog(@"%lu", randomStringWithAlphabet.length);
+    
+    VBAlphabet *alphabetUpperCase = [VBAlphabet alphabetWithUppercaseLettersRange];
+    NSString *randomStringWithLenghtAlphabet = [NSString randomStringWithLenght:6 alphabet:alphabetUpperCase];
+    XCTAssert(randomStringWithLenghtAlphabet.length == 6);
+    NSLog(@" -- Random string with length and alphabet -- %@", randomStringWithLenghtAlphabet);
+    NSLog(@"%lu", randomStringWithLenghtAlphabet.length);
+    NSLog(@"\n");
 }
 
 - (void)testAlphabetWithRange {
-//    NSLog(@"\n");
-//    VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
-//    NSLog(@"%@", alphabet.string);
-//    NSLog(@"%lu", alphabet.count);
-//    XCTAssert(alphabet.count == 5);
-//    
-//    VBAlphabet *uppercaseAlphabet = [VBAlphabet alphabetWithUppercaseLettersRange];
-//    NSLog(@"%@", uppercaseAlphabet.string);
-//    NSLog(@"%lu", uppercaseAlphabet.count);
-//    XCTAssert(uppercaseAlphabet.count == 25);
-//    
-//    VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
-//    NSLog(@"%@", lowercaseAlphabet.string);
-//    NSLog(@"%lu", lowercaseAlphabet.count);
-//    XCTAssert(lowercaseAlphabet.count == 25);
-//    
-//    VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
-//    NSLog(@"%@", numericAlphabet.string);
-//    NSLog(@"%lu", numericAlphabet.count);
-//    XCTAssert(numericAlphabet.count == 9);
-//    NSLog(@"\n");
+    NSLog(@"\n");
+    VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
+    NSLog(@"%@", alphabet.string);
+    NSLog(@"%lu", alphabet.count);
+    XCTAssert(alphabet.count == 5);
+    
+    VBAlphabet *uppercaseAlphabet = [VBAlphabet alphabetWithUppercaseLettersRange];
+    NSLog(@"%@", uppercaseAlphabet.string);
+    NSLog(@"%lu", uppercaseAlphabet.count);
+    XCTAssert(uppercaseAlphabet.count == 25);
+    
+    VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
+    NSLog(@"%@", lowercaseAlphabet.string);
+    NSLog(@"%lu", lowercaseAlphabet.count);
+    XCTAssert(lowercaseAlphabet.count == 25);
+    
+    VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
+    NSLog(@"%@", numericAlphabet.string);
+    NSLog(@"%lu", numericAlphabet.count);
+    XCTAssert(numericAlphabet.count == 9);
+    NSLog(@"\n");
 }
 
 - (void)testAlphabetWithString {
-//    NSLog(@"\n");
-//    VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
-//    NSLog(@"%@", alphabetWithString.string);
-//    NSLog(@"%lu", alphabetWithString.count);
-//    XCTAssert(alphabetWithString.string.length == 9);
-//    NSLog(@"\n");
+    NSLog(@"\n");
+    VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
+    NSLog(@"%@", alphabetWithString.string);
+    NSLog(@"%lu", alphabetWithString.count);
+    XCTAssert(alphabetWithString.string.length == 9);
+    NSLog(@"\n");
 }
 
 - (void)testAlphabetWithArray {
     NSLog(@"\n");
     VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
     VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
-//    VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
-//    VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
+    VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
+    VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
     
-    VBAlphabet *arrayAlphabets = [VBAlphabet alphabetWithArray:@[alphabet, alphabetWithString]];
+    VBAlphabet *arrayAlphabets = [VBAlphabet alphabetWithArray:@[alphabet, alphabetWithString, lowercaseAlphabet, numericAlphabet]];
     NSLog(@"%@", arrayAlphabets.string);
     NSLog(@"%lu", arrayAlphabets.count);
-
     NSLog(@"\n");
+    NSLog(@"%lu", alphabet.count);
+    NSLog(@"%lu", alphabetWithString.count);
+    NSLog(@"%lu", lowercaseAlphabet.count);
+    NSLog(@"%lu", numericAlphabet.count);
 }
 
 - (void)testPerformanceExample {

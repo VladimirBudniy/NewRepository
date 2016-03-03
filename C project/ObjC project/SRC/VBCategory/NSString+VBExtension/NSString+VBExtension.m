@@ -8,8 +8,7 @@
 
 #import "NSString+VBExtension.h"
 
-static const NSUInteger kVBStringLength = 5;
-static NSString * const kVBTestAlphabet = @"ABCabc123";
+const NSUInteger kVBStringLength = 5;
 
 @implementation NSString (VBExtension)
 
@@ -18,27 +17,24 @@ static NSString * const kVBTestAlphabet = @"ABCabc123";
 }
 
 + (instancetype)randomStringWithLength:(NSUInteger)length {
-    return [self randomStringWithLenght:length alphabet:kVBTestAlphabet];
+    return [self randomStringWithLenght:length alphabet:[VBAlphabet alphabetWithNumbers]];
 }
 
-+ (instancetype)randomStringWithAlphabet:(NSString *)alphabet {
-    NSUInteger lenght = arc4random_uniform(kVBStringLength) + 1;
++ (instancetype)randomStringWithAlphabet:(VBAlphabet *)alphabet {
+    NSUInteger lenght = arc4random_uniform((uint32_t)alphabet.string.length) + 1;
     
     return [self randomStringWithLenght:lenght alphabet:alphabet];
 }
 
-+ (instancetype)randomStringWithLenght:(NSUInteger)length
-                              alphabet:(NSString *)alphabet
-{
++ (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(VBAlphabet *)alphabet {
     NSMutableString *string = [NSMutableString string];
     for (NSUInteger index = 0; index < length; index++) {
-        NSUInteger charIndex = arc4random_uniform((uint32_t)alphabet.length - 1);
-        unichar charValue = [alphabet characterAtIndex:charIndex];
+        NSUInteger charIndex = arc4random_uniform((uint32_t)alphabet.string.length - 1);
+        unichar charValue = [alphabet.string characterAtIndex:charIndex];
         [string appendString:[NSString stringWithFormat:@"%c", charValue]];
     }
     
-    return [string copy];
+    return [[string copy] autorelease];
 }
-
 
 @end
