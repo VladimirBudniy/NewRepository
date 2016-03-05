@@ -10,6 +10,6 @@
 
 @interface VBArrayAlphabet : VBAlphabet
 
-- (instancetype)initWithArray:(NSArray *)array;
+- (instancetype)initWithAlphabets:(NSArray *)array;
 
 @end

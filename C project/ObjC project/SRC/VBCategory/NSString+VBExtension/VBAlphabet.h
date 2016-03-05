@@ -23,5 +23,6 @@
 
 - (instancetype)initWithRange:(NSRange)range;
 - (instancetype)initWithString:(NSString *)string;
+- (instancetype)initWithAlphabets:(NSArray *)array;
 
 @end

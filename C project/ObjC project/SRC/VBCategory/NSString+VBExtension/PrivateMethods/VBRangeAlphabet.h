@@ -11,8 +11,5 @@
 @interface VBRangeAlphabet : VBAlphabet
 
 - (instancetype)initWithRange:(NSRange)range;
-- (instancetype)initWithLowercaseLettersRange;
-- (instancetype)initWithUppercaseLettersRange;
-- (instancetype)initWithNumericRange;
 
 @end

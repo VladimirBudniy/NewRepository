@@ -24,13 +24,13 @@
 }
 
 + (instancetype)alphabetWithLowercaseLettersRange {
-    return [[[VBRangeAlphabet alloc] initWithLowercaseLettersRange] autorelease];
+    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('a', 'z' - 'a')] autorelease];
 }
 + (instancetype)alphabetWithUppercaseLettersRange {
-    return [[[VBRangeAlphabet alloc] initWithUppercaseLettersRange] autorelease];
+    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('A', 'Z' - 'A')] autorelease];
 }
 + (instancetype)alphabetWithNumbers {
-    return [[[VBRangeAlphabet alloc] initWithNumericRange] autorelease];
+    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('0', '9' - '0')] autorelease];
 }
 
 + (instancetype)alphabetWithString:(NSString *)string {
@@ -38,7 +38,7 @@
 }
 
 + (instancetype)alphabetWithArray:(NSArray *)array {
-    return [[[VBArrayAlphabet alloc] initWithArray:array] autorelease];
+    return [[[VBArrayAlphabet alloc] initWithAlphabets:array] autorelease];
 }
 
 #pragma mark -
@@ -56,10 +56,10 @@
     return [[VBStringAlphabet alloc] initWithString:string];
 }
 
-- (instancetype)initWithArray:(NSArray *)array {
+- (instancetype)initWithAlphabets:(NSArray *)array {
     [self autorelease];
     
-    return [[VBArrayAlphabet alloc] initWithArray:array];
+    return [[VBArrayAlphabet alloc] initWithAlphabets:array];
 }
 
 #pragma mark -

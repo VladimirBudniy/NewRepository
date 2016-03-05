@@ -37,7 +37,7 @@
 #pragma mark Accessors
 
 - (NSString *)string {
-    return self.stringAlphabet;
+    return [[self.stringAlphabet copy] autorelease];
 }
 
 - (NSUInteger)count {

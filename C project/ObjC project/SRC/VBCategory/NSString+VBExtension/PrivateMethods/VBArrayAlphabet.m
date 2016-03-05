@@ -24,7 +24,7 @@
     [super dealloc];
 }
 
-- (instancetype)initWithArray:(NSArray *)array {
+- (instancetype)initWithAlphabets:(NSArray *)array {
     self = [super init];
     if (self) {
         self.array = array;

@@ -28,8 +28,9 @@ const NSUInteger kVBStringLength = 5;
 
 + (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(VBAlphabet *)alphabet {
     NSMutableString *string = [NSMutableString string];
+    
     for (NSUInteger index = 0; index < length; index++) {
-        NSUInteger charIndex = arc4random_uniform((uint32_t)alphabet.string.length - 1);
+        NSUInteger charIndex = arc4random_uniform((uint32_t)alphabet.count - 1);
         unichar charValue = [alphabet.string characterAtIndex:charIndex];
         [string appendString:[NSString stringWithFormat:@"%c", charValue]];
     }
