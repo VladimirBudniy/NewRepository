@@ -73,4 +73,44 @@
     return  0;
 }
 
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+//typedef struct {
+//    state; данные которые уже обрпботали и храним счетчик
+//    itemsPtr; указатель на объекты которые обрабатываются (буфер)
+//    mutationsPtr; указатель на объект следующий за обработанными
+//    extra[5]; резерв
+//} NSFastEnumerationState;
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len
+{
+    
+    if (state->state >= self.count) {
+        return  0;
+    }
+    
+    state->mutationsPtr = (unsigned long *)self;
+    NSUInteger lenght = MIN(len, (self.count) - state->state);
+    
+    for (NSUInteger index = 0; index < lenght; index++) {
+        NSString *stringSymbols = self[index + state->state];
+        buffer[index] = stringSymbols;
+    }
+    
+    state->state = state->state + lenght;
+    state->itemsPtr = buffer;
+    
+    return lenght;
+}
+
+#pragma mark -
+#pragma mark Pablic
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
+    return [NSString stringWithFormat:@"%c", [self.string characterAtIndex:index]];
+}
+
 @end

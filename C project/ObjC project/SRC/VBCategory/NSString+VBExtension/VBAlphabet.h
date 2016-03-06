@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VBAlphabet : NSObject
+@interface VBAlphabet : NSObject <NSFastEnumeration>
+
 @property (nonatomic, readonly) NSString    *string;
 @property (nonatomic, readonly) NSUInteger  count;
 
@@ -24,5 +25,11 @@
 - (instancetype)initWithRange:(NSRange)range;
 - (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithAlphabets:(NSArray *)array;
+
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len;
 
 @end

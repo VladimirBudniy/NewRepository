@@ -51,7 +51,7 @@
 }
 
 - (NSUInteger)count {
-    return self.range.length;
+    return self.string.length;
 }
 
 @end
