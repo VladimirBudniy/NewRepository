@@ -11,19 +11,21 @@
 #import "VBEssence.h"
 #import "VBEssenceTest.h"
 #import "VBAlphabet.h"
+#import "VBDelegateTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-//        NSArray *pathArray = [NSArray arrayWithObjects:@"here", @"be", @"dragons", nil];
-//        NSLog(@"%@",[pathArray componentsJoinedByString:@""]);
-//        [VBEssenceTest performTesting];
-//        
-//        VBAlphabet *alphabetUpperCase = [VBAlphabet alphabetWithUppercaseLettersRange];
-//        NSLog(@"%@", alphabetUpperCase[7]);
-//        NSLog(@"\n");
-//        for (NSString *symbols in alphabetUpperCase) {
-//            NSLog(@"%@", symbols);
-//        }
+        VBDelegateTest *delegateTest = [[VBDelegateTest new] autorelease];
+        
+        VBDelegatingObject *delegatingObject = [[VBDelegatingObject new] autorelease];
+        delegatingObject.name = @"Vasya";
+        delegatingObject.delegate = delegateTest;
+        
+        [delegateTest sayMama:delegatingObject];
+        
+        if ([delegateTest respondsToSelector:@selector(sayPapa:)]) {
+            [delegateTest sayPapa:delegatingObject];
+        }
     }
     
     return 0;
