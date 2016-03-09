@@ -35,7 +35,7 @@ const NSUInteger kVBStringLength = 5;
         [string appendString:[NSString stringWithFormat:@"%c", charValue]];
     }
     
-    return [[string copy] autorelease];
+    return [[string mutableCopy] autorelease];
 }
 
 @end

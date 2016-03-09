@@ -13,13 +13,6 @@
 
 @end
 
-//@interface VBRangeAlphabet (VBPrivate)
-//
-//- (void)lowercaseLettersRange;
-//- (void)uppercaseLettersRange;
-//- (void)numericLettersRange;
-//
-//@end
 
 @implementation VBRangeAlphabet
 
@@ -43,7 +36,7 @@
     NSUInteger location = range.location;
     
     NSMutableString *string = [NSMutableString string];
-    for (NSUInteger index = location; index <= location + range.length; index++) {
+    for (NSUInteger index = location; index < location + range.length; index++) {
         [string appendString:[NSString stringWithFormat:@"%c", (unichar)index]];
     }
     
@@ -51,7 +44,7 @@
 }
 
 - (NSUInteger)count {
-    return self.string.length;
+    return self.range.length;
 }
 
 @end

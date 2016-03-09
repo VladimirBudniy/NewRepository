@@ -10,6 +10,4 @@
 
 @interface VBRangeAlphabet : VBAlphabet
 
-- (instancetype)initWithRange:(NSRange)range;
-
 @end

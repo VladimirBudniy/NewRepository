@@ -108,14 +108,14 @@
     NSLog(@"\n");
 }
 
-- (void)testAlphabetWithArray {
+- (void)testalphabetWithAlphabets {
     NSLog(@"\n");
     VBAlphabet *alphabet = [VBAlphabet alphabetWithRange:NSMakeRange('A', 5)];
     VBAlphabet *alphabetWithString = [VBAlphabet alphabetWithString:@"ABC123abc"];
     VBAlphabet *lowercaseAlphabet = [VBAlphabet alphabetWithLowercaseLettersRange];
     VBAlphabet *numericAlphabet = [VBAlphabet alphabetWithNumbers];
     
-    VBAlphabet *arrayAlphabets = [VBAlphabet alphabetWithArray:@[alphabet, alphabetWithString, lowercaseAlphabet, numericAlphabet]];
+    VBAlphabet *arrayAlphabets = [VBAlphabet alphabetWithAlphabets:@[alphabet, alphabetWithString, lowercaseAlphabet, numericAlphabet]];
     NSLog(@"%@", arrayAlphabets.string);
     NSLog(@"%lu", arrayAlphabets.count);
     NSLog(@"\n");

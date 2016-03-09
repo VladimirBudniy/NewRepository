@@ -10,6 +10,4 @@
 
 @interface VBStringAlphabet : VBAlphabet
 
-- (instancetype)initWithString:(NSString *)string;
-
 @end

@@ -37,7 +37,7 @@
     return [[[VBStringAlphabet alloc] initWithString:string] autorelease];
 }
 
-+ (instancetype)alphabetWithArray:(NSArray *)array {
++ (instancetype)alphabetWithAlphabets:(NSArray *)array {
     return [[[VBArrayAlphabet alloc] initWithAlphabets:array] autorelease];
 }
 
@@ -76,13 +76,6 @@
 #pragma mark -
 #pragma mark NSFastEnumeration
 
-//typedef struct {
-//    state; данные которые уже обрпботали и храним счетчик
-//    itemsPtr; указатель на объекты которые обрабатываются (буфер)
-//    mutationsPtr; указатель на объект следующий за обработанными
-//    extra[5]; резерв
-//} NSFastEnumerationState;
-
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(id __unsafe_unretained [])buffer
                                     count:(NSUInteger)len
@@ -93,14 +86,15 @@
     }
     
     state->mutationsPtr = (unsigned long *)self;
-    NSUInteger lenght = MIN(len, (self.count) - state->state);
+    NSUInteger stateCount = state->state;
+    NSUInteger lenght = MIN(len, (self.count) - stateCount);
     
     for (NSUInteger index = 0; index < lenght; index++) {
-        NSString *stringSymbols = self[index + state->state];
-        buffer[index] = stringSymbols;
+        NSString *stringSymbol = self[index + stateCount];
+        buffer[index] = stringSymbol;
     }
     
-    state->state = state->state + lenght;
+    state->state = stateCount + lenght;
     state->itemsPtr = buffer;
     
     return lenght;
@@ -108,6 +102,14 @@
 
 #pragma mark -
 #pragma mark Pablic
+
+- (NSString *)objectAtIndex:(NSUInteger)index {
+    return [self objectAtIndexedSubscript:index];
+}
+
+- (NSString *)stringAtIndex:(NSUInteger)index {
+    return [self objectAtIndex:index];
+}
 
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
     return [NSString stringWithFormat:@"%c", [self.string characterAtIndex:index]];

@@ -18,7 +18,7 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (void) dealloc {
+- (void)dealloc {
     self.stringAlphabet = nil;
     
     [super dealloc];
@@ -41,7 +41,7 @@
 }
 
 - (NSUInteger)count {
-    return (self.string.length);
+    return self.string.length;
 }
 
 @end
