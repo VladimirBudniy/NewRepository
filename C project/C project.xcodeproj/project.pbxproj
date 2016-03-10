@@ -46,14 +46,6 @@
 		E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
 		E7EF6DD51C82496F000BE913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
 		E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
-		E7F3F1681C90AB1500DDCEA4 /* VBEmployeeAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1671C90AB1500DDCEA4 /* VBEmployeeAccountant.m */; };
-		E7F3F1691C90AB1500DDCEA4 /* VBEmployeeAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1671C90AB1500DDCEA4 /* VBEmployeeAccountant.m */; };
-		E7F3F16D1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F16C1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m */; };
-		E7F3F16E1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F16C1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m */; };
-		E7F3F17B1C90AF6B00DDCEA4 /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F17A1C90AF6B00DDCEA4 /* VBEmployee.m */; };
-		E7F3F17C1C90AF6B00DDCEA4 /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F17A1C90AF6B00DDCEA4 /* VBEmployee.m */; };
-		E7F3F17F1C90B04800DDCEA4 /* VBEmployeeDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F17E1C90B04800DDCEA4 /* VBEmployeeDirector.m */; };
-		E7F3F1801C90B04800DDCEA4 /* VBEmployeeDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F17E1C90B04800DDCEA4 /* VBEmployeeDirector.m */; };
 		E7F3F1841C90B10600DDCEA4 /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1831C90B10600DDCEA4 /* VBCar.m */; };
 		E7F3F1851C90B10600DDCEA4 /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1831C90B10600DDCEA4 /* VBCar.m */; };
 		E7F3F1881C90B15A00DDCEA4 /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */; };
@@ -62,6 +54,14 @@
 		E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
 		E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */; };
 		E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */; };
+		E7F3F1A71C91B26B00DDCEA4 /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F19D1C91B26B00DDCEA4 /* VBEmployee.m */; };
+		E7F3F1A81C91B26B00DDCEA4 /* VBAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A01C91B26B00DDCEA4 /* VBAccountant.m */; };
+		E7F3F1A91C91B26B00DDCEA4 /* VBCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A31C91B26B00DDCEA4 /* VBCarWasher.m */; };
+		E7F3F1AA1C91B26B00DDCEA4 /* VBDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */; };
+		E7F3F1AD1C9218B200DDCEA4 /* VBAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A01C91B26B00DDCEA4 /* VBAccountant.m */; };
+		E7F3F1AE1C9218B600DDCEA4 /* VBCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A31C91B26B00DDCEA4 /* VBCarWasher.m */; };
+		E7F3F1AF1C9218B900DDCEA4 /* VBDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */; };
+		E7F3F1B01C9218BC00DDCEA4 /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F19D1C91B26B00DDCEA4 /* VBEmployee.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -149,14 +149,6 @@
 		E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBObjCTests.m; sourceTree = "<group>"; };
 		E7EF6DCC1C82493E000BE913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7F3F1661C90AB1500DDCEA4 /* VBEmployeeAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployeeAccountant.h; sourceTree = "<group>"; };
-		E7F3F1671C90AB1500DDCEA4 /* VBEmployeeAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployeeAccountant.m; sourceTree = "<group>"; };
-		E7F3F16B1C90ABB100DDCEA4 /* VBEmployeeCarWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployeeCarWasher.h; sourceTree = "<group>"; };
-		E7F3F16C1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployeeCarWasher.m; sourceTree = "<group>"; };
-		E7F3F1791C90AF6B00DDCEA4 /* VBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployee.h; sourceTree = "<group>"; };
-		E7F3F17A1C90AF6B00DDCEA4 /* VBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployee.m; sourceTree = "<group>"; };
-		E7F3F17D1C90B04800DDCEA4 /* VBEmployeeDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployeeDirector.h; sourceTree = "<group>"; };
-		E7F3F17E1C90B04800DDCEA4 /* VBEmployeeDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployeeDirector.m; sourceTree = "<group>"; };
 		E7F3F1821C90B10600DDCEA4 /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
 		E7F3F1831C90B10600DDCEA4 /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
 		E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEnterprise.h; sourceTree = "<group>"; };
@@ -165,6 +157,16 @@
 		E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDelegatingObject.m; sourceTree = "<group>"; };
 		E7F3F1971C90D10F00DDCEA4 /* VBDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegateTest.h; sourceTree = "<group>"; };
 		E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDelegateTest.m; sourceTree = "<group>"; };
+		E7F3F19C1C91B26B00DDCEA4 /* VBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployee.h; sourceTree = "<group>"; };
+		E7F3F19D1C91B26B00DDCEA4 /* VBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployee.m; sourceTree = "<group>"; };
+		E7F3F19F1C91B26B00DDCEA4 /* VBAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAccountant.h; sourceTree = "<group>"; };
+		E7F3F1A01C91B26B00DDCEA4 /* VBAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAccountant.m; sourceTree = "<group>"; };
+		E7F3F1A21C91B26B00DDCEA4 /* VBCarWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCarWasher.h; sourceTree = "<group>"; };
+		E7F3F1A31C91B26B00DDCEA4 /* VBCarWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCarWasher.m; sourceTree = "<group>"; };
+		E7F3F1A51C91B26B00DDCEA4 /* VBDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDirector.h; sourceTree = "<group>"; };
+		E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDirector.m; sourceTree = "<group>"; };
+		E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
+		E7F3F1AC1C91E28400DDCEA4 /* VBDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegateProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,62 +509,14 @@
 		E7F3F1511C90A62200DDCEA4 /* VBEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */,
+				E7F3F1AC1C91E28400DDCEA4 /* VBDelegateProtocol.h */,
 				E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */,
 				E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */,
+				E7F3F19B1C91B26B00DDCEA4 /* VBEmployee */,
 				E7F3F1811C90B0CB00DDCEA4 /* VBCar */,
-				E7F3F1641C90AAB800DDCEA4 /* VBEmployees */,
 			);
 			path = VBEnterprise;
-			sourceTree = "<group>";
-		};
-		E7F3F1641C90AAB800DDCEA4 /* VBEmployees */ = {
-			isa = PBXGroup;
-			children = (
-				E7F3F1781C90AF5400DDCEA4 /* VBEmployee */,
-				E7F3F16F1C90AE7700DDCEA4 /* VBEmployeeDirector */,
-				E7F3F16A1C90ABA400DDCEA4 /* VBEmployeeCarWasher */,
-				E7F3F1651C90AB0000DDCEA4 /* VBEmployeeAccountant */,
-			);
-			path = VBEmployees;
-			sourceTree = "<group>";
-		};
-		E7F3F1651C90AB0000DDCEA4 /* VBEmployeeAccountant */ = {
-			isa = PBXGroup;
-			children = (
-				E7F3F1661C90AB1500DDCEA4 /* VBEmployeeAccountant.h */,
-				E7F3F1671C90AB1500DDCEA4 /* VBEmployeeAccountant.m */,
-			);
-			name = VBEmployeeAccountant;
-			path = "ObjC project/SRC/VBEnterprise/VBEmployees/VBEmployeeAccountant";
-			sourceTree = SOURCE_ROOT;
-		};
-		E7F3F16A1C90ABA400DDCEA4 /* VBEmployeeCarWasher */ = {
-			isa = PBXGroup;
-			children = (
-				E7F3F16B1C90ABB100DDCEA4 /* VBEmployeeCarWasher.h */,
-				E7F3F16C1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m */,
-			);
-			name = VBEmployeeCarWasher;
-			path = "ObjC project/SRC/VBEnterprise/VBEmployees/VBEmployeeCarWasher";
-			sourceTree = SOURCE_ROOT;
-		};
-		E7F3F16F1C90AE7700DDCEA4 /* VBEmployeeDirector */ = {
-			isa = PBXGroup;
-			children = (
-				E7F3F17D1C90B04800DDCEA4 /* VBEmployeeDirector.h */,
-				E7F3F17E1C90B04800DDCEA4 /* VBEmployeeDirector.m */,
-			);
-			name = VBEmployeeDirector;
-			path = "ObjC project/SRC/VBEnterprise/VBEmployees/VBEmployeeDirector";
-			sourceTree = SOURCE_ROOT;
-		};
-		E7F3F1781C90AF5400DDCEA4 /* VBEmployee */ = {
-			isa = PBXGroup;
-			children = (
-				E7F3F1791C90AF6B00DDCEA4 /* VBEmployee.h */,
-				E7F3F17A1C90AF6B00DDCEA4 /* VBEmployee.m */,
-			);
-			path = VBEmployee;
 			sourceTree = "<group>";
 		};
 		E7F3F1811C90B0CB00DDCEA4 /* VBCar */ = {
@@ -599,6 +553,48 @@
 				E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */,
 			);
 			path = VBDelegateTest;
+			sourceTree = "<group>";
+		};
+		E7F3F19B1C91B26B00DDCEA4 /* VBEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F19C1C91B26B00DDCEA4 /* VBEmployee.h */,
+				E7F3F19D1C91B26B00DDCEA4 /* VBEmployee.m */,
+				E7F3F19E1C91B26B00DDCEA4 /* VBAccountant */,
+				E7F3F1A11C91B26B00DDCEA4 /* VBCarWasher */,
+				E7F3F1A41C91B26B00DDCEA4 /* VBDirector */,
+			);
+			path = VBEmployee;
+			sourceTree = "<group>";
+		};
+		E7F3F19E1C91B26B00DDCEA4 /* VBAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F19F1C91B26B00DDCEA4 /* VBAccountant.h */,
+				E7F3F1A01C91B26B00DDCEA4 /* VBAccountant.m */,
+			);
+			name = VBAccountant;
+			path = VBEmployeeAccountant;
+			sourceTree = "<group>";
+		};
+		E7F3F1A11C91B26B00DDCEA4 /* VBCarWasher */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F1A21C91B26B00DDCEA4 /* VBCarWasher.h */,
+				E7F3F1A31C91B26B00DDCEA4 /* VBCarWasher.m */,
+			);
+			name = VBCarWasher;
+			path = VBEmployeeCarWasher;
+			sourceTree = "<group>";
+		};
+		E7F3F1A41C91B26B00DDCEA4 /* VBDirector */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F1A51C91B26B00DDCEA4 /* VBDirector.h */,
+				E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */,
+			);
+			name = VBDirector;
+			path = VBEmployeeDirector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -732,25 +728,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F3F1A91C91B26B00DDCEA4 /* VBCarWasher.m in Sources */,
 				E7F3F1841C90B10600DDCEA4 /* VBCar.m in Sources */,
 				E77B8F231C84EA430042F472 /* VBAlphabet.m in Sources */,
-				E7F3F16D1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m in Sources */,
 				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
 				E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
 				E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */,
+				E7F3F1AA1C91B26B00DDCEA4 /* VBDirector.m in Sources */,
 				E76FB87F1C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
 				E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */,
-				E7F3F17B1C90AF6B00DDCEA4 /* VBEmployee.m in Sources */,
-				E7F3F1681C90AB1500DDCEA4 /* VBEmployeeAccountant.m in Sources */,
 				E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */,
 				E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */,
-				E7F3F17F1C90B04800DDCEA4 /* VBEmployeeDirector.m in Sources */,
 				E77B8F2A1C84F5B30042F472 /* NSString+VBExtension.m in Sources */,
 				E76FB87B1C8648FD0066E7A0 /* VBStringAlphabet.m in Sources */,
+				E7F3F1A81C91B26B00DDCEA4 /* VBAccountant.m in Sources */,
 				E7F3F1941C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */,
 				E7F3F1881C90B15A00DDCEA4 /* VBEnterprise.m in Sources */,
 				E78D20ED1C751870004AA9CB /* main.m in Sources */,
 				E77B8F271C84EA820042F472 /* VBRangeAlphabet.m in Sources */,
+				E7F3F1A71C91B26B00DDCEA4 /* VBEmployee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,23 +757,23 @@
 				E76FB8801C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
 				E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */,
 				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
-				E7F3F1801C90B04800DDCEA4 /* VBEmployeeDirector.m in Sources */,
 				E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */,
 				E7EF6DD21C824963000BE913 /* VBEssence.m in Sources */,
 				E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
 				E77B8F2C1C84F5C20042F472 /* VBAlphabet.m in Sources */,
 				E7EF6DD11C824960000BE913 /* VBMale.m in Sources */,
-				E7F3F1691C90AB1500DDCEA4 /* VBEmployeeAccountant.m in Sources */,
-				E7F3F16E1C90ABB100DDCEA4 /* VBEmployeeCarWasher.m in Sources */,
 				E76FB87C1C8651A40066E7A0 /* VBStringAlphabet.m in Sources */,
 				E7F3F1851C90B10600DDCEA4 /* VBCar.m in Sources */,
+				E7F3F1AE1C9218B600DDCEA4 /* VBCarWasher.m in Sources */,
+				E7F3F1B01C9218BC00DDCEA4 /* VBEmployee.m in Sources */,
 				E7F3F1891C90B15A00DDCEA4 /* VBEnterprise.m in Sources */,
+				E7F3F1AD1C9218B200DDCEA4 /* VBAccountant.m in Sources */,
+				E7F3F1AF1C9218B900DDCEA4 /* VBDirector.m in Sources */,
 				E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */,
 				E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */,
 				E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */,
 				E7EF6DD51C82496F000BE913 /* main.m in Sources */,
 				E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */,
-				E7F3F17C1C90AF6B00DDCEA4 /* VBEmployee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
