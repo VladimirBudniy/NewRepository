@@ -1,13 +1,15 @@
 //
-//  VBEmployeeDirector.m
+//  VBCarWasher.h
 //  C project
 //
 //  Created by Vladimir Budniy on 09.03.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBEmployeeDirector.h"
+#import "VBEmployee.h"
 
-@implementation VBEmployeeDirector
+@interface VBCarWasher : VBEmployee
+
+- (void)washCar:(VBCar *)car;
 
 @end

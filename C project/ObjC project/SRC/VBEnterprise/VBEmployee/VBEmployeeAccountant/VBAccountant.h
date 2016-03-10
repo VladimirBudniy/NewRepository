@@ -1,5 +1,5 @@
 //
-//  VBEmployeeAccountant.h
+//  VBAccountant.h
 //  C project
 //
 //  Created by Vladimir Budniy on 09.03.16.
@@ -7,7 +7,10 @@
 //
 
 #import "VBEmployee.h"
+#import "VBCarWasher.h"
 
-@interface VBEmployeeAccountant : VBEmployee
+@interface VBAccountant : VBEmployee
+
+- (void)countMoney:(VBCarWasher *)washer;
 
 @end

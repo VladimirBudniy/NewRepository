@@ -11,6 +11,7 @@
 #import "VBFemale.h"
 #import "VBMale.h"
 #import "VBAlphabet.h"
+#import "VBDelegateTest.h"
 
 @interface VBObjCTests : XCTestCase
 
@@ -137,7 +138,20 @@
     for (NSString *symbols in numbersAlphabet) {
         NSLog(@"%@", symbols);
     }
+}
+
+- (void)testDelegateObject {
+    VBDelegateTest *delegateTest = [[VBDelegateTest new] autorelease];
     
+    VBDelegatingObject *delegatingObject = [[VBDelegatingObject new] autorelease];
+    delegatingObject.name = @"Vasya";
+    delegatingObject.delegate = delegateTest;
+    
+    [delegateTest sayMama:delegatingObject];
+    
+    if ([delegateTest respondsToSelector:@selector(sayPapa:)]) {
+        [delegateTest sayPapa:delegatingObject];
+    }
 }
 
 @end

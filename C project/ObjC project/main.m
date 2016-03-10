@@ -13,18 +13,24 @@
 #import "VBAlphabet.h"
 #import "VBDelegateTest.h"
 
+#import "VBCar.h"
+#import "VBEnterprise.h"
+#import "VBEmployee.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        VBDelegateTest *delegateTest = [[VBDelegateTest new] autorelease];
         
-        VBDelegatingObject *delegatingObject = [[VBDelegatingObject new] autorelease];
-        delegatingObject.name = @"Vasya";
-        delegatingObject.delegate = delegateTest;
+        VBCar *car = [[[VBCar alloc] init] autorelease];
+        VBCar *car1 = [[[VBCar alloc] init] autorelease];
+        VBCar *car2 = [[[VBCar alloc] init] autorelease];
+        VBCar *car3 = [[[VBCar alloc] init] autorelease];
+        VBCar *car4 = [[[VBCar alloc] init] autorelease];
         
-        [delegateTest sayMama:delegatingObject];
+        NSArray *carsArray = @[car, car1, car2, car3, car4];
         
-        if ([delegateTest respondsToSelector:@selector(sayPapa:)]) {
-            [delegateTest sayPapa:delegatingObject];
+        VBEnterprise *enterprise = [[[VBEnterprise alloc] init] autorelease];
+        for (NSUInteger index = 0; index < carsArray.count; index++) {
+            [enterprise toWashCar:carsArray[index]];
         }
     }
     

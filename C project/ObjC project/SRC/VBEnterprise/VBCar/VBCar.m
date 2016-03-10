@@ -10,4 +10,29 @@
 
 @implementation VBCar
 
+@synthesize money = _money;
+
+#pragma mark -
+#pragma mark Initializations and Deallocatins
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.state = kVBDirtyState;
+        self.money = 100;
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark VBMoneyProtocol
+
+- (NSUInteger)giveMoney {
+    NSUInteger payment = self.money;
+    self.money = 0;
+    
+    return payment;
+}
+
 @end

@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @protocol VBMoneyProtocol <NSObject>
+@property (nonatomic, assign) NSUInteger money;
+
+- (NSUInteger)giveMoney;
+
+@optional
+- (void)takeMoney;
 
 @end

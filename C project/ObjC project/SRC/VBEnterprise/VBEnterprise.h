@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VBDelegateProtocol.h"
 
-@interface VBEnterprise : NSObject
-@property (nonatomic, retain) VBEnterprise *employee;
-@property (nonatomic, retain) VBEnterprise *car;
+@class VBCar;
+
+@interface VBEnterprise : NSObject <VBDelegateProtocol, VBDelegateProtocol>
+
+- (void)toWashCar:(VBCar *)car;
 
 @end

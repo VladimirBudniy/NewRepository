@@ -1,5 +1,5 @@
 //
-//  VBEmployeeDirector.h
+//  VBDirector.h
 //  C project
 //
 //  Created by Vladimir Budniy on 09.03.16.
@@ -7,7 +7,11 @@
 //
 
 #import "VBEmployee.h"
+#import "VBAccountant.h"
 
-@interface VBEmployeeDirector : VBEmployee
+@interface VBDirector : VBEmployee
+
+- (void)receivedProfit:(VBAccountant *)accountant;
+- (void)sayHowMuchEarnedProfit;
 
 @end

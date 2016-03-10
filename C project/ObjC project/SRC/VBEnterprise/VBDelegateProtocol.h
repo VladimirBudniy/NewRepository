@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol VBDelegateProtocol <NSObject>
+@property (nonatomic, assign) id<VBDelegateProtocol> delegate;
 
 @end
