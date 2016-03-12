@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VBEndWorkProtocol.h"
 #import "VBMoneyProtocol.h"
-#import "VBDelegateProtocol.h"
 #import "VBEnterprise.h"
 #import "VBCar.h"
 
-@interface VBEmployee : NSObject <VBMoneyProtocol, VBDelegateProtocol>;
+@interface VBEmployee : NSObject <VBMoneyProtocol, VBEndWorkProtocol>;
+@property (nonatomic, assign) id delegate;
+
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object ;
 
 @end

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VBDelegateProtocol.h"
+
+#import "VBEndWorkProtocol.h"
 
 @class VBCar;
 
-@interface VBEnterprise : NSObject <VBDelegateProtocol, VBDelegateProtocol>
+@interface VBEnterprise : NSObject
 
-- (void)toWashCar:(VBCar *)car;
+- (void)washCar:(VBCar *)car;
 
 @end

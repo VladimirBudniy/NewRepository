@@ -7,6 +7,7 @@
 //
 
 #import "VBEnterprise.h"
+#import "VBEmployee.h"
 #import "VBCarWasher.h"
 #import "VBAccountant.h"
 #import "VBDirector.h"
@@ -22,8 +23,6 @@
 
 @implementation VBEnterprise
 
-@synthesize delegate = _delegate;
-
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
@@ -38,7 +37,6 @@
     self = [super init];
     if (self) {
         [self hireStaff];
-        
     }
     
     return  self;
@@ -49,10 +47,10 @@
 
 - (void)hireStaff {
     VBCarWasher *washer = [VBCarWasher object];
-    self.delegate = washer;
     VBAccountant *accountant = [VBAccountant object];
-    washer.delegate = accountant;
     VBDirector *director = [VBDirector object];
+    
+    washer.delegate = accountant;
     accountant.delegate = director;
     
     self.staff = [@[washer, accountant, director] mutableCopy];
@@ -75,13 +73,9 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)toWashCar:(VBCar *)car {
+- (void)washCar:(VBCar *)car {
     VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-    [washer washCar:car];
-    VBAccountant *accountant = [self vacantEmployee:[VBAccountant class]];
-    [accountant countMoney:washer];
-    VBDirector *director = [self vacantEmployee:[VBDirector class]];
-    [director receivedProfit:accountant];
+    [washer workerDidFinishedWork:car];
 }
 
 @end

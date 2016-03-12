@@ -11,6 +11,6 @@
 
 @interface VBAccountant : VBEmployee
 
-- (void)countMoney:(VBCarWasher *)washer;
+//- (void)countMoney:(VBCarWasher *)washer;
 
 @end

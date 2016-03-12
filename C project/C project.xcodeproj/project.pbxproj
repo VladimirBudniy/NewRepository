@@ -166,7 +166,7 @@
 		E7F3F1A51C91B26B00DDCEA4 /* VBDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDirector.h; sourceTree = "<group>"; };
 		E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDirector.m; sourceTree = "<group>"; };
 		E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
-		E7F3F1AC1C91E28400DDCEA4 /* VBDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegateProtocol.h; sourceTree = "<group>"; };
+		E7F3F1B11C94BB9300DDCEA4 /* VBEndWorkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEndWorkProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,7 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */,
-				E7F3F1AC1C91E28400DDCEA4 /* VBDelegateProtocol.h */,
+				E7F3F1B11C94BB9300DDCEA4 /* VBEndWorkProtocol.h */,
 				E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */,
 				E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */,
 				E7F3F19B1C91B26B00DDCEA4 /* VBEmployee */,

@@ -35,4 +35,8 @@
     return payment;
 }
 
+- (void)takeMoney:(NSUInteger)money {
+    self.money = money;
+}
+
 @end

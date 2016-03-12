@@ -8,44 +8,20 @@
 
 #import "VBDirector.h"
 
-@interface VBDirector ()
-@property (nonatomic, assign) NSUInteger sumProfit;
-
-@end
-
 @implementation VBDirector
 
 @synthesize money = _money;
-@synthesize delegate = _delegate;
 
 #pragma mark -
 #pragma mark Public
 
-- (void)receivedProfit:(VBAccountant *)accountant {
-//    NSUInteger profit = self.money;
-    if (self.money == 0) {
-        self.money = [accountant giveMoney];
-        self.sumProfit = self.money;
-        NSLog(@"Director earned %lu", self.money);
-    } else {
-        NSUInteger sumProfit = (self.sumProfit + [accountant giveMoney]);
-        self.sumProfit = sumProfit;
-        NSLog(@"Director earned %lu", sumProfit);
-    }
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+    [self takeMoney:[object giveMoney]];
+    [self sayHowMuchEarnedProfit];
 }
 
-#pragma mark -
-#pragma mark VBMoneyProtocol
-
-- (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-    
-    return payment;
-}
-
-- (void)takeMoney {
-
+- (void)sayHowMuchEarnedProfit {
+    NSLog(@"Director's money %lu", self.money);
 }
 
 @end

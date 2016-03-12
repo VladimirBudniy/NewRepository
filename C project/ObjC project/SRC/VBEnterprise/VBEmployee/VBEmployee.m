@@ -14,15 +14,37 @@
 @implementation VBEmployee
 
 @synthesize money = _money;
-@synthesize delegate = _delegate;
+
+#pragma mark -
+#pragma mark VBMoneyProtocol
 
 - (NSUInteger)giveMoney {
+    NSUInteger payment = self.money;
+    self.money = 0;
     
-    return 0;
+    return payment;
 }
 
-- (void)takeMoney {
+- (void)takeMoney:(NSUInteger)money {
+    self.money += money;
+}
+
+#pragma mark -
+#pragma mark VBEndWorkProtocol
+
+- (void)workerDidFinishedWork:(id)object {
+    [self performWorkWithObject:object];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+    [self takeMoney:[object giveMoney]];
     
+    if (self.delegate) {
+        [self.delegate workerDidFinishedWork:self];
+    }
 }
 
 @end

@@ -11,7 +11,6 @@
 
 @interface VBDirector : VBEmployee
 
-- (void)receivedProfit:(VBAccountant *)accountant;
 - (void)sayHowMuchEarnedProfit;
 
 @end

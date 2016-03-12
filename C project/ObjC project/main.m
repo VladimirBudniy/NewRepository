@@ -27,10 +27,10 @@ int main(int argc, const char * argv[]) {
         VBCar *car4 = [[[VBCar alloc] init] autorelease];
         
         NSArray *carsArray = @[car, car1, car2, car3, car4];
-        
+
         VBEnterprise *enterprise = [[[VBEnterprise alloc] init] autorelease];
         for (NSUInteger index = 0; index < carsArray.count; index++) {
-            [enterprise toWashCar:carsArray[index]];
+            [enterprise washCar:carsArray[index]];
         }
     }
     
