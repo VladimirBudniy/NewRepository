@@ -12,13 +12,4 @@
 
 @synthesize money = _money;
 
-//#pragma mark -
-//#pragma mark Public
-//
-//- (void)countMoney:(VBCarWasher *)washer {
-//    if (washer.money != 0) {
-//        [self workerDidFinishedWork:washer];
-//    }
-//}
-
 @end

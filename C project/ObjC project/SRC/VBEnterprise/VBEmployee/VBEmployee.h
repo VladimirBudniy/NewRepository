@@ -13,9 +13,20 @@
 #import "VBEnterprise.h"
 #import "VBCar.h"
 
-@interface VBEmployee : NSObject <VBMoneyProtocol, VBEndWorkProtocol>;
-@property (nonatomic, assign) id delegate;
+//typedef enum VBEmployeeState : NSUInteger {
+//    kVBUndefindeEmployeeState,
+//    kVBBusyEmployeeState,
+//    kVBFreeEmployeeState
+//} VBEmployeeState;
 
-- (void)performWorkWithObject:(id<VBMoneyProtocol>)object ;
+@interface VBEmployee : NSObject <VBMoneyProtocol, VBEndWorkProtocol>;
+@property (nonatomic, assign) id              delegate;
+//@property (nonatomic, assign) VBEmployeeState state;
+
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object;
+- (void)changeState:(id<VBMoneyProtocol>)object;
 
 @end
+
+
+

@@ -12,11 +12,4 @@
 
 @synthesize money = _money;
 
-//#pragma mark -
-//#pragma mark Public
-//
-//- (void)washCar:(VBCar *)car {
-//    [self workerDidFinishedWork:car];
-//}
-
 @end

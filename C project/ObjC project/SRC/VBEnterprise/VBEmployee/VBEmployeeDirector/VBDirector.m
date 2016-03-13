@@ -17,6 +17,9 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     [self takeMoney:[object giveMoney]];
+    [self changeState:object];
+    
+    self.state = kVBFreeEmployeeState;
     [self sayHowMuchEarnedProfit];
 }
 

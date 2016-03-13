@@ -10,6 +10,6 @@
 
 @protocol VBEndWorkProtocol <NSObject>
 
-- (void)workerDidFinishedWork:(id)object ;
+- (void)workerDidFinishedWork:(id)object;
 
 @end

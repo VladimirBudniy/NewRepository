@@ -49,7 +49,7 @@
     VBCarWasher *washer = [VBCarWasher object];
     VBAccountant *accountant = [VBAccountant object];
     VBDirector *director = [VBDirector object];
-    
+
     washer.delegate = accountant;
     accountant.delegate = director;
     

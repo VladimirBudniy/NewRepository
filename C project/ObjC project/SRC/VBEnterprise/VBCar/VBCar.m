@@ -11,6 +11,7 @@
 @implementation VBCar
 
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -18,7 +19,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.state = kVBDirtyState;
+        self.state = kVBDirtyCarState;
         self.money = 100;
     }
     

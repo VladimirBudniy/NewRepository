@@ -14,6 +14,7 @@
 @implementation VBEmployee
 
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark VBMoneyProtocol
@@ -39,8 +40,42 @@
 #pragma mark -
 #pragma mark Public
 
+- (void)changeState:(id<VBMoneyProtocol>)object {
+    if ([object isMemberOfClass:[VBCar class]]) {
+        if (object.money == 0) {
+            object.state = kVBCleanCarState;
+        }
+    }
+    
+    if ([object isMemberOfClass:[VBCarWasher class]]) {
+        if (object.money != 0) {
+            object.state = kVBBusyEmployeeState;
+        } else {
+            object.state = kVBFreeEmployeeState;
+        }
+    }
+    
+    if ([object isMemberOfClass:[VBAccountant class]]) {
+        if (object.money != 0) {
+            object.state = kVBBusyEmployeeState;
+        } else {
+            object.state = kVBFreeEmployeeState;
+        }
+    }
+    
+    if ([object isMemberOfClass:[VBDirector class]]) {
+        if (object.money != 0) {
+            object.state = kVBBusyEmployeeState;
+        } else {
+            object.state = kVBFreeEmployeeState;
+        }
+    }
+}
+
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     [self takeMoney:[object giveMoney]];
+    [self changeState:object];
+    [self.delegate changeState:self];
     
     if (self.delegate) {
         [self.delegate workerDidFinishedWork:self];
