@@ -17,6 +17,14 @@
 @synthesize state = _state;
 
 #pragma mark -
+#pragma mark Initializations and Deallocatins
+
+- (instancetype)initStaffWithClass:(Class)class {
+    
+    return  nil;
+}
+
+#pragma mark -
 #pragma mark VBMoneyProtocol
 
 - (NSUInteger)giveMoney {
@@ -38,39 +46,14 @@
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark VBStateProtocol
 
-- (void)changeState:(id<VBMoneyProtocol>)object {
-    if ([object isMemberOfClass:[VBCar class]]) {
-        if (object.money == 0) {
-            object.state = kVBCleanCarState;
-        }
-    }
+- (void)changeState:(VBEmployee *)object {
     
-    if ([object isMemberOfClass:[VBCarWasher class]]) {
-        if (object.money != 0) {
-            object.state = kVBBusyEmployeeState;
-        } else {
-            object.state = kVBFreeEmployeeState;
-        }
-    }
-    
-    if ([object isMemberOfClass:[VBAccountant class]]) {
-        if (object.money != 0) {
-            object.state = kVBBusyEmployeeState;
-        } else {
-            object.state = kVBFreeEmployeeState;
-        }
-    }
-    
-    if ([object isMemberOfClass:[VBDirector class]]) {
-        if (object.money != 0) {
-            object.state = kVBBusyEmployeeState;
-        } else {
-            object.state = kVBFreeEmployeeState;
-        }
-    }
 }
+
+#pragma mark -
+#pragma mark Public
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     [self takeMoney:[object giveMoney]];

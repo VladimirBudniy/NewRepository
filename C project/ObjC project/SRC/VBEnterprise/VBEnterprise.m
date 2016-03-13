@@ -46,9 +46,9 @@
 #pragma mark Private
 
 - (void)hireStaff {
-    VBCarWasher *washer = [VBCarWasher object];
-    VBAccountant *accountant = [VBAccountant object];
-    VBDirector *director = [VBDirector object];
+    VBCarWasher *washer = [[[VBCarWasher alloc] initStaffWithClass:[VBCarWasher class]] autorelease];
+    VBAccountant *accountant = [[[VBAccountant alloc] initStaffWithClass:[VBAccountant class]] autorelease];
+    VBDirector *director = [[[VBDirector alloc] initStaffWithClass:[VBDirector class]] autorelease];
 
     washer.delegate = accountant;
     accountant.delegate = director;
@@ -75,7 +75,7 @@
 
 - (void)washCar:(VBCar *)car {
     VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-    [washer workerDidFinishedWork:car];
+    [washer washCar:car];
 }
 
 @end

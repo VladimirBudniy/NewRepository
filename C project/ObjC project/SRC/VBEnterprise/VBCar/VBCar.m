@@ -40,4 +40,13 @@
     self.money = money;
 }
 
+#pragma mark -
+#pragma mark VBStateProtocol
+
+- (void)changeState:(VBCar *)object {
+    if (object.money == 0) {
+        object.state = kVBCleanCarState;
+    }
+}
+
 @end

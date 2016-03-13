@@ -149,6 +149,7 @@
 		E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBObjCTests.m; sourceTree = "<group>"; };
 		E7EF6DCC1C82493E000BE913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7F0CA3E1C960E6A00A497DF /* VBStateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBStateProtocol.h; sourceTree = "<group>"; };
 		E7F3F1821C90B10600DDCEA4 /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
 		E7F3F1831C90B10600DDCEA4 /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
 		E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEnterprise.h; sourceTree = "<group>"; };
@@ -509,6 +510,7 @@
 		E7F3F1511C90A62200DDCEA4 /* VBEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				E7F0CA3E1C960E6A00A497DF /* VBStateProtocol.h */,
 				E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */,
 				E7F3F1B11C94BB9300DDCEA4 /* VBEndWorkProtocol.h */,
 				E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */,
@@ -560,8 +562,8 @@
 			children = (
 				E7F3F19C1C91B26B00DDCEA4 /* VBEmployee.h */,
 				E7F3F19D1C91B26B00DDCEA4 /* VBEmployee.m */,
-				E7F3F19E1C91B26B00DDCEA4 /* VBAccountant */,
 				E7F3F1A11C91B26B00DDCEA4 /* VBCarWasher */,
+				E7F3F19E1C91B26B00DDCEA4 /* VBAccountant */,
 				E7F3F1A41C91B26B00DDCEA4 /* VBDirector */,
 			);
 			path = VBEmployee;

@@ -10,7 +10,17 @@
 
 @implementation VBDirector
 
-@synthesize money = _money;
+#pragma mark -
+#pragma mark Initializations and Deallocatins
+
+- (instancetype)initStaffWithClass:(VBDirector *)class {
+    self = [super init];
+    if (self) {
+        self.state = kVBFreeEmployeeState;
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Public
@@ -25,6 +35,17 @@
 
 - (void)sayHowMuchEarnedProfit {
     NSLog(@"Director's money %lu", self.money);
+}
+
+#pragma mark -
+#pragma mark VBStateProtocol
+
+- (void)changeState:(VBAccountant *)object {
+    if (object.money != 0) {
+        object.state = kVBBusyEmployeeState;
+    } else {
+        object.state = kVBFreeEmployeeState;
+    }
 }
 
 @end
