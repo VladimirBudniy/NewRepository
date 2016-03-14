@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface VBObserver : NSObject
+@property (nonatomic, readonly) NSArray *observers;
+
+- (void)addObserver:(id)object;
+- (void)removeObserver:(id)object;
+- (void)notifyObserver;
 
 @end

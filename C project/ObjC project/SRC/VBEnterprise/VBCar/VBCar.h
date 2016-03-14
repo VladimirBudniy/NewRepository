@@ -6,6 +6,7 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
+#import "VBObserver.h"
 #import "VBEnterprise.h"
 #import "VBMoneyProtocol.h"
 
@@ -15,7 +16,7 @@ typedef enum VBCarState : NSUInteger {
     kVBDirtyState
 } VBCarState;
 
-@interface VBCar : NSObject <VBMoneyProtocol>
+@interface VBCar : VBObserver <VBMoneyProtocol>
 @property (nonatomic, assign) VBCarState state;
 
 @end
