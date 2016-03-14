@@ -11,33 +11,14 @@
 @implementation VBCarWasher
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
-
-- (instancetype)initStaffWithClass:(VBCarWasher *)class {
-    self = [super init];
-    if (self) {
-        self.state = kVBFreeEmployeeState;
-    }
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark VBStateProtocol
+#pragma mark Public
 
 - (void)changeState:(VBCar *)object {
     if (object.money != 0) {
-        object.state = kVBDirtyCarState;
+        object.state = kVBDirtyState;
     } else {
-        object.state = kVBCleanCarState;
+        object.state = kVBCleanState;
     }
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)washCar:(VBCar *)car{
-    [self workerDidFinishedWork:car];
 }
 
 @end

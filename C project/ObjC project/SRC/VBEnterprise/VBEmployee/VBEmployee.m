@@ -11,17 +11,27 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
+@interface VBEmployee ()
+
+- (void)notifyDelegateAboutFinishedWork;
+
+@end
+
+
 @implementation VBEmployee
 
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initStaffWithClass:(Class)class {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.state = kVBFreeEmployeeState;
+    }
     
-    return  nil;
+    return self;
 }
 
 #pragma mark -
@@ -46,20 +56,25 @@
 }
 
 #pragma mark -
-#pragma mark VBStateProtocol
-
-- (void)changeState:(VBEmployee *)object {
-    
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+    self.state = kVBBusyEmployeeState;
     [self takeMoney:[object giveMoney]];
     [self changeState:object];
-    [self.delegate changeState:self];
     
+    [self notifyDelegateAboutFinishedWork];
+}
+
+- (void)changeState:(VBEmployee *)object {
+    if (object.money != 0) {
+        object.state = kVBBusyEmployeeState;
+    } else {
+        object.state = kVBFreeEmployeeState;
+    }
+}
+
+- (void)notifyDelegateAboutFinishedWork {
     if (self.delegate) {
         [self.delegate workerDidFinishedWork:self];
     }

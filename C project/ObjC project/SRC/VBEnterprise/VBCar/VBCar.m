@@ -11,7 +11,6 @@
 @implementation VBCar
 
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -19,7 +18,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.state = kVBDirtyCarState;
+        self.state = kVBDirtyState;
         self.money = 100;
     }
     
@@ -38,15 +37,6 @@
 
 - (void)takeMoney:(NSUInteger)money {
     self.money = money;
-}
-
-#pragma mark -
-#pragma mark VBStateProtocol
-
-- (void)changeState:(VBCar *)object {
-    if (object.money == 0) {
-        object.state = kVBCleanCarState;
-    }
 }
 
 @end

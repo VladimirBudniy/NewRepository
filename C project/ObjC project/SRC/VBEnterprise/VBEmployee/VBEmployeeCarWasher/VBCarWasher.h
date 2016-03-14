@@ -10,6 +10,4 @@
 
 @interface VBCarWasher : VBEmployee
 
-- (void)washCar:(VBCar *)car;
-
 @end

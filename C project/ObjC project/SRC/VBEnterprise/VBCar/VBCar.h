@@ -8,8 +8,14 @@
 
 #import "VBEnterprise.h"
 #import "VBMoneyProtocol.h"
-#import "VBStateProtocol.h"
 
-@interface VBCar : NSObject <VBMoneyProtocol, VBStateProtocol>
+typedef enum VBCarState : NSUInteger {
+    kVBUndefindeCarState,
+    kVBCleanState,
+    kVBDirtyState
+} VBCarState;
+
+@interface VBCar : NSObject <VBMoneyProtocol>
+@property (nonatomic, assign) VBCarState state;
 
 @end
