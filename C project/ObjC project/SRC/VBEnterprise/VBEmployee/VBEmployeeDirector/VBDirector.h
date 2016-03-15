@@ -11,6 +11,4 @@
 
 @interface VBDirector : VBEmployee
 
-- (void)sayHowMuchEarnedProfit;
-
 @end

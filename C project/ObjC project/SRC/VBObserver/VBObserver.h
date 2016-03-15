@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface VBObserver : NSObject
-@property (nonatomic, readonly) NSArray *observers;
+@property (nonatomic, readonly) NSArray     *observers;
+@property (nonatomic, readonly) NSUInteger  state;
 
-- (void)addObserver:(id)object;
-- (void)removeObserver:(id)object;
-- (void)notifyObserver;
+- (instancetype)initWithState:(NSUInteger)state;
+- (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money;
+
+- (void)addObserver:(id)observer;
+- (void)removeObserver:(id)observer;
+
+- (void)notifyObserversWithSelector:(SEL)selector;
+- (void)notifyObservers;
+
+- (SEL)selectorForState:(NSUInteger)state;
 
 @end

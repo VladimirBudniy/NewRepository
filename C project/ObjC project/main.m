@@ -20,11 +20,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        VBCar *car = [[[VBCar alloc] init] autorelease];
-        VBCar *car1 = [[[VBCar alloc] init] autorelease];
-        VBCar *car2 = [[[VBCar alloc] init] autorelease];
-        VBCar *car3 = [[[VBCar alloc] init] autorelease];
-        VBCar *car4 = [[[VBCar alloc] init] autorelease];
+        VBCar *car = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
+        VBCar *car1 = [[[VBCar alloc] initWithState:kVBCarCleanState money:50] autorelease];
+        VBCar *car2 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
+        VBCar *car3 = [[[VBCar alloc] initWithState:kVBCarCleanState money:50] autorelease];
+        VBCar *car4 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
         
         NSArray *carsArray = @[car, car1, car2, car3, car4];
 

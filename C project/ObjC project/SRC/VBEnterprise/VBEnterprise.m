@@ -14,9 +14,10 @@
 
 @interface VBEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, assign) VBCar          *car;
 
 - (void)hireStaff;
-- (void)firedStaff;
+- (void)fireStaff;
 - (id)vacantEmployee:(Class)class;
 
 @end
@@ -27,8 +28,9 @@
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    [self firedStaff];
+    [self fireStaff];
     self.staff = nil;
+    self.car = nil;
     
     [super dealloc];
 }
@@ -43,20 +45,31 @@
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setCar:(VBCar *)car {
+    if (_car != car) {
+        [_car removeObserver:self];
+        _car = car;
+        [car addObserver:self];
+    }
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (void)hireStaff {
     VBCarWasher *washer = [VBCarWasher object];
     VBAccountant *accountant = [VBAccountant object];
     VBDirector *director = [VBDirector object];
-
+    
     washer.delegate = accountant;
     accountant.delegate = director;
     
     self.staff = [@[washer, accountant, director] mutableCopy];
 }
 
-- (void)firedStaff {
+- (void)fireStaff {
     [self.staff removeAllObjects];
 }
 
@@ -74,8 +87,20 @@
 #pragma mark Public
 
 - (void)washCar:(VBCar *)car {
+    [self setCar:car];
     VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-    [washer performWorkWithObject:car];
+    [washer performWorkWithObjectIfNeeded:car];
+}
+
+#pragma mark -
+#pragma mark VBObserverProtocol
+
+- (void)carWashed {
+    NSLog(@"Your car is clean");
+}
+
+- (void)carSolied {
+    NSLog(@"Your car is solied");
 }
 
 @end

@@ -11,18 +11,46 @@
 @implementation VBCar
 
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)init {
+- (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money {
     self = [super init];
     if (self) {
-        self.state = kVBDirtyState;
-        self.money = 100;
+        self.state = state;
+        self.money = money;
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kVBCarCleanState:
+            return @selector(carWashed);
+            
+        case kVBCarDirtyState:
+            return @selector(carSolied);
+            
+        default:
+            return [super selectorForState:state];
+    }
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(VBCarState)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObservers];
+    }
 }
 
 #pragma mark -

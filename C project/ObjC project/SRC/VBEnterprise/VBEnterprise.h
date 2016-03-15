@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VBEndWorkProtocol.h"
+#import "VBWokerProtocol.h"
+#import "VBObserverProtocol.h"
 
 @class VBCar;
 
-@interface VBEnterprise : NSObject
+@interface VBEnterprise : NSObject <VBObserverProtocol>
 
 - (void)washCar:(VBCar *)car;
 

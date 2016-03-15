@@ -15,13 +15,10 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     [super performWorkWithObject:object];
-    self.state = kVBFreeEmployeeState;
     
-    [self sayHowMuchEarnedProfit];
+    self.state = kVBEmployeeFreeState;
+    NSLog(@"Director's money = %lu", self.money);
 }
 
-- (void)sayHowMuchEarnedProfit {
-    NSLog(@"Director's money %lu", self.money);
-}
 
 @end

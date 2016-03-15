@@ -8,23 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VBEndWorkProtocol.h"
+#import "VBWokerProtocol.h"
 #import "VBMoneyProtocol.h"
 #import "VBEnterprise.h"
 #import "VBCar.h"
 
 typedef enum VBEmployeeState : NSUInteger {
-    kVBUndefindeEmployeeState,
-    kVBBusyEmployeeState,
-    kVBFreeEmployeeState
+    kVBEmployeeUndefinedState,
+    kVBEmployeeBusyState,
+    kVBEmployeeFreeState
 } VBEmployeeState;
 
-@interface VBEmployee : NSObject <VBMoneyProtocol, VBEndWorkProtocol>;
+@interface VBEmployee : NSObject <VBMoneyProtocol, VBWokerProtocol>;
 @property (nonatomic, assign)   id              delegate;
 @property (nonatomic, assign)   VBEmployeeState state;
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object;
-- (void)changeState:(id)object;
+- (void)completeWorkWithObject:(id)object;
 
 @end
 

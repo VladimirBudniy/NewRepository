@@ -13,7 +13,7 @@
 
 @interface VBEmployee ()
 
-- (void)notifyDelegateAboutFinishedWork;
+- (void)notifyFinishedWork;
 
 @end
 
@@ -28,10 +28,34 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.state = kVBFreeEmployeeState;
+        self.state = kVBEmployeeFreeState;
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+    self.state = kVBEmployeeBusyState;
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
+    
+    [self notifyFinishedWork];
+}
+
+- (void)completeWorkWithObject:(VBEmployee *)object {
+    object.state = kVBEmployeeFreeState;
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)notifyFinishedWork {
+    if (self.delegate) {
+        [self.delegate workerDidFinishedWork:self];
+    }
 }
 
 #pragma mark -
@@ -49,35 +73,10 @@
 }
 
 #pragma mark -
-#pragma mark VBEndWorkProtocol
+#pragma mark VBWokerProtocol
 
 - (void)workerDidFinishedWork:(id)object {
     [self performWorkWithObject:object];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
-    self.state = kVBBusyEmployeeState;
-    [self takeMoney:[object giveMoney]];
-    [self changeState:object];
-    
-    [self notifyDelegateAboutFinishedWork];
-}
-
-- (void)changeState:(VBEmployee *)object {
-    if (object.money != 0) {
-        object.state = kVBBusyEmployeeState;
-    } else {
-        object.state = kVBFreeEmployeeState;
-    }
-}
-
-- (void)notifyDelegateAboutFinishedWork {
-    if (self.delegate) {
-        [self.delegate workerDidFinishedWork:self];
-    }
 }
 
 @end

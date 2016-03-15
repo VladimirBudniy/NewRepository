@@ -13,11 +13,17 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)changeState:(VBCar *)object {
-    if (object.money != 0) {
-        object.state = kVBDirtyState;
-    } else {
-        object.state = kVBCleanState;
+- (void)performWorkWithObject:(VBCar *)object {
+    [super performWorkWithObject:object];
+}
+
+- (void)completeWorkWithObject:(VBCar *)object {
+    object.state = kVBCarCleanState;
+}
+
+- (void)performWorkWithObjectIfNeeded:(VBCar *)object {
+    if (object.state != kVBCarCleanState) {
+        [self performWorkWithObject:object];
     }
 }
 
