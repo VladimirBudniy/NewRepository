@@ -152,7 +152,6 @@
 		E7EF6DCC1C82493E000BE913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7F0CA431C976DC700A497DF /* VBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserver.h; sourceTree = "<group>"; };
 		E7F0CA441C976DC700A497DF /* VBObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserver.m; sourceTree = "<group>"; };
-		E7F0CA471C98172A00A497DF /* VBWokerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBWokerProtocol.h; sourceTree = "<group>"; };
 		E7F162141C98ADF80019F52B /* VBObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverProtocol.h; sourceTree = "<group>"; };
 		E7F1621E1C98B2450019F52B /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
 		E7F1621F1C98B2450019F52B /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
@@ -170,7 +169,6 @@
 		E7F3F1A31C91B26B00DDCEA4 /* VBCarWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCarWasher.m; sourceTree = "<group>"; };
 		E7F3F1A51C91B26B00DDCEA4 /* VBDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDirector.h; sourceTree = "<group>"; };
 		E7F3F1A61C91B26B00DDCEA4 /* VBDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDirector.m; sourceTree = "<group>"; };
-		E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,8 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				E7F162141C98ADF80019F52B /* VBObserverProtocol.h */,
-				E7F0CA471C98172A00A497DF /* VBWokerProtocol.h */,
-				E7F3F1AB1C91DF0800DDCEA4 /* VBMoneyProtocol.h */,
 				E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */,
 				E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */,
 				E7F3F19B1C91B26B00DDCEA4 /* VBEmployee */,

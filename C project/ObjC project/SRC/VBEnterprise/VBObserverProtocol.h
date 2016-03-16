@@ -10,8 +10,13 @@
 
 @protocol VBObserverProtocol <NSObject>
 
+- (NSUInteger)giveMoney;
+- (void)takeMoney:(NSUInteger)money;
+
 @optional
 - (void)carWashed;
 - (void)carSolied;
+
+- (void)readyToWork;
 
 @end

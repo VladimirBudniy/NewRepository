@@ -11,38 +11,55 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
-@interface VBEmployee ()
-
-- (void)notifyFinishedWork;
-
-@end
-
-
 @implementation VBEmployee
 
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)init {
+- (instancetype)initWithState:(NSUInteger)state {
     self = [super init];
     if (self) {
-        self.state = kVBEmployeeFreeState;
+        self.state = state;
+        self.money = 0;
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(VBEmployeeState)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObservers];
+    }
+}
+
+#pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
-    self.state = kVBEmployeeBusyState;
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kVBEmployeeFreeState:
+            return @selector(readyToWork);
+            
+        case kVBEmployeeBusyState:
+            return @selector(performWorkWithObject:);
+            
+        default:
+            return [super selectorForState:state];
+    }
+}
+
+- (void)performWorkWithObject:(id)object {
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
-    
-    [self notifyFinishedWork];
+    self.state = kVBEmployeeBusyState;
 }
 
 - (void)completeWorkWithObject:(VBEmployee *)object {
@@ -50,16 +67,7 @@
 }
 
 #pragma mark -
-#pragma mark Private
-
-- (void)notifyFinishedWork {
-    if (self.delegate) {
-        [self.delegate workerDidFinishedWork:self];
-    }
-}
-
-#pragma mark -
-#pragma mark VBMoneyProtocol
+#pragma mark VBObserverProtocol
 
 - (NSUInteger)giveMoney {
     NSUInteger payment = self.money;
@@ -72,11 +80,8 @@
     self.money += money;
 }
 
-#pragma mark -
-#pragma mark VBWokerProtocol
-
-- (void)workerDidFinishedWork:(id)object {
-    [self performWorkWithObject:object];
+- (void)readyToWork {
+    NSLog(@"%@ is ready to Work", [self.object class]);
 }
 
 @end

@@ -54,7 +54,7 @@
 }
 
 #pragma mark -
-#pragma mark VBMoneyProtocol
+#pragma mark VBObserverProtocol
 
 - (NSUInteger)giveMoney {
     NSUInteger payment = self.money;

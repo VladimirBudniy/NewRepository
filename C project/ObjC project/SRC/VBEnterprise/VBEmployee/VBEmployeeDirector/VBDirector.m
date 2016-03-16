@@ -13,12 +13,12 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+- (void)performWorkWithObject:(id)object {
+    object = self.object;
     [super performWorkWithObject:object];
-    
+
     self.state = kVBEmployeeFreeState;
     NSLog(@"Director's money = %lu", self.money);
 }
-
 
 @end

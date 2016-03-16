@@ -13,7 +13,7 @@
 
 @class VBCar;
 
-@interface VBEnterprise : NSObject <VBObserverProtocol>
+@interface VBEnterprise : NSObject
 
 - (void)washCar:(VBCar *)car;
 

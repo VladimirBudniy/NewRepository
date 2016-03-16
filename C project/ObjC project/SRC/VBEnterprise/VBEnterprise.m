@@ -47,7 +47,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setCar:(VBCar *)car {
+- (void)setCar:(VBCar *)car {  // for VBCarClass
     if (_car != car) {
         [_car removeObserver:self];
         _car = car;
@@ -59,12 +59,15 @@
 #pragma mark Private
 
 - (void)hireStaff {
-    VBCarWasher *washer = [VBCarWasher object];
-    VBAccountant *accountant = [VBAccountant object];
-    VBDirector *director = [VBDirector object];
+    VBCarWasher *washer = [[[VBCarWasher alloc] initWithState:kVBEmployeeFreeState] autorelease];
+    VBAccountant *accountant = [[[VBAccountant alloc] initWithState:kVBEmployeeFreeState] autorelease];
+    VBDirector *director = [[[VBDirector alloc] initWithState:kVBEmployeeFreeState] autorelease];
     
-    washer.delegate = accountant;
-    accountant.delegate = director;
+    [washer addObserver:accountant];
+    [accountant addObserver:director];
+    
+    accountant.object = washer;
+    director.object = accountant;
     
     self.staff = [@[washer, accountant, director] mutableCopy];
 }
@@ -94,6 +97,8 @@
 
 #pragma mark -
 #pragma mark VBObserverProtocol
+
+// for VBCarClass
 
 - (void)carWashed {
     NSLog(@"Your car is clean");
