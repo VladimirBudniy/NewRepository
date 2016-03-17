@@ -14,11 +14,16 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id)object {
-    object = self.object;
     [super performWorkWithObject:object];
-
-    self.state = kVBEmployeeFreeState;
+    
     NSLog(@"Director's money = %lu", self.money);
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)expectingFurtherObjectives {
+    self.state = kVBEmployeeFreeState;
 }
 
 @end

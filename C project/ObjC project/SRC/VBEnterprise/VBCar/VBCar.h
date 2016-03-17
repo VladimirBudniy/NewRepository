@@ -8,7 +8,7 @@
 
 #import "VBObserver.h"
 #import "VBEnterprise.h"
-//#import "VBMoneyProtocol.h"
+#import "VBMoneyProtocol.h"
 #import "VBObserverProtocol.h"
 
 typedef enum VBCarState : NSUInteger {
@@ -17,8 +17,7 @@ typedef enum VBCarState : NSUInteger {
     kVBCarDirtyState
 } VBCarState;
 
-@interface VBCar : VBObserver <VBObserverProtocol>
+@interface VBCar : VBObserver <VBObserverProtocol, VBMoneyProtocol>
 @property (nonatomic, assign) VBCarState state;
-@property (nonatomic, assign) NSUInteger money;
 
 @end

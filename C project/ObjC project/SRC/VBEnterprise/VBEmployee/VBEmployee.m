@@ -11,6 +11,14 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
+@interface VBEmployee ()
+
+- (void)completeWorkWithObject:(id)object;
+- (void)expectingFurtherObjectives;
+
+@end
+
+
 @implementation VBEmployee
 
 @synthesize money = _money;
@@ -46,10 +54,13 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kVBEmployeeFreeState:
-            return @selector(readyToWork);
+            return @selector(employeeBecameFree:);
             
         case kVBEmployeeBusyState:
-            return @selector(performWorkWithObject:);
+            return @selector(employeeBecameBusy:);
+            
+        case kVBEmployeeStandbyState:
+            return @selector(employeeNowStandby:);
             
         default:
             return [super selectorForState:state];
@@ -57,17 +68,26 @@
 }
 
 - (void)performWorkWithObject:(id)object {
+    self.state = kVBEmployeeBusyState;
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
-    self.state = kVBEmployeeBusyState;
-}
-
-- (void)completeWorkWithObject:(VBEmployee *)object {
-    object.state = kVBEmployeeFreeState;
+    [self expectingFurtherObjectives];
+    
 }
 
 #pragma mark -
-#pragma mark VBObserverProtocol
+#pragma mark Private
+
+- (void)completeWorkWithObject:(VBEmployee *)object { ////// needed refactor method
+    object.state = kVBEmployeeFreeState;
+}
+
+- (void)expectingFurtherObjectives {
+    self.state = kVBEmployeeStandbyState;
+}
+
+#pragma mark -
+#pragma mark VBMoneyProtocol
 
 - (NSUInteger)giveMoney {
     NSUInteger payment = self.money;
@@ -80,8 +100,11 @@
     self.money += money;
 }
 
-- (void)readyToWork {
-    NSLog(@"%@ is ready to Work", [self.object class]);
+#pragma mark -
+#pragma mark VBObserverProtocol
+
+- (void)employeeNowStandby:(id)employee {
+    [self performWorkWithObject:employee];
 }
 
 @end

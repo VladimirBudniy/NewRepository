@@ -32,10 +32,10 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kVBCarCleanState:
-            return @selector(carWashed);
+            return @selector(carWashed:);
             
         case kVBCarDirtyState:
-            return @selector(carSolied);
+            return @selector(carSolied:);
             
         default:
             return [super selectorForState:state];

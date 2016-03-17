@@ -13,18 +13,18 @@
 #pragma mark -
 #pragma mark Public
 
+- (void)performWorkWithObjectIfNeeded:(VBCar *)object {
+    if (object.state != kVBCarCleanState) {
+        [self performWorkWithObject:object];
+    }
+}
+
 - (void)performWorkWithObject:(VBCar *)object {
     [super performWorkWithObject:object];
 }
 
 - (void)completeWorkWithObject:(VBCar *)object {
     object.state = kVBCarCleanState;
-}
-
-- (void)performWorkWithObjectIfNeeded:(VBCar *)object {
-    if (object.state != kVBCarCleanState) {
-        [self performWorkWithObject:object];
-    }
 }
 
 @end

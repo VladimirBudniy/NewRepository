@@ -13,12 +13,13 @@
 #import "VBDirector.h"
 
 @interface VBEnterprise ()
-@property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, assign) NSHashTable    *staff;
 @property (nonatomic, assign) VBCar          *car;
 
 - (void)hireStaff;
 - (void)fireStaff;
 - (id)vacantEmployee:(Class)class;
+- (void)addObjects:(NSArray *)employee;
 
 @end
 
@@ -38,6 +39,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.staff = [NSHashTable weakObjectsHashTable];
         [self hireStaff];
     }
     
@@ -66,10 +68,20 @@
     [washer addObserver:accountant];
     [accountant addObserver:director];
     
-    accountant.object = washer;
-    director.object = accountant;
-    
-    self.staff = [@[washer, accountant, director] mutableCopy];
+    NSArray* employeeArray = @[washer, accountant, director];
+    [self addObjects:employeeArray];
+}
+
+- (void)addObjects:(NSArray *)employee {
+    for (NSUInteger index = 0; index < 3; index++) {
+        [self.staff addObject:employee[index]];
+    }
+}
+
+- (void)addObjects:(id)firstOsbject object:(id)secondObject object:(id)thirdObject {
+    [self.staff addObject:firstOsbject];
+    [self.staff addObject:secondObject];
+    [self.staff addObject:thirdObject];
 }
 
 - (void)fireStaff {
@@ -100,11 +112,11 @@
 
 // for VBCarClass
 
-- (void)carWashed {
+- (void)carWashed:(VBCar *)car {
     NSLog(@"Your car is clean");
 }
 
-- (void)carSolied {
+- (void)carSolied:(VBCar *)car {
     NSLog(@"Your car is solied");
 }
 

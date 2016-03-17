@@ -10,12 +10,4 @@
 
 @implementation VBAccountant
 
-#pragma mark -
-#pragma mark Public
-
-- (void)performWorkWithObject:(id)object {
-    object = self.object;
-    [super performWorkWithObject:object];
-}
-
 @end

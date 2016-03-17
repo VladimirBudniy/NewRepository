@@ -12,7 +12,6 @@
 @property (nonatomic, readonly) NSArray     *observers;
 @property (nonatomic, readonly) NSUInteger  state;
 
-
 - (instancetype)initWithState:(NSUInteger)state;
 - (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money;
 

@@ -155,6 +155,7 @@
 		E7F162141C98ADF80019F52B /* VBObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverProtocol.h; sourceTree = "<group>"; };
 		E7F1621E1C98B2450019F52B /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
 		E7F1621F1C98B2450019F52B /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
+		E7F162221C9B24240019F52B /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
 		E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEnterprise.h; sourceTree = "<group>"; };
 		E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEnterprise.m; sourceTree = "<group>"; };
 		E7F3F1921C90D05600DDCEA4 /* VBDelegatingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegatingObject.h; sourceTree = "<group>"; };
@@ -533,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F162141C98ADF80019F52B /* VBObserverProtocol.h */,
+				E7F162221C9B24240019F52B /* VBMoneyProtocol.h */,
 				E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */,
 				E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */,
 				E7F3F19B1C91B26B00DDCEA4 /* VBEmployee */,

@@ -44,7 +44,7 @@
     return nil;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Accessors
 
 - (NSArray *)observers {
@@ -65,7 +65,7 @@
 - (void)notifyObserversWithSelector:(SEL)selector {
     for (id observer in self.observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector];
+            [observer performSelector:selector withObject:self];
         }
     }
 }
