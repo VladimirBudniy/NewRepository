@@ -9,14 +9,12 @@
 #import "VBObserver.h"
 
 @interface VBObserver ()
-@property (nonatomic, retain) NSMutableArray *mutableObservers;
+@property (nonatomic, assign) NSHashTable *mutableObservers;
 
 @end
 
 @implementation VBObserver
-
 @dynamic observers;
-@dynamic state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -30,25 +28,33 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSMutableArray array];
+        self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
     
     return self;
 }
 
 - (instancetype)initWithState:(NSUInteger)state {
-    return nil;
-}
-
-- (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money {
-    return nil;
+    self = [self init];
+    if (self) {
+        self.state = state;
+    }
+    return self;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [self.mutableObservers copy];
+    return [[self.mutableObservers allObjects] autorelease];
+}
+
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObservers];
+    }
 }
 
 #pragma mark -
@@ -60,6 +66,10 @@
 
 - (void)removeObserver:(id)observer {
     [self.mutableObservers removeObject:observer];
+}
+
+- (SEL)selectorForState:(NSUInteger)state {
+    return nil;
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
@@ -75,8 +85,8 @@
     [self notifyObserversWithSelector:selector];
 }
 
-- (SEL)selectorForState:(NSUInteger)state {
-    return nil;
+- (BOOL)isObservedByObject:(id)object {
+    return [self.mutableObservers containsObject:object];
 }
 
 @end

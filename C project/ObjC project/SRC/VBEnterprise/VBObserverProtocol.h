@@ -10,14 +10,10 @@
 
 @protocol VBObserverProtocol <NSObject>
 
-// methods for VBCar
 @optional
-- (void)carWashed:(id)car;
-- (void)carSolied:(id)car;
-
 // methods for VBCar
 - (void)employeeBecameFree:(id)employee;
 - (void)employeeBecameBusy:(id)employee;
-- (void)employeeNowStandby:(id)employee;
+- (void)employeeBecameStandby:(id)employee;
 
 @end

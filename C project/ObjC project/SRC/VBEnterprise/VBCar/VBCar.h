@@ -17,7 +17,9 @@ typedef enum VBCarState : NSUInteger {
     kVBCarDirtyState
 } VBCarState;
 
-@interface VBCar : VBObserver <VBObserverProtocol, VBMoneyProtocol>
+@interface VBCar : NSObject <VBMoneyProtocol>
 @property (nonatomic, assign) VBCarState state;
+
+- (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money;
 
 @end

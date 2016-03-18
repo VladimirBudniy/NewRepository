@@ -10,17 +10,17 @@
 
 @interface VBObserver : NSObject
 @property (nonatomic, readonly) NSArray     *observers;
-@property (nonatomic, readonly) NSUInteger  state;
+@property (nonatomic, assign)   NSUInteger  state;
 
 - (instancetype)initWithState:(NSUInteger)state;
-- (instancetype)initWithState:(NSUInteger)state money:(NSUInteger)money;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
+- (SEL)selectorForState:(NSUInteger)state;
+
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObservers;
-
-- (SEL)selectorForState:(NSUInteger)state;
+- (BOOL)isObservedByObject:(id)object;
 
 @end

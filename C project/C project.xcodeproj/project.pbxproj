@@ -47,8 +47,8 @@
 		E7EF6DD51C82496F000BE913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
 		E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
 		E7F0CA451C976DC700A497DF /* VBObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F0CA441C976DC700A497DF /* VBObserver.m */; };
-		E7F162201C98B2450019F52B /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F1621F1C98B2450019F52B /* VBCar.m */; };
-		E7F162211C98B2450019F52B /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F1621F1C98B2450019F52B /* VBCar.m */; };
+		E7F162261C9C0D090019F52B /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F162251C9C0D090019F52B /* VBCar.m */; };
+		E7F162271C9C0D090019F52B /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F162251C9C0D090019F52B /* VBCar.m */; };
 		E7F3F1881C90B15A00DDCEA4 /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */; };
 		E7F3F1891C90B15A00DDCEA4 /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */; };
 		E7F3F1941C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
@@ -153,9 +153,9 @@
 		E7F0CA431C976DC700A497DF /* VBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserver.h; sourceTree = "<group>"; };
 		E7F0CA441C976DC700A497DF /* VBObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserver.m; sourceTree = "<group>"; };
 		E7F162141C98ADF80019F52B /* VBObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverProtocol.h; sourceTree = "<group>"; };
-		E7F1621E1C98B2450019F52B /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
-		E7F1621F1C98B2450019F52B /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
 		E7F162221C9B24240019F52B /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
+		E7F162241C9C0D090019F52B /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
+		E7F162251C9C0D090019F52B /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
 		E7F3F1861C90B15A00DDCEA4 /* VBEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEnterprise.h; sourceTree = "<group>"; };
 		E7F3F1871C90B15A00DDCEA4 /* VBEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEnterprise.m; sourceTree = "<group>"; };
 		E7F3F1921C90D05600DDCEA4 /* VBDelegatingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegatingObject.h; sourceTree = "<group>"; };
@@ -414,6 +414,7 @@
 			children = (
 				E7F0CA421C976DC700A497DF /* VBObserver */,
 				E7F3F1511C90A62200DDCEA4 /* VBEnterprise */,
+				E7F162231C9C0D090019F52B /* VBCar */,
 				E7F3F1901C90D05600DDCEA4 /* VBDelegate */,
 				E7EF6DAE1C7F77A5000BE913 /* VBCategory */,
 				E78D21101C7B9889004AA9CB /* VBFemale */,
@@ -515,20 +516,19 @@
 			children = (
 				E7F0CA431C976DC700A497DF /* VBObserver.h */,
 				E7F0CA441C976DC700A497DF /* VBObserver.m */,
-				E7F162151C98B06A0019F52B /* VBCar */,
 			);
 			path = VBObserver;
 			sourceTree = "<group>";
 		};
-		E7F162151C98B06A0019F52B /* VBCar */ = {
+		E7F162231C9C0D090019F52B /* VBCar */ = {
 			isa = PBXGroup;
 			children = (
-				E7F1621E1C98B2450019F52B /* VBCar.h */,
-				E7F1621F1C98B2450019F52B /* VBCar.m */,
+				E7F162241C9C0D090019F52B /* VBCar.h */,
+				E7F162251C9C0D090019F52B /* VBCar.m */,
 			);
 			name = VBCar;
-			path = "ObjC project/SRC/VBEnterprise/VBCar";
-			sourceTree = SOURCE_ROOT;
+			path = VBEnterprise/VBCar;
+			sourceTree = "<group>";
 		};
 		E7F3F1511C90A62200DDCEA4 /* VBEnterprise */ = {
 			isa = PBXGroup;
@@ -746,7 +746,7 @@
 				E77B8F231C84EA430042F472 /* VBAlphabet.m in Sources */,
 				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
 				E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
-				E7F162201C98B2450019F52B /* VBCar.m in Sources */,
+				E7F162261C9C0D090019F52B /* VBCar.m in Sources */,
 				E78D20FE1C7731ED004AA9CB /* VBEssence.m in Sources */,
 				E7F3F1AA1C91B26B00DDCEA4 /* VBDirector.m in Sources */,
 				E76FB87F1C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
@@ -773,7 +773,7 @@
 				E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */,
 				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
 				E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */,
-				E7F162211C98B2450019F52B /* VBCar.m in Sources */,
+				E7F162271C9C0D090019F52B /* VBCar.m in Sources */,
 				E7EF6DD21C824963000BE913 /* VBEssence.m in Sources */,
 				E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
 				E77B8F2C1C84F5C20042F472 /* VBAlphabet.m in Sources */,

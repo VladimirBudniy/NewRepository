@@ -21,7 +21,6 @@ typedef enum VBEmployeeState : NSUInteger {
 } VBEmployeeState;
 
 @interface VBEmployee : VBObserver <VBObserverProtocol, VBMoneyProtocol>;
-@property (nonatomic, assign) VBEmployeeState state;
 
 - (void)performWorkWithObject:(id)object;
 

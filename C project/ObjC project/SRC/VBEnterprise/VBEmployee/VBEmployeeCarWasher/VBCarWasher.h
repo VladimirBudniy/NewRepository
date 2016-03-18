@@ -10,6 +10,4 @@
 
 @interface VBCarWasher : VBEmployee
 
-- (void)performWorkWithObjectIfNeeded:(VBCar *)object;
-
 @end

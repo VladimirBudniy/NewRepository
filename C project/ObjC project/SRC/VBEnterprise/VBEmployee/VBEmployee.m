@@ -14,38 +14,34 @@
 @interface VBEmployee ()
 
 - (void)completeWorkWithObject:(id)object;
-- (void)expectingFurtherObjectives;
+- (void)completeWork;
 
 @end
-
 
 @implementation VBEmployee
 
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithState:(NSUInteger)state {
+- (instancetype)init {
     self = [super init];
+    if (self) {
+        self.state = kVBEmployeeFreeState;
+    }
+    
+    return  self;
+}
+
+- (instancetype)initWithState:(NSUInteger)state {
+    self = [self init];
     if (self) {
         self.state = state;
         self.money = 0;
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setState:(VBEmployeeState)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObservers];
-    }
 }
 
 #pragma mark -
@@ -60,7 +56,7 @@
             return @selector(employeeBecameBusy:);
             
         case kVBEmployeeStandbyState:
-            return @selector(employeeNowStandby:);
+            return @selector(employeeBecameStandby:);
             
         default:
             return [super selectorForState:state];
@@ -71,18 +67,19 @@
     self.state = kVBEmployeeBusyState;
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
-    [self expectingFurtherObjectives];
+    [self completeWork];
     
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)completeWorkWithObject:(VBEmployee *)object { ////// needed refactor method
-    object.state = kVBEmployeeFreeState;
+- (void)completeWorkWithObject:(id)object {
+    VBEmployee *employee = (VBEmployee *)object;
+    employee.state = kVBEmployeeFreeState;
 }
 
-- (void)expectingFurtherObjectives {
+- (void)completeWork {
     self.state = kVBEmployeeStandbyState;
 }
 
@@ -103,7 +100,7 @@
 #pragma mark -
 #pragma mark VBObserverProtocol
 
-- (void)employeeNowStandby:(id)employee {
+- (void)employeeBecameStandby:(id)employee {
     [self performWorkWithObject:employee];
 }
 
