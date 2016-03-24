@@ -85,7 +85,7 @@
     [self notifyObserversWithSelector:selector];
 }
 
-- (BOOL)isObservedByObject:(id)object {
+- (BOOL)observedObject:(id)object {
     return [self.mutableObservers containsObject:object];
 }
 

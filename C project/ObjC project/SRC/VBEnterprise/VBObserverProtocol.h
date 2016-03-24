@@ -11,7 +11,6 @@
 @protocol VBObserverProtocol <NSObject>
 
 @optional
-// methods for VBCar
 - (void)employeeBecameFree:(id)employee;
 - (void)employeeBecameBusy:(id)employee;
 - (void)employeeBecameStandby:(id)employee;

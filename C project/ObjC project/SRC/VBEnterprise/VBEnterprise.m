@@ -16,7 +16,8 @@
 @property (nonatomic, assign) NSMutableArray *staff;
 
 - (void)hireStaff;
-- (void)fireStaff;
+- (void)dismissStaff;
+- (void)dismissEmployee:(VBEmployee *)object;
 - (id)vacantEmployee:(Class)class;
 
 @end
@@ -27,7 +28,7 @@
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    [self fireStaff];
+    [self dismissStaff];
     self.staff = nil;
     
     [super dealloc];
@@ -55,10 +56,28 @@
     [accountant addObserver:director];
     
     self.staff = [[@[washer, accountant, director] mutableCopy] autorelease];
+    
+//    [self dismissStaff]; for test
 }
 
-- (void)fireStaff {   // add methods fireEmployee
+- (void)dismissStaff {
+    NSMutableArray *staff = [[self.staff copy] autorelease];
+    for (VBEmployee *employee in staff) {
+        [self dismissEmployee:employee];
+    }
+    
     [self.staff removeAllObjects];
+}
+
+- (void)dismissEmployee:(VBEmployee *)object {
+    for (NSUInteger index = 0; index < self.staff.count; index++) {
+        VBEmployee *employee = self.staff[index];
+        if ([object observedObject:employee]) {
+            [object removeObserver:employee];
+        }
+    }
+    
+    [self.staff removeObject:object];
 }
 
 - (id)vacantEmployee:(Class)class {

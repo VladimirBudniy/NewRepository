@@ -21,6 +21,6 @@
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObservers;
-- (BOOL)isObservedByObject:(id)object;
+- (BOOL)observedObject:(id)object;
 
 @end
