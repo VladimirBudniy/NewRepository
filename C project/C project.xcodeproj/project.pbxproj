@@ -37,6 +37,7 @@
 		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
 		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
 		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
+		E7EBF9041CA9DE7D00DB26AC /* VBObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F0CA441C976DC700A497DF /* VBObserver.m */; };
 		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
 		E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
 		E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */; };
@@ -772,6 +773,7 @@
 				E76FB8801C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
 				E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */,
 				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
+				E7EBF9041CA9DE7D00DB26AC /* VBObserver.m in Sources */,
 				E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */,
 				E7F162271C9C0D090019F52B /* VBCar.m in Sources */,
 				E7EF6DD21C824963000BE913 /* VBEssence.m in Sources */,

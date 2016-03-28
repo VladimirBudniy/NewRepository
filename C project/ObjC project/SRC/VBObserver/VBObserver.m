@@ -71,13 +71,13 @@
 
 - (void)addBlockForState:(VBTestBlock)employeeBlock state:(NSUInteger)state {
     [self removeBlockForState:state];
-    
     NSString *key = [NSString stringWithFormat:@"%lu", state];
     [self.stateBlock setObject:[[employeeBlock copy] autorelease] forKey:key];
 }
 
 - (void)removeBlockForState:(NSUInteger)state {
-    [self.stateBlock removeObjectForKey:(NSString *)state];
+    NSString *key = [NSString stringWithFormat:@"%lu", state];
+    [self.stateBlock removeObjectForKey:key];
 }
 
 - (void)addObserver:(id)observer {
