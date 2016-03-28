@@ -52,7 +52,11 @@
     VBAccountant *accountant = [VBAccountant new];
     VBDirector *director = [[[VBDirector alloc] initWithState:kVBEmployeeFreeState] autorelease];
     
-    [washer addObserver:accountant];
+    [washer addBlockForState:^{
+        [accountant performWorkWithObject:washer];
+    } state:kVBEmployeeStandbyState];
+
+//    [washer addObserver:accountant];
     [accountant addObserver:director];
     
     self.staff = [[@[washer, accountant, director] mutableCopy] autorelease];

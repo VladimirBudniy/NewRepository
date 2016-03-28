@@ -14,6 +14,7 @@
 @end
 
 @implementation VBObserver
+
 @dynamic observers;
 
 #pragma mark -
@@ -21,6 +22,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.stateBlock = nil;
     
     [super dealloc];
 }
@@ -29,6 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.stateBlock = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -53,12 +56,29 @@
     if (_state != state) {
         _state = state;
         
-        [self notifyObservers];
+        NSString *key = [NSString stringWithFormat:@"%lu", state];
+        void (^employeeBlock)(void) = [self.stateBlock valueForKey:key];
+        if (employeeBlock) {
+            employeeBlock();
+        } else {
+            [self notifyObservers];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark Public
+
+- (void)addBlockForState:(VBTestBlock)employeeBlock state:(NSUInteger)state {
+    [self removeBlockForState:state];
+    
+    NSString *key = [NSString stringWithFormat:@"%lu", state];
+    [self.stateBlock setObject:[[employeeBlock copy] autorelease] forKey:key];
+}
+
+- (void)removeBlockForState:(NSUInteger)state {
+    [self.stateBlock removeObjectForKey:(NSString *)state];
+}
 
 - (void)addObserver:(id)observer {
     [self.mutableObservers addObject:observer];
