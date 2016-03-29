@@ -8,23 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VBEssence.h"
-#import "VBEssenceTest.h"
-#import "VBAlphabet.h"
+#import "VBCar.h"
+#import "VBEnterprise.h"
+#import "VBEmployee.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-//        NSArray *pathArray = [NSArray arrayWithObjects:@"here", @"be", @"dragons", nil];
-//        NSLog(@"%@",[pathArray componentsJoinedByString:@""]);
-//        [VBEssenceTest performTesting];
-//        
-//        VBAlphabet *alphabetUpperCase = [VBAlphabet alphabetWithUppercaseLettersRange];
-//        NSLog(@"%@", alphabetUpperCase[7]);
-//        NSLog(@"\n");
-//        for (NSString *symbols in alphabetUpperCase) {
-//            NSLog(@"%@", symbols);
-//        }
-    }
     
+        VBCar *car = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
+        VBCar *car1 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
+        VBCar *car2 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
+        
+        NSArray *carsArray = @[car, car1, car2];
+
+        VBEnterprise *enterprise = [[[VBEnterprise alloc] init] autorelease];
+        for (NSUInteger index = 0; index < carsArray.count; index++) {
+            [enterprise washCar:carsArray[index]];
+        }
+    }
+
     return 0;
 }
