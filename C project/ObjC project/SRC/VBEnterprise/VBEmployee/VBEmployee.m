@@ -31,7 +31,7 @@
         self.state = kVBEmployeeFreeState;
     }
     
-    return  self;
+    return self;
 }
 
 - (instancetype)initWithState:(NSUInteger)state {

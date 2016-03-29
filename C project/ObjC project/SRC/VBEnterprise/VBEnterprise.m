@@ -41,15 +41,15 @@
         [self hireStaff];
     }
     
-    return  self;
+    return self;
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)hireStaff {
-    VBCarWasher *washer = [[VBCarWasher new]  autorelease];
-    VBAccountant *accountant = [[VBAccountant new]  autorelease];
+    VBCarWasher *washer = [VBCarWasher object];
+    VBAccountant *accountant = [VBAccountant object];
     VBDirector *director = [[[VBDirector alloc] initWithState:kVBEmployeeFreeState] autorelease];
     
     [washer addBlockForState:^{
@@ -76,9 +76,9 @@
 - (void)dismissEmployee:(VBEmployee *)object {
     for (NSUInteger index = 0; index < self.staff.count; index++) {
         VBEmployee *employee = self.staff[index];
-        if ([object observedObject:employee]) {
+        if ([object observedByObject:employee]) {
             [object removeObserver:employee];
-            [object.stateBlock removeAllObjects];
+            [object.handlersDictionary removeAllObjects];
         }
     }
     
@@ -92,7 +92,7 @@
         }
     }
     
-    return  nil;
+    return nil;
 }
 
 #pragma mark -

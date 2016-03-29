@@ -22,7 +22,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
-    self.stateBlock = nil;
+    self.handlersDictionary = nil;
     
     [super dealloc];
 }
@@ -31,7 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.stateBlock = [NSMutableDictionary dictionary];
+        self.handlersDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -42,6 +42,7 @@
     if (self) {
         self.state = state;
     }
+    
     return self;
 }
 
@@ -49,15 +50,15 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [[self.mutableObservers allObjects] autorelease];
+    return [self.mutableObservers allObjects];
 }
 
 - (void)setState:(NSUInteger)state {
     if (_state != state) {
         _state = state;
         
-        NSString *key = [NSString stringWithFormat:@"%lu", state];
-        void (^employeeBlock)(void) = [self.stateBlock valueForKey:key];
+        NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+        void (^employeeBlock)(void) = [self.handlersDictionary objectForKey:keyNumber];
         if (employeeBlock) {
             employeeBlock();
         } else {
@@ -69,15 +70,16 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addBlockForState:(VBTestBlock)employeeBlock state:(NSUInteger)state {
+- (void)addBlockForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state {
     [self removeBlockForState:state];
-    NSString *key = [NSString stringWithFormat:@"%lu", state];
-    [self.stateBlock setObject:[[employeeBlock copy] autorelease] forKey:key];
+    
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
 }
 
 - (void)removeBlockForState:(NSUInteger)state {
-    NSString *key = [NSString stringWithFormat:@"%lu", state];
-    [self.stateBlock removeObjectForKey:key];
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary removeObjectForKey:keyNumber];
 }
 
 - (void)addObserver:(id)observer {
@@ -105,7 +107,7 @@
     [self notifyObserversWithSelector:selector];
 }
 
-- (BOOL)observedObject:(id)object {
+- (BOOL)observedByObject:(id)object {
     return [self.mutableObservers containsObject:object];
 }
 

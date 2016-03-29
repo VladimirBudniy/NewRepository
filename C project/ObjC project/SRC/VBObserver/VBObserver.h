@@ -8,25 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VBTestBlock)(void);
+typedef void (^VBEmployeeHandler)(void);
 
 @interface VBObserver : NSObject
 @property (nonatomic, readonly) NSArray             *observers;
 @property (nonatomic, assign)   NSUInteger          state;
-@property (nonatomic, retain)   NSMutableDictionary *stateBlock;
+@property (nonatomic, retain)   NSMutableDictionary *handlersDictionary;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
-- (void)addBlockForState:(VBTestBlock)employeeBlock state:(NSUInteger)state;
+- (void)addBlockForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state;
 - (void)removeBlockForState:(NSUInteger)state;
 
 - (SEL)selectorForState:(NSUInteger)state;
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObservers;
-- (BOOL)observedObject:(id)object;
+- (BOOL)observedByObject:(id)object;
 
 @end
