@@ -15,8 +15,8 @@
 
 typedef enum VBEmployeeState : NSUInteger {
     kVBEmployeeUndefinedState,
-    kVBEmployeeBusyState,
     kVBEmployeeFreeState,
+    kVBEmployeeBusyState,
     kVBEmployeeStandbyState
 } VBEmployeeState;
 

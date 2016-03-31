@@ -63,12 +63,14 @@
     }
 }
 
-- (void)performWorkWithObject:(id)object {
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     self.state = kVBEmployeeBusyState;
+    
+    sleep(arc4random_uniform(1) + 1);
+    
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
     [self completeWork];
-    
 }
 
 #pragma mark -

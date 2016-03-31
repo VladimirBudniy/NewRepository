@@ -12,8 +12,11 @@
 #import "VBAccountant.h"
 #import "VBDirector.h"
 
+static NSUInteger const kVBWashersCount = 3;
+
 @interface VBEnterprise ()
-@property (nonatomic, assign) NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *cars;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -30,6 +33,7 @@
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
+    self.cars = nil;
     
     [super dealloc];
 }
@@ -37,7 +41,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.staff = nil;
+        self.cars = [NSMutableArray array];
         [self hireStaff];
     }
     
@@ -48,20 +52,21 @@
 #pragma mark Private
 
 - (void)hireStaff {
-    VBCarWasher *washer = [VBCarWasher object];
-    VBAccountant *accountant = [VBAccountant object];
-    VBDirector *director = [[[VBDirector alloc] initWithState:kVBEmployeeFreeState] autorelease];
     
-    [washer addBlockForState:^{
-        [accountant performWorkWithObject:washer];
-    } state:kVBEmployeeStandbyState];
-
-//    [washer addObserver:accountant];
+    VBAccountant *accountant = [VBAccountant object];
+    VBDirector *director = [VBDirector object];
     [accountant addObserver:director];
     
-    self.staff = [[@[washer, accountant, director] mutableCopy] autorelease];
+    self.staff = [NSMutableArray arrayWithObjects:accountant, director, nil];
     
-//    [self dismissStaff]; for test
+    NSArray *washers = [NSObject objectsWithClass:[VBCarWasher class] count:kVBWashersCount];
+    for (VBCarWasher *washer in washers) {
+        [washer addObserver:accountant];
+        [washer addObserver:self];
+        
+        [self.staff addObject:washer];
+    }
+    
 }
 
 - (void)dismissStaff {
@@ -74,11 +79,9 @@
 }
 
 - (void)dismissEmployee:(VBEmployee *)object {
-    for (NSUInteger index = 0; index < self.staff.count; index++) {
-        VBEmployee *employee = self.staff[index];
-        if ([object observedByObject:employee]) {
-            [object removeObserver:employee];
-            [object.handlersDictionary removeAllObjects];
+    for (VBEmployee *employee in self.staff) {
+        if ([employee observedByObject:object]) {
+            [employee removeObserver:object];
         }
     }
     
@@ -87,7 +90,7 @@
 
 - (id)vacantEmployee:(Class)class {
     for (VBEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class]) {
+        if (([employee isMemberOfClass:class]) && (employee.state == kVBEmployeeFreeState)) {
             return employee;
         }
     }
@@ -99,8 +102,26 @@
 #pragma mark Public
 
 - (void)washCar:(VBCar *)car {
-    VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-    [washer performWorkWithObject:car];
+    [self.cars addObject:car];
+    
+    @synchronized(self.staff) {
+        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
+        @synchronized(self.cars) {
+            VBCar *car = [self.cars lastObject];
+            if (car) {
+                [self.cars removeObject:car];
+            }
+            
+            [washer performWorkWithObject:car];
+        }
+    }
 }
+
+//#pragma mark -
+//#pragma mark VBObserverProtocol
+//
+//- (void)employeeBecameFree:(VBCarWasher *)washer {
+//    
+//}
 
 @end
