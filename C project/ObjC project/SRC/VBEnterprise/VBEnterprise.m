@@ -41,8 +41,8 @@ static NSUInteger const kVBWashersCount = 3;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.cars = [NSMutableArray array];
         [self hireStaff];
+        self.cars = [NSMutableArray array];
     }
     
     return self;
@@ -56,36 +56,35 @@ static NSUInteger const kVBWashersCount = 3;
     VBAccountant *accountant = [VBAccountant object];
     VBDirector *director = [VBDirector object];
     [accountant addObserver:director];
-    
     self.staff = [NSMutableArray arrayWithObjects:accountant, director, nil];
     
-    NSArray *washers = [NSObject objectsWithClass:[VBCarWasher class] count:kVBWashersCount];
+    NSArray *washers = [VBCarWasher objectsWithcount:kVBWashersCount];
     for (VBCarWasher *washer in washers) {
         [washer addObserver:accountant];
         [washer addObserver:self];
-        
         [self.staff addObject:washer];
     }
-    
 }
 
 - (void)dismissStaff {
-    NSMutableArray *staff = [[self.staff copy] autorelease];
-    for (VBEmployee *employee in staff) {
-        [self dismissEmployee:employee];
-    }
+        NSMutableArray *staff = [[self.staff copy] autorelease];
+        for (VBEmployee *employee in staff) {
+            [self dismissEmployee:employee];
+        }
     
     [self.staff removeAllObjects];
 }
 
 - (void)dismissEmployee:(VBEmployee *)object {
-    for (VBEmployee *employee in self.staff) {
-        if ([employee observedByObject:object]) {
-            [employee removeObserver:object];
+    @synchronized(self) {
+        for (VBEmployee *employee in self.staff) {
+            if ([employee observedByObject:object]) {
+                [employee removeObserver:object];
+            }
         }
+        
+        [self.staff removeObject:object];
     }
-    
-    [self.staff removeObject:object];
 }
 
 - (id)vacantEmployee:(Class)class {
@@ -102,26 +101,27 @@ static NSUInteger const kVBWashersCount = 3;
 #pragma mark Public
 
 - (void)washCar:(VBCar *)car {
-    [self.cars addObject:car];
-    
-    @synchronized(self.staff) {
+    @synchronized(self) {
         VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-        @synchronized(self.cars) {
-            VBCar *car = [self.cars lastObject];
-            if (car) {
-                [self.cars removeObject:car];
-            }
-            
+        if (washer) {
             [washer performWorkWithObject:car];
+        } else {
+            [self.cars addObject:car];
         }
     }
 }
 
-//#pragma mark -
-//#pragma mark VBObserverProtocol
-//
-//- (void)employeeBecameFree:(VBCarWasher *)washer {
-//    
-//}
+#pragma mark -
+#pragma mark VBObserverProtocol
+
+- (void)employeeBecameFree:(VBCarWasher *)washer {
+    @synchronized(self) {
+        VBCar *car = [self.cars lastObject];
+        if (car) {
+            [self.cars removeObject:car];
+            [washer performWorkWithObject:car];
+        }
+    }
+}
 
 @end

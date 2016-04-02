@@ -15,6 +15,8 @@
 
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
+- (void)workWithObject:(id)object;
+- (void)performWorkWithObjectInBackground:(id)object;
 
 @end
 
@@ -65,16 +67,25 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     self.state = kVBEmployeeBusyState;
-    
-    sleep(arc4random_uniform(1) + 1);
-    
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkWithObject:object];
-    [self completeWork];
+    @synchronized(self) {
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
+
+- (void)performWorkWithObjectInBackground:(id)object {
+    sleep(arc4random_uniform(1) + 1);
+    [self workWithObject:object];
+    [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
+}
+
+- (void)workWithObject:(id)object {
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
+}
 
 - (void)completeWorkWithObject:(id)object {
     VBEmployee *employee = (VBEmployee *)object;
@@ -89,14 +100,18 @@
 #pragma mark VBMoneyProtocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-    
-    return payment;
+    @synchronized(self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 #pragma mark -
