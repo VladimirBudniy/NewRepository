@@ -14,8 +14,10 @@
 #pragma mark Private
 
 - (void)completeWork {
-    NSLog(@"Director's money = %lu", self.money);
-    self.state = kVBEmployeeFreeState;
+    @synchronized(self) {
+        NSLog(@"Director's money = %lu", self.money);
+        self.state = kVBEmployeeFreeState;
+    }
 }
 
 @end

@@ -20,9 +20,7 @@
 }
 
 - (void)completeWorkWithObject:(VBCar *)object {
-    @synchronized(object) {
-        object.state = kVBCarCleanState;
-    }
+    object.state = kVBCarCleanState;
 }
 
 @end

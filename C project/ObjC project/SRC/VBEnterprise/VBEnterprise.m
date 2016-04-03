@@ -76,11 +76,9 @@ static NSUInteger const kVBWashersCount = 3;
 }
 
 - (void)dismissEmployee:(VBEmployee *)object {
-    @synchronized(self) {
-        for (VBEmployee *employee in self.staff) {
-            if ([employee observedByObject:object]) {
-                [employee removeObserver:object];
-            }
+    for (VBEmployee *employee in self.staff) {
+        if ([employee observedByObject:object]) {
+            [employee removeObserver:object];
         }
         
         [self.staff removeObject:object];
@@ -116,7 +114,7 @@ static NSUInteger const kVBWashersCount = 3;
 
 - (void)employeeBecameFree:(VBCarWasher *)washer {
     @synchronized(self) {
-        VBCar *car = [self.cars lastObject];
+        VBCar *car = [self.cars firstObject];
         if (car) {
             [self.cars removeObject:car];
             [washer performWorkWithObject:car];

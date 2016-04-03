@@ -41,10 +41,8 @@ static NSUInteger const kVBCarMoneyCount = 100;
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
-    @synchronized(self) {
-        if (_state != state) {
-            _state = state;
-        }
+    if (_state != state) {
+        _state = state;
     }
 }
 

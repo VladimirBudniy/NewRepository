@@ -65,15 +65,11 @@
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers addObject:observer];
-    }
+    [self.mutableObservers addObject:observer];
 }
 
 - (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers removeObject:observer];
-    }
+    [self.mutableObservers removeObject:observer];
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -81,16 +77,20 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-    for (id observer in self.observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+    @synchronized(self) {
+        for (id observer in self.observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:self];
+            }
         }
     }
 }
 
 - (void)notifyObservers {
-    SEL selector = [self selectorForState:self.state];
-    [self notifyObserversWithSelector:selector];
+    @synchronized(self) {
+        SEL selector = [self selectorForState:self.state];
+        [self notifyObserversWithSelector:selector];
+    }
 }
 
 - (BOOL)observedByObject:(id)object {

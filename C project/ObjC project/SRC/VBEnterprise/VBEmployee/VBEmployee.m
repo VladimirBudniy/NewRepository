@@ -16,7 +16,7 @@
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
 - (void)workWithObject:(id)object;
-- (void)performWorkWithObjectInBackground:(id)object;
+- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object;
 
 @end
 
@@ -66,8 +66,8 @@
 }
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
-    self.state = kVBEmployeeBusyState;
     @synchronized(self) {
+        self.state = kVBEmployeeBusyState;
         [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
                                withObject:object];
     }
@@ -76,24 +76,31 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performWorkWithObjectInBackground:(id)object {
-    sleep(arc4random_uniform(1) + 1);
+- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object {
+    usleep(arc4random_uniform(100000) + 10000);
     [self workWithObject:object];
+//    NSLog(@"%@ take money = %lu", self, self.money);
     [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
 }
 
 - (void)workWithObject:(id)object {
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkWithObject:object];
+    @synchronized(object) {
+        [self takeMoney:[object giveMoney]];
+        [self completeWorkWithObject:object];
+    }
 }
 
 - (void)completeWorkWithObject:(id)object {
-    VBEmployee *employee = (VBEmployee *)object;
-    employee.state = kVBEmployeeFreeState;
+    @synchronized(object) {
+        VBEmployee *employee = (VBEmployee *)object;
+        employee.state = kVBEmployeeFreeState;
+    }
 }
 
 - (void)completeWork {
-    self.state = kVBEmployeeStandbyState;
+    @synchronized(self) {
+        self.state = kVBEmployeeStandbyState;
+    }
 }
 
 #pragma mark -
@@ -118,7 +125,9 @@
 #pragma mark VBObserverProtocol
 
 - (void)employeeBecameStandby:(id)employee {
-    [self performWorkWithObject:employee];
+    @synchronized(self) {
+        [self performWorkWithObject:employee];
+    }
 }
 
 @end
