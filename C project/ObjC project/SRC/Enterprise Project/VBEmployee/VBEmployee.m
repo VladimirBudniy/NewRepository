@@ -77,30 +77,28 @@
 #pragma mark Private
 
 - (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object {
-    usleep(arc4random_uniform(100000) + 10000);
+    sleep(arc4random_uniform(1) + 1);
     [self workWithObject:object];
-//    NSLog(@"%@ take money = %lu", self, self.money);
+    
+    NSLog(@"%@ take money = %lu", self, self.money);
+    
     [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
 }
 
 - (void)workWithObject:(id)object {
-    @synchronized(object) {
-        [self takeMoney:[object giveMoney]];
-        [self completeWorkWithObject:object];
-    }
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
 }
 
 - (void)completeWorkWithObject:(id)object {
-    @synchronized(object) {
+    @synchronized(self) {
         VBEmployee *employee = (VBEmployee *)object;
         employee.state = kVBEmployeeFreeState;
     }
 }
 
 - (void)completeWork {
-    @synchronized(self) {
-        self.state = kVBEmployeeStandbyState;
-    }
+    self.state = kVBEmployeeStandbyState;
 }
 
 #pragma mark -
@@ -125,9 +123,7 @@
 #pragma mark VBObserverProtocol
 
 - (void)employeeBecameStandby:(id)employee {
-    @synchronized(self) {
-        [self performWorkWithObject:employee];
-    }
+    [self performWorkWithObject:employee];
 }
 
 @end

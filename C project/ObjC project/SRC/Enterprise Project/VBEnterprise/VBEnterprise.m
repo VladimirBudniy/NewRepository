@@ -58,7 +58,7 @@ static NSUInteger const kVBWashersCount = 3;
     [accountant addObserver:director];
     self.staff = [NSMutableArray arrayWithObjects:accountant, director, nil];
     
-    NSArray *washers = [VBCarWasher objectsWithcount:kVBWashersCount];
+    NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount];
     for (VBCarWasher *washer in washers) {
         [washer addObserver:accountant];
         [washer addObserver:self];

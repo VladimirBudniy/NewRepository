@@ -12,6 +12,6 @@
 
 + (instancetype)object;
 
-+ (NSArray *)objectsWithcount:(NSUInteger)count;
++ (NSArray *)objectsWithCount:(NSUInteger)count;
 
 @end
