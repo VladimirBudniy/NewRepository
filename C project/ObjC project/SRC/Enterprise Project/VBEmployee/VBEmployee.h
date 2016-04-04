@@ -12,6 +12,7 @@
 #import "VBObserver.h"
 #import "VBEnterprise.h"
 #import "VBCar.h"
+#import "VBQueue.h"
 
 typedef enum VBEmployeeState : NSUInteger {
     kVBEmployeeUndefinedState,
@@ -21,6 +22,7 @@ typedef enum VBEmployeeState : NSUInteger {
 } VBEmployeeState;
 
 @interface VBEmployee : VBObserver <VBObserverProtocol, VBMoneyProtocol>;
+@property (nonatomic, retain) VBQueue *washersQueue;
 
 - (void)performWorkWithObject:(id)object;
 

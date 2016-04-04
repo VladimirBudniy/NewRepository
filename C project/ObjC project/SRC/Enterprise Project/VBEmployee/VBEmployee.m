@@ -11,6 +11,7 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
+
 @interface VBEmployee ()
 
 - (void)completeWorkWithObject:(id)object;
@@ -31,6 +32,7 @@
     self = [super init];
     if (self) {
         self.state = kVBEmployeeFreeState;
+        self.washersQueue = [VBQueue object];
     }
     
     return self;
@@ -66,23 +68,21 @@
 }
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
-    @synchronized(self) {
-        self.state = kVBEmployeeBusyState;
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
-    }
+    self.state = kVBEmployeeBusyState;
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                           withObject:object];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object {
-    sleep(arc4random_uniform(1) + 1);
-    [self workWithObject:object];
-    
-    NSLog(@"%@ take money = %lu", self, self.money);
-    
-    [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
+    @synchronized(self) {
+        usleep(arc4random_uniform(100) + 100);
+        [self workWithObject:object];
+//        NSLog(@"%@ take money %lu", self, self.money);
+        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
+    }
 }
 
 - (void)workWithObject:(id)object {
@@ -90,11 +90,8 @@
     [self completeWorkWithObject:object];
 }
 
-- (void)completeWorkWithObject:(id)object {
-    @synchronized(self) {
-        VBEmployee *employee = (VBEmployee *)object;
-        employee.state = kVBEmployeeFreeState;
-    }
+- (void)completeWorkWithObject:(VBEmployee *)employee {
+    employee.state = kVBEmployeeFreeState;
 }
 
 - (void)completeWork {

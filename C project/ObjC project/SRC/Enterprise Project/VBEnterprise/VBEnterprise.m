@@ -11,12 +11,13 @@
 #import "VBCarWasher.h"
 #import "VBAccountant.h"
 #import "VBDirector.h"
+#import "VBQueue.h"
 
 static NSUInteger const kVBWashersCount = 3;
 
 @interface VBEnterprise ()
-@property (nonatomic, retain) NSMutableArray *staff;
-@property (nonatomic, retain) NSMutableArray *cars;
+@property (nonatomic, retain) NSMutableArray    *staff;
+@property (nonatomic, retain) VBQueue           *carsQueue;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -33,7 +34,7 @@ static NSUInteger const kVBWashersCount = 3;
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
-    self.cars = nil;
+    self.carsQueue = nil;
     
     [super dealloc];
 }
@@ -42,7 +43,7 @@ static NSUInteger const kVBWashersCount = 3;
     self = [super init];
     if (self) {
         [self hireStaff];
-        self.cars = [NSMutableArray array];
+        self.carsQueue = [VBQueue object];
     }
     
     return self;
@@ -67,21 +68,25 @@ static NSUInteger const kVBWashersCount = 3;
 }
 
 - (void)dismissStaff {
+    @synchronized(self) {
         NSMutableArray *staff = [[self.staff copy] autorelease];
         for (VBEmployee *employee in staff) {
             [self dismissEmployee:employee];
         }
-    
-    [self.staff removeAllObjects];
+        
+        [self.staff removeAllObjects];
+    }
 }
 
 - (void)dismissEmployee:(VBEmployee *)object {
-    for (VBEmployee *employee in self.staff) {
-        if ([employee observedByObject:object]) {
-            [employee removeObserver:object];
+    @synchronized(self) {
+        for (VBEmployee *employee in self.staff) {
+            if ([employee observedByObject:object]) {
+                [employee removeObserver:object];
+            }
+            
+            [self.staff removeObject:object];
         }
-        
-        [self.staff removeObject:object];
     }
 }
 
@@ -100,11 +105,10 @@ static NSUInteger const kVBWashersCount = 3;
 
 - (void)washCar:(VBCar *)car {
     @synchronized(self) {
+        [self.carsQueue pushObject:car];
         VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
         if (washer) {
-            [washer performWorkWithObject:car];
-        } else {
-            [self.cars addObject:car];
+            [washer performWorkWithObject:[self.carsQueue popObject]];
         }
     }
 }
@@ -114,9 +118,8 @@ static NSUInteger const kVBWashersCount = 3;
 
 - (void)employeeBecameFree:(VBCarWasher *)washer {
     @synchronized(self) {
-        VBCar *car = [self.cars firstObject];
+        VBCar *car = [self.carsQueue popObject];
         if (car) {
-            [self.cars removeObject:car];
             [washer performWorkWithObject:car];
         }
     }

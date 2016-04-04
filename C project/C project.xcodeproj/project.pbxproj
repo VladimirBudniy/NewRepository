@@ -54,6 +54,11 @@
 		E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
 		E7EF6DD51C82496F000BE913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
 		E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
+		E7F206891CB2E517005BB56D /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74971CB287D4003AF847 /* VBEmployee.m */; };
+		E7F2068A1CB2E51B005BB56D /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74A31CB287D4003AF847 /* VBEnterprise.m */; };
+		E7F2068B1CB2E520005BB56D /* VBAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74BD1CB28CEC003AF847 /* VBAccountant.m */; };
+		E7F2068C1CB2E523005BB56D /* VBDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C31CB28CEC003AF847 /* VBDirector.m */; };
+		E7F2068D1CB2E527005BB56D /* VBCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C01CB28CEC003AF847 /* VBCarWasher.m */; };
 		E7F3F1941C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
 		E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
 		E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */; };
@@ -801,18 +806,23 @@
 			files = (
 				E76FB8801C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
 				E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */,
+				E7F2068A1CB2E51B005BB56D /* VBEnterprise.m in Sources */,
 				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
 				E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */,
 				E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
 				E77B8F2C1C84F5C20042F472 /* VBAlphabet.m in Sources */,
+				E7F206891CB2E517005BB56D /* VBEmployee.m in Sources */,
 				E7EF6DD11C824960000BE913 /* VBMale.m in Sources */,
 				E76FB87C1C8651A40066E7A0 /* VBStringAlphabet.m in Sources */,
 				E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */,
+				E7F2068B1CB2E520005BB56D /* VBAccountant.m in Sources */,
 				E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */,
 				E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */,
+				E7F2068D1CB2E527005BB56D /* VBCarWasher.m in Sources */,
 				E7ED74BA1CB2886E003AF847 /* VBQueue.m in Sources */,
 				E7EF6DD51C82496F000BE913 /* main.m in Sources */,
 				E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */,
+				E7F2068C1CB2E523005BB56D /* VBDirector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
