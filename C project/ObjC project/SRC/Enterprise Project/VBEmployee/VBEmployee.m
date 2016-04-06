@@ -13,6 +13,7 @@
 
 
 @interface VBEmployee ()
+@property (nonatomic, retain) VBQueue *queue;
 
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
