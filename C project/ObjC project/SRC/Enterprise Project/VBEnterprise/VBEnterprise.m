@@ -116,11 +116,6 @@ static NSUInteger const kVBWashersCount = 3;
 - (void)washCar:(VBCar *)car {
     @synchronized(self) {
         [self workWithObject:car];
-//        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-//        [self.carsQueue pushObject:car];
-//        if (washer) {
-//            [washer performWorkWithObject:[self.carsQueue popObject]];
-//        }
     }
 }
 
@@ -131,11 +126,6 @@ static NSUInteger const kVBWashersCount = 3;
     @synchronized(self) {
         VBCar *car = [self.carsQueue popObject];
         [self workWithObject:car];
-//        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-//        [self.carsQueue pushObject:car];
-//        if (washer) {
-//            [washer performWorkWithObject:[self.carsQueue popObject]];
-//        }
     }
 }
 

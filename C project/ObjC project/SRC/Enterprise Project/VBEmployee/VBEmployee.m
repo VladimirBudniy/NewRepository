@@ -69,9 +69,12 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     if (object) {
-        self.state = kVBEmployeeBusyState;
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
+        [self.queue pushObject:object];
+        if (self.state == kVBEmployeeFreeState) {
+            self.state = kVBEmployeeBusyState;
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:[self.queue popObject]];
+        }
     }
 }
 
@@ -82,7 +85,7 @@
     @synchronized(self) {
         usleep(arc4random_uniform(100) + 100);
         [self workWithObject:object];
-        NSLog(@"%@ take money %lu", self, self.money);
+//        NSLog(@"%@ take money %lu", self, self.money);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }
@@ -97,7 +100,13 @@
 }
 
 - (void)completeWork {
-    self.state = kVBEmployeeStandbyState;
+    id object = [self.queue popObject];
+    if (object) {
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
+    } else {
+        self.state = kVBEmployeeStandbyState;
+    }
 }
 
 #pragma mark -
