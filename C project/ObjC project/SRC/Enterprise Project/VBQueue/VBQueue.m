@@ -15,7 +15,6 @@
 
 @implementation VBQueue
 
-
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
@@ -47,7 +46,9 @@
 
 -(void)pushObject:(id)object {
     @synchronized(self) {
-        [self.queueArray addObject:object];
+        if (object) {
+            [self.queueArray addObject:object];
+        }
     }
 }
 

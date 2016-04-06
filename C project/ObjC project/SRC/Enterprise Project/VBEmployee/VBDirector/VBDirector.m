@@ -14,7 +14,7 @@
 #pragma mark Public
 
 - (void)completeWork {
-    NSLog(@"Director's money = %lu", self.money);
+//    NSLog(@"Director's money = %lu", self.money);
     self.state = kVBEmployeeFreeState;
 }
 

@@ -32,7 +32,7 @@
     self = [super init];
     if (self) {
         self.state = kVBEmployeeFreeState;
-        self.washersQueue = [VBQueue object];
+        self.queue = [VBQueue object];
     }
     
     return self;
@@ -68,9 +68,11 @@
 }
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
-    self.state = kVBEmployeeBusyState;
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                           withObject:object];
+    if (object) {
+        self.state = kVBEmployeeBusyState;
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
+    }
 }
 
 #pragma mark -
@@ -80,7 +82,7 @@
     @synchronized(self) {
         usleep(arc4random_uniform(100) + 100);
         [self workWithObject:object];
-//        NSLog(@"%@ take money %lu", self, self.money);
+        NSLog(@"%@ take money %lu", self, self.money);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }

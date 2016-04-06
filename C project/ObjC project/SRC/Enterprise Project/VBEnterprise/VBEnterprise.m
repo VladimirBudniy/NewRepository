@@ -24,6 +24,8 @@ static NSUInteger const kVBWashersCount = 3;
 - (void)dismissEmployee:(VBEmployee *)object;
 - (id)vacantEmployee:(Class)class;
 
+- (void)workWithObject:(VBCar *)car;
+
 @end
 
 @implementation VBEnterprise
@@ -100,16 +102,25 @@ static NSUInteger const kVBWashersCount = 3;
     return nil;
 }
 
+- (void)workWithObject:(VBCar *)car {
+    VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
+    [self.carsQueue pushObject:car];
+    if (washer) {
+        [washer performWorkWithObject:[self.carsQueue popObject]];
+    }
+}
+
 #pragma mark -
 #pragma mark Public
 
 - (void)washCar:(VBCar *)car {
     @synchronized(self) {
-        [self.carsQueue pushObject:car];
-        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-        if (washer) {
-            [washer performWorkWithObject:[self.carsQueue popObject]];
-        }
+        [self workWithObject:car];
+//        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
+//        [self.carsQueue pushObject:car];
+//        if (washer) {
+//            [washer performWorkWithObject:[self.carsQueue popObject]];
+//        }
     }
 }
 
@@ -119,9 +130,12 @@ static NSUInteger const kVBWashersCount = 3;
 - (void)employeeBecameFree:(VBCarWasher *)washer {
     @synchronized(self) {
         VBCar *car = [self.carsQueue popObject];
-        if (car) {
-            [washer performWorkWithObject:car];
-        }
+        [self workWithObject:car];
+//        VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
+//        [self.carsQueue pushObject:car];
+//        if (washer) {
+//            [washer performWorkWithObject:[self.carsQueue popObject]];
+//        }
     }
 }
 

@@ -18,7 +18,7 @@
     if (self.state == kVBEmployeeFreeState) {
         [super performWorkWithObject:object];
     } else {
-        [self.washersQueue pushObject:object];
+        [self.queue pushObject:object];
     }
 }
 
@@ -26,7 +26,7 @@
 #pragma mark Private
 
 - (void)completeWork {
-    VBEmployee *washer = [self.washersQueue popObject];
+    VBEmployee *washer = [self.queue popObject];
     if (washer) {
         [super performWorkWithObject:washer];
     } else {
