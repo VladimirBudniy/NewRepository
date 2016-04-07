@@ -11,10 +11,7 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
-
 @interface VBEmployee ()
-@property (nonatomic, retain) VBQueue *queue;
-
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
 - (void)workWithObject:(id)object;
@@ -27,13 +24,24 @@
 @synthesize money = _money;
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer {
+    NSArray *array = [self objectsWithCount:count];
+    for (VBEmployee *employee in array) {
+        [employee addObserver:observer];
+    }
+    
+    return [[array copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kVBEmployeeFreeState;
-        self.queue = [VBQueue object];
     }
     
     return self;
@@ -70,12 +78,9 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     if (object) {
-        [self.queue pushObject:object];
-        if (self.state == kVBEmployeeFreeState) {
-            self.state = kVBEmployeeBusyState;
-            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                   withObject:[self.queue popObject]];
-        }
+        self.state = kVBEmployeeBusyState;
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
     }
 }
 
@@ -101,13 +106,7 @@
 }
 
 - (void)completeWork {
-    id object = [self.queue popObject];
-    if (object) {
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
-    } else {
-        self.state = kVBEmployeeStandbyState;
-    }
+    self.state = kVBEmployeeStandbyState;
 }
 
 #pragma mark -
@@ -126,13 +125,6 @@
     @synchronized(self) {
         self.money += money;
     }
-}
-
-#pragma mark -
-#pragma mark VBObserverProtocol
-
-- (void)employeeBecameStandby:(id)employee {
-    [self performWorkWithObject:employee];
 }
 
 @end

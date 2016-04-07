@@ -11,20 +11,23 @@
 #import "VBCarWasher.h"
 #import "VBAccountant.h"
 #import "VBDirector.h"
-#import "VBQueue.h"
 
-static NSUInteger const kVBWashersCount = 3;
+#import "VBQueue.h"
+#import "VBDispatcher.h"
+
+static NSUInteger const kVBWashersCount     = 3;
+static NSUInteger const kVBAccountantsCount = 2;
+static NSUInteger const kVBDirectorsCount   = 1;
 
 @interface VBEnterprise ()
 @property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) VBQueue           *carsQueue;
+@property (nonatomic, retain) VBDispatcher      *washersDispatcher;
+@property (nonatomic, retain) VBDispatcher      *accountansDispatcher;
+@property (nonatomic, retain) VBDispatcher      *directorsDispatcher;
 
 - (void)hireStaff;
 - (void)dismissStaff;
 - (void)dismissEmployee:(VBEmployee *)object;
-- (id)vacantEmployee:(Class)class;
-
-- (void)workWithObject:(VBCar *)car;
 
 @end
 
@@ -36,7 +39,9 @@ static NSUInteger const kVBWashersCount = 3;
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
-    self.carsQueue = nil;
+    self.washersDispatcher = nil;
+    self.accountansDispatcher = nil;
+    self.directorsDispatcher = nil;
     
     [super dealloc];
 }
@@ -45,7 +50,6 @@ static NSUInteger const kVBWashersCount = 3;
     self = [super init];
     if (self) {
         [self hireStaff];
-        self.carsQueue = [VBQueue object];
     }
     
     return self;
@@ -55,18 +59,20 @@ static NSUInteger const kVBWashersCount = 3;
 #pragma mark Private
 
 - (void)hireStaff {
+
+    NSArray *director = [VBDirector objectsWithCount:kVBDirectorsCount observer:self];
+    self.directorsDispatcher = [[[VBDispatcher alloc] initWithStaff:director] autorelease];
     
-    VBAccountant *accountant = [VBAccountant object];
-    VBDirector *director = [VBDirector object];
-    [accountant addObserver:director];
-    self.staff = [NSMutableArray arrayWithObjects:accountant, director, nil];
+    NSArray *accountants = [VBAccountant objectsWithCount:kVBAccountantsCount observer:self];
+    self.accountansDispatcher = [[[VBDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount];
-    for (VBCarWasher *washer in washers) {
-        [washer addObserver:accountant];
-        [washer addObserver:self];
-        [self.staff addObject:washer];
-    }
+    NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount observer:self];
+    self.washersDispatcher = [[[VBDispatcher alloc] initWithStaff:washers] autorelease];
+    
+    self.staff = [NSMutableArray array];
+    [self.staff addObjectsFromArray:director];
+    [self.staff addObjectsFromArray:accountants];
+    [self.staff addObjectsFromArray:washers];
 }
 
 - (void)dismissStaff {
@@ -92,40 +98,25 @@ static NSUInteger const kVBWashersCount = 3;
     }
 }
 
-- (id)vacantEmployee:(Class)class {
-    for (VBEmployee *employee in self.staff) {
-        if (([employee isMemberOfClass:class]) && (employee.state == kVBEmployeeFreeState)) {
-            return employee;
-        }
-    }
-    
-    return nil;
-}
-
-- (void)workWithObject:(VBCar *)car {
-    VBCarWasher *washer = [self vacantEmployee:[VBCarWasher class]];
-    [self.carsQueue pushObject:car];
-    if (washer) {
-        [washer performWorkWithObject:[self.carsQueue popObject]];
-    }
-}
-
 #pragma mark -
 #pragma mark Public
 
 - (void)washCar:(VBCar *)car {
     @synchronized(self) {
-        [self workWithObject:car];
+        [self.washersDispatcher addObject:car];
     }
 }
 
 #pragma mark -
 #pragma mark VBObserverProtocol
 
-- (void)employeeBecameFree:(VBCarWasher *)washer {
-    @synchronized(self) {
-        VBCar *car = [self.carsQueue popObject];
-        [self workWithObject:car];
+- (void)employeeBecameStandby:(id)employee {
+    if ([self.washersDispatcher containsEmployee:employee]) {
+        [self.accountansDispatcher addObject:employee];
+    }
+
+    if ([self.accountansDispatcher containsEmployee:employee]) {
+        [self.directorsDispatcher addObject:employee];
     }
 }
 

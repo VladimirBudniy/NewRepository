@@ -23,6 +23,8 @@ typedef enum VBEmployeeState : NSUInteger {
 
 @interface VBEmployee : VBObserver <VBObserverProtocol, VBMoneyProtocol>;
 
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer;
+
 - (void)performWorkWithObject:(id)object;
 
 @end
