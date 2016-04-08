@@ -20,14 +20,11 @@ static NSUInteger const kVBAccountantsCount = 2;
 static NSUInteger const kVBDirectorsCount   = 1;
 
 @interface VBEnterprise ()
-@property (nonatomic, retain) NSMutableArray    *staff;
 @property (nonatomic, retain) VBDispatcher      *washersDispatcher;
 @property (nonatomic, retain) VBDispatcher      *accountansDispatcher;
 @property (nonatomic, retain) VBDispatcher      *directorsDispatcher;
 
 - (void)hireStaff;
-- (void)dismissStaff;
-- (void)dismissEmployee:(VBEmployee *)object;
 
 @end
 
@@ -37,8 +34,6 @@ static NSUInteger const kVBDirectorsCount   = 1;
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    [self dismissStaff];
-    self.staff = nil;
     self.washersDispatcher = nil;
     self.accountansDispatcher = nil;
     self.directorsDispatcher = nil;
@@ -68,34 +63,6 @@ static NSUInteger const kVBDirectorsCount   = 1;
     
     NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount observer:self];
     self.washersDispatcher = [[[VBDispatcher alloc] initWithStaff:washers] autorelease];
-    
-    self.staff = [NSMutableArray array];
-    [self.staff addObjectsFromArray:director];
-    [self.staff addObjectsFromArray:accountants];
-    [self.staff addObjectsFromArray:washers];
-}
-
-- (void)dismissStaff {
-    @synchronized(self) {
-        NSMutableArray *staff = [[self.staff copy] autorelease];
-        for (VBEmployee *employee in staff) {
-            [self dismissEmployee:employee];
-        }
-        
-        [self.staff removeAllObjects];
-    }
-}
-
-- (void)dismissEmployee:(VBEmployee *)object {
-    @synchronized(self) {
-        for (VBEmployee *employee in self.staff) {
-            if ([employee observedByObject:object]) {
-                [employee removeObserver:object];
-            }
-            
-            [self.staff removeObject:object];
-        }
-    }
 }
 
 #pragma mark -

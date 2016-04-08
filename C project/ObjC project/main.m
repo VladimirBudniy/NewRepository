@@ -13,12 +13,12 @@
 #import "VBEssenceTest.h"
 
 
-static NSUInteger const kVBCarsArrayCount = 7;
+static NSUInteger const kVBCarsArrayCount = 10;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSArray *carsArray = [VBCar objectsWithCount:kVBCarsArrayCount];
-        VBEnterprise *enterprise = [VBEnterprise object];
+        VBEnterprise *enterprise = [[[VBEnterprise alloc] init] autorelease];
         
         for (NSUInteger index = 0; index < carsArray.count; index++) {
             [enterprise washCar:carsArray[index]];

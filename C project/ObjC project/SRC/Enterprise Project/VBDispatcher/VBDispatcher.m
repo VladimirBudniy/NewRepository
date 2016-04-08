@@ -9,7 +9,6 @@
 #import "VBDispatcher.h"
 #import "VBQueue.h"
 
-
 @interface VBDispatcher () <VBObserverProtocol>
 @property (nonatomic, retain) NSMutableArray *staff;
 @property (nonatomic, retain) VBQueue        *queue;
@@ -89,12 +88,10 @@
 }
 
 - (void)workWithObject:(id)object {
-    @synchronized(self) {
-        [self.queue pushObject:object];
-        VBEmployee *employee = [self vacantEmployee];
-        if (employee && object) {
-            [employee performWorkWithObject:[self.queue popObject]];
-        }
+    [self.queue pushObject:object];
+    VBEmployee *employee = [self vacantEmployee];
+    if (employee && object) {
+        [employee performWorkWithObject:[self.queue popObject]];
     }
 }
 
