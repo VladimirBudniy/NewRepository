@@ -11,7 +11,7 @@
 @implementation VBDirector
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (void)completeWork {
     NSLog(@"Director's money = %lu", self.money);

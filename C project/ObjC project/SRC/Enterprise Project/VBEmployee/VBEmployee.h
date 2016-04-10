@@ -12,15 +12,18 @@
 #import "VBObserver.h"
 #import "VBEnterprise.h"
 #import "VBCar.h"
+#import "VBQueue.h"
 
 typedef enum VBEmployeeState : NSUInteger {
     kVBEmployeeUndefinedState,
-    kVBEmployeeBusyState,
     kVBEmployeeFreeState,
+    kVBEmployeeBusyState,
     kVBEmployeeStandbyState
 } VBEmployeeState;
 
 @interface VBEmployee : VBObserver <VBObserverProtocol, VBMoneyProtocol>;
+
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer;
 
 - (void)performWorkWithObject:(id)object;
 

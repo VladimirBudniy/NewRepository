@@ -12,15 +12,28 @@
 #import "VBDirector.h"
 
 @interface VBEmployee ()
-
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
+- (void)workWithObject:(id)object;
+- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object;
 
 @end
 
 @implementation VBEmployee
 
 @synthesize money = _money;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer {
+    NSArray *array = [self objectsWithCount:count];
+    for (VBEmployee *employee in array) {
+        [employee addObserver:observer];
+    }
+    
+    return [[array copy] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -63,19 +76,32 @@
     }
 }
 
-- (void)performWorkWithObject:(id)object {
-    self.state = kVBEmployeeBusyState;
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkWithObject:object];
-    [self completeWork];
-    
+- (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
+    if (object) {
+        self.state = kVBEmployeeBusyState;
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)completeWorkWithObject:(id)object {
-    VBEmployee *employee = (VBEmployee *)object;
+- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object {
+    @synchronized(self) {
+        usleep(arc4random_uniform(100) + 10);
+        [self workWithObject:object];
+//        NSLog(@"%@ take money %lu", self, self.money);
+        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
+    }
+}
+
+- (void)workWithObject:(id)object {
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
+}
+
+- (void)completeWorkWithObject:(VBEmployee *)employee {
     employee.state = kVBEmployeeFreeState;
 }
 
@@ -87,21 +113,18 @@
 #pragma mark VBMoneyProtocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-    
-    return payment;
+    @synchronized(self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
-}
-
-#pragma mark -
-#pragma mark VBObserverProtocol
-
-- (void)employeeBecameStandby:(id)employee {
-    [self performWorkWithObject:employee];
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 @end

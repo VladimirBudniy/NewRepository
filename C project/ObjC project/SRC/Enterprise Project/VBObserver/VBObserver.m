@@ -22,7 +22,6 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
-    self.handlersDictionary = nil;
     
     [super dealloc];
 }
@@ -31,7 +30,6 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.handlersDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -54,14 +52,10 @@
 }
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-        void (^employeeBlock)(void) = [self.handlersDictionary objectForKey:keyNumber];
-        if (employeeBlock) {
-            employeeBlock();
-        } else {
+    @synchronized(self) {
+        if (_state != state) {
+            _state = state;
+            
             [self notifyObservers];
         }
     }
@@ -70,24 +64,16 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addBlockForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state {
-    [self removeBlockForState:state];
-    
-    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
-}
-
-- (void)removeBlockForState:(NSUInteger)state {
-    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary removeObjectForKey:keyNumber];
-}
-
 - (void)addObserver:(id)observer {
-    [self.mutableObservers addObject:observer];
+    @synchronized(self) {
+        [self.mutableObservers addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObservers removeObject:observer];
+    @synchronized(self) {
+        [self.mutableObservers removeObject:observer];
+    }
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -95,9 +81,11 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-    for (id observer in self.observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+    @synchronized(self) {
+        for (id observer in self.observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:self];
+            }
         }
     }
 }

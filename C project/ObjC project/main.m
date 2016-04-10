@@ -7,24 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "VBCar.h"
 #import "VBEnterprise.h"
 #import "VBEmployee.h"
+#import "VBEssenceTest.h"
+
+
+static NSUInteger const kVBCarsArrayCount = 10;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-    
-        VBCar *car = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
-        VBCar *car1 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
-        VBCar *car2 = [[[VBCar alloc] initWithState:kVBCarDirtyState money:100] autorelease];
-        
-        NSArray *carsArray = @[car, car1, car2];
-
+        NSArray *carsArray = [VBCar objectsWithCount:kVBCarsArrayCount];
         VBEnterprise *enterprise = [[[VBEnterprise alloc] init] autorelease];
+        
         for (NSUInteger index = 0; index < carsArray.count; index++) {
             [enterprise washCar:carsArray[index]];
         }
+        
+        NSRunLoop *loop = [NSRunLoop mainRunLoop];
+        [loop run];
     }
 
     return 0;

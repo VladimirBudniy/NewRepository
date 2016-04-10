@@ -7,6 +7,7 @@
 //
 
 #import "VBAccountant.h"
+#import "VBQueue.h"
 
 @implementation VBAccountant
 
