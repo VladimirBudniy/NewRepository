@@ -152,7 +152,6 @@
 		E7ED74A61CB287D4003AF847 /* VBWokerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBWokerProtocol.h; sourceTree = "<group>"; };
 		E7ED74A81CB287D4003AF847 /* VBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserver.h; sourceTree = "<group>"; };
 		E7ED74A91CB287D4003AF847 /* VBObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserver.m; sourceTree = "<group>"; };
-		E7ED74AA1CB287D4003AF847 /* VBObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverProtocol.h; sourceTree = "<group>"; };
 		E7ED74B41CB287F7003AF847 /* VBEssence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssence.h; sourceTree = "<group>"; };
 		E7ED74B51CB287F7003AF847 /* VBEssence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssence.m; sourceTree = "<group>"; };
 		E7ED74B71CB2886A003AF847 /* VBQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBQueue.h; sourceTree = "<group>"; };
@@ -544,7 +543,6 @@
 			children = (
 				E7ED74A81CB287D4003AF847 /* VBObserver.h */,
 				E7ED74A91CB287D4003AF847 /* VBObserver.m */,
-				E7ED74AA1CB287D4003AF847 /* VBObserverProtocol.h */,
 			);
 			path = VBObserver;
 			sourceTree = "<group>";

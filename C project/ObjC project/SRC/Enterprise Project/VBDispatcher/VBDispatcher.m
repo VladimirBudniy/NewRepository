@@ -9,12 +9,13 @@
 #import "VBDispatcher.h"
 #import "VBQueue.h"
 
-@interface VBDispatcher () <VBObserverProtocol>
+@interface VBDispatcher ()
 @property (nonatomic, retain) NSMutableArray *staff;
 @property (nonatomic, retain) VBQueue        *queue;
 
 - (VBEmployee *)vacantEmployee;
 - (void)workWithObject:(id)objedt;
+- (void)employeeBecameFree:(id)employee;
 
 @end
 
@@ -24,7 +25,6 @@
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    [self.staff makeObjectsPerformSelector:@selector(removeObserver:) withObject:self];
     self.staff = nil;
     self.queue = nil;
     
@@ -57,7 +57,6 @@
 - (void)setStaff:(NSMutableArray *)staff {
     if (_staff != staff) {
         _staff = staff;
-        [staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
     }
 }
 
@@ -70,6 +69,10 @@
 
 - (BOOL)containsEmployee:(VBEmployee *)employee {
     return [self.staff containsObject:employee];
+}
+
+- (void)giveWorkForObject:(id)object {
+    [self employeeBecameFree:object];
 }
 
 #pragma mark -
@@ -94,9 +97,6 @@
         [employee performWorkWithObject:[self.queue popObject]];
     }
 }
-
-#pragma mark -
-#pragma mark VBObserverProtocol
 
 - (void)employeeBecameFree:(id)employee {
     [self workWithObject:[self.queue popObject]];

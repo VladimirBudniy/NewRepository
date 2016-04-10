@@ -8,20 +8,13 @@
 
 #import "VBObserver.h"
 
-@interface VBObserver ()
-@property (nonatomic, assign) NSHashTable *mutableObservers;
-
-@end
-
 @implementation VBObserver
-
-@dynamic observers;
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    self.mutableObservers = nil;
+    self.handlersDictionary = nil;
     
     [super dealloc];
 }
@@ -29,7 +22,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.handlersDictionary = [NSMutableDictionary dictionary];
+        
     }
     
     return self;
@@ -47,16 +41,16 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)observers {
-    return [self.mutableObservers allObjects];
-}
-
 - (void)setState:(NSUInteger)state {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
             
-            [self notifyObservers];
+            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+            void (^employeeHandler)(void) = [self.handlersDictionary objectForKey:keyNumber];
+            if (employeeHandler) {
+                employeeHandler();
+            }
         }
     }
 }
@@ -64,39 +58,16 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers addObject:observer];
-    }
+- (void)addHandlerForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state {
+    [self removeHandlerForState:state];
+    
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
 }
 
-- (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers removeObject:observer];
-    }
-}
-
-- (SEL)selectorForState:(NSUInteger)state {
-    return nil;
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector {
-    @synchronized(self) {
-        for (id observer in self.observers) {
-            if ([observer respondsToSelector:selector]) {
-                [observer performSelector:selector withObject:self];
-            }
-        }
-    }
-}
-
-- (void)notifyObservers {
-    SEL selector = [self selectorForState:self.state];
-    [self notifyObserversWithSelector:selector];
-}
-
-- (BOOL)observedByObject:(id)object {
-    return [self.mutableObservers containsObject:object];
+- (void)removeHandlerForState:(NSUInteger)state {
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary removeObjectForKey:keyNumber];
 }
 
 @end

@@ -21,9 +21,9 @@ typedef enum VBEmployeeState : NSUInteger {
     kVBEmployeeStandbyState
 } VBEmployeeState;
 
-@interface VBEmployee : VBObserver <VBObserverProtocol, VBMoneyProtocol>;
+@interface VBEmployee : VBObserver <VBMoneyProtocol>;
 
-+ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer;
+//+ (NSArray *)objectsWithCount:(NSUInteger)count;
 
 - (void)performWorkWithObject:(id)object;
 

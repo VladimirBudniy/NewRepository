@@ -24,18 +24,6 @@
 @synthesize money = _money;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer {
-    NSArray *array = [self objectsWithCount:count];
-    for (VBEmployee *employee in array) {
-        [employee addObserver:observer];
-    }
-    
-    return [[array copy] autorelease];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (instancetype)init {
@@ -59,22 +47,6 @@
 
 #pragma mark -
 #pragma mark Public
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kVBEmployeeFreeState:
-            return @selector(employeeBecameFree:);
-            
-        case kVBEmployeeBusyState:
-            return @selector(employeeBecameBusy:);
-            
-        case kVBEmployeeStandbyState:
-            return @selector(employeeBecameStandby:);
-            
-        default:
-            return [super selectorForState:state];
-    }
-}
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     if (object) {
