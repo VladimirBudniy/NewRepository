@@ -80,9 +80,7 @@ static NSUInteger const kVBDirectorsCount   = 1;
 - (void)employeeBecameStandby:(id)employee {
     if ([self.washersDispatcher containsEmployee:employee]) {
         [self.accountansDispatcher addObject:employee];
-    }
-
-    if ([self.accountansDispatcher containsEmployee:employee]) {
+    } else if ([self.accountansDispatcher containsEmployee:employee]) {
         [self.directorsDispatcher addObject:employee];
     }
 }
