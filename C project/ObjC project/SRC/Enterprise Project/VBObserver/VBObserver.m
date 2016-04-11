@@ -46,10 +46,11 @@
         if (_state != state) {
             _state = state;
             
-            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-            void (^employeeHandler)(void) = [self.handlersDictionary objectForKey:keyNumber];
-            if (employeeHandler) {
-                employeeHandler();
+            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:_state];
+            
+            NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+            for (VBEmployeeHandler handler in array) {
+                handler();
             }
         }
     }
@@ -58,16 +59,21 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state {
-    [self removeHandlerForState:state];
-    
+- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state {  
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary setObject:[[employeeHandler copy] autorelease] forKey:keyNumber];
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+    if (!array) {
+        array = [NSMutableArray array];
+    }
+    
+    [array addObject:[[employeeHandler copy] autorelease]];
+    [self.handlersDictionary setObject:array forKey:keyNumber];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state {
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary removeObjectForKey:keyNumber];
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+    [array removeAllObjects];
 }
 
 @end
