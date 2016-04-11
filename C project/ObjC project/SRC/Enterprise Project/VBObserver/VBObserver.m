@@ -58,11 +58,11 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addHandlerForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state {
+- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state {
     [self removeHandlerForState:state];
     
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
+    [self.handlersDictionary setObject:[[employeeHandler copy] autorelease] forKey:keyNumber];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state {

@@ -14,7 +14,6 @@
 - (instancetype)initWithStaff:(NSArray *)staff;
 
 - (void)addObject:(id)object;
-- (void)giveWorkForObject:(id)object;
 - (BOOL)containsEmployee:(VBEmployee *)employee;
 
 @end

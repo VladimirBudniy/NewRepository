@@ -16,7 +16,7 @@ typedef void (^VBEmployeeHandler)(void);
 
 - (instancetype)initWithState:(NSUInteger)state;
 
-- (void)addHandlerForState:(VBEmployeeHandler)employeeBlock state:(NSUInteger)state;
+- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state;
 - (void)removeHandlerForState:(NSUInteger)state;
 
 

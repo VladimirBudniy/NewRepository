@@ -57,6 +57,12 @@
 - (void)setStaff:(NSMutableArray *)staff {
     if (_staff != staff) {
         _staff = staff;
+        
+        for (VBEmployee *employee in staff) {
+            [employee addHandler:^{
+                [self employeeBecameFree:employee];
+            } ForState:kVBEmployeeFreeState];
+        }
     }
 }
 
@@ -69,10 +75,6 @@
 
 - (BOOL)containsEmployee:(VBEmployee *)employee {
     return [self.staff containsObject:employee];
-}
-
-- (void)giveWorkForObject:(id)object {
-    [self employeeBecameFree:object];
 }
 
 #pragma mark -

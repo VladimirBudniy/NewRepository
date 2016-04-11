@@ -57,33 +57,9 @@ static NSUInteger const kVBDirectorsCount   = 1;
 - (void)addHandlerForStandbyState:(NSArray *)staff {
     @synchronized(self) {
         for (VBEmployee *employee in staff) {
-            [employee addHandlerForState:^{
+            [employee addHandler:^{
                 [self employeeBecameStandby:employee];
-            }state:kVBEmployeeStandbyState];
-        }
-    }
-}
-
-- (void)addHandlerForFreeState:(NSArray *)staff {
-    @synchronized(self) {
-        for (VBEmployee *employee in staff) {
-            if ([self.washersDispatcher containsEmployee:employee]) {
-                [employee addHandlerForState:^{
-                    [self.washersDispatcher giveWorkForObject:employee];
-                }state:kVBEmployeeFreeState];
-            }
-            
-            if ([self.accountansDispatcher containsEmployee:employee]) {
-                [employee addHandlerForState:^{
-                    [self.accountansDispatcher giveWorkForObject:employee];
-                }state:kVBEmployeeFreeState];
-            }
-            
-            if ([self.directorsDispatcher containsEmployee:employee]) {
-                [employee addHandlerForState:^{
-                    [self.directorsDispatcher giveWorkForObject:employee];
-                }state:kVBEmployeeFreeState];
-            }
+            } ForState:kVBEmployeeStandbyState];
         }
     }
 }
@@ -108,10 +84,6 @@ static NSUInteger const kVBDirectorsCount   = 1;
     
     [self addHandlerForStandbyState:washers];
     [self addHandlerForStandbyState:accountants];
-    
-    [self addHandlerForFreeState:washers];
-    [self addHandlerForFreeState:accountants];
-    [self addHandlerForFreeState:director];
 }
 
 #pragma mark -
