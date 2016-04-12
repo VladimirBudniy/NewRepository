@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VBObserverWorkObject.h"
 
 typedef void (^VBEmployeeHandler)(void);
 
@@ -16,8 +17,9 @@ typedef void (^VBEmployeeHandler)(void);
 
 - (instancetype)initWithState:(NSUInteger)state;
 
-- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state;
-- (void)removeHandlerForState:(NSUInteger)state;
+- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForObject:(id)object;
 
 
 @end

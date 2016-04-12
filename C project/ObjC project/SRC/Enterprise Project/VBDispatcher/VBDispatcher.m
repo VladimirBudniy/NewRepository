@@ -61,7 +61,7 @@
         for (VBEmployee *employee in staff) {
             [employee addHandler:^{
                 [self employeeBecameFree:employee];
-            } ForState:kVBEmployeeFreeState];
+            } ForState:kVBEmployeeFreeState object:self];
         }
     }
 }

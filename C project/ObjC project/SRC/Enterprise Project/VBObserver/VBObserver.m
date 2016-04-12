@@ -7,6 +7,7 @@
 //
 
 #import "VBObserver.h"
+#import "VBObserverWorkObject.h"
 
 @implementation VBObserver
 
@@ -23,7 +24,7 @@
     self = [super init];
     if (self) {
         self.handlersDictionary = [NSMutableDictionary dictionary];
-        
+
     }
     
     return self;
@@ -47,9 +48,9 @@
             _state = state;
             
             NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:_state];
+            VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
             
-            NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
-            for (VBEmployeeHandler handler in array) {
+            for (VBEmployeeHandler handler in observerArray.handlers) {
                 handler();
             }
         }
@@ -59,21 +60,26 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state {  
+- (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state object:(id)object {
+    
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
-    if (!array) {
-        array = [NSMutableArray array];
+    VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
+    if (!observerArray) {
+        observerArray = [VBObserverArray object];
     }
     
-    [array addObject:[[employeeHandler copy] autorelease]];
-    [self.handlersDictionary setObject:array forKey:keyNumber];
+    [observerArray addHandler:employeeHandler ForObject:object];
+    [self.handlersDictionary setObject:observerArray forKey:keyNumber];
 }
 
-- (void)removeHandlerForState:(NSUInteger)state {
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
-    [array removeAllObjects];
+    VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
+    [observerArray removeHandlerForObject:object];
+}
+
+- (void)removeHandlerForObject:(id)object {
+    
 }
 
 @end
