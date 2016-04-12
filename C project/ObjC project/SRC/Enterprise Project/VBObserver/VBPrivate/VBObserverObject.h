@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VBObserver.h"
+
+typedef void (^VBEmployeeHandler)(void);
 
 @interface VBObserverObject : NSObject
 @property (nonatomic, weak) id                object;
