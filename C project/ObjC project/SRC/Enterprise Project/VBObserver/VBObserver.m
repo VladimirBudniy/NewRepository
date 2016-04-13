@@ -53,9 +53,11 @@
             _state = state;
             
             for (VBObserverStateObject *stateObject in self.stateObjects) {
-                VBObserverArray *handlersArray = [stateObject observerArray];
-                for (VBEmployeeHandler handler in handlersArray.handlers) {
-                    handler();
+                if (stateObject.state == _state) {
+                    VBObserverArray *handlersArray = [stateObject observerArray];
+                    for (VBEmployeeHandler handler in handlersArray.handlers) {
+                        handler();
+                    }
                 }
             }
         }

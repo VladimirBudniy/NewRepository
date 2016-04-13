@@ -63,7 +63,7 @@
     @synchronized(self) {
         usleep(arc4random_uniform(100) + 10);
         [self workWithObject:object];
-        NSLog(@"%@ take money %lu", self, self.money);
+//        NSLog(@"%@ take money %lu", self, self.money);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }
