@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VBObserverWorkObject.h"
+#import "VBObserverStateObject.h"
 
 typedef void (^VBEmployeeHandler)(void);
 
 @interface VBObserver : NSObject
 @property (nonatomic, assign)   NSUInteger          state;
-@property (nonatomic, retain)   NSMutableDictionary *handlersDictionary;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
 - (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state object:(id)object;
-- (void)removeHandlerForState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForState:(NSUInteger)state;
 - (void)removeHandlerForObject:(id)object;
 
 

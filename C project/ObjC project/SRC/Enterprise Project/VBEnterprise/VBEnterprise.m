@@ -61,9 +61,9 @@ static NSUInteger const kVBDirectorsCount   = 1;
                 [self employeeBecameStandby:employee];
             } ForState:kVBEmployeeStandbyState object:self];
             
-            [employee addHandler:^{
-                NSLog(@"TEST HANDLER");
-            } ForState:kVBEmployeeStandbyState object:self];
+//            [employee addHandler:^{
+//                NSLog(@"TEST HANDLER");
+//            } ForState:kVBEmployeeStandbyState object:self];
         }
     }
 }

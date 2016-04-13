@@ -7,7 +7,11 @@
 //
 
 #import "VBObserver.h"
-#import "VBObserverWorkObject.h"
+
+@interface VBObserver ()
+@property (nonatomic, retain) NSMutableArray *stateObjects;
+
+@end
 
 @implementation VBObserver
 
@@ -15,7 +19,8 @@
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    self.handlersDictionary = nil;
+    [self.stateObjects removeAllObjects];
+    self.stateObjects = nil;
     
     [super dealloc];
 }
@@ -23,8 +28,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.handlersDictionary = [NSMutableDictionary dictionary];
-
+        self.state = 0;
+        self.stateObjects = [NSMutableArray array];
     }
     
     return self;
@@ -47,11 +52,11 @@
         if (_state != state) {
             _state = state;
             
-            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:_state];
-            VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
-            
-            for (VBEmployeeHandler handler in observerArray.handlers) {
-                handler();
+            for (VBObserverStateObject *stateObject in self.stateObjects) {
+                VBObserverArray *handlersArray = [stateObject observerArray];
+                for (VBEmployeeHandler handler in handlersArray.handlers) {
+                    handler();
+                }
             }
         }
     }
@@ -62,24 +67,35 @@
 
 - (void)addHandler:(VBEmployeeHandler)employeeHandler ForState:(NSUInteger)state object:(id)object {
     
-    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
+    VBObserverStateObject *stateObject = [self.stateObjects firstObject];
+    if (!stateObject || stateObject.state != state) {
+        stateObject = [VBObserverStateObject objectWithState:state];
+    }
+    
+    VBObserverArray *observerArray = [stateObject observerArray];
     if (!observerArray) {
         observerArray = [VBObserverArray object];
     }
     
     [observerArray addHandler:employeeHandler ForObject:object];
-    [self.handlersDictionary setObject:observerArray forKey:keyNumber];
+    stateObject.observerArray = observerArray;
+    
+    [self.stateObjects addObject:stateObject];
 }
 
-- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
-    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    VBObserverArray *observerArray = [self.handlersDictionary objectForKey:keyNumber];
-    [observerArray removeHandlerForObject:object];
+- (void)removeHandlerForState:(NSUInteger)state {
+    for (VBObserverStateObject *stateObject in self.stateObjects) {
+        if (stateObject.state == state) {
+            [self.stateObjects removeObject:stateObject];
+        }
+    }
 }
 
 - (void)removeHandlerForObject:(id)object {
-    
+    for (VBObserverStateObject *stateObject in self.stateObjects) {
+        VBObserverArray *handlersArray = [stateObject observerArray];
+        [handlersArray removeHandlerForObject:object];
+    }
 }
 
 @end

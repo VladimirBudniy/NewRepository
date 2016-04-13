@@ -13,7 +13,7 @@
 #import "VBEssenceTest.h"
 
 
-static NSUInteger const kVBCarsArrayCount = 15;
+static NSUInteger const kVBCarsArrayCount = 10;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
