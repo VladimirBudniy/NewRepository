@@ -19,6 +19,7 @@
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
+    [self.objects removeAllObjects];
     self.objects = nil;
     
     [super dealloc];
@@ -53,8 +54,8 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addHandler:(VBEmployeeHandler)employeeHandler ForObject:(id)object {
-    [self.objects addObject:[VBObserverObject objectWithObject:object handler:employeeHandler]];
+- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object {
+    [self.objects addObject:[VBObserverObject objectWithObject:object handler:handler]];
 }
 
 - (void)removeHandlerForObject:(id)object {

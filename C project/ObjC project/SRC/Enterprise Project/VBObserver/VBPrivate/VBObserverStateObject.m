@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         self.state = state;
+        self.observerArray = [VBObserverArray object];
     }
     
     return self;

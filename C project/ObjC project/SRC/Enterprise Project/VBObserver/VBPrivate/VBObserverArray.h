@@ -13,7 +13,7 @@ typedef void (^VBEmployeeHandler)(void);
 @interface VBObserverArray : NSObject
 @property (nonatomic, readonly) NSArray *handlers;
 
-- (void)addHandler:(VBEmployeeHandler)employeeHandler ForObject:(id)object;
+- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object;
 - (void)removeHandlerForObject:(id)object;
 
 @end
