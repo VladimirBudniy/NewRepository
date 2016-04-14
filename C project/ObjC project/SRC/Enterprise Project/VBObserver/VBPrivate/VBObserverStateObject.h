@@ -10,6 +10,8 @@
 #import "VBObserverArray.h"
 #import "VBObserver.h"
 
+@class VBObserverArray;
+
 @interface VBObserverStateObject : NSObject
 @property (nonatomic, assign) NSUInteger state;
 @property (nonatomic, retain) VBObserverArray *observerArray;
