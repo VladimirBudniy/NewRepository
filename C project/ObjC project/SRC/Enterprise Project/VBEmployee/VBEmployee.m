@@ -11,11 +11,16 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
+static const char VBGCDQueue[] = "VBGCDQueue";
+
 @interface VBEmployee ()
+@property (nonatomic, retain) dispatch_queue_t queue;
+
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
 - (void)workWithObject:(id)object;
-- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object;
+
+- (dispatch_queue_t)gcdQueue;
 
 @end
 
@@ -50,22 +55,32 @@
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     if (object) {
+        [self gcdQueue];
         self.state = kVBEmployeeBusyState;
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
+        
+        dispatch_async(self.queue, ^{
+            @synchronized(self) {
+                usleep(arc4random_uniform(100) + 10);
+                [self workWithObject:object];
+                //        NSLog(@"%@ take money %lu", self, self.money);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self completeWork];
+                });
+            }
+        });
     }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performWorkWithObjectInBackground:(id<VBMoneyProtocol>)object {
-    @synchronized(self) {
-        usleep(arc4random_uniform(100) + 10);
-        [self workWithObject:object];
-//        NSLog(@"%@ take money %lu", self, self.money);
-        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
-    }
+- (dispatch_queue_t)gcdQueue {
+    dispatch_queue_t queue = dispatch_queue_create(VBGCDQueue, DISPATCH_QUEUE_SERIAL);
+    self.queue = queue;
+    dispatch_release(queue); 
+    
+    return self.queue;
 }
 
 - (void)workWithObject:(id<VBMoneyProtocol>)object {
