@@ -8,6 +8,11 @@
 
 #import "VBObserverStateObject.h"
 
+@interface VBObserverStateObject ()
+@property (nonatomic, retain) VBObserverArray *observerArray;
+
+@end
+
 @implementation VBObserverStateObject
 
 #pragma mark -
@@ -28,6 +33,25 @@
     }
     
     return self;
+}
+
+
+#pragma mark -
+#pragma mark Accessors
+
+-(NSArray *)handlers {
+    return self.observerArray.handlers;
+}
+
+#pragma mark - 
+#pragma mark Public
+
+- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object {
+    [self.observerArray addHandler:handler forObject:object];
+}
+
+- (void)removeHandlerForObject:(id)object {
+    [self.observerArray removeHandlerForObject:object];
 }
 
 @end

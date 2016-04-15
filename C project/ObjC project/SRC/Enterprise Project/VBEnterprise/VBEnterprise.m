@@ -57,13 +57,16 @@ static NSUInteger const kVBDirectorsCount   = 1;
 - (void)addHandlerForStandbyState:(NSArray *)staff {
     @synchronized(self) {
         for (VBEmployee *employee in staff) {
+            __weak VBEnterprise *weakSelf = self;
             [employee addHandler:^{
-                [self employeeBecameStandby:employee];
-            } forState:kVBEmployeeStandbyState object:self];
-            
-//            [employee addHandler:^{
-//                NSLog(@"TEST HANDLER");
-//            } forState:kVBEmployeeStandbyState object:self];
+                __strong VBEnterprise *strongSelf = weakSelf;
+                if (!strongSelf) {
+                    return;
+                }
+                
+                [strongSelf employeeBecameStandby:employee];
+            } forState:kVBEmployeeStandbyState
+                          object:self];
         }
     }
 }

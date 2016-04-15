@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSMutableArray *stateObjects;
 
 - (VBObserverStateObject *)objectWithState:(NSUInteger)state;
-- (void)performWithHandler;
+- (void)performHandlers;
 
 @end
 
@@ -58,7 +58,7 @@
         if (_state != state) {
             _state = state;
             
-            [self performWithHandler];
+            [self performHandlers];
         }
     }
 }
@@ -69,23 +69,19 @@
 - (void)addHandler:(VBEmployeeHandler)handler forState:(NSUInteger)state object:(id)object {
     if (object) {
         VBObserverStateObject *stateObject = [self objectWithState:state];
-        [stateObject.observerArray addHandler:[[handler copy] autorelease] forObject:object];
-        [self.stateObjects addObject:stateObject];
+        [stateObject addHandler:[[handler copy] autorelease] forObject:object];
     }
 }
 
 - (void)removeHandlerForState:(NSUInteger)state {
-    for (VBObserverStateObject *stateObject in self.stateObjects) {
-        if (stateObject.state == state) {
-            [self.stateObjects removeObject:stateObject];
-        }
-    }
+    VBObserverStateObject *stateObject = [self objectWithState:state];
+    [self.stateObjects removeObject:stateObject];
 }
 
 - (void)removeHandlerForObject:(id)object {
     if (object) {
         for (VBObserverStateObject *stateObject in self.stateObjects) {
-            [stateObject.observerArray removeHandlerForObject:object];
+            [stateObject removeHandlerForObject:object];
         }
     }
 }
@@ -94,22 +90,22 @@
 #pragma mark Private
 
 - (VBObserverStateObject *)objectWithState:(NSUInteger)state {
-    for (VBObserverStateObject *object in self.stateObjects) {
-        if (object && object.state == state) {
-            VBObserverStateObject *sateObject = object;
-            [self.stateObjects removeObject:object];
-            return sateObject;
+    for (VBObserverStateObject *stateObject in self.stateObjects) {
+        if (stateObject.state == state) {
+            return stateObject;
         }
     }
     
-    return [VBObserverStateObject objectWithState:state];
+    VBObserverStateObject *staetObject = [VBObserverStateObject objectWithState:state];
+    [self.stateObjects addObject:staetObject];
+    
+    return staetObject;
 }
 
-- (void)performWithHandler {
+- (void)performHandlers {
     for (VBObserverStateObject *stateObject in self.stateObjects) {
         if (stateObject.state == _state) {
-            VBObserverArray *handlersArray = stateObject.observerArray;
-            for (VBEmployeeHandler handler in handlersArray.handlers) {
+            for (VBEmployeeHandler handler in stateObject.handlers) {
                 handler();
             }
         }

@@ -11,16 +11,11 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
-static const char VBGCDQueue[] = "VBGCDQueue";
-
 @interface VBEmployee ()
-@property (nonatomic, retain) dispatch_queue_t queue;
 
 - (void)completeWorkWithObject:(id)object;
 - (void)completeWork;
 - (void)workWithObject:(id)object;
-
-- (dispatch_queue_t)gcdQueue;
 
 @end
 
@@ -55,17 +50,21 @@ static const char VBGCDQueue[] = "VBGCDQueue";
 
 - (void)performWorkWithObject:(id<VBMoneyProtocol>)object {
     if (object) {
-        [self gcdQueue];
         self.state = kVBEmployeeBusyState;
         
-        dispatch_async(self.queue, ^{
-            @synchronized(self) {
+        __weak VBEmployee *weakSelf = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            __strong VBEmployee *strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
+            
+            @synchronized(strongSelf) {
                 usleep(arc4random_uniform(100) + 10);
-                [self workWithObject:object];
-                //        NSLog(@"%@ take money %lu", self, self.money);
+                [strongSelf workWithObject:object];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self completeWork];
+                    [strongSelf completeWork];
                 });
             }
         });
@@ -74,14 +73,6 @@ static const char VBGCDQueue[] = "VBGCDQueue";
 
 #pragma mark -
 #pragma mark Private
-
-- (dispatch_queue_t)gcdQueue {
-    dispatch_queue_t queue = dispatch_queue_create(VBGCDQueue, DISPATCH_QUEUE_SERIAL);
-    self.queue = queue;
-    dispatch_release(queue); 
-    
-    return self.queue;
-}
 
 - (void)workWithObject:(id<VBMoneyProtocol>)object {
     [self takeMoney:[object giveMoney]];

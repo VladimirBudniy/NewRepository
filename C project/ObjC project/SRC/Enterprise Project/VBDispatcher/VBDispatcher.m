@@ -59,8 +59,14 @@
         _staff = staff;
         
         for (VBEmployee *employee in staff) {
+            __weak VBDispatcher *weakSelf = self;
             [employee addHandler:^{
-                [self employeeBecameFree:employee];
+                __strong VBDispatcher *strongSelf = weakSelf;
+                if (!strongSelf) {
+                    return;
+                }
+                
+                [strongSelf employeeBecameFree:employee];
             } forState:kVBEmployeeFreeState object:self];
         }
     }
