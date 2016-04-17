@@ -59,13 +59,9 @@
         _staff = staff;
         
         for (VBEmployee *employee in staff) {
-            __weak VBDispatcher *weakSelf = self;
+            VBWeakSelfLinkMacro(VBDispatcher, self);
             [employee addHandler:^{
-                __strong VBDispatcher *strongSelf = weakSelf;
-                if (!strongSelf) {
-                    return;
-                }
-                
+                VBStrongSelfLinkMacro(VBDispatcher);
                 [strongSelf employeeBecameFree:employee];
             } forState:kVBEmployeeFreeState object:self];
         }

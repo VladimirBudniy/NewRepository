@@ -144,7 +144,7 @@
 		E78D21111C7B9889004AA9CB /* VBFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFemale.h; sourceTree = "<group>"; };
 		E78D21121C7B9889004AA9CB /* VBFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFemale.m; sourceTree = "<group>"; };
 		E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../iOS Study Plan.txt"; sourceTree = "<group>"; };
-		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeader.h; sourceTree = "<group>"; };
+		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VBMacroHeader.h; path = SRC/VBMacroHeader.h; sourceTree = "<group>"; };
 		E7BB58441CBD6A99006AE361 /* VBObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverArray.h; sourceTree = "<group>"; };
 		E7BB58451CBD6A99006AE361 /* VBObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverArray.m; sourceTree = "<group>"; };
 		E7BB58481CBD6B42006AE361 /* VBObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverObject.h; sourceTree = "<group>"; };
@@ -155,6 +155,7 @@
 		E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListNode.h; sourceTree = "<group>"; };
 		E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListTest.c; sourceTree = "<group>"; };
 		E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListTest.h; sourceTree = "<group>"; };
+		E7D77B9A1CC3A8EC00A36680 /* VBMacroHeaderObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderObjC.h; sourceTree = "<group>"; };
 		E7ED74931CB287D4003AF847 /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
 		E7ED74941CB287D4003AF847 /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
 		E7ED74961CB287D4003AF847 /* VBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployee.h; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				E707D02E1C3332DF00EAE890 /* SRC */,
+				E78E48D81C40406F00D17F8C /* VBMacroHeader.h */,
 				E707D0321C3332DF00EAE890 /* Test */,
 				E707D01F1C3330F500EAE890 /* main.c */,
 			);
@@ -264,7 +266,6 @@
 				E73E93401C5116650045ED28 /* VBObject */,
 				E73E93491C5270580045ED28 /* VBString */,
 				E73E933D1C5116650045ED28 /* VBHuman */,
-				E78E48D81C40406F00D17F8C /* VBMacroHeader.h */,
 				E707D02F1C3332DF00EAE890 /* FirstStruct */,
 				E707D0961C39DAAC00EAE890 /* BitStepTask */,
 			);
@@ -633,6 +634,7 @@
 			isa = PBXGroup;
 			children = (
 				E7EF6DA51C7F74AD000BE913 /* VBObjCproject-Prefix.pch */,
+				E7D77B9A1CC3A8EC00A36680 /* VBMacroHeaderObjC.h */,
 			);
 			name = "Supporting Files";
 			path = "SRC/Supporting Files";

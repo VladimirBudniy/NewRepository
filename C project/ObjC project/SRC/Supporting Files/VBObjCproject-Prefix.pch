@@ -11,5 +11,6 @@
 
 #import "NSObject+VBCategory.h"
 #import "NSString+VBExtension.h"
+#import "VBMacroHeaderObjC.h"
 
 #endif /* VBObjCproject___Prefix_pch */
