@@ -11,6 +11,8 @@
 #import "VBCarWasher.h"
 #import "VBDirector.h"
 
+#import "VBDispatch.h"
+
 @interface VBEmployee ()
 
 - (void)completeWorkWithObject:(id)object;
@@ -53,13 +55,17 @@
         self.state = kVBEmployeeBusyState;
         
         VBWeakSelfMacro;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        VBDispatchSyncInBackground(^{
             VBStrongSelfAndReturnNilMacro;
             @synchronized(strongSelf) {
                 usleep(arc4random_uniform(100) + 10);
                 [strongSelf workWithObject:object];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
+                VBDispatchSyncInBackground(^{
+                    NSLog(@"%@ TEST", strongSelf);
+                });
+                
+                VBDispatchSyncOnMainThread(^{
                     [strongSelf completeWork];
                 });
             }
