@@ -13,13 +13,13 @@
 @class VBObserverArray;
 
 @interface VBObserverStateObject : NSObject
-@property (nonatomic, assign) NSUInteger state;
-@property (nonatomic, readonly) NSArray *handlers;
+@property (nonatomic, assign) NSUInteger    state;
+@property (nonatomic, readonly) NSArray     *handlers;
 
 + (VBObserverStateObject *)objectWithState:(NSUInteger)state;
 
 - (instancetype)initWithState:(NSUInteger)state;
 - (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object;
-- (void)removeHandlerForObject:(id)object;
+- (void)removeHandlersForObject:(id)object;
 
 @end

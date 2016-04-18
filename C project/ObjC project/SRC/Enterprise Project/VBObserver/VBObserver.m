@@ -73,15 +73,15 @@
     }
 }
 
-- (void)removeHandlerForState:(NSUInteger)state {
+- (void)removeHandlersForState:(NSUInteger)state {
     VBObserverStateObject *stateObject = [self objectWithState:state];
     [self.stateObjects removeObject:stateObject];
 }
 
-- (void)removeHandlerForObject:(id)object {
+- (void)removeHandlersForObject:(id)object {
     if (object) {
         for (VBObserverStateObject *stateObject in self.stateObjects) {
-            [stateObject removeHandlerForObject:object];
+            [stateObject removeHandlersForObject:object];
         }
     }
 }

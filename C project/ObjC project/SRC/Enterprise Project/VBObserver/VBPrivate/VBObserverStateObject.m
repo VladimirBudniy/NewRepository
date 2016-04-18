@@ -39,7 +39,7 @@
 #pragma mark -
 #pragma mark Accessors
 
--(NSArray *)handlers {
+- (NSArray *)handlers {
     return self.observerArray.handlers;
 }
 
@@ -50,8 +50,8 @@
     [self.observerArray addHandler:handler forObject:object];
 }
 
-- (void)removeHandlerForObject:(id)object {
-    [self.observerArray removeHandlerForObject:object];
+- (void)removeHandlersForObject:(id)object {
+    [self.observerArray removeHandlersForObject:object];
 }
 
 @end

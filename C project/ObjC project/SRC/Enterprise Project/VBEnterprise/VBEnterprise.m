@@ -57,9 +57,9 @@ static NSUInteger const kVBDirectorsCount   = 1;
 - (void)addHandlerForStandbyState:(NSArray *)staff {
     @synchronized(self) {
         for (VBEmployee *employee in staff) {
-            VBWeakSelfLinkMacro(VBEnterprise, self);
+            VBWeakSelfMacro;
             [employee addHandler:^{
-                VBStrongSelfLinkMacro(VBEnterprise);
+                VBStrongSelfAndReturnNilMacro;
                 [strongSelf employeeBecameStandby:employee];
             } forState:kVBEmployeeStandbyState
                           object:self];

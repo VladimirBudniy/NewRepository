@@ -14,6 +14,6 @@ typedef void (^VBEmployeeHandler)(void);
 @property (nonatomic, readonly) NSArray *handlers;
 
 - (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object;
-- (void)removeHandlerForObject:(id)object;
+- (void)removeHandlersForObject:(id)object;
 
 @end

@@ -38,14 +38,13 @@
 #pragma mark Accessors
 
 - (NSArray *)handlers {
+    
+    [self removeHandlersForObject:nil];
+    
     NSMutableArray *array = [NSMutableArray array];
     NSArray *object = [[self.objects copy] autorelease];
     for (VBObserverObject *observerObject in object) {
-        if (!observerObject.object) {
-            [self.objects removeObject:observerObject];
-        } else {
-            [array addObject:observerObject.handler];
-        }
+        [array addObject:observerObject.handler];
     }
     
     return [[array copy] autorelease];
@@ -58,7 +57,7 @@
     [self.objects addObject:[VBObserverObject objectWithObject:object handler:handler]];
 }
 
-- (void)removeHandlerForObject:(id)object {
+- (void)removeHandlersForObject:(id)object {
     NSArray *objects = [[self.objects copy] autorelease];
     for (VBObserverObject *observerObject in objects) {
         if (observerObject.object == object) {

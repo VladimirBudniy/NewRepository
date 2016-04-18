@@ -9,12 +9,12 @@
 #ifndef VBMacroHeaderObjC_h
 #define VBMacroHeaderObjC_h
 
-#define VBWeakSelfLinkMacro(Class, object) \
-            __weak Class *weakSelf = object \
+#define VBWeakSelfMacro \
+            __weak id weakSelf = self \
 
 
-#define VBStrongSelfLinkMacro(Class) \
-            __strong Class *strongSelf = weakSelf; \
+#define VBStrongSelfAndReturnNilMacro \
+            __strong id strongSelf = weakSelf; \
                     if (!strongSelf) { \
                             return; \
                         }

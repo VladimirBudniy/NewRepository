@@ -52,9 +52,9 @@
     if (object) {
         self.state = kVBEmployeeBusyState;
         
-        VBWeakSelfLinkMacro(VBEmployee, self);
+        VBWeakSelfMacro;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            VBStrongSelfLinkMacro(VBEmployee);
+            VBStrongSelfAndReturnNilMacro;
             @synchronized(strongSelf) {
                 usleep(arc4random_uniform(100) + 10);
                 [strongSelf workWithObject:object];
