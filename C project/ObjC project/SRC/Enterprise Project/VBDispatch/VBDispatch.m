@@ -42,7 +42,11 @@ void VBDispatchAsyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHand
 }
 
 void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandler handler) {
-    dispatch_sync(VBQueueWithPriority(priority), handler);
+    if ([NSThread mainThread]) {
+        dispatch_async(VBQueueWithPriority(priority), handler);
+    } else {
+        dispatch_sync(VBQueueWithPriority(priority), handler);
+    }
 }
 
 void VBDispatchAsyncInBackground(VBEmployeeHandler handler) {
@@ -58,7 +62,7 @@ void VBDispatchSyncInBackground(VBEmployeeHandler handler) {
 }
 
 void VBDispatchSyncOnMainThread(VBEmployeeHandler handler) {
-    VBDispatchAsyncWithPriority(kVBDispatchPriorityMain, handler);
+    VBDispatchSyncWithPriority(kVBDispatchPriorityMain, handler);
 }
 
 

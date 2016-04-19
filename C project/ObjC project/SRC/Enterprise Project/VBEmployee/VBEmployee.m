@@ -61,10 +61,6 @@
                 usleep(arc4random_uniform(100) + 10);
                 [strongSelf workWithObject:object];
                 
-                VBDispatchSyncInBackground(^{
-                    NSLog(@"%@ TEST", strongSelf);
-                });
-                
                 VBDispatchSyncOnMainThread(^{
                     [strongSelf completeWork];
                 });
