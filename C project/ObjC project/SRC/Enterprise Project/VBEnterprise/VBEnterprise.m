@@ -25,6 +25,7 @@ static NSUInteger const kVBDirectorsCount   = 1;
 @property (nonatomic, retain) VBDispatcher      *directorsDispatcher;
 
 - (void)hireStaff;
+- (void)addHandlerForStandbyState:(NSArray *)staff;
 
 @end
 
@@ -53,16 +54,39 @@ static NSUInteger const kVBDirectorsCount   = 1;
 #pragma mark -
 #pragma mark Private
 
-- (void)hireStaff {
+- (void)addHandlerForStandbyState:(NSArray *)staff {
+    @synchronized(self) {
+        for (VBEmployee *employee in staff) {
+            VBWeakSelfMacro;
+            [employee addHandler:^{
+                VBStrongSelfAndReturnNilMacro;
+                [strongSelf employeeBecameStandby:employee];
+            } forState:kVBEmployeeStandbyState
+                          object:self];
+        }
+    }
+}
 
-    NSArray *director = [VBDirector objectsWithCount:kVBDirectorsCount observer:self];
+- (void)employeeBecameStandby:(id)employee {
+    if ([self.washersDispatcher containsEmployee:employee]) {
+        [self.accountansDispatcher addObject:employee];
+    } else if ([self.accountansDispatcher containsEmployee:employee]) {
+        [self.directorsDispatcher addObject:employee];
+    }
+}
+
+- (void)hireStaff {
+    
+    NSArray *director = [VBDirector objectsWithCount:kVBDirectorsCount];
+    NSArray *accountants = [VBAccountant objectsWithCount:kVBAccountantsCount];
+    NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount];
+    
+    self.washersDispatcher = [[[VBDispatcher alloc] initWithStaff:washers] autorelease];
+    self.accountansDispatcher = [[[VBDispatcher alloc] initWithStaff:accountants] autorelease];
     self.directorsDispatcher = [[[VBDispatcher alloc] initWithStaff:director] autorelease];
     
-    NSArray *accountants = [VBAccountant objectsWithCount:kVBAccountantsCount observer:self];
-    self.accountansDispatcher = [[[VBDispatcher alloc] initWithStaff:accountants] autorelease];
-    
-    NSArray *washers = [VBCarWasher objectsWithCount:kVBWashersCount observer:self];
-    self.washersDispatcher = [[[VBDispatcher alloc] initWithStaff:washers] autorelease];
+    [self addHandlerForStandbyState:washers];
+    [self addHandlerForStandbyState:accountants];
 }
 
 #pragma mark -
@@ -71,17 +95,6 @@ static NSUInteger const kVBDirectorsCount   = 1;
 - (void)washCar:(VBCar *)car {
     @synchronized(self) {
         [self.washersDispatcher addObject:car];
-    }
-}
-
-#pragma mark -
-#pragma mark VBObserverProtocol
-
-- (void)employeeBecameStandby:(id)employee {
-    if ([self.washersDispatcher containsEmployee:employee]) {
-        [self.accountansDispatcher addObject:employee];
-    } else if ([self.accountansDispatcher containsEmployee:employee]) {
-        [self.directorsDispatcher addObject:employee];
     }
 }
 

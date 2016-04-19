@@ -13,7 +13,7 @@
 #import "VBEssenceTest.h"
 
 
-static NSUInteger const kVBCarsArrayCount = 10;
+static NSUInteger const kVBCarsArrayCount = 18;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
         }
         
         NSRunLoop *loop = [NSRunLoop mainRunLoop];
-        [loop run];
+        [loop run];     
     }
 
     return 0;

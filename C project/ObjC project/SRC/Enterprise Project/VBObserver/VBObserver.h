@@ -11,18 +11,12 @@
 typedef void (^VBEmployeeHandler)(void);
 
 @interface VBObserver : NSObject
-@property (nonatomic, readonly) NSArray             *observers;
-@property (nonatomic, assign)   NSUInteger          state;
+@property (nonatomic, assign) NSUInteger state;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
-- (void)addObserver:(id)observer;
-- (void)removeObserver:(id)observer;
-
-- (SEL)selectorForState:(NSUInteger)state;
-
-- (void)notifyObserversWithSelector:(SEL)selector;
-- (void)notifyObservers;
-- (BOOL)observedByObject:(id)object;
+- (void)addHandler:(VBEmployeeHandler)handler forState:(NSUInteger)state object:(id)object;
+- (void)removeHandlersForState:(NSUInteger)state;
+- (void)removeHandlersForObject:(id)object;
 
 @end

@@ -9,7 +9,6 @@
 #import "VBObserver.h"
 #import "VBEnterprise.h"
 #import "VBMoneyProtocol.h"
-#import "VBObserverProtocol.h"
 
 typedef enum VBCarState : NSUInteger {
     kVBCarUndefindeState,

@@ -7,21 +7,26 @@
 //
 
 #import "VBObserver.h"
+#import "VBObserverStateObject.h"
+#import "VBObserverArray.h"
+#import "VBObserverObject.h"
 
 @interface VBObserver ()
-@property (nonatomic, assign) NSHashTable *mutableObservers;
+@property (nonatomic, retain) NSMutableArray *stateObjects;
+
+- (VBObserverStateObject *)objectWithState:(NSUInteger)state;
+- (void)performHandlers;
 
 @end
 
 @implementation VBObserver
 
-@dynamic observers;
-
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
-    self.mutableObservers = nil;
+    [self.stateObjects removeAllObjects];
+    self.stateObjects = nil;
     
     [super dealloc];
 }
@@ -29,7 +34,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.state = 0;
+        self.stateObjects = [NSMutableArray array];
     }
     
     return self;
@@ -47,16 +53,12 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)observers {
-    return [self.mutableObservers allObjects];
-}
-
 - (void)setState:(NSUInteger)state {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
             
-            [self notifyObservers];
+            [self performHandlers];
         }
     }
 }
@@ -64,39 +66,50 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers addObject:observer];
+- (void)addHandler:(VBEmployeeHandler)handler forState:(NSUInteger)state object:(id)object {
+    if (object) {
+        VBObserverStateObject *stateObject = [self objectWithState:state];
+        [stateObject addHandler:[[handler copy] autorelease] forObject:object];
     }
 }
 
-- (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers removeObject:observer];
-    }
+- (void)removeHandlersForState:(NSUInteger)state {
+    VBObserverStateObject *stateObject = [self objectWithState:state];
+    [self.stateObjects removeObject:stateObject];
 }
 
-- (SEL)selectorForState:(NSUInteger)state {
-    return nil;
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector {
-    @synchronized(self) {
-        for (id observer in self.observers) {
-            if ([observer respondsToSelector:selector]) {
-                [observer performSelector:selector withObject:self];
-            }
+- (void)removeHandlersForObject:(id)object {
+    if (object) {
+        for (VBObserverStateObject *stateObject in self.stateObjects) {
+            [stateObject removeHandlersForObject:object];
         }
     }
 }
 
-- (void)notifyObservers {
-    SEL selector = [self selectorForState:self.state];
-    [self notifyObserversWithSelector:selector];
+#pragma mark - 
+#pragma mark Private
+
+- (VBObserverStateObject *)objectWithState:(NSUInteger)state {
+    for (VBObserverStateObject *stateObject in self.stateObjects) {
+        if (stateObject.state == state) {
+            return stateObject;
+        }
+    }
+    
+    VBObserverStateObject *staetObject = [VBObserverStateObject objectWithState:state];
+    [self.stateObjects addObject:staetObject];
+    
+    return staetObject;
 }
 
-- (BOOL)observedByObject:(id)object {
-    return [self.mutableObservers containsObject:object];
+- (void)performHandlers {
+    for (VBObserverStateObject *stateObject in self.stateObjects) {
+        if (stateObject.state == _state) {
+            for (VBEmployeeHandler handler in stateObject.handlers) {
+                handler();
+            }
+        }
+    }
 }
 
 @end
