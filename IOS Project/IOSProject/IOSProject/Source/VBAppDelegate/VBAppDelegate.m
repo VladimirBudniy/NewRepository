@@ -7,6 +7,7 @@
 //
 
 #import "VBAppDelegate.h"
+#import "VBLableViewController.h"
 
 @interface VBAppDelegate ()
 
@@ -18,7 +19,8 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.backgroundColor = [UIColor grayColor];
+    window.rootViewController = [VBLableViewController new];
+    
     [window makeKeyAndVisible];
     
     return YES;

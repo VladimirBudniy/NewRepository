@@ -16,22 +16,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Lable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r29-eY-UXO">
-                    <rect key="frame" x="8" y="8" width="154" height="35"/>
-                    <color key="backgroundColor" red="0.24694967858048436" green="0.55956075557974261" blue="0.90557571466152487" alpha="0.47192887931034483" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
+                    <rect key="frame" x="10" y="40" width="160" height="40"/>
+                    <color key="backgroundColor" red="0.76912188529968262" green="0.84890711307525635" blue="0.9404723048210144" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
-                <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLm-S2-bNr">
-                    <rect key="frame" x="180" y="300" width="120" height="40"/>
-                    <color key="backgroundColor" red="0.23043007617042363" green="0.5351748366493928" blue="0.86879686850767868" alpha="0.56139547413793101" colorSpace="calibratedRGB"/>
-                    <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                    <state key="normal" title="Test Button">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pha-d5-u10">
+                    <rect key="frame" x="220" y="380" width="80" height="40"/>
+                    <color key="backgroundColor" red="0.74034774303436279" green="0.80651694536209106" blue="0.94201868772506714" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.79232219827586203" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.9687642471307536" green="0.97742665768488535" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
