@@ -334,6 +334,7 @@
 				E7F719131CC6CF8000A90B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
