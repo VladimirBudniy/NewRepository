@@ -9,7 +9,7 @@
 #import "VBLableViewController.h"
 
 @interface VBLableViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+@property (nonatomic, weak) IBOutlet UILabel *testLabel;
 
 - (IBAction)pressButton:(id)sender;
 
@@ -29,9 +29,9 @@
 #pragma mark Button
 
 - (IBAction)pressButton:(id)sender {
-    _testLabel.textColor = [UIColor whiteColor];
-    _testLabel.backgroundColor = [UIColor clearColor];
-    _testLabel.text = @"New test label";
+    self.testLabel.textColor = [UIColor whiteColor];
+    self.testLabel.backgroundColor = [UIColor clearColor];
+    self.testLabel.text = @"New test label";
     
 }
 
