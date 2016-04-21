@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E707B5C21CC96B0800C56771 /* VBLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E707B5C11CC96B0800C56771 /* VBLabelView.m */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
 		E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E707B5C01CC96B0800C56771 /* VBLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLabelView.h; sourceTree = "<group>"; };
+		E707B5C11CC96B0800C56771 /* VBLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLabelView.m; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F718FE1CC6CF8000A90B54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7F719091CC6CF8000A90B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E707B5BF1CC96AEF00C56771 /* VBLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				E707B5C01CC96B0800C56771 /* VBLabelView.h */,
+				E707B5C11CC96B0800C56771 /* VBLabelView.m */,
+			);
+			path = VBLabelView;
+			sourceTree = "<group>";
+		};
 		E7F718F11CC6CF8000A90B54 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 		E7F719271CC6E47500A90B54 /* VBLableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E707B5BF1CC96AEF00C56771 /* VBLabelView */,
 				E7F719281CC6E47500A90B54 /* VBLableViewController.h */,
 				E7F719291CC6E47500A90B54 /* VBLableViewController.m */,
 				E7F7192A1CC6E47500A90B54 /* VBLableViewController.xib */,
@@ -176,6 +189,7 @@
 				E7F719211CC6DB7E00A90B54 /* VBAppDelegate.m in Sources */,
 				E7F718FF1CC6CF8000A90B54 /* main.m in Sources */,
 				E7F7192B1CC6E47500A90B54 /* VBLableViewController.m in Sources */,
+				E707B5C21CC96B0800C56771 /* VBLabelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
