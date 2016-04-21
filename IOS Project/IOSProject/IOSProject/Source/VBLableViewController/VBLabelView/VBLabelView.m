@@ -20,6 +20,21 @@
     
 }
 
+- (void)moveLabel {
+    CGAffineTransform transformDown = CGAffineTransformMakeTranslation(0, 70);
+    CGAffineTransform transformSize = CGAffineTransformMakeScale(1.4, 1.5);
+    CGAffineTransform transform = CGAffineTransformConcat(transformDown, transformSize);
+    
+    [UIView animateWithDuration:1
+                          delay:0.5
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.label.transform = transform;
+                     } completion:^(BOOL finished){
+                         self.label.text = @"Animation finished";
+                     }];
+}
+
 @end
 
 

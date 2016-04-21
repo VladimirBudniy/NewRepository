@@ -12,5 +12,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *label;
 
 - (void)changeLabel;
+- (void)moveLabel;
 
 @end

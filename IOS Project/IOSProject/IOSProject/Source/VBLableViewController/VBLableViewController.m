@@ -12,6 +12,7 @@
 @interface VBLableViewController ()
 @property (nonatomic, strong) VBLabelView *rootView;
 
+- (IBAction)clickAnimationButton:(id)sender;
 - (IBAction)pressButton:(id)sender;
 
 @end
@@ -32,6 +33,10 @@
 #pragma mark -
 #pragma mark Button
 
+- (IBAction)clickAnimationButton:(id)sender {
+    [self.rootView moveLabel];
+}
+
 - (IBAction)pressButton:(id)sender {
     [self.rootView changeLabel];
 }
@@ -41,12 +46,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 @end
