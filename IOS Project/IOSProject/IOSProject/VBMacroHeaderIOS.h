@@ -9,7 +9,12 @@
 #ifndef VBMacroHeaderIOS_h
 #define VBMacroHeaderIOS_h
 
-#define VBWeakSelfMacro \
-            __weak id weakSelf = self \
+#define VBGetRootViewAndReturnNilMacro \
+        if ([self isViewLoaded] && [self.view isKindOfClass:[VBLabelView class]]) { \
+                return (VBLabelView *)self.view; \
+                    } \
+                        \
+                return nil;
+
 
 #endif /* VBMacroHeaderIOS_h */

@@ -26,11 +26,7 @@
 }
 
 - (VBLabelView *)rootView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[VBLabelView class]]) {
-        return (VBLabelView *)self.view;
-    }
-    
-    return nil;
+    VBGetRootViewAndReturnNilMacro;
 }
 
 #pragma mark -

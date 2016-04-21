@@ -10,9 +10,9 @@
 
 @implementation UIViewController (VBCategory)
 
-//+ (instancetype)newController {
-
-
-//}
++ (instancetype)newController {
+    return [[[self class] alloc] initWithNibName:NSStringFromClass([self class])
+                                          bundle:[NSBundle mainBundle]];
+}
 
 @end

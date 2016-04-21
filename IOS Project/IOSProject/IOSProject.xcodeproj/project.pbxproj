@@ -94,12 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				E7F718FE1CC6CF8000A90B54 /* main.m */,
-				E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */,
 				E7F7190E1CC6CF8000A90B54 /* Info.plist */,
-				E717BDE21CC976ED003D14CF /* VBMacroHeaderIOS.h */,
 				E7F719091CC6CF8000A90B54 /* Assets.xcassets */,
+				E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */,
 				E717BDEA1CC97833003D14CF /* VBCategory */,
 				E717BDEF1CC979D9003D14CF /* VBIOSProject-Prefix.pch */,
+				E717BDE21CC976ED003D14CF /* VBMacroHeaderIOS.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

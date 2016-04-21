@@ -10,6 +10,6 @@
 
 @interface UIViewController (VBCategory)
 
-//+ (instancetype)newController;
++ (instancetype)newController;
 
 @end

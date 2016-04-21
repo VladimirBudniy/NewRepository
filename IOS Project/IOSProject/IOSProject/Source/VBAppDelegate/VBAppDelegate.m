@@ -19,8 +19,7 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [VBLableViewController new];
-    
+    window.rootViewController = [VBLableViewController newController];
     [window makeKeyAndVisible];
     
     return YES;

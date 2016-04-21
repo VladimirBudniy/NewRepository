@@ -9,6 +9,7 @@
 #ifndef VBIOSProject_Prefix_pch
 #define VBIOSProject_Prefix_pch
 
-
+#import "VBMacroHeaderIOS.h"
+#import "UIViewController+VBCategory.h"
 
 #endif /* VBIOSProject_Prefix_pch */
