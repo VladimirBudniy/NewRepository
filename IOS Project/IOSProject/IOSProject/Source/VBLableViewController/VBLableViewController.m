@@ -7,9 +7,10 @@
 //
 
 #import "VBLableViewController.h"
+#import "VBLabelView.h"
 
 @interface VBLableViewController ()
-@property (nonatomic, weak) IBOutlet UILabel *testLabel;
+@property (nonatomic, strong) VBLabelView *rootView;
 
 - (IBAction)pressButton:(id)sender;
 
@@ -18,21 +19,25 @@
 @implementation VBLableViewController
 
 #pragma mark -
-#pragma mark Status Bar
+#pragma mark Accessors
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (VBLabelView *)rootView {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[VBLabelView class]]) {
+        return (VBLabelView *)self.view;
+    }
+    
+    return nil;
 }
 
 #pragma mark -
 #pragma mark Button
 
 - (IBAction)pressButton:(id)sender {
-    self.testLabel.textColor = [UIColor whiteColor];
-    self.testLabel.backgroundColor = [UIColor clearColor];
-    self.testLabel.text = @"New test label";
-    
+    [self.rootView changeLabel];
 }
 
 #pragma mark -

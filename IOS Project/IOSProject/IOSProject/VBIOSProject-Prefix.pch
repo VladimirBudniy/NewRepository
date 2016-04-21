@@ -1,0 +1,14 @@
+//
+//  VBIOSProject-Prefix.pch
+//  IOSProject
+//
+//  Created by Vladimir Budniy on 22.04.16.
+//  Copyright © 2016 Vladimir Budniy. All rights reserved.
+//
+
+#ifndef VBIOSProject_Prefix_pch
+#define VBIOSProject_Prefix_pch
+
+
+
+#endif /* VBIOSProject_Prefix_pch */

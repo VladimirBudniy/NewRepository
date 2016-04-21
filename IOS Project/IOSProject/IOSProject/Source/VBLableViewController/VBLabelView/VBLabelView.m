@@ -10,5 +10,22 @@
 
 @implementation VBLabelView
 
+#pragma mark -
+#pragma mark Public
+
+//- (void)awakeFromNib {
+//    [super awakeFromNib];
+//    
+//}
+
+- (void)changeLabel {
+    self.label.textColor = [UIColor whiteColor];
+    self.label.backgroundColor = [UIColor clearColor];
+    self.label.text = @"New test label";
+    
+}
+
 
 @end
+
+

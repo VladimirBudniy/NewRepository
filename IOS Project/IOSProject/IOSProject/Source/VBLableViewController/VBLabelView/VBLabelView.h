@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VBLabelView : UIView
+@property (nonatomic, strong) IBOutlet UILabel *label;
+
+- (void)changeLabel;
 
 @end
