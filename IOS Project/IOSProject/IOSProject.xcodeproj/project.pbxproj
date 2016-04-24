@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E707B5C21CC96B0800C56771 /* VBLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E707B5C11CC96B0800C56771 /* VBLabelView.m */; };
+		E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */; };
 		E7AA0CC41CCD2D840098C281 /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AA0CC31CCD2D840098C281 /* UIViewController+VBCategory.m */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		E707B5C01CC96B0800C56771 /* VBLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLabelView.h; sourceTree = "<group>"; };
 		E707B5C11CC96B0800C56771 /* VBLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLabelView.m; sourceTree = "<group>"; };
 		E717BDEF1CC979D9003D14CF /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
+		E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		E7AA0CC01CCD2D7C0098C281 /* VBMacroHeaderIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderIOS.h; sourceTree = "<group>"; };
 		E7AA0CC21CCD2D840098C281 /* UIViewController+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VBCategory.h"; sourceTree = "<group>"; };
 		E7AA0CC31CCD2D840098C281 /* UIViewController+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VBCategory.m"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		E7F718F11CC6CF8000A90B54 = {
 			isa = PBXGroup;
 			children = (
+				E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */,
 				E7F718FC1CC6CF8000A90B54 /* IOSProject */,
 				E7F718FB1CC6CF8000A90B54 /* Products */,
 			);
@@ -193,6 +196,7 @@
 				E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */,
 				E7F7192C1CC6E47500A90B54 /* VBLableViewController.xib in Resources */,
 				E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */,
+				E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
