@@ -19,8 +19,10 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [VBLableViewController newController];
+    window.rootViewController = [VBLableViewController controllerFromNib];
     [window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

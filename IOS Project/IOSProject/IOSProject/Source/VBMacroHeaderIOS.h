@@ -9,12 +9,12 @@
 #ifndef VBMacroHeaderIOS_h
 #define VBMacroHeaderIOS_h
 
-#define VBGetRootViewAndReturnNilMacro \
-        if ([self isViewLoaded] && [self.view isKindOfClass:[VBLabelView class]]) { \
-                return (VBLabelView *)self.view; \
+#define VBRootViewAndReturnNilMacro(theClass) \
+    - (theClass *)rootView { \
+        if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
+                return (theClass *)self.view; \
                     } \
-                        \
-                return nil;
-
+                    return nil; \
+                }
 
 #endif /* VBMacroHeaderIOS_h */

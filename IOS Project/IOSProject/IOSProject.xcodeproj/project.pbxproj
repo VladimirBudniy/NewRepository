@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E707B5C21CC96B0800C56771 /* VBLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E707B5C11CC96B0800C56771 /* VBLabelView.m */; };
-		E717BDED1CC97833003D14CF /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E717BDEC1CC97833003D14CF /* UIViewController+VBCategory.m */; };
+		E7AA0CC41CCD2D840098C281 /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AA0CC31CCD2D840098C281 /* UIViewController+VBCategory.m */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
 		E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */; };
@@ -20,10 +20,10 @@
 /* Begin PBXFileReference section */
 		E707B5C01CC96B0800C56771 /* VBLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLabelView.h; sourceTree = "<group>"; };
 		E707B5C11CC96B0800C56771 /* VBLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLabelView.m; sourceTree = "<group>"; };
-		E717BDE21CC976ED003D14CF /* VBMacroHeaderIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderIOS.h; sourceTree = "<group>"; };
-		E717BDEB1CC97833003D14CF /* UIViewController+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VBCategory.h"; sourceTree = "<group>"; };
-		E717BDEC1CC97833003D14CF /* UIViewController+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VBCategory.m"; sourceTree = "<group>"; };
 		E717BDEF1CC979D9003D14CF /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
+		E7AA0CC01CCD2D7C0098C281 /* VBMacroHeaderIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderIOS.h; sourceTree = "<group>"; };
+		E7AA0CC21CCD2D840098C281 /* UIViewController+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VBCategory.h"; sourceTree = "<group>"; };
+		E7AA0CC31CCD2D840098C281 /* UIViewController+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VBCategory.m"; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F718FE1CC6CF8000A90B54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7F719091CC6CF8000A90B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,11 +56,11 @@
 			path = VBLabelView;
 			sourceTree = "<group>";
 		};
-		E717BDEA1CC97833003D14CF /* VBCategory */ = {
+		E7AA0CC11CCD2D840098C281 /* VBCategory */ = {
 			isa = PBXGroup;
 			children = (
-				E717BDEB1CC97833003D14CF /* UIViewController+VBCategory.h */,
-				E717BDEC1CC97833003D14CF /* UIViewController+VBCategory.m */,
+				E7AA0CC21CCD2D840098C281 /* UIViewController+VBCategory.h */,
+				E7AA0CC31CCD2D840098C281 /* UIViewController+VBCategory.m */,
 			);
 			path = VBCategory;
 			sourceTree = "<group>";
@@ -97,9 +97,7 @@
 				E7F7190E1CC6CF8000A90B54 /* Info.plist */,
 				E7F719091CC6CF8000A90B54 /* Assets.xcassets */,
 				E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */,
-				E717BDEA1CC97833003D14CF /* VBCategory */,
 				E717BDEF1CC979D9003D14CF /* VBIOSProject-Prefix.pch */,
-				E717BDE21CC976ED003D14CF /* VBMacroHeaderIOS.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,6 +105,8 @@
 		E7F719141CC6D76700A90B54 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E7AA0CC01CCD2D7C0098C281 /* VBMacroHeaderIOS.h */,
+				E7AA0CC11CCD2D840098C281 /* VBCategory */,
 				E7F719271CC6E47500A90B54 /* VBLableViewController */,
 				E7F7191E1CC6DB7E00A90B54 /* VBAppDelegate */,
 			);
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E717BDED1CC97833003D14CF /* UIViewController+VBCategory.m in Sources */,
+				E7AA0CC41CCD2D840098C281 /* UIViewController+VBCategory.m in Sources */,
 				E7F719211CC6DB7E00A90B54 /* VBAppDelegate.m in Sources */,
 				E7F718FF1CC6CF8000A90B54 /* main.m in Sources */,
 				E7F7192B1CC6E47500A90B54 /* VBLableViewController.m in Sources */,

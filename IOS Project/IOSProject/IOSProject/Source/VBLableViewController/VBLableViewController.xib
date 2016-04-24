@@ -26,7 +26,7 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="AlM-Fo-h4N"/>
+                        <action selector="onPressButton:" destination="-1" eventType="touchUpInside" id="Nl0-Gi-j62"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x3-iC-8p3">
@@ -36,7 +36,7 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="clickAnimationButton:" destination="-1" eventType="touchUpInside" id="pI3-TK-WJ7"/>
+                        <action selector="onClickAnimationButton:" destination="-1" eventType="touchUpInside" id="Wf7-Xb-wnk"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-uQ-0iS">

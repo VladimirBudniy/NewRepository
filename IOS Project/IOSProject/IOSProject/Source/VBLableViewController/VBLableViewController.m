@@ -12,9 +12,6 @@
 @interface VBLableViewController ()
 @property (nonatomic, strong) VBLabelView *rootView;
 
-- (IBAction)clickAnimationButton:(id)sender;
-- (IBAction)pressButton:(id)sender;
-
 @end
 
 @implementation VBLableViewController
@@ -22,22 +19,16 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
-- (VBLabelView *)rootView {
-    VBGetRootViewAndReturnNilMacro;
-}
+VBRootViewAndReturnNilMacro(VBLabelView);
 
 #pragma mark -
 #pragma mark Button
 
-- (IBAction)clickAnimationButton:(id)sender {
+- (IBAction)onClickAnimationButton:(id)sender {
     [self.rootView moveLabel];
 }
 
-- (IBAction)pressButton:(id)sender {
+- (IBAction)onPressButton:(id)sender {
     [self.rootView changeLabel];
 }
 

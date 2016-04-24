@@ -10,7 +10,7 @@
 
 @implementation UIViewController (VBCategory)
 
-+ (instancetype)newController {
++ (instancetype)controllerFromNib {
     return [[[self class] alloc] initWithNibName:NSStringFromClass([self class])
                                           bundle:[NSBundle mainBundle]];
 }

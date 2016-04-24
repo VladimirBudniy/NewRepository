@@ -10,4 +10,7 @@
 
 @interface VBLableViewController : UIViewController
 
+- (IBAction)onClickAnimationButton:(id)sender;
+- (IBAction)onPressButton:(id)sender;
+
 @end
