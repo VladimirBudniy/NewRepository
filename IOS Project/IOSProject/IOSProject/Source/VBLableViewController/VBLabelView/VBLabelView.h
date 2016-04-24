@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum VBLabelLocation : NSUInteger {
+    kVBLabelUpperLeftLocation,
+    kVBLabelUpperRightLocation,
+    kVBLabelLowerRightLocation,
+    kVBLabelLowerLeftLocation
+} VBLabelLocation;
+
 @interface VBLabelView : UIView
 @property (nonatomic, strong) IBOutlet UILabel *label;
 
-- (void)changeLabel;
 - (void)moveLabel;
+- (void)animateLabel;
 
 @end
