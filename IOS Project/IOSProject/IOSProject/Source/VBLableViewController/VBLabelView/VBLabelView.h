@@ -18,7 +18,8 @@ typedef enum VBLabelLocation : NSUInteger {
 typedef void (^VBLabelHandler)(void);
 
 @interface VBLabelView : UIView
-@property (nonatomic, strong) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UIView *view;
+@property (nonatomic, retain) IBOutlet UILabel *label;
 
 - (void)moveLabel;
 - (void)animateLabel;

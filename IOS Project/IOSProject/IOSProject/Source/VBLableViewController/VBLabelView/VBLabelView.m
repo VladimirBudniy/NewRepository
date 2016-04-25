@@ -8,18 +8,21 @@
 
 #import "VBLabelView.h"
 
-static const CGRect upperLeftLocation  =    { { 20.0f, 40.0f }, { 80.0f, 60.0f } };
-static const CGRect upperRightLocation =    { { 220.0f, 40.0f }, { 80.0f, 60.0f } };
-static const CGRect lowerRightLocation =    { { 220.0f, 400.0f }, { 80.0f, 60.0f } };
-static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f } };
+static const CGFloat    kVBDefaultAnimationDuration = 0.5;
+static const NSUInteger kVBFrameDepth               = 6;
 
 @interface VBLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
 
-- (CGRect)labelLocation:(NSUInteger)squarePosition;
-- (VBLabelLocation)nextLocation;
+- (CGRect)frameForSquarePosition:(NSUInteger)squarePosition;
+- (VBLabelLocation)nextSquarePosition;
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated;
+- (void)setSquarePosition:(NSUInteger)squarePosition
+                 animated:(BOOL)animated
+        completionHandler:(VBLabelHandler)handler;
+
+- (void)moveLabelWithDuration:(CGFloat)duration completionHandler:(VBLabelHandler)handler;
 
 @end
 
@@ -28,33 +31,27 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquarePosition:(NSUInteger)squarePosition {
-    if (_squarePosition != squarePosition) {
-        _squarePosition = squarePosition;
-        self.label.frame = [self labelLocation:_squarePosition];
-    }
+- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
+    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
+    
+//        [self setSquarePosition:squarePosition animated:animated completionHandler:^{
+//            _squarePosition = [self nextSquarePosition];
+//        }];
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
-    if (animated == YES) {
-        [UIView animateWithDuration:0.5
-                              delay:0.3
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             self.squarePosition = [self nextLocation];
-                         } completion:^(BOOL finished){
-                             
-                         }];
-    } else {
-        self.squarePosition = [self nextLocation];
-    }
+- (void)setSquarePosition:(NSUInteger)squarePosition
+                 animated:(BOOL)animated
+        completionHandler:(VBLabelHandler)handler
+{
+    CGFloat duration = animated ? kVBDefaultAnimationDuration : 0;
+    [self moveLabelWithDuration:duration completionHandler:handler];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)moveLabel {
-    self.squarePosition = [self nextLocation];
+    [self setSquarePosition:self.squarePosition animated:NO];
 }
 
 - (void)animateLabel {
@@ -64,14 +61,29 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
 #pragma mark -
 #pragma mark Private
 
-- (VBLabelLocation)nextLocation {
+- (void)moveLabelWithDuration:(CGFloat)duration completionHandler:(VBLabelHandler)handler {
+    [UIView animateWithDuration:duration
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         _squarePosition = [self nextSquarePosition];
+                         self.label.frame = [self frameForSquarePosition:_squarePosition];
+//                         self.label.frame = [self frameForSquarePosition:[self nextSquarePosition]];
+                     } completion:^(BOOL finished){
+                         if (handler) {
+                             handler();
+                         }
+                     }];
+}
+
+- (VBLabelLocation)nextSquarePosition {
     switch (self.squarePosition) {
         case kVBLabelUpperLeftLocation:
             return kVBLabelUpperRightLocation;
             
         case kVBLabelUpperRightLocation:
             return kVBLabelLowerRightLocation;
-
+            
         case kVBLabelLowerRightLocation:
             return kVBLabelLowerLeftLocation;
             
@@ -80,19 +92,28 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
     }
 }
 
-- (CGRect)labelLocation:(NSUInteger)squarePosition {
+- (CGRect)frameForSquarePosition:(NSUInteger)squarePosition {
+    CGFloat viewWidth = self.view.frame.size.width;
+    CGFloat viewHeight = self.view.frame.size.height;
+    
+    CGFloat labelWidth = self.label.frame.size.width;
+    CGFloat labelHeight = self.label.frame.size.height;
+    
     switch (squarePosition) {
         case kVBLabelUpperLeftLocation:
-            return upperLeftLocation;
+            return CGRectMake(kVBFrameDepth, kVBFrameDepth, labelWidth, labelHeight);
             
         case kVBLabelUpperRightLocation:
-            return upperRightLocation;
+            return CGRectMake(viewWidth - (kVBFrameDepth + labelWidth), kVBFrameDepth,
+                              labelWidth, labelHeight);
             
         case kVBLabelLowerRightLocation:
-           return lowerRightLocation;
+            return CGRectMake(viewWidth - (kVBFrameDepth + labelWidth),
+                              viewHeight - (kVBFrameDepth + labelHeight), labelWidth, labelHeight);
             
         default:
-           return lowerLeftLocation;
+            return CGRectMake(kVBFrameDepth , viewHeight - (kVBFrameDepth + labelHeight),
+                              labelWidth, labelHeight);
     }
 }
 

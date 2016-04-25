@@ -32,17 +32,4 @@ VBRootViewAndReturnNilMacro(VBLabelView);
     [self.rootView moveLabel];
 }
 
-#pragma mark -
-#pragma mark Private
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
 @end

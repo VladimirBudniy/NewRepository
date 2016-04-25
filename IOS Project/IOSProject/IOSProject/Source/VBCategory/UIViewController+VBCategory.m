@@ -11,8 +11,11 @@
 @implementation UIViewController (VBCategory)
 
 + (instancetype)controllerFromNib {
-    return [[[self class] alloc] initWithNibName:NSStringFromClass([self class])
-                                          bundle:[NSBundle mainBundle]];
+    return [self controllerFromNibWithName:NSStringFromClass([self class])];
+}
+
++ (instancetype)controllerFromNibWithName:(NSString *)className {
+    return [[[self class] alloc] initWithNibName:className bundle:[NSBundle mainBundle]];
 }
 
 @end
