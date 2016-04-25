@@ -19,7 +19,7 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
 - (CGRect)labelLocation:(NSUInteger)squarePosition;
 - (VBLabelLocation)nextLocation;
 
-//- setSquarePosition:animated:
+- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated;
 
 @end
 
@@ -35,6 +35,21 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
     }
 }
 
+- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
+    if (animated == YES) {
+        [UIView animateWithDuration:0.5
+                              delay:0.3
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             self.squarePosition = [self nextLocation];
+                         } completion:^(BOOL finished){
+                             
+                         }];
+    } else {
+        self.squarePosition = [self nextLocation];
+    }
+}
+
 #pragma mark -
 #pragma mark Public
 
@@ -43,14 +58,7 @@ static const CGRect lowerLeftLocation  =    { { 20.0f, 400.0f }, { 80.0f, 60.0f 
 }
 
 - (void)animateLabel {
-//    [UIView animateWithDuration:0.5
-//                          delay:0.3
-//                        options:UIViewAnimationOptionCurveEaseIn
-//                     animations:^{
-//                         [self labelLocation:self.squarePosition];
-//                     } completion:^(BOOL finished){
-//                    
-//                     }];
+    [self setSquarePosition:self.squarePosition animated:YES];
 }
 
 #pragma mark -
