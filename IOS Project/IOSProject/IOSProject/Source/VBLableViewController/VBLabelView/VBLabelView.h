@@ -15,6 +15,8 @@ typedef enum VBLabelLocation : NSUInteger {
     kVBLabelLowerLeftLocation
 } VBLabelLocation;
 
+typedef void (^VBLabelHandler)(void);
+
 @interface VBLabelView : UIView
 @property (nonatomic, strong) IBOutlet UILabel *label;
 
