@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewImaje" translatesAutoresizingMaskIntoConstraints="NO" id="HOj-ER-5ua">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewImaje" translatesAutoresizingMaskIntoConstraints="NO" id="HOj-ER-5ua">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x3-iC-8p3">
@@ -79,6 +79,12 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="HOj-ER-5ua" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="blw-k8-IDy"/>
+                <constraint firstAttribute="trailing" secondItem="HOj-ER-5ua" secondAttribute="trailing" id="fF3-ti-BFF"/>
+                <constraint firstItem="HOj-ER-5ua" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="o7F-Qn-ozD"/>
+                <constraint firstAttribute="bottom" secondItem="HOj-ER-5ua" secondAttribute="bottom" id="vhA-kh-C2E"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>

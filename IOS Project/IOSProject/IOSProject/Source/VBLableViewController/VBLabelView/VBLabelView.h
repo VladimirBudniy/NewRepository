@@ -21,6 +21,6 @@ typedef void (^VBLabelHandler)(void);
 @property (nonatomic, retain) IBOutlet UIView *upperView;
 @property (nonatomic, retain) IBOutlet UILabel *label;
 
-- (void)moveLabelaAnimated:(BOOL)animated;
+- (void)moveLabelaWithAnimation:(BOOL)animation;
 
 @end

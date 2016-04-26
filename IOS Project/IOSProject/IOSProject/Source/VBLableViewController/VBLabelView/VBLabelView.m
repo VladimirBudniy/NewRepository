@@ -60,8 +60,8 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 #pragma mark -
 #pragma mark Public
 
-- (void)moveLabelaAnimated:(BOOL)animatd {
-    [self setSquarePosition:[self nextSquarePosition] animated:animatd];
+- (void)moveLabelaWithAnimation:(BOOL)animation {
+    [self setSquarePosition:[self nextSquarePosition] animated:animation];
 }
 
 #pragma mark -
