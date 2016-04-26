@@ -15,12 +15,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewImaje" translatesAutoresizingMaskIntoConstraints="NO" id="HOj-ER-5ua">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewImaje" translatesAutoresizingMaskIntoConstraints="NO" id="ysl-d0-Jf3">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x3-iC-8p3">
-                    <rect key="frame" x="20" y="500" width="130" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x3-iC-8p3">
+                    <rect key="frame" x="20" y="488" width="130" height="40"/>
                     <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.69385775862068966" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="bqf-xT-RqX"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Animation Button">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,9 +38,12 @@
                         <action selector="onClickAnimationButton:" destination="-1" eventType="touchUpInside" id="Wf7-Xb-wnk"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIV-Bi-OuZ">
-                    <rect key="frame" x="170" y="500" width="130" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIV-Bi-OuZ">
+                    <rect key="frame" x="170" y="488" width="130" height="40"/>
                     <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.70008081896551722" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="CGt-wS-gg4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Click Button">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,7 +58,7 @@
                         <action selector="onClickStepButton:" destination="-1" eventType="touchUpInside" id="L4R-jD-Sgo"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yD5-lt-t75" userLabel="Built View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yD5-lt-t75" userLabel="Built View">
                     <rect key="frame" x="10" y="40" width="300" height="320"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-uQ-0iS">
@@ -70,6 +76,9 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.40977909482758623" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="qt6-hA-7wt"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -80,10 +89,20 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="HOj-ER-5ua" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="blw-k8-IDy"/>
-                <constraint firstAttribute="trailing" secondItem="HOj-ER-5ua" secondAttribute="trailing" id="fF3-ti-BFF"/>
-                <constraint firstItem="HOj-ER-5ua" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="o7F-Qn-ozD"/>
-                <constraint firstAttribute="bottom" secondItem="HOj-ER-5ua" secondAttribute="bottom" id="vhA-kh-C2E"/>
+                <constraint firstItem="nIV-Bi-OuZ" firstAttribute="height" secondItem="9x3-iC-8p3" secondAttribute="height" id="0jw-Ez-gN1"/>
+                <constraint firstItem="ysl-d0-Jf3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="237-9b-NIQ"/>
+                <constraint firstItem="nIV-Bi-OuZ" firstAttribute="baseline" secondItem="9x3-iC-8p3" secondAttribute="baseline" id="7Cz-nV-Ynl"/>
+                <constraint firstItem="ysl-d0-Jf3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Es8-a4-LzW"/>
+                <constraint firstAttribute="trailing" secondItem="nIV-Bi-OuZ" secondAttribute="trailing" constant="20" id="Jvp-Ec-nr9"/>
+                <constraint firstAttribute="trailing" secondItem="yD5-lt-t75" secondAttribute="trailing" constant="10" id="LEI-gM-GT3"/>
+                <constraint firstItem="nIV-Bi-OuZ" firstAttribute="width" secondItem="9x3-iC-8p3" secondAttribute="width" id="MRZ-In-gAv"/>
+                <constraint firstAttribute="trailing" secondItem="ysl-d0-Jf3" secondAttribute="trailing" id="R6Z-PZ-w5A"/>
+                <constraint firstItem="yD5-lt-t75" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ZpR-fA-Jf0"/>
+                <constraint firstAttribute="bottom" secondItem="ysl-d0-Jf3" secondAttribute="bottom" id="bLR-FJ-OTX"/>
+                <constraint firstItem="yD5-lt-t75" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="eMY-oG-MjR"/>
+                <constraint firstAttribute="bottom" secondItem="nIV-Bi-OuZ" secondAttribute="bottom" constant="40" id="hWX-F3-n8J"/>
+                <constraint firstItem="9x3-iC-8p3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="lHh-Na-KcL"/>
+                <constraint firstItem="nIV-Bi-OuZ" firstAttribute="leading" secondItem="9x3-iC-8p3" secondAttribute="trailing" constant="20" id="nY2-9x-KWl"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -95,6 +114,6 @@
         </view>
     </objects>
     <resources>
-        <image name="NewImaje" width="320" height="568"/>
+        <image name="NewImaje" width="540" height="960"/>
     </resources>
 </document>
