@@ -11,6 +11,6 @@
 
 #import "VBMacroHeaderIOS.h"
 #import "UIViewController+VBCategory.h"
-#import "UIView+VBCategory.h"
+#import "CGGeometry+VBCategory.h"
 
 #endif /* VBIOSProject_Prefix_pch */
