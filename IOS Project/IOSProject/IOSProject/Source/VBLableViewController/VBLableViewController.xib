@@ -82,8 +82,8 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="builtView" destination="yD5-lt-t75" id="7eC-3i-LQJ"/>
-                <outlet property="label" destination="Buz-uQ-0iS" id="Zy7-IH-XgQ"/>
+                <outlet property="label" destination="Buz-uQ-0iS" id="BNF-YN-rl8"/>
+                <outlet property="upperView" destination="yD5-lt-t75" id="4ID-iG-ttm"/>
             </connections>
             <point key="canvasLocation" x="241" y="-96"/>
         </view>

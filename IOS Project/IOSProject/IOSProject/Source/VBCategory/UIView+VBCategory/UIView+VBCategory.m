@@ -10,10 +10,4 @@
 
 @implementation UIView (VBCategory)
 
-- (void)CGRectMakeWithSize:(CGSize)size pointX:(CGFloat)x pointY:(CGFloat)y {
-    CGRectMake(x, y, size.width, size.height);
-}
-
-
-
 @end

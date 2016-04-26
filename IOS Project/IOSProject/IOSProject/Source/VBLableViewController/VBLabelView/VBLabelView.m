@@ -14,6 +14,8 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 @property (nonatomic, assign) NSUInteger squarePosition;
 
 - (CGRect)frameForSquarePosition:(NSUInteger)squarePosition;
+
+//- (CGAffineTransform)transformForSquarePosition:(NSUInteger)squarePosition;
 - (VBLabelLocation)nextSquarePosition;
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated;
@@ -48,6 +50,7 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
+//                         self.label.transform = [self transformForSquarePosition:squarePosition];
                          self.label.frame = [self frameForSquarePosition:squarePosition];
                      } completion:^(BOOL finished){
                          if (handler) {
@@ -82,21 +85,43 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
     }
 }
 
+//- (CGAffineTransform)transformForSquarePosition:(NSUInteger)squarePosition {
+//    CGFloat xPoint = 0;
+//    CGFloat yPoint = 0;
+//    
+//    CGSize upperViewSize = self.upperView.frame.size;
+//    CGSize labelSize = self.label.frame.size;
+//
+//    CGFloat xPointUpperRight = upperViewSize.width - labelSize.width;
+//    CGFloat yPointLowerRight = upperViewSize.height - labelSize.height;
+//    
+//    
+//    switch (squarePosition) {
+//        case kVBLabelUpperRightLocation:
+//            return CGAffineTransformMakeTranslation(xPointUpperRight, yPoint);
+//            
+//        case kVBLabelLowerRightLocation:
+//            return CGAffineTransformMakeTranslation(xPointUpperRight, yPointLowerRight);
+//            
+//        case kVBLabelLowerLeftLocation:
+//            return CGAffineTransformMakeTranslation(xPoint, yPointLowerRight);
+//            
+//        default:
+//            return CGAffineTransformMakeTranslation(xPoint, yPoint);
+//    }
+//}
+
+
 - (CGRect)frameForSquarePosition:(NSUInteger)squarePosition {
     
-    CGSize builtViewSize = self.builtView.frame.size;
-    CGFloat viewWidth = builtViewSize.width;
-    CGFloat viewHeight = builtViewSize.height;
-    
-    CGSize labelSize = self.label.frame.size;
-    CGFloat labelWidth = labelSize.width;
-    CGFloat labelHeight = labelSize.height;
-   
     CGFloat xPoint = 0;
     CGFloat yPoint = 0;
     
-    CGFloat xPointUpperRight = viewWidth - labelWidth;
-    CGFloat yPointLowerRight = viewHeight - labelHeight;
+    CGSize upperViewSize = self.upperView.frame.size;
+    CGSize labelSize = self.label.frame.size;
+    
+    CGFloat xPointUpperRight = upperViewSize.width - labelSize.width;
+    CGFloat yPointLowerRight = upperViewSize.height - labelSize.height;
     
     switch (squarePosition) {
         case kVBLabelUpperRightLocation:
@@ -113,9 +138,8 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
             break;
     }
     
-    return CGRectMake(xPoint, yPoint, labelWidth, labelHeight);
+    return CGRectMakeWithSize(xPoint, yPoint, labelSize);
 }
-
 
 @end
 

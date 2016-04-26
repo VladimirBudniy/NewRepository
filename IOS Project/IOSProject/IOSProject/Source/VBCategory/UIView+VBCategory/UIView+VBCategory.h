@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (VBCategory)
+CG_INLINE CGRect
+CGRectMakeWithSize(CGFloat x, CGFloat y, CGSize size) {
+    CGRect rect;
+    rect.origin.x = x; rect.origin.y = y;
+    rect.size = size;
+    return rect;
+}
 
-- (void)CGRectMakeWithSize:(CGSize)size pointX:(CGFloat)x pointY:(CGFloat)y;
+@interface UIView (VBCategory)
 
 @end
