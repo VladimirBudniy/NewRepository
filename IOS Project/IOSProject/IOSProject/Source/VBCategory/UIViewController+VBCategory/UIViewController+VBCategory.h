@@ -11,5 +11,6 @@
 @interface UIViewController (VBCategory)
 
 + (instancetype)controllerFromNib;
++ (instancetype)controllerFromNibWithName:(NSString *)className;
 
 @end

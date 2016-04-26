@@ -25,11 +25,11 @@ VBRootViewAndReturnNilMacro(VBLabelView);
 #pragma mark Handling Interface
 
 - (IBAction)onClickAnimationButton:(id)sender {
-    [self.rootView animateLabel];
+    [self.rootView moveLabelaAnimated:YES];
 }
 
 - (IBAction)onClickStepButton:(id)sender {
-    [self.rootView moveLabel];
+    [self.rootView moveLabelaAnimated:NO];
 }
 
 @end
