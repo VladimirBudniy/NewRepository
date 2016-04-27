@@ -33,11 +33,15 @@ VBRootViewAndReturnNilMacro(VBLabelView);
 }
 
 - (IBAction)onClickAnimationButton:(id)sender {
-    [self.rootView moveLabelWithAnimation:YES];
+    if (self.rootView.animationSwitch.on) {
+        [self.rootView moveLabelWithAnimation:YES];
+    }
 }
 
 - (IBAction)onClickStepButton:(id)sender {
-    [self.rootView moveLabelWithAnimation:NO];
+    if (self.rootView.stepSwitch.on) {
+        [self.rootView moveLabelWithAnimation:NO];
+    }
 }
 
 @end

@@ -61,16 +61,19 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 #pragma mark Public
 
 - (void)changeSwitchStatusName {
+    NSString *labelAnimetionSwitchText = self.animationLabel.text;
+    NSString *labelStepSwitchText = self.stepLabel.text;
+    
     if (self.animationSwitch.on) {
-        self.animationLabel.text = @"Animation switch is on";
+        labelAnimetionSwitchText = @"Animation switch is on";
     } else {
-        self.animationLabel.text = @"Animation switch is off";
+        labelAnimetionSwitchText = @"Animation switch is off";
     }
     
     if (self.stepSwitch.on) {
-        self.stepLabel.text = @"Step switch is on";
+        labelStepSwitchText = @"Step switch is on";
     } else {
-        self.stepLabel.text = @"Step switch is off";
+        labelStepSwitchText = @"Step switch is off";
     }
 }
 
