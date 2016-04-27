@@ -18,9 +18,16 @@ typedef enum VBLabelLocation : NSUInteger {
 typedef void (^VBLabelHandler)(void);
 
 @interface VBLabelView : UIView
-@property (nonatomic, retain) IBOutlet UIView *upperView;
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UIView   *upperView;
+@property (nonatomic, retain) IBOutlet UILabel  *label;
 
-- (void)moveLabelaWithAnimation:(BOOL)animation;
+@property (nonatomic, retain) IBOutlet UILabel *animationLabel;
+@property (nonatomic, retain) IBOutlet UILabel *stepLabel;
+
+@property (nonatomic, retain) IBOutlet UISwitch *animationSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *stepSwitch;
+
+- (void)moveLabelWithAnimation:(BOOL)animation;
+- (void)changeSwitchStatusName;
 
 @end

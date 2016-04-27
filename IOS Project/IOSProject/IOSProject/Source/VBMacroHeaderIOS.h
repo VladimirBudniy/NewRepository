@@ -9,6 +9,18 @@
 #ifndef VBMacroHeaderIOS_h
 #define VBMacroHeaderIOS_h
 
+
+#define VBWeakSelfMacro \
+__weak id weakSelf = self \
+
+
+#define VBStrongSelfAndReturnNilMacro \
+__strong id strongSelf = weakSelf; \
+if (!strongSelf) { \
+return; \
+}
+
+
 #define VBRootViewAndReturnNilMacro(theClass) \
     - (theClass *)rootView { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \

@@ -35,9 +35,7 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
-        [self setSquarePosition:squarePosition animated:animated completionHandler:^{
-            _squarePosition = squarePosition;
-        }];
+        [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
     }
 }
 
@@ -54,13 +52,29 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
                          if (handler) {
                              handler();
                          }
+                         
+                         _squarePosition = squarePosition;
                      }];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)moveLabelaWithAnimation:(BOOL)animation {
+- (void)changeSwitchStatusName {
+    if (self.animationSwitch.on) {
+        self.animationLabel.text = @"Animation switch is on";
+    } else {
+        self.animationLabel.text = @"Animation switch is off";
+    }
+    
+    if (self.stepSwitch.on) {
+        self.stepLabel.text = @"Step switch is on";
+    } else {
+        self.stepLabel.text = @"Step switch is off";
+    }
+}
+
+- (void)moveLabelWithAnimation:(BOOL)animation {
     [self setSquarePosition:[self nextSquarePosition] animated:animation];
 }
 

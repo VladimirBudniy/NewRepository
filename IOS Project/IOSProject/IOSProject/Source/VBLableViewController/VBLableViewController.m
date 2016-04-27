@@ -24,12 +24,20 @@ VBRootViewAndReturnNilMacro(VBLabelView);
 #pragma mark -
 #pragma mark Handling Interface
 
+- (IBAction)onSwitchAnimationSwitch:(id)sender {
+    [self.rootView changeSwitchStatusName];
+}
+
+- (IBAction)onSwitchStepSwitch:(id)sender {
+    [self.rootView changeSwitchStatusName];
+}
+
 - (IBAction)onClickAnimationButton:(id)sender {
-    [self.rootView moveLabelaWithAnimation:YES];
+    [self.rootView moveLabelWithAnimation:YES];
 }
 
 - (IBAction)onClickStepButton:(id)sender {
-    [self.rootView moveLabelaWithAnimation:NO];
+    [self.rootView moveLabelWithAnimation:NO];
 }
 
 @end
