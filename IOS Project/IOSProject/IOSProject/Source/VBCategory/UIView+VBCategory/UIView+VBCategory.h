@@ -10,17 +10,17 @@
 
 @interface UIView (VBCategory)
 
-- (void)changeFormatForLabel:(id)object
+- (void)changeFormatForfView:(UIView *)view
                cornerRadius:(CGFloat)cornerRadius
                 borderColor:(UIColor *)color
                 borderWidth:(CGFloat)borderWidth
               masksToBounds:(BOOL)masksToBounds;
 
-- (void)changeFormaForfView:(id)view
-              cornerRadius:(CGFloat)cornerRadius
-               borderColor:(UIColor *)color
-               borderWidth:(CGFloat)borderWidth
-             masksToBounds:(BOOL)masksToBounds;
+- (void)changeFormatForLabel:(UILabel *)object
+               cornerRadius:(CGFloat)cornerRadius
+                borderColor:(UIColor *)color
+                borderWidth:(CGFloat)borderWidth
+              masksToBounds:(BOOL)masksToBounds;
 
 - (void)changeFormatForButton:(UIButton *)button
                  cornerRadius:(CGFloat)cornerRadius

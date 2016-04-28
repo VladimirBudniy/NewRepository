@@ -10,6 +10,20 @@
 
 @implementation UILabel (VBCategory)
 
+- (void)changeFormatForfView:(UIView *)view
+               cornerRadius:(CGFloat)cornerRadius
+                borderColor:(UIColor *)color
+                borderWidth:(CGFloat)borderWidth
+              masksToBounds:(BOOL)masksToBounds
+{
+    UIView *changeableView = view;
+    CALayer *layer = changeableView.layer;
+    layer.masksToBounds = masksToBounds;
+    layer.cornerRadius = cornerRadius;
+    layer.borderColor = [color CGColor];
+    layer.borderWidth = borderWidth;
+}
+
 - (void)changeFormatForLabel:(UILabel *)label
                cornerRadius:(CGFloat)cornerRadius
                 borderColor:(UIColor *)color
@@ -18,20 +32,6 @@
 {
     UILabel *changeableLabel = label;
     CALayer *layer = changeableLabel.layer;
-    layer.masksToBounds = masksToBounds;
-    layer.cornerRadius = cornerRadius;
-    layer.borderColor = [color CGColor];
-    layer.borderWidth = borderWidth;
-}
-
-- (void)changeFormaForfView:(UIView *)view
-               cornerRadius:(CGFloat)cornerRadius
-                borderColor:(UIColor *)color
-                borderWidth:(CGFloat)borderWidth
-              masksToBounds:(BOOL)masksToBounds
-{
-    UIView *changeableView = view;
-    CALayer *layer = changeableView.layer;
     layer.masksToBounds = masksToBounds;
     layer.cornerRadius = cornerRadius;
     layer.borderColor = [color CGColor];

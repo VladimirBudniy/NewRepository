@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (VBCategory)
-
 + (instancetype)controllerFromNib;
 + (instancetype)controllerFromNibWithName:(NSString *)className;
 

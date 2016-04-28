@@ -6,7 +6,6 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-
 CG_INLINE CGRect
 CGRectMakeWithSize(CGFloat x, CGFloat y, CGSize size) {
     return CGRectMake(x, y, size.width, size.height);
