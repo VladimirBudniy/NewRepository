@@ -8,9 +8,13 @@
 
 #import "VBLabelView.h"
 
-static const CGFloat    kVBDefaultAnimationDuration = 0.5;
+static CGFloat    const kVBDefaultAnimationDuration        = 0.5;
 
-//static const NSString * kVBSwitchName
+static NSString * const kVBIndicatorInfiniteAnimationOn    = @"  Infinite animation is on";
+static NSString * const kVBIndicatorInfiniteAnimationOff   = @"  Infinite animation is off";
+
+static NSString * const kVBIndicatorStepAnimationOn        = @"  Stepping animation is on";
+static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animation is off";
 
 @interface VBLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
@@ -52,7 +56,7 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.label.frame = [self frameForSquarePosition:squarePosition];
-                     } completion:^(BOOL finished){
+                     } completion:^(BOOL finished) {
                          if (handler) {
                              handler();
                          }
@@ -70,17 +74,11 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
     UILabel *labelAnimetionSwitch = self.animationLabel;
     UILabel *labelStepSwitch = self.stepLabel;
     
-    if (self.animationSwitch.on) {
-        labelAnimetionSwitch.text = @"  Infinite animation is on";
-    } else {
-        labelAnimetionSwitch.text = @"  Infinite animation is off";
-    }
+    labelAnimetionSwitch.text = self.animationSwitch.on ? kVBIndicatorInfiniteAnimationOn
+                                                        : kVBIndicatorInfiniteAnimationOff;
     
-    if (self.stepSwitch.on) {
-        labelStepSwitch.text = @"  Stepping animation is on";
-    } else {
-        labelStepSwitch.text = @"  Stepping animation is off";
-    }
+    labelStepSwitch.text = self.stepSwitch.on ? kVBIndicatorStepAnimationOn
+                                              : kVBIndicatorStepAnimationOff;
 }
 
 - (void)moveLabel {

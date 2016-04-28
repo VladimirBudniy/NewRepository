@@ -9,8 +9,10 @@
 
 CG_INLINE CGRect
 CGRectMakeWithSize(CGFloat x, CGFloat y, CGSize size) {
-    CGRect rect;
-    rect.origin.x = x; rect.origin.y = y;
-    rect.size = size;
-    return rect;
+    return CGRectMake(x, y, size.width, size.height);
+}
+
+CG_INLINE CGRect
+CGRectMakeWithPointDataAndSize(CGPoint point, CGSize size) {
+    return CGRectMake(point.x, point.y, size.width, size.height);
 }
