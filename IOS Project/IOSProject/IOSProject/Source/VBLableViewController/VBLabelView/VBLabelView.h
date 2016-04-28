@@ -27,7 +27,7 @@ typedef void (^VBLabelHandler)(void);
 @property (nonatomic, retain) IBOutlet UISwitch *animationSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *stepSwitch;
 
-- (void)moveLabelWithAnimation:(BOOL)animation;
+- (void)moveLabel;
 - (void)changeSwitchStatusName;
 
 @end

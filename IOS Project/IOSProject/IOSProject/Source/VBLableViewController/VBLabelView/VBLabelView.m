@@ -10,6 +10,8 @@
 
 static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 
+//static const NSString * kVBSwitchName
+
 @interface VBLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
 
@@ -35,7 +37,9 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
-        [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
+        [self setSquarePosition:squarePosition animated:animated completionHandler:^{
+            _squarePosition = squarePosition;
+        }];
     }
 }
 
@@ -53,7 +57,9 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
                              handler();
                          }
                          
-                         _squarePosition = squarePosition;
+                         if (self.stepSwitch.on || self.animationSwitch.on) {
+                             [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
+                         }
                      }];
 }
 
@@ -61,24 +67,24 @@ static const CGFloat    kVBDefaultAnimationDuration = 0.5;
 #pragma mark Public
 
 - (void)changeSwitchStatusName {
-    NSString *labelAnimetionSwitchText = self.animationLabel.text;
-    NSString *labelStepSwitchText = self.stepLabel.text;
+    UILabel *labelAnimetionSwitch = self.animationLabel;
+    UILabel *labelStepSwitch = self.stepLabel;
     
     if (self.animationSwitch.on) {
-        labelAnimetionSwitchText = @"Animation switch is on";
+        labelAnimetionSwitch.text = @"  Infinite animation is on";
     } else {
-        labelAnimetionSwitchText = @"Animation switch is off";
+        labelAnimetionSwitch.text = @"  Infinite animation is off";
     }
     
     if (self.stepSwitch.on) {
-        labelStepSwitchText = @"Step switch is on";
+        labelStepSwitch.text = @"  Stepping animation is on";
     } else {
-        labelStepSwitchText = @"Step switch is off";
+        labelStepSwitch.text = @"  Stepping animation is off";
     }
 }
 
-- (void)moveLabelWithAnimation:(BOOL)animation {
-    [self setSquarePosition:[self nextSquarePosition] animated:animation];
+- (void)moveLabel {
+    [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
 }
 
 #pragma mark -

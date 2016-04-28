@@ -11,10 +11,6 @@
 @interface VBLableViewController : UIViewController
 
 - (IBAction)onClickAnimationButton:(id)sender;
-- (IBAction)onClickStepButton:(id)sender;
-
 - (IBAction)onSwitchAnimationSwitch:(id)sender;
-- (IBAction)onSwitchStepSwitch:(id)sender;
-
 
 @end

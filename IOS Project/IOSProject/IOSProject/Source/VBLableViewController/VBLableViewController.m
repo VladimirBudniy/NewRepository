@@ -28,20 +28,8 @@ VBRootViewAndReturnNilMacro(VBLabelView);
     [self.rootView changeSwitchStatusName];
 }
 
-- (IBAction)onSwitchStepSwitch:(id)sender {
-    [self.rootView changeSwitchStatusName];
-}
-
 - (IBAction)onClickAnimationButton:(id)sender {
-    if (self.rootView.animationSwitch.on) {
-        [self.rootView moveLabelWithAnimation:YES];
-    }
-}
-
-- (IBAction)onClickStepButton:(id)sender {
-    if (self.rootView.stepSwitch.on) {
-        [self.rootView moveLabelWithAnimation:NO];
-    }
+    [self.rootView moveLabel];
 }
 
 @end
