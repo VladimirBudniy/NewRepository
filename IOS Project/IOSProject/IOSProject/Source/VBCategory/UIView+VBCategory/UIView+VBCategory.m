@@ -8,44 +8,14 @@
 
 #import "UIView+VBCategory.h"
 
-@implementation UILabel (VBCategory)
+@implementation UIView (VBCategory)
 
-- (void)changeFormatForfView:(UIView *)view
-               cornerRadius:(CGFloat)cornerRadius
-                borderColor:(UIColor *)color
-                borderWidth:(CGFloat)borderWidth
-              masksToBounds:(BOOL)masksToBounds
+- (void)changeCornerRadius:(CGFloat)cornerRadius
+                 borderColor:(UIColor *)color
+                 borderWidth:(CGFloat)borderWidth
+               masksToBounds:(BOOL)masksToBounds
 {
-    UIView *changeableView = view;
-    CALayer *layer = changeableView.layer;
-    layer.masksToBounds = masksToBounds;
-    layer.cornerRadius = cornerRadius;
-    layer.borderColor = [color CGColor];
-    layer.borderWidth = borderWidth;
-}
-
-- (void)changeFormatForLabel:(UILabel *)label
-               cornerRadius:(CGFloat)cornerRadius
-                borderColor:(UIColor *)color
-                borderWidth:(CGFloat)borderWidth
-              masksToBounds:(BOOL)masksToBounds
-{
-    UILabel *changeableLabel = label;
-    CALayer *layer = changeableLabel.layer;
-    layer.masksToBounds = masksToBounds;
-    layer.cornerRadius = cornerRadius;
-    layer.borderColor = [color CGColor];
-    layer.borderWidth = borderWidth;
-}
-
-- (void)changeFormatForButton:(UIButton *)button
-              cornerRadius:(CGFloat)cornerRadius
-               borderColor:(UIColor *)color
-               borderWidth:(CGFloat)borderWidth
-             masksToBounds:(BOOL)masksToBounds
-{
-    UIButton *changeableButton = button;
-    CALayer *layer = changeableButton.layer;
+    CALayer *layer = self.layer;
     layer.masksToBounds = masksToBounds;
     layer.cornerRadius = cornerRadius;
     layer.borderColor = [color CGColor];

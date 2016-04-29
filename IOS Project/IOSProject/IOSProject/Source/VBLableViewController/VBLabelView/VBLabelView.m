@@ -10,6 +10,10 @@
 
 static CGFloat    const kVBDefaultAnimationDuration        = 0.5;
 
+static CGFloat    const kVBCornerRadius        = 15;
+static CGFloat    const kVBBorderWidths        = 1.5;
+static BOOL       const kVBMasksToBounds       = YES;
+
 static NSString * const kVBIndicatorInfiniteAnimationOn    = @"  Infinite animation is on";
 static NSString * const kVBIndicatorInfiniteAnimationOff   = @"  Infinite animation is off";
 
@@ -31,6 +35,41 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
 @end
 
 @implementation VBLabelView
+
+#pragma mark -
+#pragma mark Initializations and Deallocatins
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self.upperView changeCornerRadius:kVBCornerRadius
+                           borderColor:[UIColor whiteColor]
+                           borderWidth:kVBBorderWidths
+                         masksToBounds:kVBMasksToBounds];
+    
+    [self.moveLabelButon changeCornerRadius:kVBCornerRadius
+                                borderColor:[UIColor whiteColor]
+                                borderWidth:kVBBorderWidths
+                              masksToBounds:kVBMasksToBounds];
+    
+    [self.label changeCornerRadius:kVBCornerRadius
+                       borderColor:[UIColor whiteColor]
+                       borderWidth:kVBBorderWidths
+                     masksToBounds:kVBMasksToBounds];
+    
+    
+    [self.animationLabel changeCornerRadius:kVBCornerRadius
+                                borderColor:[UIColor whiteColor]
+                                borderWidth:kVBBorderWidths
+                              masksToBounds:kVBMasksToBounds];
+    
+    [self.stepLabel changeCornerRadius:kVBCornerRadius
+                           borderColor:[UIColor whiteColor]
+                           borderWidth:kVBBorderWidths
+                         masksToBounds:kVBMasksToBounds];
+    
+}
+
 
 #pragma mark -
 #pragma mark Accessors
@@ -71,14 +110,11 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
 #pragma mark Public
 
 - (void)changeSwitchStatusName {
-    UILabel *labelAnimetionSwitch = self.animationLabel;
-    UILabel *labelStepSwitch = self.stepLabel;
+    self.animationLabel.text = self.animationSwitch.on ? kVBIndicatorInfiniteAnimationOn
+    : kVBIndicatorInfiniteAnimationOff;
     
-    labelAnimetionSwitch.text = self.animationSwitch.on ? kVBIndicatorInfiniteAnimationOn
-                                                        : kVBIndicatorInfiniteAnimationOff;
-    
-    labelStepSwitch.text = self.stepSwitch.on ? kVBIndicatorStepAnimationOn
-                                              : kVBIndicatorStepAnimationOff;
+    self.stepLabel.text = self.stepSwitch.on ? kVBIndicatorStepAnimationOn
+    : kVBIndicatorStepAnimationOff;
 }
 
 - (void)moveLabel {

@@ -10,22 +10,9 @@
 
 @interface UIView (VBCategory)
 
-- (void)changeFormatForfView:(UIView *)view
-               cornerRadius:(CGFloat)cornerRadius
-                borderColor:(UIColor *)color
-                borderWidth:(CGFloat)borderWidth
-              masksToBounds:(BOOL)masksToBounds;
-
-- (void)changeFormatForLabel:(UILabel *)object
-               cornerRadius:(CGFloat)cornerRadius
-                borderColor:(UIColor *)color
-                borderWidth:(CGFloat)borderWidth
-              masksToBounds:(BOOL)masksToBounds;
-
-- (void)changeFormatForButton:(UIButton *)button
-                 cornerRadius:(CGFloat)cornerRadius
-                  borderColor:(UIColor *)color
-                  borderWidth:(CGFloat)borderWidth
-                masksToBounds:(BOOL)masksToBounds;
+- (void)changeCornerRadius:(CGFloat)cornerRadius
+               borderColor:(UIColor *)color
+               borderWidth:(CGFloat)borderWidth
+             masksToBounds:(BOOL)masksToBounds;
 
 @end
