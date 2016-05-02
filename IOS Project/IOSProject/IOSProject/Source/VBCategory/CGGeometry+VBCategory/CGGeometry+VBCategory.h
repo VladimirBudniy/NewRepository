@@ -15,3 +15,8 @@ CG_INLINE CGRect
 CGRectMakeWithPointDataAndSize(CGPoint point, CGSize size) {
     return CGRectMake(point.x, point.y, size.width, size.height);
 }
+
+CG_INLINE CGRect
+CGRectMakeWithDefaultZeroPointAndSize(CGSize size) {
+    return CGRectMake(0, 0, size.width, size.height);
+}

@@ -19,7 +19,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-VBRootViewAndReturnNilMacro(VBLabelView);
+VBRootViewAndReturnIfNilMacro(VBLabelView);
 
 #pragma mark -
 #pragma mark Handling Interface

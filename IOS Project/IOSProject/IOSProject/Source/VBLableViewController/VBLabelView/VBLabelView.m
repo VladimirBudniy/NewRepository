@@ -10,25 +10,21 @@
 
 static CGFloat    const kVBDefaultAnimationDuration        = 0.5;
 
-static CGFloat    const kVBCornerRadius        = 15;
-static CGFloat    const kVBBorderWidths        = 1.5;
-static BOOL       const kVBMasksToBounds       = YES;
+static NSString * const kVBIndicatorInfiniteAnimationOn    = @"  Animating infinite motion is on";
+static NSString * const kVBIndicatorInfiniteAnimationOff   = @"  Animating infinite motion is off";
 
-static NSString * const kVBIndicatorInfiniteAnimationOn    = @"  Infinite animation is on";
-static NSString * const kVBIndicatorInfiniteAnimationOff   = @"  Infinite animation is off";
-
-static NSString * const kVBIndicatorStepAnimationOn        = @"  Stepping animation is on";
-static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animation is off";
+static NSString * const kVBIndicatorStepAnimationOn        = @"  Stepping infinite motion is on";
+static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping infinite motion is off";
 
 @interface VBLabelView ()
-@property (nonatomic, assign) NSUInteger squarePosition;
+@property (nonatomic, assign) VBLabelLocation squarePosition;
 
-- (CGRect)frameForSquarePosition:(NSUInteger)squarePosition;
+- (CGRect)frameForSquarePosition:(VBLabelLocation)squarePosition;
 
 - (VBLabelLocation)nextSquarePosition;
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated;
-- (void)setSquarePosition:(NSUInteger)squarePosition
+- (void)setSquarePosition:(VBLabelLocation)squarePosition animated:(BOOL)animated;
+- (void)setSquarePosition:(VBLabelLocation)squarePosition
                  animated:(BOOL)animated
         completionHandler:(VBLabelHandler)handler;
 
@@ -41,44 +37,23 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    [self.upperView changeCornerRadius:kVBCornerRadius
-                           borderColor:[UIColor whiteColor]
-                           borderWidth:kVBBorderWidths
-                         masksToBounds:kVBMasksToBounds];
-    
-    [self.moveLabelButon changeCornerRadius:kVBCornerRadius
-                                borderColor:[UIColor whiteColor]
-                                borderWidth:kVBBorderWidths
-                              masksToBounds:kVBMasksToBounds];
-    
-    [self.label changeCornerRadius:kVBCornerRadius
-                       borderColor:[UIColor whiteColor]
-                       borderWidth:kVBBorderWidths
-                     masksToBounds:kVBMasksToBounds];
-    
-    
-    [self.animationLabel changeCornerRadius:kVBCornerRadius
-                                borderColor:[UIColor whiteColor]
-                                borderWidth:kVBBorderWidths
-                              masksToBounds:kVBMasksToBounds];
-    
-    [self.stepLabel changeCornerRadius:kVBCornerRadius
-                           borderColor:[UIColor whiteColor]
-                           borderWidth:kVBBorderWidths
-                         masksToBounds:kVBMasksToBounds];
+
+    [self.upperView changePropertiesOnDefaultsData];
+    [self.moveLabelButon changePropertiesOnDefaultsData];
+    [self.label changePropertiesOnDefaultsData];
+    [self.animationLabel changePropertiesOnDefaultsData];
+    [self.stepLabel changePropertiesOnDefaultsData];
     
 }
-
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquarePosition:(NSUInteger)squarePosition {
+- (void)setSquarePosition:(VBLabelLocation)squarePosition {
     [self setSquarePosition:squarePosition animated:NO];
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
+- (void)setSquarePosition:(VBLabelLocation)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
         [self setSquarePosition:squarePosition animated:animated completionHandler:^{
             _squarePosition = squarePosition;
@@ -86,7 +61,7 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
     }
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition
+- (void)setSquarePosition:(VBLabelLocation)squarePosition
                  animated:(BOOL)animated
         completionHandler:(VBLabelHandler)handler
 {
@@ -100,8 +75,9 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
                              handler();
                          }
                          
-                         if (self.stepSwitch.on || self.animationSwitch.on) {
-                             [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
+                         if (self.stepSwitch.on) {
+                             [self setSquarePosition:[self nextSquarePosition]
+                                            animated:self.animationSwitch.on];
                          }
                      }];
 }
@@ -140,7 +116,7 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
     }
 }
 
-- (CGRect)frameForSquarePosition:(NSUInteger)squarePosition {
+- (CGRect)frameForSquarePosition:(VBLabelLocation)squarePosition {
     
     CGFloat xPoint = 0;
     CGFloat yPoint = 0;
@@ -152,6 +128,9 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping animat
     CGFloat yPointLowerRight = upperViewSize.height - labelSize.height;
     
     switch (squarePosition) {
+        case kVBLabelUpperLeftLocation:
+            break;
+            
         case kVBLabelUpperRightLocation:
             xPoint = xPointUpperRight;
             break;

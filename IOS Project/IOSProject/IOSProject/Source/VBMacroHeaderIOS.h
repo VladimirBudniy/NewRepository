@@ -21,7 +21,7 @@ return; \
 }
 
 
-#define VBRootViewAndReturnNilMacro(theClass) \
+#define VBRootViewAndReturnIfNilMacro(theClass) \
     - (theClass *)rootView { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
                 return (theClass *)self.view; \

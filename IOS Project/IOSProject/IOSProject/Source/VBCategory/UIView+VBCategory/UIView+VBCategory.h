@@ -10,9 +10,15 @@
 
 @interface UIView (VBCategory)
 
+- (void)changePropertiesOnDefaultsData;
+
 - (void)changeCornerRadius:(CGFloat)cornerRadius
                borderColor:(UIColor *)color
-               borderWidth:(CGFloat)borderWidth
-             masksToBounds:(BOOL)masksToBounds;
+               borderWidth:(CGFloat)borderWidth;
+
+- (void)changeCorners:(CGFloat)cornersRadius;
+- (void)changeBorderWidth:(CGFloat)borderWidth;
+- (void)changeBorderColor:(UIColor *)color;
+- (void)changeBackgraundColor:(UIColor *)color;
 
 @end
