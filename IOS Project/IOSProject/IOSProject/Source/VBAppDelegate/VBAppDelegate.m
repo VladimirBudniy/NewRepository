@@ -8,6 +8,7 @@
 
 #import "VBAppDelegate.h"
 #import "VBLableViewController.h"
+#import "VBStringViewController.h"
 
 @interface VBAppDelegate ()
 
@@ -19,10 +20,10 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [VBLableViewController controllerFromNib];
+    window.rootViewController = [VBStringViewController controllerFromNib];
     [window makeKeyAndVisible];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

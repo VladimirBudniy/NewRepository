@@ -10,7 +10,7 @@
 #import "VBLabelView.h"
 
 @interface VBLableViewController ()
-@property (nonatomic, strong) VBLabelView *rootView;
+@property (nonatomic, readonly) VBLabelView *rootView;
 
 @end
 
