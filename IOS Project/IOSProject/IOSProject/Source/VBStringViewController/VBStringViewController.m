@@ -36,13 +36,13 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     UITableView *tableView = self.rootView.tableView;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kVBCellIdentifier];
     
-    // was added title for table
+    // was added header for table
     CGSize rootViewSize = self.rootView.frame.size;
-    UIView *titleView = [[UIView alloc]
+    UIView *headerView = [[UIView alloc]
                          initWithFrame:CGRectMake(0, 0, rootViewSize.width, kVBDefaultTitleHeight)];
     
-    [titleView paintBackgraundByColor:[UIColor cyanColor]];
-    tableView.tableHeaderView = titleView;
+    [headerView paintBackgraundByColor:[UIColor cyanColor]];
+    tableView.tableHeaderView = headerView;
     
     CGSize titleViewSize = self.rootView.tableView.tableHeaderView.frame.size;
     UILabel *titleLabel = [[UILabel alloc]
@@ -71,6 +71,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     UILabel *cellTextLabel = cell.textLabel;
     cellTextLabel.text = [self.arrayItems objectAtIndex:indexPath.row];
     cellTextLabel.textColor = [UIColor blueColor];
+    [cell.imageView setImage:[UIImage imageNamed:@"image_add.jpg"]];
     
     return cell;
 }

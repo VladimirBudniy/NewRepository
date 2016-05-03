@@ -10,6 +10,7 @@
 		E706292A1CD91C9A0094DA34 /* VBStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70629281CD91C9A0094DA34 /* VBStringViewController.m */; };
 		E706292B1CD91C9B0094DA34 /* VBStringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E70629291CD91C9A0094DA34 /* VBStringViewController.xib */; };
 		E706292E1CD91CDD0094DA34 /* VBStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = E706292D1CD91CDD0094DA34 /* VBStringView.m */; };
+		E70629361CD95E4B0094DA34 /* image_add.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E70629351CD95E4B0094DA34 /* image_add.jpg */; };
 		E707B5C21CC96B0800C56771 /* VBLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E707B5C11CC96B0800C56771 /* VBLabelView.m */; };
 		E70B54D61CCF9B46005F3174 /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B54D51CCF9B46005F3174 /* UIViewController+VBCategory.m */; };
 		E70B54E51CCFAEA4005F3174 /* CGGeometry+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B54E41CCFAEA4005F3174 /* CGGeometry+VBCategory.m */; };
@@ -29,6 +30,7 @@
 		E70629291CD91C9A0094DA34 /* VBStringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBStringViewController.xib; sourceTree = "<group>"; };
 		E706292C1CD91CDD0094DA34 /* VBStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBStringView.h; sourceTree = "<group>"; };
 		E706292D1CD91CDD0094DA34 /* VBStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBStringView.m; sourceTree = "<group>"; };
+		E70629351CD95E4B0094DA34 /* image_add.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_add.jpg; sourceTree = "<group>"; };
 		E707B5C01CC96B0800C56771 /* VBLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLabelView.h; sourceTree = "<group>"; };
 		E707B5C11CC96B0800C56771 /* VBLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLabelView.m; sourceTree = "<group>"; };
 		E70B54D41CCF9B46005F3174 /* UIViewController+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VBCategory.h"; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 				E706292D1CD91CDD0094DA34 /* VBStringView.m */,
 			);
 			path = VBStringView;
+			sourceTree = "<group>";
+		};
+		E70629301CD95B2D0094DA34 /* VBImages */ = {
+			isa = PBXGroup;
+			children = (
+				E70629351CD95E4B0094DA34 /* image_add.jpg */,
+			);
+			path = VBImages;
 			sourceTree = "<group>";
 		};
 		E707B5BF1CC96AEF00C56771 /* VBLabelView */ = {
@@ -170,6 +180,7 @@
 		E7F719141CC6D76700A90B54 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E70629301CD95B2D0094DA34 /* VBImages */,
 				E7AA0CC11CCD2D840098C281 /* VBCategory */,
 				E70629201CD91C620094DA34 /* VBStringViewController */,
 				E7AA0CC01CCD2D7C0098C281 /* VBMacroHeaderIOS.h */,
@@ -261,6 +272,7 @@
 				E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */,
 				E706292B1CD91C9B0094DA34 /* VBStringViewController.xib in Resources */,
 				E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */,
+				E70629361CD95E4B0094DA34 /* image_add.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
