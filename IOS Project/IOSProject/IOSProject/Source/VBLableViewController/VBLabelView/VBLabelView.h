@@ -21,10 +21,12 @@ typedef void (^VBLabelHandler)(void);
 @property (nonatomic, retain) IBOutlet UIView   *upperView;
 
 @property (nonatomic, retain) IBOutlet UILabel  *label;
-@property (nonatomic, retain) IBOutlet UILabel *animationLabel;
-@property (nonatomic, retain) IBOutlet UILabel *stepLabel;
+@property (nonatomic, retain) IBOutlet UILabel  *animationLabel;
+@property (nonatomic, retain) IBOutlet UILabel  *stepLabel;
 
 @property (nonatomic, retain) IBOutlet UIButton *moveLabelButon;
+
+@property (nonatomic, strong) IBOutletCollection(UIView) NSArray *arrayItemsView;
 
 @property (nonatomic, retain) IBOutlet UISwitch *animationSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *stepSwitch;

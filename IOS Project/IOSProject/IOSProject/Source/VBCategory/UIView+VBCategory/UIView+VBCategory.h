@@ -10,15 +10,15 @@
 
 @interface UIView (VBCategory)
 
-- (void)changePropertiesOnDefaultsData;
+- (void)roundCornersWhiteColorFrame;
 
-- (void)changeCornerRadius:(CGFloat)cornerRadius
+- (void)roundCornerRadius:(CGFloat)cornerRadius
                borderColor:(UIColor *)color
                borderWidth:(CGFloat)borderWidth;
 
-- (void)changeCorners:(CGFloat)cornersRadius;
-- (void)changeBorderWidth:(CGFloat)borderWidth;
-- (void)changeBorderColor:(UIColor *)color;
-- (void)changeBackgraundColor:(UIColor *)color;
+- (void)roundCorners:(CGFloat)cornersRadius;
+- (void)adjustBorderWidth:(CGFloat)borderWidth;
+- (void)paintBorderByColor:(UIColor *)color;
+- (void)paintBackgraundByColor:(UIColor *)color;
 
 @end

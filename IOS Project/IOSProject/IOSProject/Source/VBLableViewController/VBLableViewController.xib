@@ -115,6 +115,11 @@
                 <outlet property="stepLabel" destination="9pd-US-qJB" id="rNf-bS-NSG"/>
                 <outlet property="stepSwitch" destination="yrB-hA-I0H" id="P1h-Uh-38x"/>
                 <outlet property="upperView" destination="yD5-lt-t75" id="4ID-iG-ttm"/>
+                <outletCollection property="arrayItemsView" destination="yD5-lt-t75" id="ezO-us-bxJ"/>
+                <outletCollection property="arrayItemsView" destination="9pd-US-qJB" id="qEw-2C-IAg"/>
+                <outletCollection property="arrayItemsView" destination="DIk-ja-92g" id="mZQ-kw-uJ0"/>
+                <outletCollection property="arrayItemsView" destination="9x3-iC-8p3" id="haU-Xc-p78"/>
+                <outletCollection property="arrayItemsView" destination="Buz-uQ-0iS" id="amg-1i-xDB"/>
             </connections>
             <point key="canvasLocation" x="241" y="-96"/>
         </view>

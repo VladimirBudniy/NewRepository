@@ -37,13 +37,10 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping infini
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
-    [self.upperView changePropertiesOnDefaultsData];
-    [self.moveLabelButon changePropertiesOnDefaultsData];
-    [self.label changePropertiesOnDefaultsData];
-    [self.animationLabel changePropertiesOnDefaultsData];
-    [self.stepLabel changePropertiesOnDefaultsData];
     
+    for (UIView *view in self.arrayItemsView) {
+        [view roundCornersWhiteColorFrame];
+    }
 }
 
 #pragma mark -
@@ -78,6 +75,8 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping infini
                          if (self.stepSwitch.on) {
                              [self setSquarePosition:[self nextSquarePosition]
                                             animated:self.animationSwitch.on];
+                         } else {
+                             [self.moveLabelButon setUserInteractionEnabled:YES];
                          }
                      }];
 }
@@ -87,13 +86,14 @@ static NSString * const kVBIndicatorStepAnimationOff       = @"  Stepping infini
 
 - (void)changeSwitchStatusName {
     self.animationLabel.text = self.animationSwitch.on ? kVBIndicatorInfiniteAnimationOn
-    : kVBIndicatorInfiniteAnimationOff;
+                                                            : kVBIndicatorInfiniteAnimationOff;
     
     self.stepLabel.text = self.stepSwitch.on ? kVBIndicatorStepAnimationOn
-    : kVBIndicatorStepAnimationOff;
+                                                    : kVBIndicatorStepAnimationOff;
 }
 
 - (void)moveLabel {
+    [self.moveLabelButon setUserInteractionEnabled:NO];
     [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
 }
 

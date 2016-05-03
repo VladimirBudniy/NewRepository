@@ -8,56 +8,58 @@
 
 #import "UIView+VBCategory.h"
 
-#define VBCustormSnowWhiteColor [UIColor colorWithRed:255 green:250 blue:250 alpha:1]
+#define VBCustormSnowWhiteColor [UIColor colorWithRed:255 green:250 blue:250 alpha:0.8]
+#define VBCustormBlackColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8]
 
 static CGFloat  const kVBDefaultCornerRadius        = 15;
-static CGFloat  const kVBDefaultBorderWidths        = 1.5;
+static CGFloat  const kVBDefaultBorderWidths        = 1;
 
 @implementation UIView (VBCategory)
 
-- (void)changePropertiesOnDefaultsData {
-    CALayer *layer = self.layer;
-    layer.masksToBounds = YES;
-    [self changeCorners:kVBDefaultCornerRadius];
-    [self changeBorderWidth:kVBDefaultBorderWidths];
-    [self changeBorderColor:VBCustormSnowWhiteColor];
+- (void)roundCornersWhiteColorFrame {
+    [self roundCornerRadius:kVBDefaultCornerRadius
+                borderColor:VBCustormSnowWhiteColor
+                borderWidth:kVBDefaultBorderWidths];
 }
 
-- (void)changeCornerRadius:(CGFloat)cornerRadius
-                 borderColor:(UIColor *)color
-                 borderWidth:(CGFloat)borderWidth
+- (void)roundCornerRadius:(CGFloat)cornerRadius
+              borderColor:(UIColor *)color
+              borderWidth:(CGFloat)borderWidth
 {
     CALayer *layer = self.layer;
     layer.masksToBounds = YES;
-    [self changeCorners:cornerRadius];
-    [self changeBorderWidth:borderWidth];
-    [self changeBorderColor:color];
-}
-
-- (void)changeCorners:(CGFloat)cornersRadius {
-    CALayer *layer = self.layer;
-    layer.masksToBounds = YES;
-    layer.cornerRadius = cornersRadius;
-}
-
-- (void)changeBorderWidth:(CGFloat)borderWidth {
-    CALayer *layer = self.layer;
-    layer.masksToBounds = YES;
+    layer.cornerRadius = cornerRadius;
     layer.borderWidth = borderWidth;
-}
-
-- (void)changeBorderColor:(UIColor *)color {
-    CALayer *layer = self.layer;
-    layer.masksToBounds = YES;
     layer.borderColor = [color CGColor];
 }
 
-- (void)changeBackgraundColor:(UIColor *)color {
+- (void)roundCorners:(CGFloat)cornerRadius {
+    CALayer *layer = self.layer;
+    UIColor *color = [UIColor colorWithCGColor:layer.borderColor];
+    [self roundCornerRadius:cornerRadius
+                borderColor:color
+                borderWidth:layer.borderWidth];
+}
+
+- (void)adjustBorderWidth:(CGFloat)borderWidth {
+    CALayer *layer = self.layer;
+    UIColor *color = [UIColor colorWithCGColor:layer.borderColor];
+    [self roundCornerRadius:layer.cornerRadius
+                borderColor:color
+                borderWidth:borderWidth];
+}
+
+- (void)paintBorderByColor:(UIColor *)color {
+    CALayer *layer = self.layer;
+    [self roundCornerRadius:layer.cornerRadius
+                borderColor:color
+                borderWidth:layer.borderWidth];
+}
+
+- (void)paintBackgraundByColor:(UIColor *)color {
     CALayer *layer = self.layer;
     layer.masksToBounds = YES;
     layer.backgroundColor = [color CGColor];
 }
-
-
 
 @end
