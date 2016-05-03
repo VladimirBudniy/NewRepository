@@ -9,12 +9,12 @@
 #import "VBStringViewController.h"
 #import "VBStringView.h"
 
-static CGFloat    const kVBDefaultTitleHeight = 44;
 static NSString * const kVBCellIdentifier     = @"Cell";
+static NSString * const kVBDefaultString      = @"ABCDIFG";
 
 @interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, readonly) VBStringView   *rootView;
-@property (nonatomic, retain)   NSArray        *arrayItems;
+@property (nonatomic, readonly) VBStringView     *rootView;
+@property (nonatomic, retain)   NSMutableArray   *arrayItems;
 
 @end
 
@@ -31,25 +31,17 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.arrayItems = @[@"one", @"two", @"three", @"four", @"five", @"six"];
+    self.arrayItems = [NSMutableArray array];
+    NSString *string = [NSString string];
+    
+    for (NSUInteger index = 0; index < kVBDefaultString.length; index++) {
+        NSUInteger charIndex = arc4random_uniform((uint32_t)kVBDefaultString.length);
+        string = [NSString stringWithFormat:@"%c", [kVBDefaultString characterAtIndex:charIndex]];
+        [self.arrayItems addObject:string];
+    }
     
     UITableView *tableView = self.rootView.tableView;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kVBCellIdentifier];
-    
-    // was added header for table
-    CGSize rootViewSize = self.rootView.frame.size;
-    UIView *headerView = [[UIView alloc]
-                         initWithFrame:CGRectMake(0, 0, rootViewSize.width, kVBDefaultTitleHeight)];
-    
-    [headerView paintBackgraundByColor:[UIColor cyanColor]];
-    tableView.tableHeaderView = headerView;
-    
-    CGSize titleViewSize = self.rootView.tableView.tableHeaderView.frame.size;
-    UILabel *titleLabel = [[UILabel alloc]
-                           initWithFrame:CGRectMakeWithStartPointSize(titleViewSize)];
-    
-    titleLabel.text = @"  The first test table";
-    [tableView.tableHeaderView addSubview:titleLabel];
 }
 
 #pragma mark -
