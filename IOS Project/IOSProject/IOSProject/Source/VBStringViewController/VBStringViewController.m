@@ -13,8 +13,8 @@ static CGFloat    const kVBDefaultTitleHeight = 44;
 static NSString * const kVBCellIdentifier     = @"Cell";
 
 @interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, readonly) VBStringView *rootView;
-@property (nonatomic, retain)   NSArray      *arrayItems;
+@property (nonatomic, readonly) VBStringView   *rootView;
+@property (nonatomic, retain)   NSArray        *arrayItems;
 
 @end
 
@@ -36,22 +36,22 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     UITableView *tableView = self.rootView.tableView;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kVBCellIdentifier];
     
+    // was added title for table
     CGSize rootViewSize = self.rootView.frame.size;
     UIView *titleView = [[UIView alloc]
-                          initWithFrame:CGRectMake(0, 0, rootViewSize.width, kVBDefaultTitleHeight)];
-    [titleView paintBackgraundByColor:[UIColor yellowColor]];
+                         initWithFrame:CGRectMake(0, 0, rootViewSize.width, kVBDefaultTitleHeight)];
     
-    
-    UILabel *titleLabel = [[UILabel alloc]
-                          initWithFrame:CGRectMakeWithStartPointSize(titleView.frame.size)];
-    
-    titleLabel.text = @"First test table";
-    
-    [titleView addSubview:titleLabel];
-    
+    [titleView paintBackgraundByColor:[UIColor cyanColor]];
     tableView.tableHeaderView = titleView;
+    
+    CGSize titleViewSize = self.rootView.tableView.tableHeaderView.frame.size;
+    UILabel *titleLabel = [[UILabel alloc]
+                           initWithFrame:CGRectMakeWithStartPointSize(titleViewSize)];
+    
+    titleLabel.text = @"  The first test table";
+    [tableView.tableHeaderView addSubview:titleLabel];
 }
-     
+
 #pragma mark -
 #pragma mark TableView DataSource
      
@@ -65,11 +65,12 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:@"Cell"];
+                                      reuseIdentifier:kVBCellIdentifier];
     }
-    
-    [cell paintBackgraundByColor:[UIColor lightGrayColor]];
-    cell.textLabel.text = [self.arrayItems objectAtIndex:indexPath.row];
+
+    UILabel *cellTextLabel = cell.textLabel;
+    cellTextLabel.text = [self.arrayItems objectAtIndex:indexPath.row];
+    cellTextLabel.textColor = [UIColor blueColor];
     
     return cell;
 }
