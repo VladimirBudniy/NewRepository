@@ -11,6 +11,7 @@
 
 static NSString * const kVBCellIdentifier     = @"Cell";
 static NSString * const kVBDefaultString      = @"ABCDIFG";
+static NSString * const kVBDefaultCellsImage  = @"apple.logo.png";
 
 @interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, readonly) VBStringView     *rootView;
@@ -63,7 +64,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     UILabel *cellTextLabel = cell.textLabel;
     cellTextLabel.text = [self.arrayItems objectAtIndex:indexPath.row];
     cellTextLabel.textColor = [UIColor blueColor];
-    [cell.imageView setImage:[UIImage imageNamed:@"image_add.jpg"]];
+    [cell.imageView setImage:[UIImage imageNamed:kVBDefaultCellsImage]];
     
     return cell;
 }

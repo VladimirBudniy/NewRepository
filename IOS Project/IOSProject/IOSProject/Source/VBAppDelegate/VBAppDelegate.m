@@ -17,7 +17,7 @@
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [UIWindow newWindow];
     self.window = window;
     
     window.rootViewController = [VBStringViewController controllerFromNib];

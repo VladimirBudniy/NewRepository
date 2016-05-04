@@ -49,14 +49,14 @@ static CGFloat  const kVBDefaultBorderWidths        = 1;
                 borderWidth:borderWidth];
 }
 
-- (void)paintBorderByColor:(UIColor *)color {
+- (void)setBorderByColor:(UIColor *)color {
     CALayer *layer = self.layer;
     [self roundCornerRadius:layer.cornerRadius
                 borderColor:color
                 borderWidth:layer.borderWidth];
 }
 
-- (void)paintBackgraundByColor:(UIColor *)color {
+- (void)setBackgraundByColor:(UIColor *)color {
     CALayer *layer = self.layer;
     layer.masksToBounds = YES;
     layer.backgroundColor = [color CGColor];
