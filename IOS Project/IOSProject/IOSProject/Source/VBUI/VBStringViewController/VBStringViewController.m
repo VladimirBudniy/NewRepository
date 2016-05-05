@@ -13,6 +13,7 @@
 @interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, readonly) VBStringView     *rootView;
 
+
 @end
 
 @implementation VBStringViewController
@@ -26,7 +27,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark TableView DataSource
      
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.stringsModel.arrayStrings.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -44,6 +45,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         
         cell = [[nib instantiateWithOwner:self options:nil] firstObject];
     }
+    
+    cell.cellLabel.text = self.stringsModel.arrayStrings[indexPath.row];
     
     return cell;
 }

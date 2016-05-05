@@ -20,47 +20,41 @@
 #pragma mark Class Methods
 
 + (instancetype)alphabetWithRange:(NSRange)range {
-    return [[[VBRangeAlphabet alloc] initWithRange:range] autorelease];
+    return [[VBRangeAlphabet alloc] initWithRange:range];
 }
 
 + (instancetype)alphabetWithLowercaseLettersRange {
-    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('a', 'z' - 'a')] autorelease];
+    return [[VBRangeAlphabet alloc] initWithRange:NSMakeRange('a', 'z' - 'a')];
 }
 
 + (instancetype)alphabetWithUppercaseLettersRange {
-    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('A', 'Z' - 'A')] autorelease];
+    return [[VBRangeAlphabet alloc] initWithRange:NSMakeRange('A', 'Z' - 'A')];
 }
 
 + (instancetype)alphabetWithNumbers {
-    return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('0', '9' - '0')] autorelease];
+    return [[VBRangeAlphabet alloc] initWithRange:NSMakeRange('0', '9' - '0')];
 }
 
 + (instancetype)alphabetWithString:(NSString *)string {
-    return [[[VBStringAlphabet alloc] initWithString:string] autorelease];
+    return [[VBStringAlphabet alloc] initWithString:string];
 }
 
 + (instancetype)alphabetWithAlphabets:(NSArray *)array {
-    return [[[VBArrayAlphabet alloc] initWithAlphabets:array] autorelease];
+    return [[VBArrayAlphabet alloc] initWithAlphabets:array];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (instancetype)initWithRange:(NSRange)range {
-    [self autorelease];
-    
     return [[VBRangeAlphabet alloc] initWithRange:range];
 }
 
 - (instancetype)initWithString:(NSString *)string {
-    [self autorelease];
-    
     return [[VBStringAlphabet alloc] initWithString:string];
 }
 
 - (instancetype)initWithAlphabets:(NSArray *)array {
-    [self autorelease];
-    
     return [[VBArrayAlphabet alloc] initWithAlphabets:array];
 }
 
@@ -73,33 +67,6 @@
 
 - (NSUInteger)count {
     return  0;
-}
-
-#pragma mark -
-#pragma mark NSFastEnumeration
-
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id __unsafe_unretained [])buffer
-                                    count:(NSUInteger)len
-{
-    
-    if (state->state >= self.count) {
-        return  0;
-    }
-    
-    state->mutationsPtr = (unsigned long *)self;
-    NSUInteger stateCount = state->state;
-    NSUInteger lenght = MIN(len, (self.count) - stateCount);
-    
-    for (NSUInteger index = 0; index < lenght; index++) {
-        NSString *stringSymbol = self[index + stateCount];
-        buffer[index] = stringSymbol;
-    }
-    
-    state->state = stateCount + lenght;
-    state->itemsPtr = buffer;
-    
-    return lenght;
 }
 
 #pragma mark -

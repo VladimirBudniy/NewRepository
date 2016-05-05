@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "apple.logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "vector-folder-icon.png",
       "scale" : "2x"
     },
     {

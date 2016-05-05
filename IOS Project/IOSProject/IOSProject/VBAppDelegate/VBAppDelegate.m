@@ -9,6 +9,7 @@
 #import "VBAppDelegate.h"
 #import "VBLableViewController.h"
 #import "VBStringViewController.h"
+#import "VBArrayStringsModel.h"
 
 @interface VBAppDelegate ()
 
@@ -20,7 +21,11 @@
     UIWindow *window = [UIWindow createWindowMainBounts];
     self.window = window;
     
-    window.rootViewController = [VBStringViewController controllerFromNib];
+    
+    VBStringViewController *viewController = [VBStringViewController controllerFromNib];
+    viewController.stringsModel = [[VBArrayStringsModel alloc] initWithArrayRandomStrings];
+    
+    window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
     return YES;

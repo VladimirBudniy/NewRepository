@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VBArrayStringsModel.h"
 
 @interface VBStringViewController : UIViewController
+@property (nonatomic, strong) VBArrayStringsModel *stringsModel;
 
 @end
