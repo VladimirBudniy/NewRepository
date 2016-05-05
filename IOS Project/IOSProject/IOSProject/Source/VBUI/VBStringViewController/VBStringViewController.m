@@ -8,6 +8,7 @@
 
 #import "VBStringViewController.h"
 #import "VBStringView.h"
+#import "VBTableViewCell.h"
 
 @interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, readonly) VBStringView     *rootView;
@@ -25,14 +26,23 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark TableView DataSource
      
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+//                                      reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+//    }
+    
+    
+    VBTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VBTableViewCell class])];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([VBTableViewCell class]) bundle:[NSBundle mainBundle]];
+        
+        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
     }
     
     return cell;

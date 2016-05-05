@@ -56,10 +56,4 @@ static CGFloat  const kVBDefaultBorderWidths        = 1;
                 borderWidth:layer.borderWidth];
 }
 
-- (void)setBackgraundByColor:(UIColor *)color {
-    CALayer *layer = self.layer;
-    layer.masksToBounds = YES;
-    layer.backgroundColor = [color CGColor];
-}
-
 @end

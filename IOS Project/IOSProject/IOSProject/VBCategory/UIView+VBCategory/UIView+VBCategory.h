@@ -19,6 +19,5 @@
 - (void)roundCorners:(CGFloat)cornersRadius;
 - (void)adjustBorderWidth:(CGFloat)borderWidth;
 - (void)setBorderByColor:(UIColor *)color;
-- (void)setBackgraundByColor:(UIColor *)color;
 
 @end

@@ -18,6 +18,9 @@
 		E703C8E51CDB55AF0026BB1E /* VBStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8DE1CDB55AF0026BB1E /* VBStringViewController.m */; };
 		E703C8E61CDB55AF0026BB1E /* VBStringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E703C8DF1CDB55AF0026BB1E /* VBStringViewController.xib */; };
 		E703C8EA1CDB55EF0026BB1E /* VBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */; };
+		E703C8F71CDB59E80026BB1E /* VBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8F51CDB59E80026BB1E /* VBTableViewCell.m */; };
+		E703C8F81CDB59E80026BB1E /* VBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E703C8F61CDB59E80026BB1E /* VBTableViewCell.xib */; };
+		E703C8FC1CDB68850026BB1E /* project.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E703C8FB1CDB68850026BB1E /* project.logo.png */; };
 		E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
@@ -46,6 +49,10 @@
 		E703C8E81CDB55EF0026BB1E /* VBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAppDelegate.h; sourceTree = "<group>"; };
 		E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAppDelegate.m; sourceTree = "<group>"; };
 		E703C8EC1CDB56300026BB1E /* VBMacroHeaderIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderIOS.h; sourceTree = "<group>"; };
+		E703C8F41CDB59E80026BB1E /* VBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBTableViewCell.h; sourceTree = "<group>"; };
+		E703C8F51CDB59E80026BB1E /* VBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBTableViewCell.m; sourceTree = "<group>"; };
+		E703C8F61CDB59E80026BB1E /* VBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBTableViewCell.xib; sourceTree = "<group>"; };
+		E703C8FB1CDB68850026BB1E /* project.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project.logo.png; sourceTree = "<group>"; };
 		E717BDEF1CC979D9003D14CF /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +76,7 @@
 		E7032F2A1CDA8BF800399F7A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E703C8FB1CDB68850026BB1E /* project.logo.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 		E703C8D91CDB55AF0026BB1E /* VBStringViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E703C8F31CDB59E80026BB1E /* VBTableViewCell */,
 				E703C8DA1CDB55AF0026BB1E /* VBStringView */,
 				E703C8DD1CDB55AF0026BB1E /* VBStringViewController.h */,
 				E703C8DE1CDB55AF0026BB1E /* VBStringViewController.m */,
@@ -200,6 +209,16 @@
 				E703C8EC1CDB56300026BB1E /* VBMacroHeaderIOS.h */,
 			);
 			path = VBMacro;
+			sourceTree = "<group>";
+		};
+		E703C8F31CDB59E80026BB1E /* VBTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E703C8F41CDB59E80026BB1E /* VBTableViewCell.h */,
+				E703C8F51CDB59E80026BB1E /* VBTableViewCell.m */,
+				E703C8F61CDB59E80026BB1E /* VBTableViewCell.xib */,
+			);
+			path = VBTableViewCell;
 			sourceTree = "<group>";
 		};
 		E7F718F11CC6CF8000A90B54 = {
@@ -304,6 +323,8 @@
 				E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */,
 				E703C8E31CDB55AF0026BB1E /* VBLableViewController.xib in Resources */,
 				E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */,
+				E703C8F81CDB59E80026BB1E /* VBTableViewCell.xib in Resources */,
+				E703C8FC1CDB68850026BB1E /* project.logo.png in Resources */,
 				E703C8E61CDB55AF0026BB1E /* VBStringViewController.xib in Resources */,
 				E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */,
 			);
@@ -318,6 +339,7 @@
 			files = (
 				E703C8E41CDB55AF0026BB1E /* VBStringView.m in Sources */,
 				E703C8E21CDB55AF0026BB1E /* VBLableViewController.m in Sources */,
+				E703C8F71CDB59E80026BB1E /* VBTableViewCell.m in Sources */,
 				E703C8EA1CDB55EF0026BB1E /* VBAppDelegate.m in Sources */,
 				E703C8C81CDB55590026BB1E /* UIView+VBCategory.m in Sources */,
 				E703C8C71CDB55590026BB1E /* CGGeometry+VBCategory.m in Sources */,

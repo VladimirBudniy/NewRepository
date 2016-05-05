@@ -8,8 +8,7 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>project.logo.png</string>
+		<string>project.logo</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
