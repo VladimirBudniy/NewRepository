@@ -11,11 +11,12 @@
 #import "VBArrayStringsModel.h"
 #import "VBAlphabet.h"
 
-const NSUInteger kVBArrayCount = 30;
+const NSUInteger kVBDefaultArrayCount = 10;
+
 
 @interface VBArrayStringsModel ()
 
-- (NSArray *)randomStringsWithCount:(NSUInteger)count;
+- (NSArray *)radnomStrings;
 
 @end
 
@@ -27,24 +28,25 @@ const NSUInteger kVBArrayCount = 30;
 - (instancetype)initWithArrayRandomStrings {
     self = [super init];
     if (self) {
-        self.arrayStrings = [self randomStringsWithCount:arc4random_uniform(kVBArrayCount) + 1];
+        self.arrayStrings = [self radnomStrings];
     }
     
     return self;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Private
 
-- (NSArray *)randomStringsWithCount:(NSUInteger)count {
+- (NSArray *)radnomStrings {
     NSMutableArray *array = [NSMutableArray array];
-    
+    NSUInteger count = arc4random_uniform(kVBDefaultArrayCount) + kVBDefaultArrayCount;
+
     for (NSUInteger index = 0; index < count; index++) {
         NSString *string = [NSString randomString];
         [array addObject:string];
     }
     
-    return array;
+    return [array mutableCopy];
 }
 
 @end

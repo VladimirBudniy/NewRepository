@@ -10,9 +10,8 @@
 #import "VBStringView.h"
 #import "VBTableViewCell.h"
 
-@interface VBStringViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface VBStringViewController ()
 @property (nonatomic, readonly) VBStringView     *rootView;
-
 
 @end
 
@@ -31,21 +30,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-//                                      reuseIdentifier:NSStringFromClass([UITableViewCell class])];
-//    }
-    
-    
-    VBTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VBTableViewCell class])];
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([VBTableViewCell class]) bundle:[NSBundle mainBundle]];
-        
-        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
-    }
-    
+    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
     cell.cellLabel.text = self.stringsModel.arrayStrings[indexPath.row];
     
     return cell;

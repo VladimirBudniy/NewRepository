@@ -14,7 +14,7 @@ extern const NSUInteger kVBStringLength;
 @interface NSString (VBExtension)
 
 // Methods with alphabet and length with default values:
-// - default value for length is 8;
+// - default value for length is 4;
 
 + (instancetype)randomString;
 + (instancetype)randomStringWithLength:(NSUInteger)length;
@@ -23,10 +23,5 @@ extern const NSUInteger kVBStringLength;
 
 + (instancetype)randomStringWithAlphabet:(VBAlphabet *)alphabet;
 + (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(VBAlphabet *)alphabet;
-
-//
-//// - default alphabet is alphabetWithUppercaseLettersRange;
-//// - default value for length is 8;
-//- (NSArray *)randomStringsWithCount:(NSUInteger)count;
 
 @end

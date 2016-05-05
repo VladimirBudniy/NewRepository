@@ -58,7 +58,7 @@
                 <outlet property="cellLabel" destination="wV4-tC-9ua" id="etp-J4-qkg"/>
                 <outlet property="separatorView" destination="NJl-JD-rtt" id="A5e-4N-teW"/>
             </connections>
-            <point key="canvasLocation" x="291" y="51"/>
+            <point key="canvasLocation" x="328" y="-76"/>
         </tableViewCell>
     </objects>
     <resources>

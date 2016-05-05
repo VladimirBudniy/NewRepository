@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern const NSUInteger kVBArrayCount;
+extern const NSUInteger kVBDefaultArrayCount;
 
 @interface VBArrayStringsModel : NSObject
 @property (nonatomic, strong) NSArray *arrayStrings;

@@ -23,6 +23,7 @@
 		E703C8FC1CDB68850026BB1E /* project.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E703C8FB1CDB68850026BB1E /* project.logo.png */; };
 		E70561D21CDBC56500B042DA /* NSString+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E70561D11CDBC56500B042DA /* NSString+VBCategory.m */; };
 		E70561D51CDBC5C500B042DA /* VBArrayStringsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70561D41CDBC5C500B042DA /* VBArrayStringsModel.m */; };
+		E70561D91CDBD96E00B042DA /* UITableView+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E70561D81CDBD96D00B042DA /* UITableView+VBCategory.m */; };
 		E7059AC81CDBBC7C00F2AEC6 /* VBArrayAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7059AC11CDBBC7B00F2AEC6 /* VBArrayAlphabet.m */; };
 		E7059AC91CDBBC7C00F2AEC6 /* VBRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7059AC31CDBBC7B00F2AEC6 /* VBRangeAlphabet.m */; };
 		E7059ACA1CDBBC7C00F2AEC6 /* VBStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7059AC51CDBBC7B00F2AEC6 /* VBStringAlphabet.m */; };
@@ -63,6 +64,8 @@
 		E70561D11CDBC56500B042DA /* NSString+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VBCategory.m"; sourceTree = "<group>"; };
 		E70561D31CDBC5C500B042DA /* VBArrayStringsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArrayStringsModel.h; sourceTree = "<group>"; };
 		E70561D41CDBC5C500B042DA /* VBArrayStringsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBArrayStringsModel.m; sourceTree = "<group>"; };
+		E70561D71CDBD96D00B042DA /* UITableView+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+VBCategory.h"; sourceTree = "<group>"; };
+		E70561D81CDBD96D00B042DA /* UITableView+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+VBCategory.m"; sourceTree = "<group>"; };
 		E7059AC01CDBBC7B00F2AEC6 /* VBArrayAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArrayAlphabet.h; sourceTree = "<group>"; };
 		E7059AC11CDBBC7B00F2AEC6 /* VBArrayAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBArrayAlphabet.m; sourceTree = "<group>"; };
 		E7059AC21CDBBC7B00F2AEC6 /* VBRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRangeAlphabet.h; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		E703C8BA1CDB55580026BB1E /* VBCategory */ = {
 			isa = PBXGroup;
 			children = (
+				E70561D61CDBD95000B042DA /* UITableView+VBCategory */,
 				E7059ACC1CDBBC8F00F2AEC6 /* NSString+VBCategory */,
 				E703C8BB1CDB55580026BB1E /* CGGeometry+VBCategory */,
 				E703C8BE1CDB55590026BB1E /* UIView+VBCategory */,
@@ -239,6 +243,15 @@
 				E703C8F61CDB59E80026BB1E /* VBTableViewCell.xib */,
 			);
 			path = VBTableViewCell;
+			sourceTree = "<group>";
+		};
+		E70561D61CDBD95000B042DA /* UITableView+VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E70561D71CDBD96D00B042DA /* UITableView+VBCategory.h */,
+				E70561D81CDBD96D00B042DA /* UITableView+VBCategory.m */,
+			);
+			path = "UITableView+VBCategory";
 			sourceTree = "<group>";
 		};
 		E7059ABA1CDBA8B500F2AEC6 /* VBArrayStringsModel */ = {
@@ -412,6 +425,7 @@
 				E703C8C71CDB55590026BB1E /* CGGeometry+VBCategory.m in Sources */,
 				E703C8E11CDB55AF0026BB1E /* VBLabelView.m in Sources */,
 				E7F718FF1CC6CF8000A90B54 /* main.m in Sources */,
+				E70561D91CDBD96E00B042DA /* UITableView+VBCategory.m in Sources */,
 				E7059AC81CDBBC7C00F2AEC6 /* VBArrayAlphabet.m in Sources */,
 				E703C8C91CDB55590026BB1E /* UIViewController+VBCategory.m in Sources */,
 				E703C8CA1CDB55590026BB1E /* UIWindow+VBCategory.m in Sources */,

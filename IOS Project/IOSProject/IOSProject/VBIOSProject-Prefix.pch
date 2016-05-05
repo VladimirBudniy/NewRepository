@@ -14,5 +14,6 @@
 #import "CGGeometry+VBCategory.h"
 #import "UIView+VBCategory.h"
 #import "UIWindow+VBCategory.h"
+#import "UITableView+VBCategory.h"
 
 #endif /* VBIOSProject_Prefix_pch */

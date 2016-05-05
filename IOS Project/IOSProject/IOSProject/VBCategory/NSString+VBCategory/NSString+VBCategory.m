@@ -8,12 +8,12 @@
 
 #import "NSString+VBCategory.h"
 
-const NSUInteger kVBStringLength = 8;
+const NSUInteger kVBStringLength = 4;
 
 @implementation NSString (VBExtension)
 
 + (instancetype)randomString {
-    return [self randomStringWithLength:arc4random_uniform(kVBStringLength) + 1];
+    return [self randomStringWithLength:arc4random_uniform(kVBStringLength) + kVBStringLength];
 }
 
 + (instancetype)randomStringWithLength:(NSUInteger)length {
