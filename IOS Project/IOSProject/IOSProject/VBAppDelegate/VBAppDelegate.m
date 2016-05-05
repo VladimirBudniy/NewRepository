@@ -17,13 +17,11 @@
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [UIWindow newWindow];
+    UIWindow *window = [UIWindow createWindowMainBounts];
     self.window = window;
     
     window.rootViewController = [VBStringViewController controllerFromNib];
     [window makeKeyAndVisible];
-    
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }
