@@ -10,7 +10,7 @@
 
 @implementation UIWindow (VBCategory)
 
-+ (UIWindow *)createWindowMainBounts {
++ (UIWindow *)window {
     return [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }
 

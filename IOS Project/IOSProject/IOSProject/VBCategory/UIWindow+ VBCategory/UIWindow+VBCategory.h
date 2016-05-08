@@ -10,6 +10,6 @@
 
 @interface UIWindow (VBCategory)
 
-+ (UIWindow *)createWindowMainBounts;
++ (UIWindow *)window;
 
 @end

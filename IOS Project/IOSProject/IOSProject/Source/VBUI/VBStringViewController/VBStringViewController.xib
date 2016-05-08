@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VBStringViewController">
@@ -18,33 +19,50 @@
                 <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageSetForTableView" translatesAutoresizingMaskIntoConstraints="NO" id="VPv-5q-3Hh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tlK-jb-Rry">
-                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="50" sectionFooterHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="tlK-jb-Rry">
+                    <rect key="frame" x="0.0" y="20" width="320" height="500"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lPi-JH-Reu"/>
                         <outlet property="delegate" destination="-1" id="S6B-5A-M1w"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbq-QA-f8a">
+                    <rect key="frame" x="124" y="538" width="72" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Qbq-QA-f8a" secondAttribute="height" multiplier="36:13" id="i5i-T2-RBt"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="button image"/>
+                    <connections>
+                        <action selector="onUpdateCells:" destination="-1" eventType="touchUpInside" id="ggr-6B-pYa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="tlK-jb-Rry" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2M0-uU-nUl"/>
-                <constraint firstAttribute="bottom" secondItem="tlK-jb-Rry" secondAttribute="bottom" id="4mB-GO-vKd"/>
-                <constraint firstAttribute="bottom" secondItem="VPv-5q-3Hh" secondAttribute="bottom" id="QHd-ap-5hd"/>
-                <constraint firstItem="tlK-jb-Rry" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Xnn-gP-GNT"/>
-                <constraint firstItem="VPv-5q-3Hh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bsV-hn-JEm"/>
-                <constraint firstItem="VPv-5q-3Hh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mn4-a3-qYq"/>
-                <constraint firstAttribute="trailing" secondItem="tlK-jb-Rry" secondAttribute="trailing" id="ow4-Kr-Frn"/>
-                <constraint firstAttribute="trailing" secondItem="VPv-5q-3Hh" secondAttribute="trailing" id="xj2-lp-bUT"/>
+                <constraint firstItem="VPv-5q-3Hh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="15g-7o-uYf"/>
+                <constraint firstAttribute="bottom" secondItem="tlK-jb-Rry" secondAttribute="bottom" constant="48" id="3Ar-OC-e34"/>
+                <constraint firstAttribute="trailing" secondItem="VPv-5q-3Hh" secondAttribute="trailing" id="GKs-QR-QdT"/>
+                <constraint firstItem="tlK-jb-Rry" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qq2-uq-Mkj"/>
+                <constraint firstAttribute="trailing" secondItem="tlK-jb-Rry" secondAttribute="trailing" id="RWr-d7-qzj"/>
+                <constraint firstAttribute="bottom" secondItem="Qbq-QA-f8a" secondAttribute="bottom" constant="4" id="Ygg-uN-C8g"/>
+                <constraint firstItem="VPv-5q-3Hh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZYa-2h-BUn"/>
+                <constraint firstAttribute="bottom" secondItem="VPv-5q-3Hh" secondAttribute="bottom" id="Zij-A4-x7l"/>
+                <constraint firstItem="tlK-jb-Rry" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="eDg-2c-Ly2"/>
+                <constraint firstAttribute="trailing" secondItem="Qbq-QA-f8a" secondAttribute="trailing" constant="124" id="u1U-KW-yIK"/>
+                <constraint firstItem="Qbq-QA-f8a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="124" id="wEX-WH-qKs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
+                <outlet property="reloadButton" destination="Qbq-QA-f8a" id="i5y-c4-ezF"/>
                 <outlet property="tableView" destination="tlK-jb-Rry" id="YgM-9i-J1x"/>
             </connections>
         </view>
     </objects>
     <resources>
         <image name="ImageSetForTableView" width="750" height="1334"/>
+        <image name="button image" width="150" height="50"/>
     </resources>
 </document>

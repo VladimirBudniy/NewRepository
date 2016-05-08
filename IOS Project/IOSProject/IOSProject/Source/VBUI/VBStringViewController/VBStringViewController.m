@@ -11,7 +11,7 @@
 #import "VBTableViewCell.h"
 
 @interface VBStringViewController ()
-@property (nonatomic, readonly) VBStringView     *rootView;
+@property (nonatomic, readonly) VBStringView  *rootView;
 
 @end
 
@@ -22,6 +22,20 @@
 
 VBRootViewAndReturnIfNilMacro(VBStringView);
 
+- (void)setStringsModel:(VBArrayStringsModel *)stringsModel {
+    if (_stringsModel != stringsModel) {
+        _stringsModel = stringsModel;
+        [self.rootView.tableView reloadData];
+    }
+}
+
+#pragma mark -
+#pragma mark Handling Interface
+
+- (IBAction)onUpdateCells:(id)sender {
+    self.stringsModel = [VBArrayStringsModel new];
+}
+
 #pragma mark -
 #pragma mark TableView DataSource
      
@@ -30,8 +44,17 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
-    cell.cellLabel.text = self.stringsModel.arrayStrings[indexPath.row];
+    VBTableViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[VBTableViewCell class]];
+    cell.cellLabel.text = self.stringsModel[indexPath.row];
+    
+    
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    
+    //    if (!cell) {
+    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+    //                                      reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    //    }
+
     
     return cell;
 }

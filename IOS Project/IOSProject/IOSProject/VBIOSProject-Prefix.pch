@@ -15,5 +15,6 @@
 #import "UIView+VBCategory.h"
 #import "UIWindow+VBCategory.h"
 #import "UITableView+VBCategory.h"
+#import "UINib+VBCategory.h"
 
 #endif /* VBIOSProject_Prefix_pch */

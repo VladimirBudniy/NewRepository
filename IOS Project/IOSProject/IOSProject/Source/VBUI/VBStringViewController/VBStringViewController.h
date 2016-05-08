@@ -12,4 +12,6 @@
 @interface VBStringViewController : UIViewController
 @property (nonatomic, strong) VBArrayStringsModel *stringsModel;
 
+- (IBAction)onUpdateCells:(id)sender;
+
 @end

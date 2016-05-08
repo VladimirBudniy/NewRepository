@@ -15,6 +15,7 @@ const NSUInteger kVBDefaultArrayCount = 10;
 
 
 @interface VBArrayStringsModel ()
+@property (nonatomic, strong) NSArray *strings;
 
 - (NSArray *)radnomStrings;
 
@@ -25,13 +26,31 @@ const NSUInteger kVBDefaultArrayCount = 10;
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithArrayRandomStrings {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.arrayStrings = [self radnomStrings];
+        self.strings = [self radnomStrings];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)arrayStrings {
+    return [self.strings copy];
+}
+
+#pragma mark -
+#pragma mark Pablic
+
+- (NSString *)objectAtIndex:(NSUInteger)index {
+    return [self.strings objectAtIndexedSubscript:index];
+}
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
+    return [self.strings objectAtIndex:index];
 }
 
 #pragma mark -

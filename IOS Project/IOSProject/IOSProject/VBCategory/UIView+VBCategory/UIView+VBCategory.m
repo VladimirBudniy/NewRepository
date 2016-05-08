@@ -22,6 +22,12 @@ static CGFloat  const kVBDefaultBorderWidths        = 1;
                 borderWidth:kVBDefaultBorderWidths];
 }
 
+- (void)roundCornersBlackColorFrame {
+    [self roundCornerRadius:kVBDefaultCornerRadius
+                borderColor:VBCustormBlackColor
+                borderWidth:kVBDefaultBorderWidths];
+}
+
 - (void)roundCornerRadius:(CGFloat)cornerRadius
               borderColor:(UIColor *)color
               borderWidth:(CGFloat)borderWidth

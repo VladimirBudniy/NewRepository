@@ -11,6 +11,7 @@
 @interface UIView (VBCategory)
 
 - (void)roundCornersWhiteColorFrame;
+- (void)roundCornersBlackColorFrame;
 
 - (void)roundCornerRadius:(CGFloat)cornerRadius
                borderColor:(UIColor *)color

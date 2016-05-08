@@ -18,12 +18,11 @@
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [UIWindow createWindowMainBounts];
+    UIWindow *window = [UIWindow window];
     self.window = window;
     
-    
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
-    viewController.stringsModel = [[VBArrayStringsModel alloc] initWithArrayRandomStrings];
+    viewController.stringsModel = [VBArrayStringsModel new];
     
     window.rootViewController = viewController;
     [window makeKeyAndVisible];

@@ -11,8 +11,9 @@
 extern const NSUInteger kVBDefaultArrayCount;
 
 @interface VBArrayStringsModel : NSObject
-@property (nonatomic, strong) NSArray *arrayStrings;
+@property (nonatomic, readonly) NSArray *arrayStrings;
 
-- (instancetype)initWithArrayRandomStrings;
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
+- (NSString *)objectAtIndex:(NSUInteger)index;
 
 @end

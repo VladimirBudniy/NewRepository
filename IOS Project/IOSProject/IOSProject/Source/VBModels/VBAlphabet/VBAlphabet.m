@@ -69,6 +69,33 @@
     return  0;
 }
 
+//#pragma mark -
+//#pragma mark NSFastEnumeration
+//
+//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+//                                  objects:(id __unsafe_unretained [])buffer
+//                                    count:(NSUInteger)len
+//{
+//    
+//    if (state->state >= self.count) {
+//        return  0;
+//    }
+//    
+//    state->mutationsPtr = (unsigned long *)self;
+//    NSUInteger stateCount = state->state;
+//    NSUInteger lenght = MIN(len, (self.count) - stateCount);
+//    
+//    for (NSUInteger index = 0; index < lenght; index++) {
+//        NSString *stringSymbol = self[index + stateCount];
+//        buffer[index] = stringSymbol;
+//    }
+//    
+//    state->state = stateCount + lenght;
+//    state->itemsPtr = buffer;
+//    
+//    return lenght;
+//}
+
 #pragma mark -
 #pragma mark Pablic
 
