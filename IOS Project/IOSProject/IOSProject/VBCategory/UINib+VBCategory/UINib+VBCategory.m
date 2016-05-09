@@ -17,6 +17,7 @@
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
     for (id cell in [nib instantiateWithOwner:self options:nil]) {
         if ([cell isMemberOfClass:[theClass class]]) {
+            
             return cell;
         }
     }

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VBArrayStringsModel.h"
+#import "VBArrayModel.h"
 
 @interface VBStringViewController : UIViewController
-@property (nonatomic, strong) VBArrayStringsModel *stringsModel;
+@property (nonatomic, strong) VBArrayModel *arrayModel;
+
+@property (nonatomic, strong) IBOutlet UIButton *updateButton;
+@property (nonatomic, strong) IBOutlet UISwitch *editingSwitch;
 
 - (IBAction)onUpdateCells:(id)sender;
+- (IBAction)onStartEditing:(id)sender;
 
 @end

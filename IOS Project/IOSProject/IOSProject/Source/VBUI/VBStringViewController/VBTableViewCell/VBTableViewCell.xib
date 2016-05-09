@@ -8,21 +8,6 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MHC-Br-012">
-            <rect key="frame" x="0.0" y="0.0" width="183" height="55"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="454.5" y="136.5"/>
-        </label>
-        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="111-2b-ezl">
-            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-            <textInputTraits key="textInputTraits"/>
-            <point key="canvasLocation" x="200.5" y="143"/>
-        </textField>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VBTableViewCell" rowHeight="50" id="KGk-i7-Jjw" customClass="VBTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -35,17 +20,17 @@
                         <rect key="frame" x="68" y="5" width="244" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Courier-BoldOblique" family="Courier" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-JD-rtt">
                         <rect key="frame" x="10" y="48" width="300" height="1"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="g2J-gA-BeC"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell Image" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-83-aCa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-83-aCa">
                         <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="6Qs-83-aCa" secondAttribute="height" multiplier="1:1" id="jOe-BQ-Jnf"/>
@@ -70,13 +55,11 @@
                 <constraint firstItem="wV4-tC-9ua" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="5" id="wDT-fZ-wEa"/>
             </constraints>
             <connections>
+                <outlet property="cellImage" destination="6Qs-83-aCa" id="raD-4S-KnQ"/>
                 <outlet property="cellLabel" destination="wV4-tC-9ua" id="etp-J4-qkg"/>
                 <outlet property="separatorView" destination="NJl-JD-rtt" id="A5e-4N-teW"/>
             </connections>
             <point key="canvasLocation" x="328" y="-76"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="cell Image" width="100" height="100"/>
-    </resources>
 </document>

@@ -7,7 +7,16 @@
 //
 
 #import "VBTableViewCell.h"
+#import "VBStringModel.h"
 
 @implementation VBTableViewCell
+
+#pragma mark -
+#pragma mark Public
+
+- (void)fillWithModel:(VBStringModel *)theModel {
+    self.cellLabel.text = theModel.string;
+    self.cellImage.image = theModel.image;
+}
 
 @end

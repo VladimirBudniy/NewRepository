@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface VBTableViewCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel *cellLabel;
-@property (nonatomic, strong) IBOutlet UIView  *separatorView;
+@property (nonatomic, strong) IBOutlet UILabel     *cellLabel;
+@property (nonatomic, strong) IBOutlet UIView      *separatorView;
+@property (nonatomic, strong) IBOutlet UIImageView *cellImage;
+
+- (void)fillWithModel:(id)theModel;
 
 @end

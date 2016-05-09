@@ -9,6 +9,7 @@
 #import "VBStringViewController.h"
 #import "VBStringView.h"
 #import "VBTableViewCell.h"
+#import "VBStringModel.h"
 
 @interface VBStringViewController ()
 @property (nonatomic, readonly) VBStringView  *rootView;
@@ -22,9 +23,9 @@
 
 VBRootViewAndReturnIfNilMacro(VBStringView);
 
-- (void)setStringsModel:(VBArrayStringsModel *)stringsModel {
-    if (_stringsModel != stringsModel) {
-        _stringsModel = stringsModel;
+- (void)setArrayModel:(VBArrayModel *)arrayModel{
+    if (_arrayModel != arrayModel) {
+        _arrayModel = arrayModel;
         [self.rootView.tableView reloadData];
     }
 }
@@ -33,30 +34,54 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark Handling Interface
 
 - (IBAction)onUpdateCells:(id)sender {
-    self.stringsModel = [VBArrayStringsModel new];
+    self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+}
+
+- (IBAction)onStartEditing:(id)sender {
+    if (self.editingSwitch.on) {
+        self.rootView.tableView.editing = NO;
+    } else {
+        self.rootView.tableView.editing = YES;
+    }
 }
 
 #pragma mark -
 #pragma mark TableView DataSource
      
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.stringsModel.arrayStrings.count;
+    return self.arrayModel.objects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VBTableViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[VBTableViewCell class]];
-    cell.cellLabel.text = self.stringsModel[indexPath.row];
-    
-    
-    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-    
-    //    if (!cell) {
-    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-    //                                      reuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    //    }
-
+    [cell fillWithModel:self.arrayModel[indexPath.row]];
     
     return cell;
+}
+
+- (void)        tableView:(UITableView *)tableView
+       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+        forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.arrayModel removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (BOOL)            tableView:(UITableView *)tableView
+        canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)            tableView:(UITableView *)tableView
+           moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
+                  toIndexPath:(NSIndexPath *)toIndexPath
+{
+    [self.arrayModel moveCellAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+
 }
 
 @end

@@ -26,8 +26,6 @@
 - (id)dequeueReusableCellFromNibWithClass:(Class)theClass {
     id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass([theClass class])];
     if (!cell) {
-//        UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
-//        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
         cell = [UINib cellFromNibWithClacc:[theClass class]];
     }
     

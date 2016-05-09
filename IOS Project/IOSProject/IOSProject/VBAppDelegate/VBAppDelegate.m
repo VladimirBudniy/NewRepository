@@ -9,7 +9,8 @@
 #import "VBAppDelegate.h"
 #import "VBLableViewController.h"
 #import "VBStringViewController.h"
-#import "VBArrayStringsModel.h"
+#import "VBArrayModel.h"
+#import "VBStringModel.h"
 
 @interface VBAppDelegate ()
 
@@ -22,7 +23,7 @@
     self.window = window;
     
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
-    viewController.stringsModel = [VBArrayStringsModel new];
+    viewController.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
     
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
