@@ -13,12 +13,12 @@
 #pragma mark - 
 #pragma mark Class Methods
 
-+ (id)cellFromNibWithClacc:(Class)theClass {
++ (id)objectFromNibWithClass:(Class)theClass {
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
-    for (id cell in [nib instantiateWithOwner:self options:nil]) {
-        if ([cell isMemberOfClass:[theClass class]]) {
+    for (id object in [nib instantiateWithOwner:self options:nil]) {
+        if ([object isMemberOfClass:[theClass class]]) {
             
-            return cell;
+            return object;
         }
     }
     

@@ -10,6 +10,6 @@
 
 @interface UINib (VBCategory)
 
-+ (id)cellFromNibWithClacc:(Class)theClass;
++ (id)objectFromNibWithClass:(Class)theClass;
 
 @end

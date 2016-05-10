@@ -38,11 +38,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (IBAction)onStartEditing:(id)sender {
-    if (self.editingSwitch.on) {
-        self.rootView.tableView.editing = NO;
-    } else {
-        self.rootView.tableView.editing = YES;
-    }
+    self.rootView.tableView.editing = !self.rootView.editingSwitch.on;
 }
 
 #pragma mark -

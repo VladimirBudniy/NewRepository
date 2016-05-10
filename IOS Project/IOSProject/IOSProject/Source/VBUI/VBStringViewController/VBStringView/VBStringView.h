@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VBStringView : UIView
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet UIButton    *reloadButton;
+@property (nonatomic, retain) IBOutlet UITableView  *tableView;
+@property (nonatomic, retain) IBOutlet UIButton     *reloadButton;
+@property (nonatomic, strong) IBOutlet UISwitch     *editingSwitch;
 
 @end

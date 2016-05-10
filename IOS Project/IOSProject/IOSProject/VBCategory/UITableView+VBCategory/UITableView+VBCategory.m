@@ -26,7 +26,7 @@
 - (id)dequeueReusableCellFromNibWithClass:(Class)theClass {
     id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass([theClass class])];
     if (!cell) {
-        cell = [UINib cellFromNibWithClacc:[theClass class]];
+        cell = [UINib objectFromNibWithClass:[theClass class]];
     }
     
     return cell;
