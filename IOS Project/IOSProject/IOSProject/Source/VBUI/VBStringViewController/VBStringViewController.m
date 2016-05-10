@@ -33,16 +33,16 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark -
 #pragma mark Handling Interface
 
-- (IBAction)onUpdateCells:(id)sender {
+- (IBAction)onUpdateCellsButton:(id)sender {
     self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
 }
 
-- (IBAction)onStartEditing:(id)sender {
+- (IBAction)onStartEditingSwitch:(id)sender {
     self.rootView.tableView.editing = !self.rootView.editingSwitch.on;
 }
 
 #pragma mark -
-#pragma mark TableView DataSource
+#pragma mark TableView DataSource Protocol
      
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayModel.objects.count;
@@ -55,6 +55,12 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     return cell;
 }
 
+// cell's method for catches press
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//celll's method for adding and removing
 - (void)        tableView:(UITableView *)tableView
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,9 +69,15 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         [self.arrayModel removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        [self.arrayModel insertObject:[VBStringModel new] atIndex:indexPath.row + 1];
+        NSIndexPath *objectIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:objectIndexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
+// cell's method for moving
 - (BOOL)            tableView:(UITableView *)tableView
         canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -77,7 +89,21 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
                   toIndexPath:(NSIndexPath *)toIndexPath
 {
     [self.arrayModel moveCellAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
-
 }
+
+#pragma mark -
+#pragma mark TableView Delegate Protocol
+
+// cell's method adding UITableViewCellEditingStyle
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
 
 @end

@@ -12,7 +12,7 @@
 @interface VBStringViewController : UIViewController
 @property (nonatomic, strong) VBArrayModel *arrayModel;
 
-- (IBAction)onUpdateCells:(id)sender;
-- (IBAction)onStartEditing:(id)sender;
+- (IBAction)onUpdateCellsButton:(id)sender;
+- (IBAction)onStartEditingSwitch:(id)sender;
 
 @end

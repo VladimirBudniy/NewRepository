@@ -35,13 +35,13 @@
                     </constraints>
                     <state key="normal" backgroundImage="button image"/>
                     <connections>
-                        <action selector="onUpdateCells:" destination="-1" eventType="touchUpInside" id="ggr-6B-pYa"/>
+                        <action selector="onUpdateCellsButton:" destination="-1" eventType="touchUpInside" id="gze-as-WLy"/>
                     </connections>
                 </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
                     <rect key="frame" x="53" y="528" width="51" height="31"/>
                     <connections>
-                        <action selector="onStartEditing:" destination="-1" eventType="touchUpInside" id="qhA-9P-jMh"/>
+                        <action selector="onStartEditingSwitch:" destination="-1" eventType="touchUpInside" id="gJ5-f3-oNY"/>
                     </connections>
                 </switch>
             </subviews>

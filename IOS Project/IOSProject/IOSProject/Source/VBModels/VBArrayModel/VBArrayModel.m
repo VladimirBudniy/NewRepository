@@ -66,6 +66,10 @@
 #pragma mark - 
 #pragma mark Public
 
+- (NSUInteger)indexForObject:(id)object {
+    return [self.arrayObjects indexOfObject:object];
+}
+
 - (NSUInteger)count {
     return self.arrayObjects.count;
 }
@@ -80,6 +84,10 @@
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
+}
+
+- (void)insertObject:(id)object atIndex:(NSUInteger)index {
+    [self.arrayObjects insertObject:object atIndex:index];
 }
 
 - (void)removeObject:(id)object {

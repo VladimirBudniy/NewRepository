@@ -21,11 +21,13 @@
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)addObject:(id)object;
+- (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObjects;
 
 - (NSUInteger)count;
+- (NSUInteger)indexForObject:(id)object;
 
 - (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex ;
 
