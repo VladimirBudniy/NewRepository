@@ -62,7 +62,7 @@
             VBWeakSelfMacro;
             [employee addHandler:^{
                 VBStrongSelfAndReturnNilMacro;
-                [strongSelf employeeBecameFree:employee];
+                [self employeeBecameFree:employee];
             } forState:kVBEmployeeFreeState object:self];
         }
     }

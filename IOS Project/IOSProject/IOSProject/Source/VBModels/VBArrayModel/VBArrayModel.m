@@ -83,22 +83,27 @@
 }
 
 - (void)addObject:(id)object {
+    self.state = kVBNewState;
     [self.arrayObjects addObject:object];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
+    self.state = kVBNewState;
     [self.arrayObjects insertObject:object atIndex:index];
 }
 
 - (void)removeObject:(id)object {
+    self.state = kVBNewState;
     [self.arrayObjects removeObject:object];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
+    self.state = kVBNewState;
     [self.arrayObjects removeObjectAtIndex:index];
 }
 
 - (void)removeAllObjects {
+    self.state = kVBNewState;
     [self.arrayObjects removeAllObjects];
 }
 

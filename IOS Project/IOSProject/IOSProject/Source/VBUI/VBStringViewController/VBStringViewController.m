@@ -26,7 +26,13 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (void)setArrayModel:(VBArrayModel *)arrayModel{
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
-        [self.rootView.tableView reloadData];
+        
+        VBWeakSelfMacro;
+        [_arrayModel addHandler:^{
+            VBStrongSelfAndReturnNilMacro;
+            [[[strongSelf rootView] tableView] reloadData];
+        }           forState:kVBNewState
+                         object:self];
     }
 }
 

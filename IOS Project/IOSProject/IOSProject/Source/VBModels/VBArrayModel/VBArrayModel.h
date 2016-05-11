@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VBObserver.h"
 
-@interface VBArrayModel : NSObject
+typedef enum {
+    kVBNewState
+}VBArrayModelState;
+
+@interface VBArrayModel : VBObserver
 @property (nonatomic, readonly) NSArray *objects;
 
 + (instancetype)arrayModelWithObject:(id)object;
