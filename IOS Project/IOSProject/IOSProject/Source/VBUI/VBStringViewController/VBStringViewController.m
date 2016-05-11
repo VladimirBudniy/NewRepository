@@ -31,8 +31,10 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         [_arrayModel addHandler:^{
             VBStrongSelfAndReturnNilMacro;
             [[[strongSelf rootView] tableView] reloadData];
-        }           forState:kVBNewState
+        }           forState:kVBChangeObjectState
                          object:self];
+        
+        [self.rootView.tableView reloadData];
     }
 }
 
@@ -76,8 +78,9 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     } else {
-        [self.arrayModel insertObject:[VBStringModel new] atIndex:indexPath.row + 1];
-        NSIndexPath *objectIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
+        NSUInteger index = indexPath.row + 1;
+        [self.arrayModel insertObject:[VBStringModel new] atIndex:index];
+        NSIndexPath *objectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:objectIndexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }

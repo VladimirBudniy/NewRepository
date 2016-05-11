@@ -10,7 +10,7 @@
 #import "VBObserver.h"
 
 typedef enum {
-    kVBNewState
+    kVBChangeObjectState
 }VBArrayModelState;
 
 @interface VBArrayModel : VBObserver
