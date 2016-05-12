@@ -11,6 +11,8 @@
 @interface VBArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
+- (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index;
+
 @end
 
 @implementation VBArrayModel
@@ -64,6 +66,17 @@
 }
 
 #pragma mark - 
+#pragma mark Private
+
+- (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index {
+    VBStateModel *model = [VBStateModel new];
+    model.state = state;
+    model.index = index;
+    
+    return model;
+}
+
+#pragma mark - 
 #pragma mark Public
 
 - (NSUInteger)indexForObject:(id)object {
@@ -84,31 +97,36 @@
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
+    VBStateModel *model = [self modelWithState:kVBObjectInserteState index:self.count];
+    [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     NSUInteger insertIndex = index + 1;
     [self.arrayObjects insertObject:object atIndex:insertIndex];
-    VBStateModel *model = [VBStateModel new];
-    model.state = kVBObjectInserteState;
-    model.index = insertIndex;
+    VBStateModel *model = [self modelWithState:kVBObjectInserteState index:insertIndex];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeObject:(id)object {
-
     [self.arrayObjects removeObject:object];
+    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:[self indexForObject:object]];
+    [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
-    VBStateModel *model = [VBStateModel new];
-    model.state = kVBObjectRemoveState;
-    model.index = index;
+    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:index];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeAllObjects {
+    NSUInteger count = self.count;
+    for (NSUInteger index = 0; index < count; index++) {
+        VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:index];
+        [self setState:kVBChangeObjectState withObject:model];
+    }
+    
     [self.arrayObjects removeAllObjects];
 }
 
