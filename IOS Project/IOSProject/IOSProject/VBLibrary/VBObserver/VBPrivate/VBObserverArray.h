@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VBEmployeeHandler)(void);
+typedef void (^VBEmployeeHandler)(id object);
 
 @interface VBObserverArray : NSObject
 @property (nonatomic, readonly) NSArray *handlers;

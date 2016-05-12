@@ -33,6 +33,7 @@
     self = [super init];
     if (self) {
         self.state = 0;
+        self.object = nil;
         self.stateObjects = [NSMutableArray array];
     }
     
@@ -52,12 +53,22 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+    }
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
-            
-            [self performHandlers];
         }
+        
+        if (_object != object) {
+            _object = object;
+        }
+        
+        [self performHandlers];
     }
 }
 
@@ -104,7 +115,7 @@
     for (VBObserverStateObject *stateObject in self.stateObjects) {
         if (stateObject.state == _state) {
             for (VBEmployeeHandler handler in stateObject.handlers) {
-                handler();
+                handler(self.object);
             }
         }
     }

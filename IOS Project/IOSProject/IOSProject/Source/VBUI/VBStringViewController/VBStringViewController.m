@@ -10,9 +10,12 @@
 #import "VBStringView.h"
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
+#import "VBStateModel.h"
 
 @interface VBStringViewController ()
 @property (nonatomic, readonly) VBStringView  *rootView;
+
+- (void)performChangesWithObject:(id)object;
 
 @end
 
@@ -28,13 +31,12 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         _arrayModel = arrayModel;
         
         VBWeakSelfMacro;
-        [_arrayModel addHandler:^{
+        [_arrayModel addHandler:^(VBStateModel *model){
             VBStrongSelfAndReturnNilMacro;
-            [[[strongSelf rootView] tableView] reloadData];
+            [strongSelf performChangesWithObject:model];
+
         }           forState:kVBChangeObjectState
                          object:self];
-        
-        [self.rootView.tableView reloadData];
     }
 }
 
@@ -43,10 +45,27 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (IBAction)onUpdateCellsButton:(id)sender {
     self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+    [self.rootView.tableView reloadData];
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
     self.rootView.tableView.editing = !self.rootView.editingSwitch.on;
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performChangesWithObject:(VBStateModel *)object {
+    UITableView *tableView = self.rootView.tableView;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:object.index inSection:0];
+    
+    if (object.state == kVBObjectInserteState) {
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 #pragma mark -
@@ -68,21 +87,15 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-//celll's method for adding and removing
+//cell's method for adding and removing
 - (void)        tableView:(UITableView *)tableView
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.arrayModel removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
     } else {
-        NSUInteger index = indexPath.row + 1;
-        [self.arrayModel insertObject:[VBStringModel new] atIndex:index];
-        NSIndexPath *objectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
-        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:objectIndexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+        [self.arrayModel insertObject:[VBStringModel new] atIndex:indexPath.row];
     }
 }
 
@@ -107,7 +120,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row % 2) {
+    if (indexPath.row < 3) {
         return UITableViewCellEditingStyleInsert;
     } else {
         return UITableViewCellEditingStyleDelete;

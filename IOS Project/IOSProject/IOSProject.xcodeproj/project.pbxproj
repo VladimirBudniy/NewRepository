@@ -34,6 +34,7 @@
 		E7417DDB1CE0B2D30049953A /* VBAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7417DD71CE0B2D30049953A /* VBAlphabet.m */; };
 		E7417DE11CE0B4390049953A /* VBStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7417DE01CE0B4390049953A /* VBStringModel.m */; };
 		E7417DE41CE0B4540049953A /* VBArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7417DE31CE0B4540049953A /* VBArrayModel.m */; };
+		E755815A1CE4DF3A0094998E /* VBStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E75581591CE4DF3A0094998E /* VBStateModel.m */; };
 		E76DB4F31CDFEBF500275FFE /* UINib+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E76DB4F21CDFEBF500275FFE /* UINib+VBCategory.m */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
@@ -93,6 +94,8 @@
 		E7417DE01CE0B4390049953A /* VBStringModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBStringModel.m; sourceTree = "<group>"; };
 		E7417DE21CE0B4540049953A /* VBArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArrayModel.h; sourceTree = "<group>"; };
 		E7417DE31CE0B4540049953A /* VBArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBArrayModel.m; sourceTree = "<group>"; };
+		E75581581CE4DF3A0094998E /* VBStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBStateModel.h; sourceTree = "<group>"; };
+		E75581591CE4DF3A0094998E /* VBStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBStateModel.m; sourceTree = "<group>"; };
 		E76DB4F11CDFEBF500275FFE /* UINib+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+VBCategory.h"; sourceTree = "<group>"; };
 		E76DB4F21CDFEBF500275FFE /* UINib+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+VBCategory.m"; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +186,7 @@
 		E703C8CC1CDB55AF0026BB1E /* VBModels */ = {
 			isa = PBXGroup;
 			children = (
+				E75581541CE4D6D60094998E /* VBStateModel */,
 				E7417DDE1CE0B3B70049953A /* VBStringModel */,
 				E7417DDD1CE0B3AD0049953A /* VBArrayModel */,
 			);
@@ -358,6 +362,15 @@
 			path = VBStringModel;
 			sourceTree = "<group>";
 		};
+		E75581541CE4D6D60094998E /* VBStateModel */ = {
+			isa = PBXGroup;
+			children = (
+				E75581581CE4DF3A0094998E /* VBStateModel.h */,
+				E75581591CE4DF3A0094998E /* VBStateModel.m */,
+			);
+			path = VBStateModel;
+			sourceTree = "<group>";
+		};
 		E76DB4F01CDFEBD800275FFE /* UINib+VBCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +504,7 @@
 				E70AD1781CE32B1900D0770F /* VBObserverArray.m in Sources */,
 				E70AD1771CE32B1900D0770F /* VBObserver.m in Sources */,
 				E703C8E21CDB55AF0026BB1E /* VBLableViewController.m in Sources */,
+				E755815A1CE4DF3A0094998E /* VBStateModel.m in Sources */,
 				E703C8F71CDB59E80026BB1E /* VBTableViewCell.m in Sources */,
 				E7417DD81CE0B2D30049953A /* VBArrayAlphabet.m in Sources */,
 				E703C8EA1CDB55EF0026BB1E /* VBAppDelegate.m in Sources */,

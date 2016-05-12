@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VBEmployeeHandler)(void);
+typedef void (^VBEmployeeHandler)(id object);
 
 @interface VBObserver : NSObject
 @property (nonatomic, assign) NSUInteger state;
+@property (nonatomic, strong) id         object;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
 - (void)addHandler:(VBEmployeeHandler)handler forState:(NSUInteger)state object:(id)object;
 - (void)removeHandlersForState:(NSUInteger)state;
 - (void)removeHandlersForObject:(id)object;
+
+- (void)setState:(NSUInteger)state withObject:(id)object;
 
 @end

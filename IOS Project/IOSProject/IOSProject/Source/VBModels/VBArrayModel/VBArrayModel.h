@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "VBObserver.h"
+#import "VBStateModel.h"
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, VBArrayModelState) {
     kVBChangeObjectState
-}VBArrayModelState;
+};
 
 @interface VBArrayModel : VBObserver
 @property (nonatomic, readonly) NSArray *objects;
