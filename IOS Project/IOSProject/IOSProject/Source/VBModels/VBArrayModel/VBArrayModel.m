@@ -65,6 +65,16 @@
     return [self.arrayObjects copy];
 }
 
+#pragma mark -
+#pragma mark NSFastEnumeration Protocol
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(__unsafe_unretained id*)buffer
+                                    count:(NSUInteger)len
+{
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
 #pragma mark - 
 #pragma mark Private
 
@@ -79,7 +89,7 @@
 #pragma mark - 
 #pragma mark Public
 
-- (NSUInteger)indexForObject:(id)object {
+- (NSUInteger)indexOfObject:(id)object {
     return [self.arrayObjects indexOfObject:object];
 }
 
@@ -110,7 +120,7 @@
 
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
-    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:[self indexForObject:object]];
+    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:[self indexOfObject:object]];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
