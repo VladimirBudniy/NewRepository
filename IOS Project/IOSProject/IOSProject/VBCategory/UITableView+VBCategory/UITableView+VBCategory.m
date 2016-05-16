@@ -35,10 +35,7 @@
 - (id)dequeueReusableCellWithBundleClass:(Class)theClass {
     id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass([theClass class])];
     if (!cell) {
-        NSBundle *bundle = [NSBundle mainBundle];
-        cell = [[bundle loadNibNamed:NSStringFromClass([theClass class])
-                               owner:self
-                             options:nil] firstObject];
+        cell = [NSBundle objectFromBundleWithClass:[theClass class]];
     }
     
     return cell;

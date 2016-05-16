@@ -12,6 +12,8 @@
 #import "VBArrayModel.h"
 #import "VBStringModel.h"
 
+static NSString * const kVBFileAdress = @"/tmp.plist";
+
 @interface VBAppDelegate ()
 
 @end
@@ -23,8 +25,18 @@
     self.window = window;
     
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
-    viewController.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
     
+    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (model) {
+        viewController.arrayModel = model;
+    } else {
+        viewController.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+    }
+
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
@@ -36,7 +48,13 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
+    
+    VBStringViewController *viewController = (VBStringViewController *)self.window.rootViewController;
+    [NSKeyedArchiver archiveRootObject:viewController.arrayModel toFile:path];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

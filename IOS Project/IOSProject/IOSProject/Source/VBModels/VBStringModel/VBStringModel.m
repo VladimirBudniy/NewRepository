@@ -10,7 +10,8 @@
 
 const NSUInteger kVBDefaultArrayCount = 10;
 
-static NSString * const kVBStringModelImage = @"cellImage.png";
+static NSString * const kVBStringModelImage = @"folder.png";
+static NSString * const kVBSringCoderKye    = @"string";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString *string;
@@ -44,11 +45,28 @@ static NSString * const kVBStringModelImage = @"cellImage.png";
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.image = [UIImage imagePathWithName:kVBStringModelImage];
         self.string = [NSString randomString];
-        self.image = [UIImage imageNamed:kVBStringModelImage];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration Protocol
+
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    if (self) {
+        self.string = [aDecoder decodeObjectForKey:kVBSringCoderKye];
+    }
+    
+    return nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.string forKey:kVBSringCoderKye];
 }
 
 @end

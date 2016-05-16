@@ -76,7 +76,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VBTableViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[VBTableViewCell class]];
+    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
     [cell fillWithModel:self.arrayModel[indexPath.row]];
     
     return cell;

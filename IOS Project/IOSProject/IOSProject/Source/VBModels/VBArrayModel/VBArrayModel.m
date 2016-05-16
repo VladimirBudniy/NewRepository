@@ -8,6 +8,8 @@
 
 #import "VBArrayModel.h"
 
+static NSString * const kVBArrayCoderKye = @"array";
+
 @interface VBArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -73,6 +75,22 @@
                                     count:(NSUInteger)len
 {
     return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration Protocol
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    if (self) {
+        self.arrayObjects = [aDecoder decodeObjectForKey:kVBArrayCoderKye];
+    }
+    
+    return nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.arrayObjects forKey:kVBArrayCoderKye];
 }
 
 #pragma mark - 

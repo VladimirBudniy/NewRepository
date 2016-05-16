@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSMutableArray *stateObjects;
 
 - (VBObserverStateObject *)objectWithState:(NSUInteger)state;
-- (void)performHandlers;
+- (void)performHandlersWithObject:(id)object;
 
 @end
 
@@ -53,9 +53,7 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-    }
+    [self setState:state withObject:nil];
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
@@ -64,11 +62,7 @@
             _state = state;
         }
         
-        if (_object != object) {
-            _object = object;
-        }
-        
-        [self performHandlers];
+        [self performHandlersWithObject:object];
     }
 }
 
@@ -111,11 +105,11 @@
     return staetObject;
 }
 
-- (void)performHandlers {
+- (void)performHandlersWithObject:(id)object {
     for (VBObserverStateObject *stateObject in self.stateObjects) {
         if (stateObject.state == _state) {
             for (VBEmployeeHandler handler in stateObject.handlers) {
-                handler(self.object);
+                handler(object);
             }
         }
     }

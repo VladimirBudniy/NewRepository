@@ -27,40 +27,52 @@
                         <outlet property="delegate" destination="-1" id="S6B-5A-M1w"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbq-QA-f8a">
-                    <rect key="frame" x="135" y="528" width="50" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-VS-go4">
+                    <rect key="frame" x="0.0" y="520" width="320" height="48"/>
+                    <subviews>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
+                            <rect key="frame" x="8" y="8" width="51" height="31"/>
+                            <connections>
+                                <action selector="onStartEditingSwitch:" destination="-1" eventType="touchUpInside" id="gJ5-f3-oNY"/>
+                            </connections>
+                        </switch>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbq-QA-f8a">
+                            <rect key="frame" x="262" y="4" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="7G9-ro-xaE"/>
+                                <constraint firstAttribute="height" constant="40" id="VaC-kC-oJf"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="button image"/>
+                            <connections>
+                                <action selector="onUpdateCellsButton:" destination="-1" eventType="touchUpInside" id="gze-as-WLy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="pMv-dO-sUS"/>
-                        <constraint firstAttribute="height" constant="40" id="smt-Vp-ejn"/>
+                        <constraint firstAttribute="bottom" secondItem="Qbq-QA-f8a" secondAttribute="bottom" constant="4" id="HGp-Hj-dwb"/>
+                        <constraint firstItem="nrf-fe-DUP" firstAttribute="leading" secondItem="AMg-VS-go4" secondAttribute="leading" constant="8" id="bGq-7w-9du"/>
+                        <constraint firstAttribute="trailing" secondItem="Qbq-QA-f8a" secondAttribute="trailing" constant="8" id="cO6-HT-5QL"/>
+                        <constraint firstAttribute="trailing" secondItem="nrf-fe-DUP" secondAttribute="trailing" constant="263" id="eWU-SK-8Mf"/>
+                        <constraint firstAttribute="bottom" secondItem="nrf-fe-DUP" secondAttribute="bottom" constant="9" id="s2G-6z-wmU"/>
                     </constraints>
-                    <state key="normal" backgroundImage="button image"/>
-                    <connections>
-                        <action selector="onUpdateCellsButton:" destination="-1" eventType="touchUpInside" id="gze-as-WLy"/>
-                    </connections>
-                </button>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
-                    <rect key="frame" x="53" y="528" width="51" height="31"/>
-                    <connections>
-                        <action selector="onStartEditingSwitch:" destination="-1" eventType="touchUpInside" id="gJ5-f3-oNY"/>
-                    </connections>
-                </switch>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="VPv-5q-3Hh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="15g-7o-uYf"/>
                 <constraint firstAttribute="bottom" secondItem="tlK-jb-Rry" secondAttribute="bottom" constant="48" id="3Ar-OC-e34"/>
-                <constraint firstAttribute="bottom" secondItem="Qbq-QA-f8a" secondAttribute="bottom" id="6sY-2N-euX"/>
                 <constraint firstAttribute="trailing" secondItem="VPv-5q-3Hh" secondAttribute="trailing" id="GKs-QR-QdT"/>
-                <constraint firstAttribute="bottom" secondItem="nrf-fe-DUP" secondAttribute="bottom" constant="9" id="L0p-bX-2FL"/>
                 <constraint firstItem="tlK-jb-Rry" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qq2-uq-Mkj"/>
                 <constraint firstAttribute="trailing" secondItem="tlK-jb-Rry" secondAttribute="trailing" id="RWr-d7-qzj"/>
-                <constraint firstItem="nrf-fe-DUP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="UDY-PX-2zt"/>
-                <constraint firstItem="Qbq-QA-f8a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XEa-Eg-L7t"/>
+                <constraint firstItem="AMg-VS-go4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="520" id="Rxu-jf-GYG"/>
+                <constraint firstAttribute="trailing" secondItem="AMg-VS-go4" secondAttribute="trailing" id="WSG-bt-RWE"/>
+                <constraint firstItem="AMg-VS-go4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZDo-2B-rxv"/>
                 <constraint firstItem="VPv-5q-3Hh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZYa-2h-BUn"/>
                 <constraint firstAttribute="bottom" secondItem="VPv-5q-3Hh" secondAttribute="bottom" id="Zij-A4-x7l"/>
-                <constraint firstAttribute="trailing" secondItem="nrf-fe-DUP" secondAttribute="trailing" constant="218" id="cGV-AX-wTL"/>
                 <constraint firstItem="tlK-jb-Rry" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="eDg-2c-Ly2"/>
+                <constraint firstAttribute="bottom" secondItem="AMg-VS-go4" secondAttribute="bottom" id="mBO-dQ-7hR"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>

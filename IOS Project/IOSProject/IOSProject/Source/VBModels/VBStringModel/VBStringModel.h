@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VBStringModel : NSObject
+@interface VBStringModel : NSObject <NSCoding>
 @property (nonatomic, readonly)   NSString *string;
 @property (nonatomic, readonly)   UIImage  *image;
 
