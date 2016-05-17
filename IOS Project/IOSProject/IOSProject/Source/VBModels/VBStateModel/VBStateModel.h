@@ -17,4 +17,6 @@ typedef NS_ENUM(NSUInteger, VBObjectState) {
 @property (nonatomic, assign) VBObjectState state;
 @property (nonatomic, assign) NSUInteger    index;
 
++ (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index;
+
 @end

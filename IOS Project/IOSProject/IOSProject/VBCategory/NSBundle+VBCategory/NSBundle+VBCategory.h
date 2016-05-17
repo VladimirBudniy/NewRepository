@@ -11,6 +11,6 @@
 @interface NSBundle (VBCategory)
 
 + (id)objectFromBundleWithClass:(Class)theClass;
-
++ (NSString *)pathForFileWithName:(NSString *)name;
 
 @end

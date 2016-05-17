@@ -25,6 +25,8 @@
     return  nil;
 }
 
-
++ (NSString *)pathForFileWithName:(NSString *)name {
+    return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+}
 
 @end

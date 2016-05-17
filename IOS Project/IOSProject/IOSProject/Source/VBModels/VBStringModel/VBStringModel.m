@@ -11,7 +11,7 @@
 const NSUInteger kVBDefaultArrayCount = 10;
 
 static NSString * const kVBStringModelImage = @"folder.png";
-static NSString * const kVBSringCoderKye    = @"string";
+static NSString * const kVBSringCoderKey    = @"string";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString *string;
@@ -45,7 +45,7 @@ static NSString * const kVBSringCoderKye    = @"string";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.image = [UIImage imagePathWithName:kVBStringModelImage];
+        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
         self.string = [NSString randomString];
     }
     
@@ -53,20 +53,20 @@ static NSString * const kVBSringCoderKye    = @"string";
 }
 
 #pragma mark -
-#pragma mark NSFastEnumeration Protocol
+#pragma mark NSCoding Protocol
 
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     if (self) {
-        self.string = [aDecoder decodeObjectForKey:kVBSringCoderKye];
+        self.string = [aDecoder decodeObjectForKey:kVBSringCoderKey];
     }
     
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.string forKey:kVBSringCoderKye];
+    [aCoder encodeObject:self.string forKey:kVBSringCoderKey];
 }
 
 @end

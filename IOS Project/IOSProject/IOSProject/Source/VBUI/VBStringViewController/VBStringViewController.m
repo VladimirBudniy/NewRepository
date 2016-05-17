@@ -40,6 +40,16 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     }
 }
 
+#pragma mark - 
+#pragma mark View LifeCycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //    добавляем спинер и выести в контроллер
+    [self.arrayModel download];
+}
+
 #pragma mark -
 #pragma mark Handling Interface
 
@@ -92,10 +102,11 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    VBArrayModel *model = self.arrayModel;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.arrayModel removeObjectAtIndex:indexPath.row];
+        [model removeObjectAtIndex:indexPath.row];
     } else {
-        [self.arrayModel insertObject:[VBStringModel new] atIndex:indexPath.row];
+        [model insertObject:[VBStringModel new] atIndex:indexPath.row];
     }
 }
 

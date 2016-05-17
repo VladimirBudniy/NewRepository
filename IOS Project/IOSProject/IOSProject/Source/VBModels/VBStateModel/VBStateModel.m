@@ -10,4 +10,15 @@
 
 @implementation VBStateModel
 
+#pragma mark -
+#pragma mark Class Methods
+
++ (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index {
+    VBStateModel *model = [VBStateModel new];
+    model.state = state;
+    model.index = index;
+    
+    return model;
+}
+
 @end

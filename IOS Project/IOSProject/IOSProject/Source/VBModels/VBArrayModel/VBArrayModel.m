@@ -7,13 +7,13 @@
 //
 
 #import "VBArrayModel.h"
+#import "VBStringModel.h"
 
-static NSString * const kVBArrayCoderKye = @"array";
+static NSString * const kVBArrayCoderKey    = @"array";
+static NSString * const kVBFileAdress       = @"/tmp.plist";
 
 @interface VBArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
-
-- (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index;
 
 @end
 
@@ -67,45 +67,33 @@ static NSString * const kVBArrayCoderKye = @"array";
     return [self.arrayObjects copy];
 }
 
-#pragma mark -
-#pragma mark NSFastEnumeration Protocol
-
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(__unsafe_unretained id*)buffer
-                                    count:(NSUInteger)len
-{
-    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
-}
-
-#pragma mark -
-#pragma mark NSFastEnumeration Protocol
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        self.arrayObjects = [aDecoder decodeObjectForKey:kVBArrayCoderKye];
-    }
-    
-    return self;
-}
-
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:kVBArrayCoderKye];
-}
-
-#pragma mark - 
-#pragma mark Private
-
-- (VBStateModel *)modelWithState:(VBObjectState)state index:(NSUInteger)index {
-    VBStateModel *model = [VBStateModel new];
-    model.state = state;
-    model.index = index;
-    
-    return model;
+    [aCoder encodeObject:self.arrayObjects forKey:kVBArrayCoderKey];
 }
 
 #pragma mark - 
 #pragma mark Public
+
+- (void)keep {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
+    [NSKeyedArchiver archiveRootObject:self toFile:path];
+}
+
+- (void)download {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
+    
+    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!model) {
+        model = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];;
+    }
+    
+    self.arrayObjects = model.arrayObjects;
+}
+
 
 - (NSUInteger)indexOfObject:(id)object {
     return [self.arrayObjects indexOfObject:object];
@@ -125,33 +113,33 @@ static NSString * const kVBArrayCoderKye = @"array";
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
-    VBStateModel *model = [self modelWithState:kVBObjectInserteState index:self.count];
+    VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:self.count];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     NSUInteger insertIndex = index + 1;
     [self.arrayObjects insertObject:object atIndex:insertIndex];
-    VBStateModel *model = [self modelWithState:kVBObjectInserteState index:insertIndex];
+    VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:insertIndex];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
-    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:[self indexOfObject:object]];
+    VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:[self indexOfObject:object]];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
-    VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:index];
+    VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
     [self setState:kVBChangeObjectState withObject:model];
 }
 
 - (void)removeAllObjects {
     NSUInteger count = self.count;
     for (NSUInteger index = 0; index < count; index++) {
-        VBStateModel *model = [self modelWithState:kVBObjectRemoveState index:index];
+        VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
         [self setState:kVBChangeObjectState withObject:model];
     }
     
@@ -160,6 +148,28 @@ static NSString * const kVBArrayCoderKye = @"array";
 
 - (void)moveCellAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     [self.arrayObjects exchangeObjectAtIndex:fromIndex withObjectAtIndex:toIndex];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration Protocol
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(__unsafe_unretained id*)buffer
+                                    count:(NSUInteger)len
+{
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
+#pragma mark -
+#pragma mark NSCoding Protocol
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.arrayObjects = [aDecoder decodeObjectForKey:kVBArrayCoderKey];
+    }
+    
+    return self;
 }
 
 @end

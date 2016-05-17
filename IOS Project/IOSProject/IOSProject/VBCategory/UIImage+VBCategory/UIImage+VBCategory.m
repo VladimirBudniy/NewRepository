@@ -10,13 +10,4 @@
 
 @implementation UIImage (VBCategory)
 
-#pragma mark -
-#pragma mark Class Methods
-
-+ (UIImage *)imagePathWithName:(NSString *)name {
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
-    
-    return [self imageWithContentsOfFile:path];
-}
-
 @end

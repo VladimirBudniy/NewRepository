@@ -10,6 +10,4 @@
 
 @interface UIImage (VBCategory)
 
-+ (UIImage *)imagePathWithName:(NSString *)name;
-
 @end

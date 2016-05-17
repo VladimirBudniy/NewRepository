@@ -15,6 +15,7 @@
 static NSString * const kVBFileAdress = @"/tmp.plist";
 
 @interface VBAppDelegate ()
+@property (nonatomic, strong) VBArrayModel *model;
 
 @end
 
@@ -23,20 +24,10 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
-
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
     
-    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    if (model) {
-        viewController.arrayModel = model;
-    } else {
-        viewController.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-    }
-
+    self.model = [VBArrayModel new];
+    viewController.arrayModel = self.model;  //// сделать приватный метод или сделать метот с инициализацией в моделе массива
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
@@ -48,13 +39,7 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
-    
-    VBStringViewController *viewController = (VBStringViewController *)self.window.rootViewController;
-    [NSKeyedArchiver archiveRootObject:viewController.arrayModel toFile:path];
+    [self.model keep];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -66,13 +51,7 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
-    
-    VBStringViewController *viewController = (VBStringViewController *)self.window.rootViewController;
-    [NSKeyedArchiver archiveRootObject:viewController.arrayModel toFile:path];
+    [self.model keep];
 }
 
 @end
