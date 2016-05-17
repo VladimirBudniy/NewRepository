@@ -62,7 +62,7 @@ static NSString * const kVBSringCoderKye    = @"string";
         self.string = [aDecoder decodeObjectForKey:kVBSringCoderKye];
     }
     
-    return nil;
+    return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {

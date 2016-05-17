@@ -66,7 +66,13 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
+    
+    VBStringViewController *viewController = (VBStringViewController *)self.window.rootViewController;
+    [NSKeyedArchiver archiveRootObject:viewController.arrayModel toFile:path];
 }
 
 @end

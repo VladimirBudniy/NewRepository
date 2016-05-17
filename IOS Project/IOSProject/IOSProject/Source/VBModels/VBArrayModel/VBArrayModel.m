@@ -81,12 +81,12 @@ static NSString * const kVBArrayCoderKye = @"array";
 #pragma mark NSFastEnumeration Protocol
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [self init];
+    self = [super init];
     if (self) {
         self.arrayObjects = [aDecoder decodeObjectForKey:kVBArrayCoderKye];
     }
     
-    return nil;
+    return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
