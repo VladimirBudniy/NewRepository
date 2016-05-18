@@ -30,9 +30,9 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        VBWeakSelfMacro;
+        VBWeakSelfMacroWithClass(VBStringViewController);
         [_arrayModel addHandler:^(VBStateModel *model){
-            VBStrongSelfAndReturnNilMacro;
+            VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
             [strongSelf performChangesWithObject:model];
 
         }           forState:kVBChangeObjectState
@@ -45,8 +45,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    //    добавляем спинер и выести в контроллер
+
+    [self.rootView showDownloading];
     [self.arrayModel download];
 }
 
@@ -82,7 +82,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark TableView DataSource Protocol
      
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrayModel.objects.count;
+    return self.arrayModel.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

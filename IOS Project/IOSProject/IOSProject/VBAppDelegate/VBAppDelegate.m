@@ -27,7 +27,8 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
     
     self.model = [VBArrayModel new];
-    viewController.arrayModel = self.model;  //// сделать приватный метод или сделать метот с инициализацией в моделе массива
+    viewController.arrayModel = self.model;
+    
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
@@ -39,7 +40,7 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.model keep];
+    [self.model save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -51,7 +52,7 @@ static NSString * const kVBFileAdress = @"/tmp.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.model keep];
+    [self.model save];
 }
 
 @end

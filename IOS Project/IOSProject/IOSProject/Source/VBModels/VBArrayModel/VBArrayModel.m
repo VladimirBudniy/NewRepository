@@ -74,26 +74,19 @@ static NSString * const kVBFileAdress       = @"/tmp.plist";
 #pragma mark - 
 #pragma mark Public
 
-- (void)keep {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
-    [NSKeyedArchiver archiveRootObject:self toFile:path];
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self toFile:[NSString pathFileWithName:kVBFileAdress]];
 }
 
 - (void)download {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *path = [documentsDirectory stringByAppendingString:kVBFileAdress];
-    
-    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    sleep(3);
+    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSString pathFileWithName:kVBFileAdress]];
     if (!model) {
         model = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];;
     }
     
     self.arrayObjects = model.arrayObjects;
 }
-
 
 - (NSUInteger)indexOfObject:(id)object {
     return [self.arrayObjects indexOfObject:object];

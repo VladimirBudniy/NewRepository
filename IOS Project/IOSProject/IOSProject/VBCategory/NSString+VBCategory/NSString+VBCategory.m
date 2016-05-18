@@ -38,4 +38,8 @@ const NSUInteger kVBStringLength = 4;
     return [string mutableCopy];
 }
 
++ (NSString *)pathFileWithName:(NSString *)name {
+    return [[NSObject directoryFolderPath] stringByAppendingString:name];
+}
+
 @end

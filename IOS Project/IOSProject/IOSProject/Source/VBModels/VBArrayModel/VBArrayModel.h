@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 
 - (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex ;
 
-- (void)keep;
+- (void)save;
 - (void)download;
 
 @end

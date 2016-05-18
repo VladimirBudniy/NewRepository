@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VBViewModel.h"
 
-@interface VBStringView : UIView
+@interface VBStringView : VBViewModel
 @property (nonatomic, retain) IBOutlet UITableView  *tableView;
 @property (nonatomic, retain) IBOutlet UIButton     *reloadButton;
 @property (nonatomic, strong) IBOutlet UISwitch     *editingSwitch;
