@@ -11,7 +11,8 @@
 #import "VBStateModel.h"
 
 typedef NS_ENUM(NSUInteger, VBArrayModelState) {
-    kVBChangeObjectState
+    kVBArrayModelChangeState,
+    kVBArrayModelLoadedState
 };
 
 @interface VBArrayModel : VBObserver <NSFastEnumeration, NSCoding>
@@ -38,6 +39,6 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 - (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex ;
 
 - (void)save;
-- (void)download;
+- (void)load;
 
 @end

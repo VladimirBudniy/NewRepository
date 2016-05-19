@@ -10,7 +10,9 @@
 
 @interface VBViewModel : UIView
 
-- (void)showLoading;
-- (void)removeLoading;
+- (void)showLoadingView;
+- (void)showLoadingViewWithDefaultText;
+- (void)showLoadingViewWithText:(NSString *)text;
+- (void)removeLoadingView;
 
 @end

@@ -28,10 +28,4 @@
     return [array copy];
 }
 
-+ (NSString *)directoryFolderPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    return [paths firstObject];
-}
-
 @end

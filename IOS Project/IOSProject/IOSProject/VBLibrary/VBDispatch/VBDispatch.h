@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VBEmployeeHandler)(void);
+typedef void (^VBDispatchHandler)(void);
 
 typedef enum {
     kVBDispatchPriorityHigh,
@@ -19,18 +19,18 @@ typedef enum {
 } VBDispatchPriorityType;
 
 extern
-void VBDispatchAsyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandler handler);
+void VBDispatchAsyncWithPriority(VBDispatchPriorityType priority, VBDispatchHandler handler);
 extern
-void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandler handler);
+void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBDispatchHandler handler);
 
 extern
-void VBDispatchAsyncInBackground(VBEmployeeHandler handler);
+void VBDispatchAsyncInBackground(VBDispatchHandler handler);
 extern
-void VBDispatchAsyncOnMainThread(VBEmployeeHandler handler);
+void VBDispatchAsyncOnMainThread(VBDispatchHandler handler);
 
 extern
-void VBDispatchSyncInBackground(VBEmployeeHandler handler);
+void VBDispatchSyncInBackground(VBDispatchHandler handler);
 extern
-void VBDispatchSyncOnMainThread(VBEmployeeHandler handler);
+void VBDispatchSyncOnMainThread(VBDispatchHandler handler);
 
 

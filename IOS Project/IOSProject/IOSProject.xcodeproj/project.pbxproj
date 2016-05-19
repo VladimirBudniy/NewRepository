@@ -40,6 +40,7 @@
 		E75EACE31CED0F31005791CB /* VBViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EACE21CED0F31005791CB /* VBViewModel.m */; };
 		E75EACE71CED1043005791CB /* VBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EACE61CED1043005791CB /* VBLoadingView.m */; };
 		E75EACE91CED1051005791CB /* VBLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E75EACE81CED1051005791CB /* VBLoadingView.xib */; };
+		E75EACED1CEE16B8005791CB /* NSFileManager+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EACEC1CEE16B8005791CB /* NSFileManager+VBCategory.m */; };
 		E76DB4F31CDFEBF500275FFE /* UINib+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E76DB4F21CDFEBF500275FFE /* UINib+VBCategory.m */; };
 		E79B785B1CEA43D600708B5A /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E79B785A1CEA43D600708B5A /* folder.png */; };
 		E79B785F1CEA460C00708B5A /* NSBundle+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E79B785E1CEA460C00708B5A /* NSBundle+VBCategory.m */; };
@@ -113,6 +114,8 @@
 		E75EACE51CED1043005791CB /* VBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLoadingView.h; sourceTree = "<group>"; };
 		E75EACE61CED1043005791CB /* VBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLoadingView.m; sourceTree = "<group>"; };
 		E75EACE81CED1051005791CB /* VBLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBLoadingView.xib; sourceTree = "<group>"; };
+		E75EACEB1CEE16B8005791CB /* NSFileManager+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+VBCategory.h"; sourceTree = "<group>"; };
+		E75EACEC1CEE16B8005791CB /* NSFileManager+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+VBCategory.m"; sourceTree = "<group>"; };
 		E76DB4F11CDFEBF500275FFE /* UINib+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+VBCategory.h"; sourceTree = "<group>"; };
 		E76DB4F21CDFEBF500275FFE /* UINib+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+VBCategory.m"; sourceTree = "<group>"; };
 		E79B785A1CEA43D600708B5A /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 		E703C8BA1CDB55580026BB1E /* VBCategory */ = {
 			isa = PBXGroup;
 			children = (
+				E75EACEA1CEE169F005791CB /* NSFileManager+VBCategory */,
 				E75EACD81CECDF22005791CB /* NSObject+VBCategory */,
 				E79B78601CEA484400708B5A /* UIImage+VBCategory */,
 				E79B785C1CEA45F300708B5A /* NSBundle+VBCategory */,
@@ -437,6 +441,15 @@
 			path = VBLoadingView;
 			sourceTree = "<group>";
 		};
+		E75EACEA1CEE169F005791CB /* NSFileManager+VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E75EACEB1CEE16B8005791CB /* NSFileManager+VBCategory.h */,
+				E75EACEC1CEE16B8005791CB /* NSFileManager+VBCategory.m */,
+			);
+			path = "NSFileManager+VBCategory";
+			sourceTree = "<group>";
+		};
 		E76DB4F01CDFEBD800275FFE /* UINib+VBCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +614,7 @@
 				E703C8C81CDB55590026BB1E /* UIView+VBCategory.m in Sources */,
 				E7417DDA1CE0B2D30049953A /* VBStringAlphabet.m in Sources */,
 				E7417DE41CE0B4540049953A /* VBArrayModel.m in Sources */,
+				E75EACED1CEE16B8005791CB /* NSFileManager+VBCategory.m in Sources */,
 				E703C8C71CDB55590026BB1E /* CGGeometry+VBCategory.m in Sources */,
 				E703C8E11CDB55AF0026BB1E /* VBLabelView.m in Sources */,
 				E7F718FF1CC6CF8000A90B54 /* main.m in Sources */,

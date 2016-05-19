@@ -24,6 +24,4 @@ extern const NSUInteger kVBStringLength;
 + (instancetype)randomStringWithAlphabet:(VBAlphabet *)alphabet;
 + (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(VBAlphabet *)alphabet;
 
-+ (NSString *)pathFileWithName:(NSString *)name;
-
 @end

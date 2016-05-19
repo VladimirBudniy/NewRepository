@@ -16,6 +16,7 @@
 @property (nonatomic, readonly) VBStringView  *rootView;
 
 - (void)performChangesWithObject:(id)object;
+- (void)selfLoad;
 
 @end
 
@@ -35,8 +36,18 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
             VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
             [strongSelf performChangesWithObject:model];
 
-        }           forState:kVBChangeObjectState
+        }           forState:kVBArrayModelChangeState
                          object:self];
+        
+        [_arrayModel addHandler:^(VBStateModel *model){
+            VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
+            [strongSelf.rootView.tableView reloadData];
+            [strongSelf.rootView removeLoadingView];
+            
+        }           forState:kVBArrayModelLoadedState
+                         object:self];
+        
+        [self selfLoad];
     }
 }
 
@@ -45,8 +56,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    [self.arrayModel download];
+    
+    [self selfLoad];
 }
 
 #pragma mark -
@@ -54,7 +65,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (IBAction)onUpdateCellsButton:(id)sender {
     self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-    [self.rootView.tableView reloadData];
+    [self.arrayModel save];
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
@@ -75,6 +86,11 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (void)selfLoad {
+    [self.rootView showLoadingViewWithDefaultText];
+    [self.arrayModel load];
 }
 
 #pragma mark -

@@ -12,8 +12,6 @@
 #import "VBArrayModel.h"
 #import "VBStringModel.h"
 
-static NSString * const kVBFileAdress = @"/tmp.plist";
-
 @interface VBAppDelegate ()
 @property (nonatomic, strong) VBArrayModel *model;
 

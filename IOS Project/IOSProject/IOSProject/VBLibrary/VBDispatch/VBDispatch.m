@@ -37,11 +37,11 @@ dispatch_queue_t VBQueueWithPriority(VBDispatchPriorityType priority) {
 #pragma mark -
 #pragma mark Public
 
-void VBDispatchAsyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandler handler) {
+void VBDispatchAsyncWithPriority(VBDispatchPriorityType priority, VBDispatchHandler handler) {
     dispatch_async(VBQueueWithPriority(priority), handler);
 }
 
-void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandler handler) {
+void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBDispatchHandler handler) {
     if ([NSThread mainThread]) {
         dispatch_async(VBQueueWithPriority(priority), handler);
     } else {
@@ -49,19 +49,19 @@ void VBDispatchSyncWithPriority(VBDispatchPriorityType priority, VBEmployeeHandl
     }
 }
 
-void VBDispatchAsyncInBackground(VBEmployeeHandler handler) {
+void VBDispatchAsyncInBackground(VBDispatchHandler handler) {
     VBDispatchAsyncWithPriority(kVBDispatchPriorityBackground, handler);
 }
 
-void VBDispatchAsyncOnMainThread(VBEmployeeHandler handler) {
+void VBDispatchAsyncOnMainThread(VBDispatchHandler handler) {
     VBDispatchAsyncWithPriority(kVBDispatchPriorityMain, handler);
 }
 
-void VBDispatchSyncInBackground(VBEmployeeHandler handler) {
+void VBDispatchSyncInBackground(VBDispatchHandler handler) {
     VBDispatchSyncWithPriority(kVBDispatchPriorityBackground, handler);
 }
 
-void VBDispatchSyncOnMainThread(VBEmployeeHandler handler) {
+void VBDispatchSyncOnMainThread(VBDispatchHandler handler) {
     VBDispatchSyncWithPriority(kVBDispatchPriorityMain, handler);
 }
 

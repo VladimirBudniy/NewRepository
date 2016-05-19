@@ -8,9 +8,10 @@
 
 #import "VBArrayModel.h"
 #import "VBStringModel.h"
+#import "VBDispatch.h"
 
 static NSString * const kVBArrayCoderKey    = @"array";
-static NSString * const kVBFileAdress       = @"/tmp.plist";
+static NSString * const kVBFileAdress       = @"tmp.plist";
 
 @interface VBArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -67,24 +68,31 @@ static NSString * const kVBFileAdress       = @"/tmp.plist";
     return [self.arrayObjects copy];
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:kVBArrayCoderKey];
-}
-
 #pragma mark - 
 #pragma mark Public
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:[NSString pathFileWithName:kVBFileAdress]];
+    [NSKeyedArchiver archiveRootObject:self toFile:[NSFileManager pathFileWithName:kVBFileAdress]];
 }
 
-- (void)download {
-    VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSString pathFileWithName:kVBFileAdress]];
-    if (!model) {
-        model = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];;
-    }
-    
-    self.arrayObjects = model.arrayObjects;
+- (void)load {
+    VBWeakSelfMacro;
+    VBDispatchAsyncInBackground(^{
+        sleep(2);
+        VBStrongSelfAndReturnNilMacroWithClass(VBArrayModel)
+        VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager
+                                                                          pathFileWithName:kVBFileAdress]];
+        if (!model) {
+            model = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];;
+        }
+        
+        strongSelf.arrayObjects = model.arrayObjects;
+        
+        VBDispatchAsyncOnMainThread(^{
+            strongSelf.state = kVBArrayModelLoadedState;
+            
+        });
+    });
 }
 
 - (NSUInteger)indexOfObject:(id)object {
@@ -106,33 +114,34 @@ static NSString * const kVBFileAdress       = @"/tmp.plist";
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:self.count];
-    [self setState:kVBChangeObjectState withObject:model];
+    [self setState:kVBArrayModelChangeState withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     NSUInteger insertIndex = index + 1;
     [self.arrayObjects insertObject:object atIndex:insertIndex];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:insertIndex];
-    [self setState:kVBChangeObjectState withObject:model];
+    [self setState:kVBArrayModelChangeState withObject:model];
 }
 
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
-    VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:[self indexOfObject:object]];
-    [self setState:kVBChangeObjectState withObject:model];
+    VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState
+                                                 index:[self indexOfObject:object]];
+    [self setState:kVBArrayModelChangeState withObject:model];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
-    [self setState:kVBChangeObjectState withObject:model];
+    [self setState:kVBArrayModelChangeState withObject:model];
 }
 
 - (void)removeAllObjects {
     NSUInteger count = self.count;
     for (NSUInteger index = 0; index < count; index++) {
         VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
-        [self setState:kVBChangeObjectState withObject:model];
+        [self setState:kVBArrayModelChangeState withObject:model];
     }
     
     [self.arrayObjects removeAllObjects];
@@ -162,6 +171,10 @@ static NSString * const kVBFileAdress       = @"/tmp.plist";
     }
     
     return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.arrayObjects forKey:kVBArrayCoderKey];
 }
 
 @end

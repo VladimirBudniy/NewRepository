@@ -12,6 +12,5 @@
 
 + (instancetype)object;
 + (NSArray *)objectsWithCount:(NSUInteger)count;
-+ (NSString *)directoryFolderPath;
 
 @end
