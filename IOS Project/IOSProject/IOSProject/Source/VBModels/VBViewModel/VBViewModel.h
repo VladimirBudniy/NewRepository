@@ -10,7 +10,7 @@
 
 @interface VBViewModel : UIView
 
-- (void)showDownloading;
-- (void)removeDownloading;
+- (void)showLoading;
+- (void)removeLoading;
 
 @end

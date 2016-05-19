@@ -14,14 +14,12 @@
 #pragma mark - 
 #pragma mark Public
 
-- (void)showDownloading {
-    VBLoadingView *view = [UINib objectFromNibWithClass:[VBLoadingView class]];
-    [self addSubview:view];
+- (void)showLoading {
+
 }
 
-- (void)removeDownloading {
-    VBLoadingView *view = [UINib objectFromNibWithClass:[VBLoadingView class]];
-    [self willRemoveSubview:view];
+- (void)removeLoading {
+
 }
 
 @end

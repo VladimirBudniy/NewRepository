@@ -46,7 +46,6 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.rootView showDownloading];
     [self.arrayModel download];
 }
 

@@ -79,7 +79,6 @@ static NSString * const kVBFileAdress       = @"/tmp.plist";
 }
 
 - (void)download {
-    sleep(3);
     VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSString pathFileWithName:kVBFileAdress]];
     if (!model) {
         model = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];;
