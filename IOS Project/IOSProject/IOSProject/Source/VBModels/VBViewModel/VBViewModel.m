@@ -10,6 +10,9 @@
 #import "VBLoadingView.h"
 
 static NSString * const kVBDefaultLodingText = @"... loading ...";
+static CGFloat    const kVBDefaultDuration   = 1.0;
+static CGFloat    const kVBLoadingAlpha      = 0.8;
+static CGFloat    const kVBRemovingAlpha     = 0.0;
 
 @interface VBViewModel ()
 @property (nonatomic, strong) VBLoadingView *loadingView;
@@ -26,10 +29,18 @@ static NSString * const kVBDefaultLodingText = @"... loading ...";
 }
 
 - (void)showLoadingViewWithDefaultText {
-    [self showLoadingViewWithText:kVBDefaultLodingText];
+    [self showLoadingViewWithDefaultTextAnimated:NO];
+}
+
+- (void)showLoadingViewWithDefaultTextAnimated:(BOOL)animated {
+    [self showLoadingViewWithText:kVBDefaultLodingText animated:animated];
 }
 
 - (void)showLoadingViewWithText:(NSString *)text {
+    [self showLoadingViewWithText:text animated:NO];
+}
+
+- (void)showLoadingViewWithText:(NSString *)text animated:(BOOL)animated {
     VBLoadingView *view = self.loadingView;
     if (!view) {
         view = [UINib loadFromNibWithClass:[VBLoadingView class]];
@@ -37,11 +48,33 @@ static NSString * const kVBDefaultLodingText = @"... loading ...";
         self.loadingView = view;
     }
     
-    [self addSubview:view];
+    [UIView animateWithDuration:animated ? kVBDefaultDuration : 0
+                     animations:^{
+                         view.alpha = kVBLoadingAlpha;
+                         [self addSubview:view];
+                     }];
 }
 
 - (void)removeLoadingView {
-    [self.loadingView removeFromSuperview];
+    [self removeLoadingViewAnimated:NO];
+}
+
+- (void)removeLoadingViewAnimated:(BOOL)animated {
+    [UIView animateWithDuration:animated ? kVBDefaultDuration : 0
+                     animations:^{
+                         self.loadingView.alpha = kVBRemovingAlpha;
+                     }
+                     completion:^(BOOL finished){
+//                         [self.loadingView removeFromSuperview];
+                     }];
 }
 
 @end
+
+
+
+
+
+
+
+

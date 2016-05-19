@@ -78,7 +78,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 - (void)load {
     VBWeakSelfMacro;
     VBDispatchAsyncInBackground(^{
-        sleep(2);
+        sleep(3);
         VBStrongSelfAndReturnNilMacroWithClass(VBArrayModel)
         VBArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager
                                                                           pathFileWithName:kVBFileAdress]];

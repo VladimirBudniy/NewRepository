@@ -41,8 +41,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         
         [_arrayModel addHandler:^(VBStateModel *model){
             VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
+            [strongSelf.rootView removeLoadingViewAnimated:YES];
             [strongSelf.rootView.tableView reloadData];
-            [strongSelf.rootView removeLoadingView];
             
         }           forState:kVBArrayModelLoadedState
                          object:self];
@@ -64,8 +64,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark Handling Interface
 
 - (IBAction)onUpdateCellsButton:(id)sender {
-    self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-    [self.arrayModel save];
+//    self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+//    [self.arrayModel save];
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
@@ -89,7 +89,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (void)selfLoad {
-    [self.rootView showLoadingViewWithDefaultText];
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     [self.arrayModel load];
 }
 

@@ -8,7 +8,7 @@
 
 #import "VBStringModel.h"
 
-const NSUInteger kVBDefaultArrayCount = 10;
+const NSUInteger kVBDefaultArrayCount = 5;
 
 static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
