@@ -8,16 +8,11 @@
 
 #import "VBArrayModel.h"
 #import "VBStringModel.h"
-#import "VBDispatch.h"
 
 static NSString * const kVBArrayCoderKey    = @"array";
-static NSString * const kVBFileAdress       = @"tmp.plist";
 
 @interface VBArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
-@property (nonatomic, copy)   NSString       *path;
-
-@property (nonatomic, readonly, getter=isCached) BOOL cached;
 
 @end
 
@@ -33,16 +28,6 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 + (instancetype)arrayModelWithArray:(NSArray *)objects {
     return [[self alloc] initWithArray:objects];
 }
-
-+ (instancetype)model {
-    VBArrayModel *model = [VBArrayModel new];
-    if (model.isCached) {
-        return [NSKeyedUnarchiver unarchiveObjectWithFile:model.path];
-    } else {
-        return [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-    }
-}
-
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -77,16 +62,6 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark -
 #pragma mark Accessors
 
-- (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
-}
-
-- (NSString *)path {
-    NSString *path = [NSFileManager pathFileWithName:kVBFileAdress];
-    self.path = path;
-    return path;
-}
-
 - (NSArray *)objects {
     return [self.arrayObjects copy];
 }
@@ -95,29 +70,11 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark Public
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
+
 }
 
 - (void)load {
-    if (self.state == kVBArrayModelLoadingState) {
-        return;
-    } else {
-        self.state = kVBArrayModelLoadingState;
-    }
-    
-    VBWeakSelfMacro;
-    VBDispatchAsyncInBackground(^{
-        sleep(3);
-        VBStrongSelfAndReturnNilMacroWithClass(VBArrayModel)
-        
-        VBArrayModel *model = [VBArrayModel model];        
-        strongSelf.arrayObjects = model.arrayObjects;
-        
-        VBDispatchAsyncOnMainThread(^{
-            strongSelf.state = kVBArrayModelLoadedState;
-            
-        });
-    });
+
 }
 
 - (NSUInteger)indexOfObject:(id)object {
@@ -134,6 +91,10 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
     return [self.arrayObjects objectAtIndex:index];
+}
+
+- (void)addObjectsFromArray:(NSArray *)array {
+    return [self.arrayObjects setArray:array];
 }
 
 - (void)addObject:(id)object {

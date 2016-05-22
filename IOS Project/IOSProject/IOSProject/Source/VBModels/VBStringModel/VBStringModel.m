@@ -10,12 +10,12 @@
 
 const NSUInteger kVBDefaultArrayCount = 5;
 
-static NSString * const kVBStringModelImage = @"folder.png";
+//static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString *string;
-@property (nonatomic, strong)   UIImage  *image;
+//@property (nonatomic, strong)   UIImage  *image;
 
 @end
 
@@ -45,7 +45,7 @@ static NSString * const kVBSringCoderKey    = @"string";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
+//        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
         self.string = [NSString randomString];
     }
     

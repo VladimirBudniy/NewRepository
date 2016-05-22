@@ -11,21 +11,16 @@
 #import "VBStringViewController.h"
 #import "VBArrayModel.h"
 #import "VBStringModel.h"
-
-@interface VBAppDelegate ()
-@property (nonatomic, strong) VBArrayModel *model;
-
-@end
+#import "VBSaveArrayModel.h"
 
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    VBStringViewController *viewController = [VBStringViewController controllerFromNib];
     
-    self.model = [VBArrayModel new];
-    viewController.arrayModel = self.model;
+    VBStringViewController *viewController = [VBStringViewController controllerFromNib];
+    viewController.arrayModel = [VBSaveArrayModel new];
     
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
@@ -38,7 +33,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.model save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -50,7 +44,6 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.model save];
 }
 
 @end

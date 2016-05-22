@@ -19,6 +19,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-83-aCa">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="EjY-Xd-Vyl"/>
                                     <constraint firstAttribute="height" constant="50" id="Okq-fX-XRl"/>
@@ -38,6 +39,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="WyR-Uc-fi6">
+                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,8 +50,10 @@
                             <constraint firstItem="6Qs-83-aCa" firstAttribute="bottom" secondItem="wV4-tC-9ua" secondAttribute="bottom" id="3DJ-r7-Btd"/>
                             <constraint firstItem="wV4-tC-9ua" firstAttribute="leading" secondItem="6Qs-83-aCa" secondAttribute="trailing" constant="2" id="7dm-4f-fUt"/>
                             <constraint firstAttribute="trailing" secondItem="NJl-JD-rtt" secondAttribute="trailing" constant="4" id="7yj-Fp-EaH"/>
+                            <constraint firstItem="WyR-Uc-fi6" firstAttribute="centerX" secondItem="6Qs-83-aCa" secondAttribute="centerX" id="ARO-zA-Eqw"/>
                             <constraint firstAttribute="bottom" secondItem="NJl-JD-rtt" secondAttribute="bottom" constant="1" id="ASZ-YD-9G7"/>
                             <constraint firstAttribute="trailing" secondItem="wV4-tC-9ua" secondAttribute="trailing" constant="4" id="GqJ-E8-Abi"/>
+                            <constraint firstItem="WyR-Uc-fi6" firstAttribute="centerY" secondItem="6Qs-83-aCa" secondAttribute="centerY" id="QqU-eo-RYD"/>
                             <constraint firstAttribute="bottom" secondItem="wV4-tC-9ua" secondAttribute="bottom" id="TXJ-bd-pF7"/>
                             <constraint firstItem="6Qs-83-aCa" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" id="yYH-v2-LMA"/>
                             <constraint firstItem="NJl-JD-rtt" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" constant="52" id="ykN-tD-bcb"/>
@@ -69,8 +76,9 @@
                 <outlet property="cellImage" destination="6Qs-83-aCa" id="raD-4S-KnQ"/>
                 <outlet property="cellLabel" destination="wV4-tC-9ua" id="etp-J4-qkg"/>
                 <outlet property="separatorView" destination="NJl-JD-rtt" id="A5e-4N-teW"/>
+                <outlet property="spinner" destination="WyR-Uc-fi6" id="UWB-uT-uZ2"/>
             </connections>
-            <point key="canvasLocation" x="328" y="-76"/>
+            <point key="canvasLocation" x="376" y="-45"/>
         </tableViewCell>
     </objects>
 </document>

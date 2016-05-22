@@ -11,12 +11,13 @@
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
 #import "VBStateModel.h"
+#import "VBSaveArrayModel.h"
 
 @interface VBStringViewController ()
 @property (nonatomic, readonly) VBStringView  *rootView;
 
 - (void)performChangesWithObject:(id)object;
-- (void)performWorkWithArrayModel;
+- (void)performWorkWithModel;
 - (void)loading;
 
 @end
@@ -32,7 +33,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        [self performWorkWithArrayModel];
+        [self performWorkWithModel];
     }
 }
 
@@ -49,9 +50,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark Handling Interface
 
 - (IBAction)onUpdateCellsButton:(id)sender {
-    VBArrayModel *arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-    self.arrayModel = arrayModel;
-    [arrayModel save];
+    self.arrayModel = [VBSaveArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
@@ -61,7 +60,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark -
 #pragma mark Private
 
-- (void)performWorkWithArrayModel {
+- (void)performWorkWithModel {
     VBWeakSelfMacroWithClass(VBStringViewController);
     [_arrayModel addHandler:^(VBStateModel *model){
         VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
@@ -108,7 +107,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
-    [cell fillWithModel:self.arrayModel[indexPath.row]];
+    [cell fillWithModel:self.arrayModel[indexPath.row] animated:YES];
     
     return cell;
 }
@@ -158,6 +157,5 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         return UITableViewCellEditingStyleDelete;
     }
 }
-
 
 @end

@@ -14,8 +14,7 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
     kVBArrayModelDefaultState,
     kVBArrayModelLoadingState,
     kVBArrayModelChangeState,
-    kVBArrayModelLoadedState,
-    kVBArrayModelUpdatedState
+    kVBArrayModelLoadedState
 };
 
 @interface VBArrayModel : VBObserver <NSFastEnumeration, NSCoding>
@@ -31,6 +30,9 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)addObject:(id)object;
+
+- (void)addObjectsFromArray:(NSArray *)array;
+
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
