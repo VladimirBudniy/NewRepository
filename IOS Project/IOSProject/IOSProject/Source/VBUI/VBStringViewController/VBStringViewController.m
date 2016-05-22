@@ -16,7 +16,8 @@
 @property (nonatomic, readonly) VBStringView  *rootView;
 
 - (void)performChangesWithObject:(id)object;
-- (void)selfLoad;
+- (void)performWorkWithArrayModel;
+- (void)loading;
 
 @end
 
@@ -31,41 +32,26 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        VBWeakSelfMacroWithClass(VBStringViewController);
-        [_arrayModel addHandler:^(VBStateModel *model){
-            VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
-            [strongSelf performChangesWithObject:model];
-
-        }           forState:kVBArrayModelChangeState
-                         object:self];
-        
-        [_arrayModel addHandler:^(VBStateModel *model){
-            VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
-            [strongSelf.rootView removeLoadingViewAnimated:YES];
-            [strongSelf.rootView.tableView reloadData];
-            
-        }           forState:kVBArrayModelLoadedState
-                         object:self];
-        
-        [self selfLoad];
+        [self performWorkWithArrayModel];
     }
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark View LifeCycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self selfLoad];
+    [self loading];
 }
 
 #pragma mark -
 #pragma mark Handling Interface
 
 - (IBAction)onUpdateCellsButton:(id)sender {
-//    self.arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
-//    [self.arrayModel save];
+    VBArrayModel *arrayModel = [VBArrayModel arrayModelWithArray:[VBStringModel randomStringsModels]];
+    self.arrayModel = arrayModel;
+    [arrayModel save];
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
@@ -74,6 +60,26 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 #pragma mark -
 #pragma mark Private
+
+- (void)performWorkWithArrayModel {
+    VBWeakSelfMacroWithClass(VBStringViewController);
+    [_arrayModel addHandler:^(VBStateModel *model){
+        VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
+        [strongSelf performChangesWithObject:model];
+        
+    }           forState:kVBArrayModelChangeState
+                     object:self];
+    
+    [_arrayModel addHandler:^(VBStateModel *model){
+        VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
+        [strongSelf.rootView removeLoadingViewAnimated:YES];
+        [strongSelf.rootView.tableView reloadData];
+        
+    }           forState:kVBArrayModelLoadedState
+                     object:self];
+    
+    [self loading];
+}
 
 - (void)performChangesWithObject:(VBStateModel *)object {
     UITableView *tableView = self.rootView.tableView;
@@ -88,7 +94,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     }
 }
 
-- (void)selfLoad {
+- (void)loading {
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     [self.arrayModel load];
 }
