@@ -8,7 +8,7 @@
 
 #import "VBStringModel.h"
 
-const NSUInteger kVBDefaultArrayCount = 15;
+const NSUInteger kVBDefaultArrayCount = 10;
 
 static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
@@ -52,26 +52,14 @@ static NSString * const kVBSringCoderKey    = @"string";
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Private
 
-- (void)load {
-    if (self.state == kVBStringModelLoadingState) {
-        return;
-    } else {
-        self.state = kVBStringModelLoadingState;
-    }
-    
-    VBWeakSelfMacro;
-    VBDispatchAsyncInBackground(^{
-        VBStrongSelfAndReturnNilMacroWithClass(VBStringModel)
-        
-        sleep(4);
-        
-        strongSelf.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
-        VBDispatchSyncOnMainThread(^{
-            [strongSelf setState:kVBStringModelLoadedState withObject:strongSelf.image];
-        });
-    });
+- (void)prepareToLoad {
+    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
+}
+
+- (void)changeState {
+    [self setState:kVBModelLoadedState withObject:self.image];
 }
 
 #pragma mark -

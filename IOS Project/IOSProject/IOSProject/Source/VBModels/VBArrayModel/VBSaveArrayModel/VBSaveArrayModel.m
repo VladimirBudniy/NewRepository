@@ -16,7 +16,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 @property (nonatomic, readonly)                  NSString        *path;
 @property (nonatomic, readonly, getter=isCached) BOOL            cached;
 
-- (void)save;
++ (instancetype)model;
 
 @end
 
@@ -35,30 +35,6 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 }
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
-
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:UIApplicationWillTerminateNotification
-                                                   object:nil];
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (NSString *)path {
@@ -70,32 +46,15 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Private
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
 
-- (void)load {
-    if (self.state == kVBArrayModelLoadingState) {
-        return;
-    } else {
-        self.state = kVBArrayModelLoadingState;
-    }
-    
-    VBWeakSelfMacro;
-    VBDispatchAsyncInBackground(^{
-        sleep(3);
-        VBStrongSelfAndReturnNilMacroWithClass(VBArrayModel)
-        
-        VBSaveArrayModel *model = [VBSaveArrayModel model];
-        [strongSelf setArray:model.objects];
-        
-        VBDispatchAsyncOnMainThread(^{
-            strongSelf.state = kVBArrayModelLoadedState;
-            
-        });
-    });
+- (void)prepareToLoad {
+    VBSaveArrayModel *model = [VBSaveArrayModel model];
+    [self addObjects:model.objects];
 }
 
 @end

@@ -10,8 +10,4 @@
 
 @interface VBSaveArrayModel : VBArrayModel
 
-+ (instancetype)model;
-
-- (void)load;
-
 @end

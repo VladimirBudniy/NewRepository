@@ -6,22 +6,13 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBObserver.h"
+#import "VBModel.h"
 
-typedef NS_ENUM(NSUInteger, VBStringModelState) {
-    kVBStringModelDefaultState,
-    kVBStringModelLoadingState,
-    kVBStringModelChangeState,
-    kVBStringModelLoadedState
-};
-
-@interface VBStringModel : VBObserver <NSCoding>
+@interface VBStringModel : VBModel <NSCoding>
 @property (nonatomic, readonly)   NSString *string;
 @property (nonatomic, readonly)   UIImage  *image;
 
 + (instancetype)randomStringModel;
 + (NSArray *)randomStringsModels;
-
-- (void)load;
 
 @end

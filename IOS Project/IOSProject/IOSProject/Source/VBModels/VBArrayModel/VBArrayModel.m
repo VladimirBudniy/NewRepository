@@ -7,6 +7,7 @@
 //
 
 #import "VBArrayModel.h"
+#import "VBStateModel.h"
 #import "VBStringModel.h"
 
 static NSString * const kVBArrayCoderKey    = @"array";
@@ -69,10 +70,6 @@ static NSString * const kVBArrayCoderKey    = @"array";
 #pragma mark - 
 #pragma mark Public
 
-- (void)load {
-
-}
-
 - (NSUInteger)indexOfObject:(id)object {
     return [self.arrayObjects indexOfObject:object];
 }
@@ -89,41 +86,41 @@ static NSString * const kVBArrayCoderKey    = @"array";
     return [self.arrayObjects objectAtIndex:index];
 }
 
-- (void)setArray:(NSArray *)array {
+- (void)addObjects:(NSArray *)array {
     return [self.arrayObjects setArray:array];
 }
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:self.count];
-    [self setState:kVBArrayModelChangeState withObject:model];
+    [self setState:kVBModelChangeState withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     NSUInteger insertIndex = index + 1;
     [self.arrayObjects insertObject:object atIndex:insertIndex];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectInserteState index:insertIndex];
-    [self setState:kVBArrayModelChangeState withObject:model];
+    [self setState:kVBModelChangeState withObject:model];
 }
 
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState
                                                  index:[self indexOfObject:object]];
-    [self setState:kVBArrayModelChangeState withObject:model];
+    [self setState:kVBModelChangeState withObject:model];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
     VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
-    [self setState:kVBArrayModelChangeState withObject:model];
+    [self setState:kVBModelChangeState withObject:model];
 }
 
 - (void)removeAllObjects {
     NSUInteger count = self.count;
     for (NSUInteger index = 0; index < count; index++) {
         VBStateModel *model = [VBStateModel modelWithState:kVBObjectRemoveState index:index];
-        [self setState:kVBArrayModelChangeState withObject:model];
+        [self setState:kVBModelChangeState withObject:model];
     }
     
     [self.arrayObjects removeAllObjects];

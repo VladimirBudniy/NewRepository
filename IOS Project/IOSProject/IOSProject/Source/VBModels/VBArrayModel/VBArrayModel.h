@@ -6,18 +6,9 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "VBObserver.h"
-#import "VBStateModel.h"
+#import "VBModel.h"
 
-typedef NS_ENUM(NSUInteger, VBArrayModelState) {
-    kVBArrayModelDefaultState,
-    kVBArrayModelLoadingState,
-    kVBArrayModelChangeState,
-    kVBArrayModelLoadedState
-};
-
-@interface VBArrayModel : VBObserver <NSFastEnumeration, NSCoding>
+@interface VBArrayModel : VBModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSArray *objects;
 
 + (instancetype)arrayModelWithObject:(id)object;
@@ -30,8 +21,7 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)addObject:(id)object;
-
-- (void)setArray:(NSArray *)array;
+- (void)addObjects:(NSArray *)array;
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
@@ -41,8 +31,6 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 - (NSUInteger)count;
 - (NSUInteger)indexOfObject:(id)object;
 
-- (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex ;
-
-- (void)load;
+- (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex;
 
 @end

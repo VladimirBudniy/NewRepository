@@ -33,7 +33,7 @@
             VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
             strongSelf.cellImage.image = image;
             [strongSelf.spinner stopAnimating];
-        } forState:kVBStringModelLoadedState
+        } forState:kVBModelLoadedState
                     object:self];
         
         [self load];
