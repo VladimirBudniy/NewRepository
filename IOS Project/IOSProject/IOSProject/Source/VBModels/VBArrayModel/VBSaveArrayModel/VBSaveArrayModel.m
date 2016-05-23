@@ -86,7 +86,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
         VBStrongSelfAndReturnNilMacroWithClass(VBArrayModel)
         
         VBSaveArrayModel *model = [VBSaveArrayModel model];
-        [strongSelf addObjectsFromArray:model.objects];
+        [strongSelf setArray:model.objects];
         
         VBDispatchAsyncOnMainThread(^{
             strongSelf.state = kVBArrayModelLoadedState;

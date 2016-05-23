@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 
 - (void)addObject:(id)object;
 
-- (void)addObjectsFromArray:(NSArray *)array;
+- (void)setArray:(NSArray *)array;
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
