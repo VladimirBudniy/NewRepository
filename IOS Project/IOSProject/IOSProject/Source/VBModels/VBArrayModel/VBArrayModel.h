@@ -43,7 +43,6 @@ typedef NS_ENUM(NSUInteger, VBArrayModelState) {
 
 - (void)moveCellAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex ;
 
-- (void)save;
 - (void)load;
 
 @end

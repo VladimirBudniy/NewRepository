@@ -12,7 +12,6 @@
 
 + (instancetype)model;
 
-- (void)save;
 - (void)load;
 
 @end

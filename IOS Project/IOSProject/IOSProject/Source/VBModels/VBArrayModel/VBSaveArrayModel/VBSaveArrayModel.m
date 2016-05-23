@@ -13,8 +13,10 @@
 static NSString * const kVBFileAdress       = @"tmp.plist";
 
 @interface VBSaveArrayModel ()
-@property (nonatomic, copy)                      NSString       *path;
+@property (nonatomic, readonly)                  NSString        *path;
 @property (nonatomic, readonly, getter=isCached) BOOL            cached;
+
+- (void)save;
 
 @end
 
@@ -34,6 +36,10 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (instancetype)init {
     self = [super init];
@@ -56,11 +62,8 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark Accessors
 
 - (NSString *)path {
-    NSString *path = [NSFileManager pathFileWithName:kVBFileAdress];
-    self.path = path;
-    return path;
+    return [NSFileManager pathFileWithName:kVBFileAdress];
 }
-
 
 - (BOOL)isCached {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.path];

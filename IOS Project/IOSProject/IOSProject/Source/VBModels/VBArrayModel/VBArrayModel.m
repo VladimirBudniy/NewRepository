@@ -69,10 +69,6 @@ static NSString * const kVBArrayCoderKey    = @"array";
 #pragma mark - 
 #pragma mark Public
 
-- (void)save {
-
-}
-
 - (void)load {
 
 }

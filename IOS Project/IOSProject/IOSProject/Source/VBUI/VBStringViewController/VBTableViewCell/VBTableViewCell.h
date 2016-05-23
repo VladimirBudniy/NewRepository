@@ -15,8 +15,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView             *cellImage;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *spinner;
 
-
 - (void)fillWithModel:(id)theModel;
-- (void)fillWithModel:(id)theModel animated:(BOOL)animated;
 
 @end

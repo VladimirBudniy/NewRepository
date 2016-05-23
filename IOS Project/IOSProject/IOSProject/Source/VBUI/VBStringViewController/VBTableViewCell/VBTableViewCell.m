@@ -9,57 +9,50 @@
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
 
-static NSString * const kVBStringModelImage = @"folder.png";
-
-static CGFloat    const kVBDefaultDuration   = 2.0;
-static CGFloat    const kVBRemovingAlpha     = 0.1;
-
 @interface VBTableViewCell ()
+@property (nonatomic, strong) VBStringModel *model;
 
-- (void)loadImage;
-- (void)loadImageAnimated:(BOOL)animated;
+- (void)load;
 
 @end
 
 @implementation VBTableViewCell
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setModel:(VBStringModel *)model {
+    if (_model != model) {
+        _model = model;
+        
+        self.cellLabel.text = model.string;
+        self.cellImage.image = nil;
+        
+        VBWeakSelfMacro;
+        [_model addHandler:^(UIImage *image){
+            VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
+            strongSelf.cellImage.image = image;
+            [strongSelf.spinner stopAnimating];
+        } forState:kVBStringModelLoadedState
+                    object:self];
+        
+        [self load];
+    }
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)load {
+    [self.model load];
+    [self.spinner startAnimating];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)fillWithModel:(VBStringModel *)theModel {
-    [self fillWithModel:theModel animated:NO];
-}
-
-- (void)fillWithModel:(VBStringModel *)theModel animated:(BOOL)animated {
-    self.cellLabel.text = theModel.string;
-    [self loadImageAnimated:animated];
-}
-
-- (void)loadImage {
-    [self loadImageAnimated:NO];
-}
-
-- (void)loadImageAnimated:(BOOL)animated {
-    VBWeakSelfMacro;
-    VBDispatchAsyncInBackground(^{
-        sleep(5);
-        VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
-        
-        UIImage *image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
-        
-        VBDispatchAsyncOnMainThread(^{
-            strongSelf.cellImage.image = image;
-            [UIView animateWithDuration:animated ? kVBDefaultDuration : 0
-                             animations:^{
-                                 strongSelf.spinner.alpha = kVBRemovingAlpha;
-                             }
-                             completion:^(BOOL finished) {
-                                 [strongSelf.spinner stopAnimating];
-                                 strongSelf.spinner.hidesWhenStopped = YES;
-                                 self.spinner = nil;
-                             }];
-        });
-    });
+    self.model = theModel;
 }
 
 @end

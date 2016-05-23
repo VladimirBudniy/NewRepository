@@ -27,7 +27,7 @@
                         <outlet property="delegate" destination="-1" id="S6B-5A-M1w"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-VS-go4">
+                <view tag="-1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-VS-go4" userLabel="Bottom View">
                     <rect key="frame" x="0.0" y="520" width="320" height="48"/>
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
@@ -54,6 +54,7 @@
                         <constraint firstItem="nrf-fe-DUP" firstAttribute="leading" secondItem="AMg-VS-go4" secondAttribute="leading" constant="8" id="bGq-7w-9du"/>
                         <constraint firstAttribute="trailing" secondItem="Qbq-QA-f8a" secondAttribute="trailing" constant="8" id="cO6-HT-5QL"/>
                         <constraint firstAttribute="trailing" secondItem="nrf-fe-DUP" secondAttribute="trailing" constant="263" id="eWU-SK-8Mf"/>
+                        <constraint firstAttribute="height" constant="48" id="m0o-IT-1E3"/>
                         <constraint firstAttribute="bottom" secondItem="nrf-fe-DUP" secondAttribute="bottom" constant="9" id="s2G-6z-wmU"/>
                     </constraints>
                 </view>
@@ -66,7 +67,6 @@
                 <constraint firstAttribute="trailing" secondItem="VPv-5q-3Hh" secondAttribute="trailing" id="GKs-QR-QdT"/>
                 <constraint firstItem="tlK-jb-Rry" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qq2-uq-Mkj"/>
                 <constraint firstAttribute="trailing" secondItem="tlK-jb-Rry" secondAttribute="trailing" id="RWr-d7-qzj"/>
-                <constraint firstItem="AMg-VS-go4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="520" id="Rxu-jf-GYG"/>
                 <constraint firstAttribute="trailing" secondItem="AMg-VS-go4" secondAttribute="trailing" id="WSG-bt-RWE"/>
                 <constraint firstItem="AMg-VS-go4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZDo-2B-rxv"/>
                 <constraint firstItem="VPv-5q-3Hh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZYa-2h-BUn"/>

@@ -44,6 +44,7 @@ static CGFloat    const kVBRemovingAlpha     = 0.1;
     VBLoadingView *view = self.loadingView;
     if (!view) {
         view = [UINib loadFromNibWithClass:[VBLoadingView class]];
+        view.frame = self.frame;
         view.label.text = text;
         self.loadingView = view;
         
@@ -64,8 +65,7 @@ static CGFloat    const kVBRemovingAlpha     = 0.1;
     [UIView animateWithDuration:animated ? kVBDefaultDuration : 0
                      animations:^{
                          loadingView.alpha = kVBRemovingAlpha;
-                     }
-                     completion:^(BOOL finished) {
+                     } completion:^(BOOL finished) {
                          [loadingView removeFromSuperview];
                          self.loadingView = nil;
                      }];

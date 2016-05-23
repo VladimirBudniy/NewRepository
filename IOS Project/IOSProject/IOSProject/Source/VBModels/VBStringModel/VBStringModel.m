@@ -8,14 +8,14 @@
 
 #import "VBStringModel.h"
 
-const NSUInteger kVBDefaultArrayCount = 5;
+const NSUInteger kVBDefaultArrayCount = 15;
 
-//static NSString * const kVBStringModelImage = @"folder.png";
+static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString *string;
-//@property (nonatomic, strong)   UIImage  *image;
+@property (nonatomic, strong)   UIImage  *image;
 
 @end
 
@@ -45,7 +45,6 @@ static NSString * const kVBSringCoderKey    = @"string";
 - (instancetype)init {
     self = [super init];
     if (self) {
-//        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
         self.string = [NSString randomString];
     }
     
@@ -53,8 +52,30 @@ static NSString * const kVBSringCoderKey    = @"string";
 }
 
 #pragma mark -
-#pragma mark NSCoding Protocol
+#pragma mark Public
 
+- (void)load {
+    if (self.state == kVBStringModelLoadingState) {
+        return;
+    } else {
+        self.state = kVBStringModelLoadingState;
+    }
+    
+    VBWeakSelfMacro;
+    VBDispatchAsyncInBackground(^{
+        VBStrongSelfAndReturnNilMacroWithClass(VBStringModel)
+        
+        sleep(4);
+        
+        strongSelf.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
+        VBDispatchSyncOnMainThread(^{
+            [strongSelf setState:kVBStringModelLoadedState withObject:strongSelf.image];
+        });
+    });
+}
+
+#pragma mark -
+#pragma mark NSCoding Protocol
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [self init];

@@ -17,8 +17,8 @@
 @property (nonatomic, readonly) VBStringView  *rootView;
 
 - (void)performChangesWithObject:(id)object;
-- (void)performWorkWithModel;
-- (void)loading;
+- (void)addHandlers;
+- (void)performLoad;
 
 @end
 
@@ -33,7 +33,8 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        [self performWorkWithModel];
+        [self addHandlers];
+        [self performLoad];
     }
 }
 
@@ -43,7 +44,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self loading];
+    [self performLoad];
 }
 
 #pragma mark -
@@ -60,24 +61,23 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 #pragma mark -
 #pragma mark Private
 
-- (void)performWorkWithModel {
+- (void)addHandlers {
     VBWeakSelfMacroWithClass(VBStringViewController);
-    [_arrayModel addHandler:^(VBStateModel *model){
+    [self.arrayModel addHandler:^(VBStateModel *model){
         VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
         [strongSelf performChangesWithObject:model];
         
     }           forState:kVBArrayModelChangeState
                      object:self];
     
-    [_arrayModel addHandler:^(VBStateModel *model){
+    [self.arrayModel addHandler:^(VBStateModel *model){
         VBStrongSelfAndReturnNilMacroWithClass(VBStringViewController);
-        [strongSelf.rootView removeLoadingViewAnimated:YES];
-        [strongSelf.rootView.tableView reloadData];
+        VBStringView *rootView = strongSelf.rootView;
+        [rootView removeLoadingViewAnimated:YES];
+        [rootView.tableView reloadData];
         
     }           forState:kVBArrayModelLoadedState
                      object:self];
-    
-    [self loading];
 }
 
 - (void)performChangesWithObject:(VBStateModel *)object {
@@ -93,7 +93,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
     }
 }
 
-- (void)loading {
+- (void)performLoad {
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     [self.arrayModel load];
 }
@@ -107,7 +107,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
-    [cell fillWithModel:self.arrayModel[indexPath.row] animated:YES];
+    [cell fillWithModel:self.arrayModel[indexPath.row]];
     
     return cell;
 }
