@@ -58,7 +58,7 @@ static NSString * const kVBSringCoderKey    = @"string";
     self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
 }
 
-- (void)changeState {
+- (void)finishedLoad {
     [self setState:kVBModelLoadedState withObject:self.image];
 }
 

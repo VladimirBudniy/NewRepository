@@ -13,14 +13,14 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (VBObserverObject *)objectWithObject:(id)object handler:(VBEmployeeHandler)handler {
++ (VBObserverObject *)objectWithObject:(id)object handler:(VBObserverHandler)handler {
     return [[VBObserverObject alloc] initWithObject:object handler:handler];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithObject:(id)object handler:(VBEmployeeHandler)handler {
+- (instancetype)initWithObject:(id)object handler:(VBObserverHandler)handler {
     self = [super init];
     if (self) {
         self.object = object;

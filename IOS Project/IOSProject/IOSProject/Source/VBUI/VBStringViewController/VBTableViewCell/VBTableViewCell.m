@@ -25,18 +25,23 @@
     if (_model != model) {
         _model = model;
         
-        self.cellLabel.text = model.string;
-        self.cellImage.image = nil;
-        
-        VBWeakSelfMacro;
-        [_model addHandler:^(UIImage *image){
-            VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
-            strongSelf.cellImage.image = image;
-            [strongSelf.spinner stopAnimating];
-        } forState:kVBModelLoadedState
-                    object:self];
-        
-        [self load];
+        if (model.state != kVBModelLoadedState) {
+            self.cellLabel.text = model.string;
+            self.cellImage.image = nil;
+            
+            VBWeakSelfMacro;
+            [_model addHandler:^(UIImage *image){
+                VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
+                strongSelf.cellImage.image = image;
+                [strongSelf.spinner stopAnimating];
+            } forState:kVBModelLoadedState
+                        object:self];
+            
+            [self load];
+        } else {
+            self.cellLabel.text = model.string;
+            self.cellImage.image = model.image;
+        }
     }
 }
 
@@ -44,8 +49,8 @@
 #pragma mark Public
 
 - (void)load {
-    [self.model load];
     [self.spinner startAnimating];
+    [self.model load];
 }
 
 #pragma mark -

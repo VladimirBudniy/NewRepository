@@ -8,58 +8,22 @@
 
 #import "VBModel.h"
 
-@interface VBModel ()
-
-- (void)prepareToLoad;
-- (void)changeState;
-- (void)save;
-
-
-@end
-
 @implementation VBModel
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
-
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:UIApplicationWillTerminateNotification
-                                                   object:nil];
-    }
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (void)prepareToLoad {
     
 }
 
-- (void)changeState {
-    self.state = kVBModelLoadedState;
-}
-
-- (void)save {
+- (void)finishedLoad {
     
 }
 
-#pragma mark - 
-#pragma mark Public
+- (void)setupLoad {
+    
+}
 
 - (void)load {
     if (self.state == kVBModelLoadingState) {
@@ -68,13 +32,15 @@
         self.state = kVBModelLoadingState;
     }
     
+    [self setupLoad];
+    
     VBWeakSelfMacro;
     VBDispatchAsyncInBackground(^{
         sleep(3);
         VBStrongSelfAndReturnNilMacroWithClass(VBModel)
         [strongSelf prepareToLoad];
         VBDispatchAsyncOnMainThread(^{
-            [strongSelf changeState];
+            [strongSelf finishedLoad];
         });
     });
 }

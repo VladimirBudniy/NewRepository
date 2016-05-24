@@ -19,7 +19,7 @@
 + (VBObserverStateObject *)objectWithState:(NSUInteger)state;
 
 - (instancetype)initWithState:(NSUInteger)state;
-- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object;
+- (void)addHandler:(VBObserverHandler)handler forObject:(id)object;
 - (void)removeHandlersForObject:(id)object;
 
 @end

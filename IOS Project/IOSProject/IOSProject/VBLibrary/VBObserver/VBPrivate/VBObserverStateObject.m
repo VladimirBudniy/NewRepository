@@ -46,7 +46,7 @@
 #pragma mark - 
 #pragma mark Public
 
-- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object {
+- (void)addHandler:(VBObserverHandler)handler forObject:(id)object {
     [self.observerArray addHandler:handler forObject:object];
 }
 

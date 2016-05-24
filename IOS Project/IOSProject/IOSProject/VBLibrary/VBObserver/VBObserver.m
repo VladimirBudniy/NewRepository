@@ -69,7 +69,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addHandler:(VBEmployeeHandler)handler forState:(NSUInteger)state object:(id)object {
+- (void)addHandler:(VBObserverHandler)handler forState:(NSUInteger)state object:(id)object {
     if (object) {
         VBObserverStateObject *stateObject = [self objectWithState:state];
         [stateObject addHandler:[handler copy] forObject:object];
@@ -108,7 +108,7 @@
 - (void)performHandlersWithObject:(id)object {
     for (VBObserverStateObject *stateObject in self.stateObjects) {
         if (stateObject.state == _state) {
-            for (VBEmployeeHandler handler in stateObject.handlers) {
+            for (VBObserverHandler handler in stateObject.handlers) {
                 handler(object);
             }
         }

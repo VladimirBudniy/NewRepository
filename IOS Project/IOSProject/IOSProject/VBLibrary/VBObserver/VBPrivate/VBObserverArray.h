@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VBEmployeeHandler)(id object);
+typedef void (^VBObserverHandler)(id object);
 
 @interface VBObserverArray : NSObject
 @property (nonatomic, readonly) NSArray *handlers;
 
-- (void)addHandler:(VBEmployeeHandler)handler forObject:(id)object;
+- (void)addHandler:(VBObserverHandler)handler forObject:(id)object;
 - (void)removeHandlersForObject:(id)object;
 
 @end
