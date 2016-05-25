@@ -26,9 +26,11 @@
 + (instancetype)alphabetWithLowercaseLettersRange {
     return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('a', 'z' - 'a')] autorelease];
 }
+
 + (instancetype)alphabetWithUppercaseLettersRange {
     return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('A', 'Z' - 'A')] autorelease];
 }
+
 + (instancetype)alphabetWithNumbers {
     return [[[VBRangeAlphabet alloc] initWithRange:NSMakeRange('0', '9' - '0')] autorelease];
 }
