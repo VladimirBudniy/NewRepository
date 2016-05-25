@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70318411CF61D6600879FD0 /* VBImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70318401CF61D6500879FD0 /* VBImageModel.m */; };
 		E703C8C71CDB55590026BB1E /* CGGeometry+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8BD1CDB55580026BB1E /* CGGeometry+VBCategory.m */; };
 		E703C8C81CDB55590026BB1E /* UIView+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8C01CDB55590026BB1E /* UIView+VBCategory.m */; };
 		E703C8C91CDB55590026BB1E /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8C31CDB55590026BB1E /* UIViewController+VBCategory.m */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E703183F1CF61D6500879FD0 /* VBImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBImageModel.h; sourceTree = "<group>"; };
+		E70318401CF61D6500879FD0 /* VBImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBImageModel.m; sourceTree = "<group>"; };
 		E703C8BC1CDB55580026BB1E /* CGGeometry+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+VBCategory.h"; sourceTree = "<group>"; };
 		E703C8BD1CDB55580026BB1E /* CGGeometry+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+VBCategory.m"; sourceTree = "<group>"; };
 		E703C8BF1CDB55590026BB1E /* UIView+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VBCategory.h"; sourceTree = "<group>"; };
@@ -147,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E703183E1CF61D4E00879FD0 /* VBImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				E703183F1CF61D6500879FD0 /* VBImageModel.h */,
+				E70318401CF61D6500879FD0 /* VBImageModel.m */,
+			);
+			path = VBImageModel;
+			sourceTree = "<group>";
+		};
 		E7032F2A1CDA8BF800399F7A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E763B8111CF3906000A60ADF /* VBModel */,
+				E703183E1CF61D4E00879FD0 /* VBImageModel */,
 				E75EACE01CED0EFE005791CB /* VBViewModel */,
 				E75581541CE4D6D60094998E /* VBStateModel */,
 				E7417DDE1CE0B3B70049953A /* VBStringModel */,
@@ -641,6 +654,7 @@
 				E703C8C81CDB55590026BB1E /* UIView+VBCategory.m in Sources */,
 				E7417DDA1CE0B2D30049953A /* VBStringAlphabet.m in Sources */,
 				E7417DE41CE0B4540049953A /* VBArrayModel.m in Sources */,
+				E70318411CF61D6600879FD0 /* VBImageModel.m in Sources */,
 				E75EACED1CEE16B8005791CB /* NSFileManager+VBCategory.m in Sources */,
 				E703C8C71CDB55590026BB1E /* CGGeometry+VBCategory.m in Sources */,
 				E703C8E11CDB55AF0026BB1E /* VBLabelView.m in Sources */,
