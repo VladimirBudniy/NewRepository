@@ -16,6 +16,7 @@ static NSString * const kVBSringCoderKey    = @"string";
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString *string;
 @property (nonatomic, strong)   UIImage  *image;
+@property (nonatomic, copy)     NSString *path;
 
 @end
 
@@ -52,10 +53,17 @@ static NSString * const kVBSringCoderKey    = @"string";
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Accessors
+
+- (NSString *)path {
+    return [NSBundle pathForFileWithName:kVBStringModelImage];
+}
+
+#pragma mark -
+#pragma mark Public
 
 - (void)prepareToLoad {
-    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
+    self.image = [UIImage imageWithContentsOfFile:self.path];
 }
 
 - (void)finishedLoad {
