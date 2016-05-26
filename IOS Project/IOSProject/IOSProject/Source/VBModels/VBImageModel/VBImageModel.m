@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         self.url = url;
+        self.image = [UIImage imageWithContentsOfFile:url];
     }
     
     return self;
