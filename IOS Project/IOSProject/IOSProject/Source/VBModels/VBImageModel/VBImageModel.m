@@ -52,7 +52,7 @@
     self.image = [UIImage imageWithContentsOfFile:[self imagePath]];
 }
 
-- (void)finishedLoad {
+- (void)finishLoad {
     self.state = kVBModelLoadedState;
 }
 

@@ -17,7 +17,7 @@
     
 }
 
-- (void)finishedLoad {
+- (void)finishLoad {
     
 }
 
@@ -28,9 +28,14 @@
 - (void)load {
     if (self.state == kVBModelLoadingState) {
         return;
-    } else {
-        self.state = kVBModelLoadingState;
     }
+    
+    if (self.state == kVBModelLoadedState) {
+        [self finishLoad];
+        return;
+    }
+    
+    self.state = kVBModelLoadingState;
     
     [self setupLoad];
     
@@ -40,7 +45,7 @@
         VBStrongSelfAndReturnNilMacroWithClass(VBModel)
         [strongSelf prepareToLoad];
         VBDispatchAsyncOnMainThread(^{
-            [strongSelf finishedLoad];
+            [strongSelf finishLoad];
         });
     });
 }

@@ -16,16 +16,18 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 @property (nonatomic, readonly)                  NSString        *path;
 @property (nonatomic, readonly, getter=isCached) BOOL            cached;
 
-@property (nonatomic, strong) NSArray *keys;
+@property (nonatomic, readonly) NSArray *keys;
 
 + (instancetype)model;
 
 - (void)addObserversWithKeys:(NSArray *)keys;
-- (void)removeObserversWithName:(NSString *)name;
+- (void)removeObserversWithKeys:(NSArray *)keys;
 
 @end
 
 @implementation VBSaveArrayModel
+
+@dynamic keys;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -42,9 +44,8 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
--(void)dealloc {
-    [self removeObserversWithName:UIApplicationDidEnterBackgroundNotification];
-    [self removeObserversWithName:UIApplicationWillTerminateNotification];
+- (void)dealloc {
+    [self removeObserversWithKeys:self.keys];
 }
 
 - (instancetype)init {
@@ -60,11 +61,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark Accessors
 
 - (NSArray *)keys {
-    NSArray *array = @[UIApplicationDidEnterBackgroundNotification,
-                                        UIApplicationWillTerminateNotification];
-    self.keys = array;
-    
-    return array;
+    return @[UIApplicationDidEnterBackgroundNotification, UIApplicationWillTerminateNotification];
 }
 
 - (NSString *)path {
@@ -87,10 +84,12 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
     }
 }
 
-- (void)removeObserversWithName:(NSString *)name {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:name
-                                                  object:nil];
+- (void)removeObserversWithKeys:(NSArray *)keys {
+    for (NSString *key in self.keys) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:key
+                                                      object:nil];
+    }
 }
 
 - (void)save {
@@ -100,7 +99,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 #pragma mark -
 #pragma mark Public
 
-- (void)finishedLoad {
+- (void)finishLoad {
     self.state = kVBModelLoadedState;
 }
 

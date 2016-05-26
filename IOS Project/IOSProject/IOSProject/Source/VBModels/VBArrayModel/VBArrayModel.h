@@ -22,6 +22,7 @@
 
 - (void)addObject:(id)object;
 - (void)addObjects:(NSArray *)array;
+- (void)replaceObjectsWithArray:(NSArray *)array;
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
