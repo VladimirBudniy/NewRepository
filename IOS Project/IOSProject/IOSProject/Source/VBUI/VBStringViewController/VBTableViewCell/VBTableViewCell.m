@@ -38,6 +38,7 @@
                         object:self];
             
             [self load];
+            
         } else {
             self.cellLabel.text = model.string;
             self.cellImage.image = model.image;
