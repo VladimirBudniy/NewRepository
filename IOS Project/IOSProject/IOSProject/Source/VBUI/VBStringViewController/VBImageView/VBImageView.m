@@ -72,7 +72,7 @@
     [self.model load];
 }
 
-- (void)baseInit {    
+- (void)baseInit {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
     [self addSubview:imageView];
     self.imageView = imageView;
@@ -93,8 +93,4 @@
 }
 
 @end
-
-
-
-
 

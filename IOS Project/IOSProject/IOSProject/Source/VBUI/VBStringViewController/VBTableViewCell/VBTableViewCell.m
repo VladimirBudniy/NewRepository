@@ -9,6 +9,7 @@
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
 #import "VBImageView.h"
+#import "VBImageModel.h"
 
 @interface VBTableViewCell ()
 @property (nonatomic, strong) VBStringModel *model;
@@ -26,6 +27,7 @@
         
         self.cellLabel.text = model.string;
         self.cellImage.url = model.url;
+        
     }
 }
 
