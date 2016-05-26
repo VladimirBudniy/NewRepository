@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VBImageModel.h"
+
+@class VBImageModel;
 
 @interface VBImageView : UIView
-@property (nonatomic, strong) VBImageModel *model;
+@property (nonatomic, strong)     VBImageModel   *model;
+@property (nonatomic, strong)     NSString       *url;
 
 @end

@@ -9,11 +9,11 @@
 #import "VBModel.h"
 
 @interface VBImageModel : VBModel
-@property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, readonly) NSURL    *url;
+@property (nonatomic, strong) UIImage     *image;
+@property (nonatomic, strong) NSString    *url;
 
-+ (instancetype)imageModelWithURL:(NSURL *)url;
++ (instancetype)imageModelWithURL:(NSString *)url;
 
-- (instancetype)initWithURL:(NSURL *)url;
+- (instancetype)initWithURL:(NSString *)url;
 
 @end

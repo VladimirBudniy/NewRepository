@@ -8,11 +8,10 @@
 
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
+#import "VBImageView.h"
 
 @interface VBTableViewCell ()
 @property (nonatomic, strong) VBStringModel *model;
-
-- (void)load;
 
 @end
 
@@ -26,26 +25,8 @@
         _model = model;
         
         self.cellLabel.text = model.string;
-        self.cellImage.image = nil;
-        
-        VBWeakSelfMacro;
-        [_model addHandler:^(UIImage *image){
-            VBStrongSelfAndReturnNilMacroWithClass(VBTableViewCell)
-            strongSelf.cellImage.image = image;
-            [strongSelf.spinner stopAnimating];
-        } forState:kVBModelLoadedState
-                    object:self];
-        
-        [self load];
+        self.cellImage.url = model.url;
     }
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)load {
-    [self.spinner startAnimating];
-    [self.model load];
 }
 
 #pragma mark -

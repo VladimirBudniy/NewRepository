@@ -14,9 +14,8 @@ static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
 
 @interface VBStringModel ()
-@property (nonatomic, copy)     NSString *string;
-@property (nonatomic, strong)   UIImage  *image;
-@property (nonatomic, copy)     NSString *path;
+@property (nonatomic, copy)     NSString  *string;
+@property (nonatomic, strong)   NSString  *url;
 
 @end
 
@@ -55,19 +54,8 @@ static NSString * const kVBSringCoderKey    = @"string";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)path {
+- (NSString *)url {
     return [NSBundle pathForFileWithName:kVBStringModelImage];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)prepareToLoad {
-    self.image = [UIImage imageWithContentsOfFile:self.path];
-}
-
-- (void)finishLoad {
-    [self setState:kVBModelLoadedState withObject:self.image];
 }
 
 #pragma mark -
