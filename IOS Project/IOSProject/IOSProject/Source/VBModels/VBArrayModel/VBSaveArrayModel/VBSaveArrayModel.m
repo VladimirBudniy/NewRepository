@@ -20,6 +20,7 @@ static NSString * const kVBFileAdress       = @"tmp.plist";
 
 + (instancetype)model;
 
+- (void)save;
 - (void)addObserversWithKeys:(NSArray *)keys;
 - (void)removeObserversWithKeys:(NSArray *)keys;
 

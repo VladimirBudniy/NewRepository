@@ -8,37 +8,88 @@
 
 #import "VBImageModel.h"
 
+@interface VBImageModel ()
+@property (nonatomic, readonly, getter=isCached) BOOL       cached;
+@property (nonatomic, strong)                    NSString   *path;
+
+- (void)removeIfNeeded;
+
+@end
+
 @implementation VBImageModel
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)imageModelWithURL:(NSString *)url {
-    return [[self alloc] initWithURL:url];
++ (instancetype)imageModelWithURL:(NSURL *)URL {
+    return [[self alloc] initWithURL:URL];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithURL:(NSString *)url {
+- (instancetype)initWithURL:(NSURL *)URL {
     self = [super init];
     if (self) {
-        self.url = url;
-        self.image = [UIImage imageWithContentsOfFile:url];
+        self.URL = URL;
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setURL:(NSURL *)URL {
+    if (![_URL isEqual:URL]) {
+        _URL = URL;
+        
+        [self dump];
+    }
+    
+    [self load];
+}
+
+- (NSString *)path {
+    return [self.URL absoluteString];
+}
+
+- (BOOL)isCached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)prepareToLoad {
-    self.image = [UIImage imageWithContentsOfFile:self.url];
+    if (self.isCached) {
+        UIImage *image = [UIImage imageWithContentsOfFile:self.path];
+        
+        if (!image) {
+            [self removeIfNeeded];
+        } else {
+            self.image = image;
+        }
+    }
+}
+
+- (void)dump {
+    self.state = kVBModelUndefinedState;
 }
 
 - (void)finishLoad {
-    [self setState:kVBModelLoadedState withObject:self.image];
+    NSUInteger state = self.state ? kVBModelLoadedState : kVBModelFailedState;
+    [self setState:state withObject:self.image];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)removeIfNeeded {
+    if (self.isCached) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
+    }
 }
 
 @end

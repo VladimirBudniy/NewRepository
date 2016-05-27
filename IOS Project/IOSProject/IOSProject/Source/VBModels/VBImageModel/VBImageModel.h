@@ -10,10 +10,10 @@
 
 @interface VBImageModel : VBModel
 @property (nonatomic, strong) UIImage     *image;
-@property (nonatomic, strong) NSString    *url;
+@property (nonatomic, strong) NSURL       *URL;
 
-+ (instancetype)imageModelWithURL:(NSString *)url;
++ (instancetype)imageModelWithURL:(NSURL *)URL;
 
-- (instancetype)initWithURL:(NSString *)url;
+- (instancetype)initWithURL:(NSURL *)URL;
 
 @end

@@ -12,10 +12,12 @@
 @interface VBImageView ()
 @property (nonatomic, strong) UIImageView               *imageView;
 @property (nonatomic, strong) UIActivityIndicatorView   *spinner;
+@property (nonatomic, strong) VBImageModel              *model;
 
 - (void)performSpinnerAnimation;
 - (void)baseInit;
 - (void)load;
+- (void)dump;
 
 @end
 
@@ -42,16 +44,23 @@
     return self;
 }
 
+- (void)baseInit {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
+    [self addSubview:imageView];
+    self.imageView = imageView;
+    
+    [self performSpinnerAnimation];
+    
+    self.model = [VBImageModel new];
+}
+
+
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUrl:(NSString *)url {
-    if (_url != url) {
-        _url = url;
-        
-        self.model = [VBImageModel imageModelWithURL:url]; //??????????????????????????????????
-        
-        self.imageView.image = nil;
+- (void)setModel:(VBImageModel *)model {
+    if (_model != model) {
+        _model = model;
         
         VBWeakSelfMacro;
         [_model addHandler:^(UIImage *image){
@@ -60,7 +69,15 @@
             [strongSelf.spinner stopAnimating];
         } forState:kVBModelLoadedState
                     object:self];
+
+    }
+}
+
+- (void)setUrlString:(NSString *)urlString {
+    if (_urlString != urlString) {
+        _urlString = urlString;
         
+        [self dump];
         [self load];
     }
 }
@@ -68,26 +85,21 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)load {
-    [self performSpinnerAnimation];
-    [self.model load];
+- (void)dump {
+    self.imageView.image = nil;
 }
 
-- (void)baseInit {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
-    [self addSubview:imageView];
-    self.imageView = imageView;
+- (void)load {
+    [self.spinner startAnimating];
+    self.model.URL = [NSURL URLWithString:self.urlString];
 }
 
 - (void)performSpinnerAnimation {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    
     spinner.color = [UIColor blackColor];
-    
-    [spinner startAnimating];
-    
     UIImageView *imageView = self.imageView;
     [imageView addSubview:spinner];
-    
     spinner.center = imageView.center;
     spinner.hidesWhenStopped = YES;
     self.spinner = spinner;

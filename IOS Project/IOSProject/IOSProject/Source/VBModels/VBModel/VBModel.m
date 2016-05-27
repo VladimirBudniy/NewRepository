@@ -25,6 +25,10 @@
     
 }
 
+- (void)dump {
+    
+}
+
 - (void)load {
     if (self.state == kVBModelLoadingState) {
         return;

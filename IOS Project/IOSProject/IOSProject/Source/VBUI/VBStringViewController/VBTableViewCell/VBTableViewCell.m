@@ -26,7 +26,7 @@
         _model = model;
         
         self.cellLabel.text = model.string;
-        self.cellImage.url = model.url;
+        self.cellImage.urlString = model.url;
         
     }
 }

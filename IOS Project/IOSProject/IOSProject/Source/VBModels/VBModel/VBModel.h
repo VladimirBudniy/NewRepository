@@ -9,15 +9,18 @@
 #import "VBObserver.h"
 
 typedef NS_ENUM(NSUInteger, VBModelState) {
+    kVBModelUndefinedState,
     kVBModelDefaultState,
     kVBModelLoadingState,
     kVBModelChangeState,
-    kVBModelLoadedState
+    kVBModelLoadedState,
+    kVBModelFailedState
 };
 
 @interface VBModel : VBObserver
 
 - (void)load;
+- (void)dump;
 
 - (void)setupLoad;
 - (void)prepareToLoad;
