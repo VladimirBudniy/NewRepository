@@ -30,7 +30,7 @@
                 <view tag="-1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-VS-go4" userLabel="Bottom View">
                     <rect key="frame" x="0.0" y="520" width="320" height="48"/>
                     <subviews>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nrf-fe-DUP">
                             <rect key="frame" x="8" y="8" width="51" height="31"/>
                             <connections>
                                 <action selector="onStartEditingSwitch:" destination="-1" eventType="touchUpInside" id="gJ5-f3-oNY"/>

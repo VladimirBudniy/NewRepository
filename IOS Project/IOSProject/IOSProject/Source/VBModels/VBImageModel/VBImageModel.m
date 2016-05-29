@@ -78,7 +78,7 @@
 }
 
 - (void)finishLoad {
-    NSUInteger state = self.state ? kVBModelLoadedState : kVBModelFailedState;
+    NSUInteger state = self.image ? kVBModelLoadedState : kVBModelFailedState;
     [self setState:state withObject:self.image];
 }
 
