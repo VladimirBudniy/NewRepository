@@ -45,12 +45,10 @@
 }
 
 - (void)baseInit {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:imageView];
     self.imageView = imageView;
-    
     [self performSpinnerAnimation];
-    
     self.model = [VBImageModel new];
 }
 
@@ -69,13 +67,18 @@
             [strongSelf.spinner stopAnimating];
         } forState:kVBModelLoadedState
                     object:self];
-
+        
+        [_model addHandler:^(UIImage *image){
+            VBStrongSelfAndReturnNilMacroWithClass(VBImageView)
+            strongSelf.model.URL = strongSelf.URL;
+        } forState:kVBModelFailedState
+                    object:self];
     }
 }
 
-- (void)setUrlString:(NSString *)urlString {
-    if (_urlString != urlString) {
-        _urlString = urlString;
+- (void)setURL:(NSURL *)URL {
+    if (_URL != URL) {
+        _URL = URL;
         
         [self dump];
         [self load];
@@ -91,7 +94,7 @@
 
 - (void)load {
     [self.spinner startAnimating];
-    self.model.URL = [NSURL URLWithString:self.urlString];
+    self.model.URL = self.URL;
 }
 
 - (void)performSpinnerAnimation {

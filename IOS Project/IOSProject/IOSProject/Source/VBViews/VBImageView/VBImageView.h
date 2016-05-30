@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VBImageView : UIView
-@property (nonatomic, strong)     NSString  *urlString;
+@property (nonatomic, strong)  NSURL  *URL;
 
 @end

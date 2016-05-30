@@ -10,13 +10,13 @@
 
 const NSUInteger kVBDefaultArrayCount = 10;
 
-static NSString * const kVBStringModelImage = @"folder.png";
+//static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
-//static NSString * const kVBStringModelImage = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Metallen.png";
+static NSString * const kVBStringURL = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Pictures.png";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)     NSString  *string;
-@property (nonatomic, strong)   NSString  *url;
+@property (nonatomic, strong)   NSString  *urlString;
 
 @end
 
@@ -55,8 +55,8 @@ static NSString * const kVBSringCoderKey    = @"string";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)url {
-    return [NSBundle pathForFileWithName:kVBStringModelImage];
+- (NSString *)urlString {
+    return self.urlString = kVBStringURL;
 }
 
 #pragma mark -

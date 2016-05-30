@@ -10,7 +10,7 @@
 
 @interface VBStringModel : NSObject <NSCoding>
 @property (nonatomic, readonly)   NSString  *string;
-@property (nonatomic, readonly)   NSString  *url;
+@property (nonatomic, readonly)   NSString  *urlString;
 
 + (instancetype)randomStringModel;
 + (NSArray *)randomStringsModels;
