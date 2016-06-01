@@ -30,6 +30,10 @@ static NSString * const kVBCacheKey    = @"cache";
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
+- (void)dealloc {
+    [self removeObserversWithKeys:self.keys];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -102,14 +106,14 @@ static NSString * const kVBCacheKey    = @"cache";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self = [aDecoder decodeObjectForKey:kVBCacheKey];
+        self.dictionary = [aDecoder decodeObjectForKey:kVBCacheKey];
     }
     
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self forKey:kVBCacheKey];
+    [aCoder encodeObject:self.dictionary forKey:kVBCacheKey];
 }
 
 @end
