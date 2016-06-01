@@ -17,6 +17,10 @@
     
 }
 
+- (void)completionLoad {
+    [self finishLoad];
+}
+
 - (void)finishLoad {
     
 }
@@ -35,7 +39,7 @@
     }
     
     if (self.state == kVBModelLoadedState) {
-        [self finishLoad];
+        [self completionLoad];
         return;
     }
     

@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, VBModelState) {
 
 - (void)setupLoad;
 - (void)prepareToLoad;
+- (void)completionLoad;
 - (void)finishLoad;
 
 @end

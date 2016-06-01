@@ -11,30 +11,14 @@
 #import "VBImageView.h"
 #import "VBImageModel.h"
 
-@interface VBTableViewCell ()
-@property (nonatomic, strong) VBStringModel *model;
-
-@end
-
 @implementation VBTableViewCell
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setModel:(VBStringModel *)model {
-    if (_model != model) {
-        _model = model;
-        
-        self.cellLabel.text = model.string;
-        self.cellImage.URL = [NSURL URLWithString:model.urlString];
-    }
-}
 
 #pragma mark -
 #pragma mark Public
 
 - (void)fillWithModel:(VBStringModel *)theModel {
-    self.model = theModel;
+    self.cellLabel.text = theModel.string;
+    self.cellImage.URL = [NSURL URLWithString:theModel.urlString];
 }
 
 @end

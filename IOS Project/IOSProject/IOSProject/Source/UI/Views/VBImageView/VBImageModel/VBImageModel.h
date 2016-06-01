@@ -8,9 +8,13 @@
 
 #import "VBModel.h"
 
+@class VBObjectCache;
+
 @interface VBImageModel : VBModel
 @property (nonatomic, strong) UIImage     *image;
 @property (nonatomic, strong) NSURL       *URL;
+
++ (VBObjectCache *)objectCache;
 
 + (instancetype)imageModelWithURL:(NSURL *)URL;
 
