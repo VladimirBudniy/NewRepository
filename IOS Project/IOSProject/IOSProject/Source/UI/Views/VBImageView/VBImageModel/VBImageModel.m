@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSURLSession              *session;
 @property (nonatomic, strong) NSURLSessionDownloadTask  *task;
 
-@property (nonatomic, readonly) VBObjectCache *cache;
+@property (nonatomic, strong) VBObjectCache *cache;
 
 - (void)removeIfNeeded;
 - (void)loadFromFile;
@@ -30,7 +30,6 @@
 @dynamic cached;
 @dynamic path;
 @dynamic fileName;
-@dynamic cache;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -61,6 +60,7 @@
     if (self) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         self.session = [NSURLSession sessionWithConfiguration:config];
+        self.cache = [VBImageModel objectCache];
     }
     
     return self;
@@ -77,10 +77,6 @@
 
 #pragma mark -
 #pragma mark Accessors
-
-- (VBObjectCache *)cache {
-    return [VBImageModel objectCache];
-}
 
 - (void)setURL:(NSURL *)URL {
     if (![_URL isEqual:URL]) {
