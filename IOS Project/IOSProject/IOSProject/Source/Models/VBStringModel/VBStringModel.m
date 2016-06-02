@@ -8,7 +8,7 @@
 
 #import "VBStringModel.h"
 
-const NSUInteger kVBDefaultArrayCount = 10;
+const NSUInteger kVBDefaultArrayCount = 4;
 
 static NSString * const kVBSringCoderKey    = @"string";
 static NSString * const kVBStringURL = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Pictures.png";

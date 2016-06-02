@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSURLSession              *session;
 @property (nonatomic, strong) NSURLSessionDownloadTask  *task;
 
-@property (nonatomic, strong) VBObjectCache *cache;
+@property (nonatomic, readonly) VBObjectCache *cache;
 
 - (void)removeIfNeeded;
 - (void)loadFromFile;
@@ -30,19 +30,10 @@
 @dynamic cached;
 @dynamic path;
 @dynamic fileName;
+@dynamic cache;
 
 #pragma mark -
 #pragma mark Class Methods
-
-+ (VBObjectCache *)objectCache {
-    static id cache = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cache = [VBObjectCache new];
-    });
-    
-    return cache;
-}
 
 + (instancetype)imageModelWithURL:(NSURL *)URL {
     return [[self alloc] initWithURL:URL];
@@ -60,7 +51,6 @@
     if (self) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         self.session = [NSURLSession sessionWithConfiguration:config];
-        self.cache = [VBImageModel objectCache];
     }
     
     return self;
@@ -78,6 +68,10 @@
 #pragma mark -
 #pragma mark Accessors
 
+-(VBObjectCache *)cache {
+    return [VBObjectCache sharedObject];
+}
+
 - (void)setURL:(NSURL *)URL {
     if (![_URL isEqual:URL]) {
         _URL = URL;
@@ -89,18 +83,7 @@
 }
 
 - (NSString *)fileName {
-    VBObjectCache *cache = self.cache;
-    NSURL *URL = self.URL;
-    NSString *name = nil;
-    if (cache) {
-        name = [cache objectForKey:URL];
-    }
-    
-    if (!name){
-        name = [URL lastPathComponent];
-    }
-    
-    return name;
+    return [self.URL lastPathComponent];
 }
 
 - (NSString *)path {
@@ -108,7 +91,7 @@
 }
 
 - (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+    return [self.cache isCachedWithKey:self.URL];
 }
 
 -(void)setTask:(NSURLSessionDownloadTask *)task {
@@ -138,21 +121,27 @@
 #pragma mark Private
 
 - (void)download {
-    NSString *fileName = [self.cache objectForKey:self.URL];
-    if (!fileName) {
-        self.task = [self.session downloadTaskWithURL:self.URL
-                                    completionHandler:^(NSURL *location, NSURLResponse *response,
-                                                        NSError *error)
-                     {
-                         NSFileManager *manager = [NSFileManager defaultManager];
+    NSURL *URL = self.URL;
+    self.task = [self.session downloadTaskWithURL:URL
+                                completionHandler:^(NSURL *location, NSURLResponse *response,
+                                                    NSError *error)
+                 {
+                     if (!error) {
+                         NSString *path = self.path;
                          NSError *saveError = nil;
+                         NSFileManager *manager = [NSFileManager defaultManager];
+                         if (!self.isCached && [manager fileExistsAtPath:path]) {
+                             [manager removeItemAtPath:path error:nil];
+                         }
+                         
                          [manager copyItemAtURL:location toURL:[NSURL fileURLWithPath:self.path] error:&saveError];
-                         [self.cache setObject:self.fileName forKey:self.URL];
+                         if (!saveError) {
+                             [self.cache setObject:self.fileName forKey:URL];
+                         }
+                         
                          [self loadFromFile];
-                     }];
-    } else {
-        self.image = [UIImage imageWithContentsOfFile:[NSFileManager pathFileWithName:fileName]];
-    }
+                     }
+                 }];
 }
 
 - (void)loadFromFile {
@@ -177,7 +166,9 @@
 
 - (void)removeIfNeeded {
     if (self.isCached) {
-        [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
+        [self.cache removeObjectForKey:self.URL];
     }
 }
 

@@ -14,8 +14,6 @@
 @property (nonatomic, strong) UIImage     *image;
 @property (nonatomic, strong) NSURL       *URL;
 
-+ (VBObjectCache *)objectCache;
-
 + (instancetype)imageModelWithURL:(NSURL *)URL;
 
 - (instancetype)initWithURL:(NSURL *)URL;

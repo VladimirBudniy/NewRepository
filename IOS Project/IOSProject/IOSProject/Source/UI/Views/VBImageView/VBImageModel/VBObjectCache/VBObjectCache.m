@@ -11,6 +11,8 @@
 static NSString * const kVBCacheAdress  = @"cache.plist";
 static NSString * const kVBCacheKey    = @"cache";
 
+static id cache = nil;
+
 @interface VBObjectCache ()
 @property (nonatomic, readonly)   NSString              *path;
 @property (nonatomic, readonly)   NSArray               *saveKeys;
@@ -26,6 +28,22 @@ static NSString * const kVBCacheKey    = @"cache";
 
 @dynamic saveKeys;
 @dynamic path;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)sharedObject {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        VBObjectCache *object = [self new];
+        cache = [NSKeyedUnarchiver unarchiveObjectWithFile:object.path];
+        if (!cache) {
+            cache = [self new];
+        }
+    });
+    
+    return cache;
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
@@ -58,8 +76,19 @@ static NSString * const kVBCacheKey    = @"cache";
 #pragma mark - 
 #pragma mark Public
 
+- (BOOL)isCachedWithKey:(id)key {
+    @synchronized (self) {
+        return [self.dictionary objectForKey:key];
+    }
+}
+
 - (void)setObject:(id)object forKey:(id)key {
     @synchronized (self) {
+        id urlKey = [self keyForObject:object];
+        if (urlKey) {
+            [self removeObjectForKey:urlKey];
+        }
+        
         [self.dictionary setObject:object forKey:key];
     }
 }
@@ -73,6 +102,20 @@ static NSString * const kVBCacheKey    = @"cache";
 - (id)objectForKey:(id)key {
     @synchronized (self) {
         return [self.dictionary objectForKey:key];
+    }
+}
+
+- (id)keyForObject:(id)object {
+    @synchronized (self) {
+        NSArray *keys = self.dictionary.allKeys;
+        NSDictionary *dictionary = [self.dictionary copy];
+        for (id key in keys) {
+            if ([[dictionary objectForKey:key] isEqualToString:object]) {
+                return key;
+            }
+        }
+        
+        return nil;
     }
 }
 
