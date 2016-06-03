@@ -11,7 +11,7 @@
 const NSUInteger kVBDefaultArrayCount = 4;
 
 static NSString * const kVBSringCoderKey    = @"string";
-static NSString * const kVBStringURL = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Pictures.png";
+static NSString * const kVBStringURL        = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Pictures.png";
 
 @interface VBStringModel ()
 @property (nonatomic, copy)   NSString  *string;

@@ -29,8 +29,8 @@
 
 @dynamic cached;
 @dynamic path;
-@dynamic fileName;
 @dynamic cache;
+@dynamic fileName;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -122,26 +122,25 @@
 
 - (void)download {
     NSURL *URL = self.URL;
-    self.task = [self.session downloadTaskWithURL:URL
-                                completionHandler:^(NSURL *location, NSURLResponse *response,
-                                                    NSError *error)
-                 {
-                     if (!error) {
-                         NSString *path = self.path;
-                         NSError *saveError = nil;
-                         NSFileManager *manager = [NSFileManager defaultManager];
-                         if (!self.isCached && [manager fileExistsAtPath:path]) {
-                             [manager removeItemAtPath:path error:nil];
-                         }
-                         
-                         [manager copyItemAtURL:location toURL:[NSURL fileURLWithPath:self.path] error:&saveError];
-                         if (!saveError) {
-                             [self.cache setObject:self.fileName forKey:URL];
-                         }
-                         
-                         [self loadFromFile];
-                     }
-                 }];
+    id block = ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSString *path = self.path;
+            NSError *saveError = nil;
+            NSFileManager *manager = [NSFileManager defaultManager];
+            if (!self.isCached && [manager fileExistsAtPath:path]) {
+                [manager removeItemAtPath:path error:nil];
+            }
+            
+            [manager copyItemAtURL:location toURL:[NSURL fileURLWithPath:path] error:&saveError];
+            if (!saveError) {
+                [self.cache setObject:self.fileName forKey:URL];
+            }
+            
+            [self loadFromFile];
+        }
+    };
+    
+    self.task = [self.session downloadTaskWithURL:URL completionHandler:block];
 }
 
 - (void)loadFromFile {
@@ -155,7 +154,7 @@
     [self completionLoad];
 }
 
-- (void)completionLoad; {
+- (void)completionLoad {
     VBWeakSelfMacro;
     VBDispatchAsyncOnMainThread(^{
         VBStrongSelfAndReturnNilMacroWithClass(VBImageModel);

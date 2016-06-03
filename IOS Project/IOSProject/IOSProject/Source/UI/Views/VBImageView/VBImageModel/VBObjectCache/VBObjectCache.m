@@ -11,7 +11,7 @@
 static NSString * const kVBCacheAdress  = @"cache.plist";
 static NSString * const kVBCacheKey    = @"cache";
 
-static id cache = nil;
+static VBObjectCache * cache = nil;
 
 @interface VBObjectCache ()
 @property (nonatomic, readonly)   NSString              *path;
