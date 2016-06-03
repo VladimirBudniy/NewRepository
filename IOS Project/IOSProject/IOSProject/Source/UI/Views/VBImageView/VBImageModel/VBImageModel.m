@@ -13,6 +13,7 @@
 @property (nonatomic, readonly, getter=isCached) BOOL       cached;
 @property (nonatomic, readonly)                  NSString   *path;
 @property (nonatomic, readonly)                  NSString   *fileName;
+//@property (nonatomic, readwrite)                  NSString   *fileName;
 
 @property (nonatomic, strong) NSURLSession              *session;
 @property (nonatomic, strong) NSURLSessionDownloadTask  *task;
@@ -75,6 +76,7 @@
 - (void)setURL:(NSURL *)URL {
     if (![_URL isEqual:URL]) {
         _URL = URL;
+//        _fileName = nil;
         
         [self dump];
     }
@@ -83,6 +85,16 @@
 }
 
 - (NSString *)fileName {
+//    NSURL *URL = self.URL;
+//    NSString *name = [self.cache objectForKey:URL];
+//    if (!name) {
+//        NSUInteger integer = arc4random_uniform(UINT32_MAX);
+//        name = [[NSString stringWithFormat:@"%lu", integer] stringByAppendingString:[URL lastPathComponent]];
+//        self.fileName = name;
+//    }
+//    
+//    return name;
+
     return [self.URL lastPathComponent];
 }
 
