@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E367731BD665EB0B5F5EF658 /* libPods-IOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8B4E0FBF2B077AD8EFC9CA /* libPods-IOSProject.a */; };
 		E703C8EA1CDB55EF0026BB1E /* VBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */; };
 		E703C8FC1CDB68850026BB1E /* project.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E703C8FB1CDB68850026BB1E /* project.logo.png */; };
 		E70453461CF74A3C00E4E502 /* CGGeometry+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E704530C1CF74A3C00E4E502 /* CGGeometry+VBCategory.m */; };
@@ -57,6 +58,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C8B4E0FBF2B077AD8EFC9CA /* libPods-IOSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13AE1852BE4457F490403A30 /* Pods-IOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.debug.xcconfig"; sourceTree = "<group>"; };
+		32B4E58EB9DD673B8F91D6D8 /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
 		E703C8E81CDB55EF0026BB1E /* VBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAppDelegate.h; sourceTree = "<group>"; };
 		E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAppDelegate.m; sourceTree = "<group>"; };
 		E703C8FB1CDB68850026BB1E /* project.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project.logo.png; sourceTree = "<group>"; };
@@ -153,12 +157,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E367731BD665EB0B5F5EF658 /* libPods-IOSProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC632F5C5F0125EB15B63D49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C8B4E0FBF2B077AD8EFC9CA /* libPods-IOSProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE6ADBB4A68BB8E5CF536FFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13AE1852BE4457F490403A30 /* Pods-IOSProject.debug.xcconfig */,
+				32B4E58EB9DD673B8F91D6D8 /* Pods-IOSProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E700D5261CF6245F00574190 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +599,8 @@
 				E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */,
 				E7F718FC1CC6CF8000A90B54 /* IOSProject */,
 				E7F718FB1CC6CF8000A90B54 /* Products */,
+				CE6ADBB4A68BB8E5CF536FFF /* Pods */,
+				BC632F5C5F0125EB15B63D49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -621,9 +645,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7F719111CC6CF8000A90B54 /* Build configuration list for PBXNativeTarget "IOSProject" */;
 			buildPhases = (
+				1774E6561380FE88C430224C /* [CP] Check Pods Manifest.lock */,
 				E7F718F61CC6CF8000A90B54 /* Sources */,
 				E7F718F71CC6CF8000A90B54 /* Frameworks */,
 				E7F718F81CC6CF8000A90B54 /* Resources */,
+				6FB14E62A875A14F4972444C /* [CP] Embed Pods Frameworks */,
+				0D18B74AEC4F4E2DFFC284B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -684,6 +711,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D18B74AEC4F4E2DFFC284B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1774E6561380FE88C430224C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FB14E62A875A14F4972444C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E7F718F61CC6CF8000A90B54 /* Sources */ = {
@@ -831,6 +906,7 @@
 		};
 		E7F719121CC6CF8000A90B54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13AE1852BE4457F490403A30 /* Pods-IOSProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/IOSProject/VBIOSProject-Prefix.pch";
@@ -845,6 +921,7 @@
 		};
 		E7F719131CC6CF8000A90B54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32B4E58EB9DD673B8F91D6D8 /* Pods-IOSProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/IOSProject/VBIOSProject-Prefix.pch";
