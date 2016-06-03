@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class VBImageView;
 
 @interface VBTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UIView                  *backgroundCellView;
 @property (nonatomic, strong) IBOutlet UILabel                 *cellLabel;
 @property (nonatomic, strong) IBOutlet UIView                  *separatorView;
-@property (nonatomic, strong) IBOutlet UIImageView             *cellImage;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) IBOutlet VBImageView             *cellImage;
 
 - (void)fillWithModel:(id)theModel;
 

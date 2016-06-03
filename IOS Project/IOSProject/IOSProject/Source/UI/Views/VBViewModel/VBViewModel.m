@@ -75,8 +75,3 @@ static CGFloat    const kVBRemovingAlpha     = 0.1;
 
 
 
-
-
-
-
-

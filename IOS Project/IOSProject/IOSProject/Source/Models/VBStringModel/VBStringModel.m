@@ -8,14 +8,14 @@
 
 #import "VBStringModel.h"
 
-const NSUInteger kVBDefaultArrayCount = 10;
+const NSUInteger kVBDefaultArrayCount = 4;
 
-static NSString * const kVBStringModelImage = @"folder.png";
 static NSString * const kVBSringCoderKey    = @"string";
+static NSString * const kVBStringURL        = @"https://cdn1.iconfinder.com/data/icons/Alumin/256/Pictures.png";
 
 @interface VBStringModel ()
-@property (nonatomic, copy)     NSString *string;
-@property (nonatomic, strong)   UIImage  *image;
+@property (nonatomic, copy)   NSString  *string;
+@property (nonatomic, copy)   NSString  *urlString;
 
 @end
 
@@ -52,14 +52,10 @@ static NSString * const kVBSringCoderKey    = @"string";
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Accessors
 
-- (void)prepareToLoad {
-    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathForFileWithName:kVBStringModelImage]];
-}
-
-- (void)finishedLoad {
-    [self setState:kVBModelLoadedState withObject:self.image];
+- (NSString *)urlString {
+    return kVBStringURL;
 }
 
 #pragma mark -

@@ -8,9 +8,9 @@
 
 #import "VBModel.h"
 
-@interface VBStringModel : VBModel <NSCoding>
-@property (nonatomic, readonly)   NSString *string;
-@property (nonatomic, readonly)   UIImage  *image;
+@interface VBStringModel : NSObject <NSCoding>
+@property (nonatomic, readonly)   NSString  *string;
+@property (nonatomic, readonly)   NSString  *urlString;
 
 + (instancetype)randomStringModel;
 + (NSArray *)randomStringsModels;

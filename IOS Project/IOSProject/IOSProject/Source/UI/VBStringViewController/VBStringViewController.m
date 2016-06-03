@@ -55,7 +55,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 }
 
 - (IBAction)onStartEditingSwitch:(id)sender {
-    self.rootView.tableView.editing = !self.rootView.editingSwitch.on;
+    self.rootView.tableView.editing = self.rootView.editingSwitch.on;
 }
 
 #pragma mark -
@@ -76,7 +76,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
         VBStringView *rootView = strongSelf.rootView;
         [rootView removeLoadingViewAnimated:YES];
         [rootView.tableView reloadData];
-        
+
     }           forState:kVBModelLoadedState
                      object:self];
 }

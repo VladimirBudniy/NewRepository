@@ -17,7 +17,11 @@
     
 }
 
-- (void)finishedLoad {
+- (void)completionLoad {
+    [self finishLoad];
+}
+
+- (void)finishLoad {
     
 }
 
@@ -25,22 +29,30 @@
     
 }
 
+- (void)dump {
+    
+}
+
 - (void)load {
     if (self.state == kVBModelLoadingState) {
         return;
-    } else {
-        self.state = kVBModelLoadingState;
     }
+    
+    if (self.state == kVBModelLoadedState) {
+        [self completionLoad];
+        return;
+    }
+    
+    self.state = kVBModelLoadingState;
     
     [self setupLoad];
     
     VBWeakSelfMacro;
     VBDispatchAsyncInBackground(^{
-        sleep(3);
         VBStrongSelfAndReturnNilMacroWithClass(VBModel)
         [strongSelf prepareToLoad];
         VBDispatchAsyncOnMainThread(^{
-            [strongSelf finishedLoad];
+            [strongSelf finishLoad];
         });
     });
 }

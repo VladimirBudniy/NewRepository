@@ -87,6 +87,10 @@ static NSString * const kVBArrayCoderKey    = @"array";
 }
 
 - (void)addObjects:(NSArray *)array {
+    return [self.arrayObjects addObjectsFromArray:array];
+}
+
+- (void)replaceObjectsWithArray:(NSArray *)array {
     return [self.arrayObjects setArray:array];
 }
 
