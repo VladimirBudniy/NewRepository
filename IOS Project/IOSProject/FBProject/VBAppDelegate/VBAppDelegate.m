@@ -21,8 +21,10 @@
     self.window = window;
     
     VBLoginViewController *viewController = [VBLoginViewController new];
+    UINavigationController *controller = [[UINavigationController alloc]
+                                          initWithRootViewController:viewController];
     
-    window.rootViewController = viewController;
+    window.rootViewController = controller;
     [window makeKeyAndVisible];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
