@@ -9,9 +9,14 @@
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
     UIWindow *window = [UIWindow window];
     self.window = window;
     
@@ -20,7 +25,19 @@
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -36,7 +53,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -8,6 +8,8 @@
 
 #import "VBLoginViewController.h"
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @interface VBLoginViewController ()
 
 @end
@@ -17,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
 }
 
 - (void)didReceiveMemoryWarning {
