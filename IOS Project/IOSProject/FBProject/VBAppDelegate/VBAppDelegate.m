@@ -15,10 +15,10 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-//    VBLoginViewController *viewController = [VBLoginViewController new];
-//    
-//    window.rootViewController = viewController;
-//    [window makeKeyAndVisible];
+    VBLoginViewController *viewController = [VBLoginViewController new];
+    
+    window.rootViewController = viewController;
+    [window makeKeyAndVisible];
     
     return YES;
 }
