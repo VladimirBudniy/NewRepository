@@ -1,5 +1,5 @@
 //
-//  VBLoginView.h
+//  VBFriendsViewController.h
 //  IOSProject
 //
 //  Created by Vladimir Budniy on 06.06.16.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface VBLoginView : UIView
-@property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
+@interface VBFriendsViewController : UIViewController
 
 @end

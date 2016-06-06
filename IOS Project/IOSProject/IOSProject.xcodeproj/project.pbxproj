@@ -106,6 +106,10 @@
 		E7CD85DB1D05FB8E00B5BC22 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DA1D05FB8E00B5BC22 /* libFBSDKCoreKit.a */; };
 		E7CD85DD1D05FB9200B5BC22 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DC1D05FB9200B5BC22 /* libFBSDKLoginKit.a */; };
 		E7CD85DF1D05FB9800B5BC22 /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DE1D05FB9800B5BC22 /* libFBSDKShareKit.a */; };
+		E7CD85E41D05FF3400B5BC22 /* VBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CD85E21D05FF3300B5BC22 /* VBFriendsViewController.m */; };
+		E7CD85E51D05FF3400B5BC22 /* VBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CD85E31D05FF3300B5BC22 /* VBFriendsViewController.xib */; };
+		E7CD85EA1D05FF6D00B5BC22 /* VBFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CD85E81D05FF6D00B5BC22 /* VBFriendDetailViewController.m */; };
+		E7CD85EB1D05FF6D00B5BC22 /* VBFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CD85E91D05FF6D00B5BC22 /* VBFriendDetailViewController.xib */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
 		E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */; };
@@ -230,6 +234,12 @@
 		E7CD85DA1D05FB8E00B5BC22 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
 		E7CD85DC1D05FB9200B5BC22 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
 		E7CD85DE1D05FB9800B5BC22 /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
+		E7CD85E11D05FF3300B5BC22 /* VBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsViewController.h; sourceTree = "<group>"; };
+		E7CD85E21D05FF3300B5BC22 /* VBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsViewController.m; sourceTree = "<group>"; };
+		E7CD85E31D05FF3300B5BC22 /* VBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBFriendsViewController.xib; sourceTree = "<group>"; };
+		E7CD85E71D05FF6D00B5BC22 /* VBFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailViewController.h; sourceTree = "<group>"; };
+		E7CD85E81D05FF6D00B5BC22 /* VBFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailViewController.m; sourceTree = "<group>"; };
+		E7CD85E91D05FF6D00B5BC22 /* VBFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBFriendDetailViewController.xib; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F718FE1CC6CF8000A90B54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7F719091CC6CF8000A90B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -356,6 +366,8 @@
 		E714FEE31D0471A80042081F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E7CD85E61D05FF5700B5BC22 /* VBFriendDetailViewController */,
+				E7CD85E01D05FF0200B5BC22 /* VBFriendsViewController */,
 				E714FEED1D0472410042081F /* VBLoginViewController */,
 			);
 			path = UI;
@@ -715,11 +727,11 @@
 		E7AA037E1CFDBE1E00E94ACD /* VBStringViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E7AA03851CFDBE1E00E94ACD /* VBTableViewCell */,
 				E7AA037F1CFDBE1E00E94ACD /* VBStringView */,
 				E7AA03821CFDBE1E00E94ACD /* VBStringViewController.h */,
 				E7AA03831CFDBE1E00E94ACD /* VBStringViewController.m */,
 				E7AA03841CFDBE1E00E94ACD /* VBStringViewController.xib */,
-				E7AA03851CFDBE1E00E94ACD /* VBTableViewCell */,
 			);
 			path = VBStringViewController;
 			sourceTree = "<group>";
@@ -808,6 +820,26 @@
 				E7CD85D21D05F95600B5BC22 /* VBLoginView.m */,
 			);
 			path = VBLoginView;
+			sourceTree = "<group>";
+		};
+		E7CD85E01D05FF0200B5BC22 /* VBFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7CD85E11D05FF3300B5BC22 /* VBFriendsViewController.h */,
+				E7CD85E21D05FF3300B5BC22 /* VBFriendsViewController.m */,
+				E7CD85E31D05FF3300B5BC22 /* VBFriendsViewController.xib */,
+			);
+			path = VBFriendsViewController;
+			sourceTree = "<group>";
+		};
+		E7CD85E61D05FF5700B5BC22 /* VBFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7CD85E71D05FF6D00B5BC22 /* VBFriendDetailViewController.h */,
+				E7CD85E81D05FF6D00B5BC22 /* VBFriendDetailViewController.m */,
+				E7CD85E91D05FF6D00B5BC22 /* VBFriendDetailViewController.xib */,
+			);
+			path = VBFriendDetailViewController;
 			sourceTree = "<group>";
 		};
 		E7F718F11CC6CF8000A90B54 = {
@@ -951,7 +983,9 @@
 				E7240F8C1D05F30C00540029 /* project.logo.180.png in Resources */,
 				E7240FA21D05F49C00540029 /* facebook_logo.87.png in Resources */,
 				E7240F771D05EDA000540029 /* facebook.jpg in Resources */,
+				E7CD85EB1D05FF6D00B5BC22 /* VBFriendDetailViewController.xib in Resources */,
 				E7240F921D05F30C00540029 /* project.logo.87.png in Resources */,
+				E7CD85E51D05FF3400B5BC22 /* VBFriendsViewController.xib in Resources */,
 				E714FEF21D0472500042081F /* VBLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,6 +1131,7 @@
 				E714FF721D0475B20042081F /* NSObject+VBCategory.m in Sources */,
 				E714FF701D0475B20042081F /* NSFileManager+VBCategory.m in Sources */,
 				E714FF881D0475B20042081F /* VBAlphabet.m in Sources */,
+				E7CD85EA1D05FF6D00B5BC22 /* VBFriendDetailViewController.m in Sources */,
 				E714FECD1D0471630042081F /* main.m in Sources */,
 				E714FF781D0475B20042081F /* UINib+VBCategory.m in Sources */,
 				E714FF7E1D0475B20042081F /* UIViewController+VBCategory.m in Sources */,
@@ -1106,6 +1141,7 @@
 				E714FF861D0475B20042081F /* VBStringAlphabet.m in Sources */,
 				E714FF8C1D0475B20042081F /* VBObserver.m in Sources */,
 				E714FF8E1D0475B20042081F /* VBObserverArray.m in Sources */,
+				E7CD85E41D05FF3400B5BC22 /* VBFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

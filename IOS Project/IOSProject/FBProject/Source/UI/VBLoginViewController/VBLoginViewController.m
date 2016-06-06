@@ -9,9 +9,10 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #import "VBLoginViewController.h"
+#import "VBFriendsViewController.h"
 #import "VBLoginView.h"
 
-@interface VBLoginViewController ()
+@interface VBLoginViewController () <FBSDKLoginButtonDelegate>
 @property (nonatomic, readonly) VBLoginView *rootView;
 @end
 
@@ -25,17 +26,42 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 #pragma mark -
 #pragma mark View LifeCycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
+//#pragma mark -
+//#pragma mark Handling Interface
+//
+//-(void)loginButtonClicked {
+//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+//    [login
+//     logInWithReadPermissions: @[@"public_profile"]
+//     fromViewController:self
+//     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//         if (error) {
+//             NSLog(@"Process error");
+//         } else if (result.isCancelled) {
+//             NSLog(@"Cancelled");
+//         } else {
+//             NSLog(@"Logged in");
+//         }
+//     }];
+//}
+
 #pragma mark -
-#pragma mark Handling Interface
+#pragma mark FBSDKLoginButton protocol
 
+- (void)  loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+                error:(NSError *)error
+{
+    [self.navigationController pushViewController:[VBFriendsViewController new] animated:YES];
+}
 
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    
+}
 
 @end
