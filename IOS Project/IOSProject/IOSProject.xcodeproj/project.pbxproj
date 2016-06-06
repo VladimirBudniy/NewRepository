@@ -55,10 +55,6 @@
 		E714FF911D0475B20042081F /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FF671D0475B20042081F /* VBObserverStateObject.m */; };
 		E714FF921D0475B20042081F /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FF671D0475B20042081F /* VBObserverStateObject.m */; };
 		E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */; };
-		E7240F641D05AA8800540029 /* libBolts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7240F631D05AA8800540029 /* libBolts.a */; };
-		E7240F661D05AA8D00540029 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7240F651D05AA8D00540029 /* libFBSDKCoreKit.a */; };
-		E7240F681D05AA9300540029 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7240F671D05AA9300540029 /* libFBSDKLoginKit.a */; };
-		E7240F6A1D05AA9700540029 /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7240F691D05AA9700540029 /* libFBSDKShareKit.a */; };
 		E7240F701D05ED2500540029 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7240F6E1D05ED2500540029 /* folder.png */; };
 		E7240F711D05ED2500540029 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7240F6E1D05ED2500540029 /* folder.png */; };
 		E7240F761D05EDA000540029 /* facebook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E7240F741D05EDA000540029 /* facebook.jpg */; };
@@ -103,16 +99,25 @@
 		E7AA03A81CFDBE1E00E94ACD /* VBLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7AA03941CFDBE1E00E94ACD /* VBLoadingView.xib */; };
 		E7AA03A91CFDBE1E00E94ACD /* VBViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AA03961CFDBE1E00E94ACD /* VBViewModel.m */; };
 		E7AA03AD1CFDDE6C00E94ACD /* VBObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AA03AC1CFDDE6C00E94ACD /* VBObjectCache.m */; };
-		E7CD85CB1D05F6D600B5BC22 /* libPods-IOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85CA1D05F6D600B5BC22 /* libPods-IOSProject.a */; };
 		E7CD85D31D05F95600B5BC22 /* VBLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CD85D21D05F95600B5BC22 /* VBLoginView.m */; };
+		E7CD85D51D05FB7600B5BC22 /* libPods-IOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85D41D05FB7600B5BC22 /* libPods-IOSProject.a */; };
+		E7CD85D71D05FB8200B5BC22 /* libPods-FBProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85D61D05FB8200B5BC22 /* libPods-FBProject.a */; };
+		E7CD85D91D05FB8700B5BC22 /* libBolts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85D81D05FB8700B5BC22 /* libBolts.a */; };
+		E7CD85DB1D05FB8E00B5BC22 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DA1D05FB8E00B5BC22 /* libFBSDKCoreKit.a */; };
+		E7CD85DD1D05FB9200B5BC22 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DC1D05FB9200B5BC22 /* libFBSDKLoginKit.a */; };
+		E7CD85DF1D05FB9800B5BC22 /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD85DE1D05FB9800B5BC22 /* libFBSDKShareKit.a */; };
 		E7F718FF1CC6CF8000A90B54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F718FE1CC6CF8000A90B54 /* main.m */; };
 		E7F7190A1CC6CF8000A90B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F719091CC6CF8000A90B54 /* Assets.xcassets */; };
 		E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F7190B1CC6CF8000A90B54 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2ACDAE65D4662CC9825D31B1 /* Pods-FBProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBProject/Pods-FBProject.debug.xcconfig"; sourceTree = "<group>"; };
+		41A70CD9217FA4A640B57A34 /* Pods-IOSProject-FBProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject-FBProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject-FBProject/Pods-IOSProject-FBProject.release.xcconfig"; sourceTree = "<group>"; };
+		42EAB71F1E0462AE89746D91 /* Pods-IOSProject-FBProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject-FBProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject-FBProject/Pods-IOSProject-FBProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A6D3C99ACE31ABCC06893CF9 /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
 		AD9424C6BB306C5D91A495A5 /* Pods-IOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.debug.xcconfig"; sourceTree = "<group>"; };
+		E7002F2FD75CE69CD1B0E0EC /* Pods-FBProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBProject/Pods-FBProject.release.xcconfig"; sourceTree = "<group>"; };
 		E703C8E81CDB55EF0026BB1E /* VBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAppDelegate.h; sourceTree = "<group>"; };
 		E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAppDelegate.m; sourceTree = "<group>"; };
 		E714FE5D1D0470A10042081F /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
@@ -169,11 +174,6 @@
 		E714FF661D0475B20042081F /* VBObserverStateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverStateObject.h; sourceTree = "<group>"; };
 		E714FF671D0475B20042081F /* VBObserverStateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverStateObject.m; sourceTree = "<group>"; };
 		E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
-		E7240F631D05AA8800540029 /* libBolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBolts.a; path = "../../../../Library/Developer/Xcode/DerivedData/IOSProject-gfnmvletyldbgsdegjnoqqmggefo/Build/Products/Debug-iphonesimulator/Bolts/libBolts.a"; sourceTree = "<group>"; };
-		E7240F651D05AA8D00540029 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/IOSProject-gfnmvletyldbgsdegjnoqqmggefo/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
-		E7240F671D05AA9300540029 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/IOSProject-gfnmvletyldbgsdegjnoqqmggefo/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
-		E7240F691D05AA9700540029 /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/IOSProject-gfnmvletyldbgsdegjnoqqmggefo/Build/Products/Debug-iphonesimulator/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
-		E7240F6B1D05AA9C00540029 /* libPods-FBProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBProject.a"; path = "../../../../Library/Developer/Xcode/DerivedData/IOSProject-gfnmvletyldbgsdegjnoqqmggefo/Build/Products/Debug-iphonesimulator/libPods-FBProject.a"; sourceTree = "<group>"; };
 		E7240F6E1D05ED2500540029 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		E7240F741D05EDA000540029 /* facebook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebook.jpg; sourceTree = "<group>"; };
 		E7240F841D05F30C00540029 /* project.logo.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project.logo.120.png; sourceTree = "<group>"; };
@@ -222,9 +222,14 @@
 		E7AA03961CFDBE1E00E94ACD /* VBViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBViewModel.m; sourceTree = "<group>"; };
 		E7AA03AB1CFDDE6C00E94ACD /* VBObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObjectCache.h; sourceTree = "<group>"; };
 		E7AA03AC1CFDDE6C00E94ACD /* VBObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObjectCache.m; sourceTree = "<group>"; };
-		E7CD85CA1D05F6D600B5BC22 /* libPods-IOSProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-IOSProject.a"; path = "Pods/../build/Debug-iphoneos/libPods-IOSProject.a"; sourceTree = "<group>"; };
 		E7CD85D11D05F95600B5BC22 /* VBLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLoginView.h; sourceTree = "<group>"; };
 		E7CD85D21D05F95600B5BC22 /* VBLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLoginView.m; sourceTree = "<group>"; };
+		E7CD85D41D05FB7600B5BC22 /* libPods-IOSProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-IOSProject.a"; path = "Pods/../build/Debug-iphoneos/libPods-IOSProject.a"; sourceTree = "<group>"; };
+		E7CD85D61D05FB8200B5BC22 /* libPods-FBProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBProject.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBProject.a"; sourceTree = "<group>"; };
+		E7CD85D81D05FB8700B5BC22 /* libBolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBolts.a; path = "Pods/../build/Debug-iphoneos/Bolts/libBolts.a"; sourceTree = "<group>"; };
+		E7CD85DA1D05FB8E00B5BC22 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
+		E7CD85DC1D05FB9200B5BC22 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
+		E7CD85DE1D05FB9800B5BC22 /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
 		E7F718FA1CC6CF8000A90B54 /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F718FE1CC6CF8000A90B54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7F719091CC6CF8000A90B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,10 +242,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7240F6A1D05AA9700540029 /* libFBSDKShareKit.a in Frameworks */,
-				E7240F681D05AA9300540029 /* libFBSDKLoginKit.a in Frameworks */,
-				E7240F661D05AA8D00540029 /* libFBSDKCoreKit.a in Frameworks */,
-				E7240F641D05AA8800540029 /* libBolts.a in Frameworks */,
+				E7CD85DF1D05FB9800B5BC22 /* libFBSDKShareKit.a in Frameworks */,
+				E7CD85DD1D05FB9200B5BC22 /* libFBSDKLoginKit.a in Frameworks */,
+				E7CD85DB1D05FB8E00B5BC22 /* libFBSDKCoreKit.a in Frameworks */,
+				E7CD85D91D05FB8700B5BC22 /* libBolts.a in Frameworks */,
+				E7CD85D71D05FB8200B5BC22 /* libPods-FBProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CD85CB1D05F6D600B5BC22 /* libPods-IOSProject.a in Frameworks */,
+				E7CD85D51D05FB7600B5BC22 /* libPods-IOSProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +264,12 @@
 		BC632F5C5F0125EB15B63D49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E7CD85CA1D05F6D600B5BC22 /* libPods-IOSProject.a */,
-				E7240F6B1D05AA9C00540029 /* libPods-FBProject.a */,
-				E7240F691D05AA9700540029 /* libFBSDKShareKit.a */,
-				E7240F671D05AA9300540029 /* libFBSDKLoginKit.a */,
-				E7240F651D05AA8D00540029 /* libFBSDKCoreKit.a */,
-				E7240F631D05AA8800540029 /* libBolts.a */,
+				E7CD85DE1D05FB9800B5BC22 /* libFBSDKShareKit.a */,
+				E7CD85DC1D05FB9200B5BC22 /* libFBSDKLoginKit.a */,
+				E7CD85DA1D05FB8E00B5BC22 /* libFBSDKCoreKit.a */,
+				E7CD85D81D05FB8700B5BC22 /* libBolts.a */,
+				E7CD85D61D05FB8200B5BC22 /* libPods-FBProject.a */,
+				E7CD85D41D05FB7600B5BC22 /* libPods-IOSProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,6 +279,10 @@
 			children = (
 				AD9424C6BB306C5D91A495A5 /* Pods-IOSProject.debug.xcconfig */,
 				A6D3C99ACE31ABCC06893CF9 /* Pods-IOSProject.release.xcconfig */,
+				42EAB71F1E0462AE89746D91 /* Pods-IOSProject-FBProject.debug.xcconfig */,
+				41A70CD9217FA4A640B57A34 /* Pods-IOSProject-FBProject.release.xcconfig */,
+				2ACDAE65D4662CC9825D31B1 /* Pods-FBProject.debug.xcconfig */,
+				E7002F2FD75CE69CD1B0E0EC /* Pods-FBProject.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1168,6 +1178,7 @@
 /* Begin XCBuildConfiguration section */
 		E714FEDE1D0471630042081F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ACDAE65D4662CC9825D31B1 /* Pods-FBProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1175,6 +1186,7 @@
 				INFOPLIST_FILE = FBProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = VB.FBProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1183,6 +1195,7 @@
 		};
 		E714FEDF1D0471630042081F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7002F2FD75CE69CD1B0E0EC /* Pods-FBProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1190,6 +1203,7 @@
 				INFOPLIST_FILE = FBProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = VB.FBProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
