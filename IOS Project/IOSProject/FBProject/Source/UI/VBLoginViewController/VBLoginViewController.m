@@ -6,15 +6,24 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBLoginViewController.h"
-
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface VBLoginViewController ()
+#import "VBLoginViewController.h"
+#import "VBLoginView.h"
 
+@interface VBLoginViewController ()
+@property (nonatomic, readonly) VBLoginView *rootView;
 @end
 
 @implementation VBLoginViewController
+
+#pragma mark -
+#pragma mark Accessors
+
+VBRootViewAndReturnIfNilMacro(VBLoginView);
+
+#pragma mark -
+#pragma mark View LifeCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,9 +33,9 @@
     [self.view addSubview:loginButton];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
+#pragma mark -
+#pragma mark Handling Interface
+
+
 
 @end
