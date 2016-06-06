@@ -12,6 +12,8 @@
 		E71402B91D0477A00042081F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71402B51D0477A00042081F /* FBSDKCoreKit.framework */; };
 		E71402BA1D0477A00042081F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71402B61D0477A00042081F /* FBSDKLoginKit.framework */; };
 		E71402BB1D0477A00042081F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71402B71D0477A00042081F /* FBSDKShareKit.framework */; };
+		E71402BD1D04C56F0042081F /* facebook_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E71402BC1D04C56F0042081F /* facebook_logo.jpg */; };
+		E71402BE1D04C5700042081F /* facebook_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E71402BC1D04C56F0042081F /* facebook_logo.jpg */; };
 		E714FECD1D0471630042081F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FECC1D0471630042081F /* main.m */; };
 		E714FED81D0471630042081F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E714FED71D0471630042081F /* Assets.xcassets */; };
 		E714FEDB1D0471630042081F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E714FED91D0471630042081F /* LaunchScreen.storyboard */; };
@@ -99,6 +101,7 @@
 		E71402B51D0477A00042081F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E71402B61D0477A00042081F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E71402B71D0477A00042081F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		E71402BC1D04C56F0042081F /* facebook_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = facebook_logo.jpg; path = ../../../../../../Pictures/WallpapersForIphones/facebook_logo.jpg; sourceTree = "<group>"; };
 		E714FE5D1D0470A10042081F /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		E714FEC91D0471630042081F /* FBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E714FECC1D0471630042081F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -533,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				E714FF691D0475B20042081F /* folder.png */,
+				E71402BC1D04C56F0042081F /* facebook_logo.jpg */,
 				E714FF6A1D0475B20042081F /* project.logo.png */,
 			);
 			path = Resource;
@@ -736,9 +740,9 @@
 			isa = PBXGroup;
 			children = (
 				E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */,
-				E714FE1C1D0470A10042081F /* Library */,
 				E7F718FC1CC6CF8000A90B54 /* IOSProject */,
 				E714FECA1D0471630042081F /* FBProject */,
+				E714FE1C1D0470A10042081F /* Library */,
 				E7F718FB1CC6CF8000A90B54 /* Products */,
 				CE6ADBB4A68BB8E5CF536FFF /* Pods */,
 				BC632F5C5F0125EB15B63D49 /* Frameworks */,
@@ -860,6 +864,7 @@
 				E714FF941D0475B20042081F /* folder.png in Resources */,
 				E714FED81D0471630042081F /* Assets.xcassets in Resources */,
 				E714FEF21D0472500042081F /* VBLoginViewController.xib in Resources */,
+				E71402BE1D04C5700042081F /* facebook_logo.jpg in Resources */,
 				E714FF961D0475B20042081F /* project.logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,6 +873,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71402BD1D04C56F0042081F /* facebook_logo.jpg in Resources */,
 				E7AA03A21CFDBE1E00E94ACD /* VBStringViewController.xib in Resources */,
 				E714FF931D0475B20042081F /* folder.png in Resources */,
 				E7F7190D1CC6CF8000A90B54 /* LaunchScreen.storyboard in Resources */,
@@ -1149,6 +1155,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "\"/Users/Vladimir/Documents/FacebookSDK\"";
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Library/VBIOSProject-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IOSProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1165,6 +1172,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "\"/Users/Vladimir/Documents/FacebookSDK\"";
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Library/VBIOSProject-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IOSProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -22,7 +22,9 @@
     VBStringViewController *viewController = [VBStringViewController controllerFromNib];
     viewController.arrayModel = [VBSaveArrayModel new];
     
-    window.rootViewController = viewController;
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    window.rootViewController = controller;
     [window makeKeyAndVisible];
     
     return YES;

@@ -13,6 +13,8 @@
 #import "VBStateModel.h"
 #import "VBSaveArrayModel.h"
 
+#import "VBLableViewController.h"
+
 @interface VBStringViewController ()
 @property (nonatomic, readonly) VBStringView  *rootView;
 
@@ -43,6 +45,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
     
     [self performLoad];
 }
@@ -116,6 +119,11 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 // cell's method for catches press
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    VBLableViewController *labelController = [VBLableViewController new];
+    [self.navigationController pushViewController:labelController animated:YES];
+    self.navigationController.navigationBar.hidden = NO;
+    
 }
 
 //cell's method for adding and removing
