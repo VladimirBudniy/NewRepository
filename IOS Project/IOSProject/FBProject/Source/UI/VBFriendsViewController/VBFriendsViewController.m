@@ -20,6 +20,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.title = @"Friends";                             // текст на контроллере
+//    self.navigationController.navigationBar.topItem.title = @"Friends"; // имя кнопки назад
+    //    self.navigationController.navigationBar.topItem.titleView     // вид кнопки назад
     self.navigationController.navigationBarHidden = NO;
 }
 

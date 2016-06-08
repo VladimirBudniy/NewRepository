@@ -6,10 +6,12 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
+#import "VBUser.h"
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation VBAppDelegate
 

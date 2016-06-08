@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class VBUser;
+
 @interface VBLoginViewController : UIViewController
+
+- (IBAction)onClickLoginButton:(id)sender;
 
 @end

@@ -7,13 +7,16 @@
 //
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "VBLoginViewController.h"
 #import "VBFriendsViewController.h"
 #import "VBLoginView.h"
+#import "VBUser.h"
 
-@interface VBLoginViewController () <FBSDKLoginButtonDelegate>
-@property (nonatomic, readonly) VBLoginView *rootView;
+@interface VBLoginViewController ()
+@property (nonatomic, readonly) VBLoginView  *rootView;
+
 @end
 
 @implementation VBLoginViewController
@@ -31,37 +34,23 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     self.navigationController.navigationBarHidden = YES;
 }
 
-//#pragma mark -
-//#pragma mark Handling Interface
-//
-//-(void)loginButtonClicked {
-//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-//    [login
-//     logInWithReadPermissions: @[@"public_profile"]
-//     fromViewController:self
-//     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-//         if (error) {
-//             NSLog(@"Process error");
-//         } else if (result.isCancelled) {
-//             NSLog(@"Cancelled");
-//         } else {
-//             NSLog(@"Logged in");
-//         }
-//     }];
-//}
-
 #pragma mark -
-#pragma mark FBSDKLoginButton protocol
+#pragma mark Handling Interface
 
-- (void)  loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-                error:(NSError *)error
-{
-    [self.navigationController pushViewController:[VBFriendsViewController new] animated:YES];
-}
-
-- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    
+- (IBAction)onClickLoginButton:(id)sender {
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions: @[@"public_profile"]
+                 fromViewController:self
+                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                if (error) {
+                                    NSLog(@"Process error");
+                                } else if (result.isCancelled) {
+                                    NSLog(@"Cancelled");
+                                    [self.navigationController popToRootViewControllerAnimated:YES];
+                                } else {
+                                    [self.navigationController pushViewController:[VBFriendsViewController new] animated:YES];
+                                }
+                            }];
 }
 
 @end

@@ -120,8 +120,7 @@ VBRootViewAndReturnIfNilMacro(VBStringView);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    VBLableViewController *labelController = [VBLableViewController new];
-    [self.navigationController pushViewController:labelController animated:YES];
+    [self.navigationController pushViewController:[VBLableViewController new] animated:YES];
     self.navigationController.navigationBar.hidden = NO;
     
 }

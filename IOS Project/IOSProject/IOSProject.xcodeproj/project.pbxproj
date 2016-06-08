@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E703C8EA1CDB55EF0026BB1E /* VBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */; };
+		E70482611D07767600B7B1D7 /* VBUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E70482601D07767600B7B1D7 /* VBUserContext.m */; };
+		E70482621D07768600B7B1D7 /* VBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AA036F1CFDBE1E00E94ACD /* VBModel.m */; };
 		E714FECD1D0471630042081F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FECC1D0471630042081F /* main.m */; };
 		E714FED81D0471630042081F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E714FED71D0471630042081F /* Assets.xcassets */; };
 		E714FEDB1D0471630042081F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E714FED91D0471630042081F /* LaunchScreen.storyboard */; };
@@ -54,6 +56,7 @@
 		E714FF901D0475B20042081F /* VBObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FF651D0475B20042081F /* VBObserverObject.m */; };
 		E714FF911D0475B20042081F /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FF671D0475B20042081F /* VBObserverStateObject.m */; };
 		E714FF921D0475B20042081F /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E714FF671D0475B20042081F /* VBObserverStateObject.m */; };
+		E71E00061D071384006BAF04 /* VBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E71E00051D071384006BAF04 /* VBUser.m */; };
 		E71FEC0D1CCD455C0009C204 /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */; };
 		E7240F701D05ED2500540029 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7240F6E1D05ED2500540029 /* folder.png */; };
 		E7240F711D05ED2500540029 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7240F6E1D05ED2500540029 /* folder.png */; };
@@ -124,6 +127,8 @@
 		E7002F2FD75CE69CD1B0E0EC /* Pods-FBProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBProject/Pods-FBProject.release.xcconfig"; sourceTree = "<group>"; };
 		E703C8E81CDB55EF0026BB1E /* VBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAppDelegate.h; sourceTree = "<group>"; };
 		E703C8E91CDB55EF0026BB1E /* VBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAppDelegate.m; sourceTree = "<group>"; };
+		E704825F1D07767600B7B1D7 /* VBUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBUserContext.h; sourceTree = "<group>"; };
+		E70482601D07767600B7B1D7 /* VBUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBUserContext.m; sourceTree = "<group>"; };
 		E714FE5D1D0470A10042081F /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		E714FEC91D0471630042081F /* FBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E714FECC1D0471630042081F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +182,8 @@
 		E714FF651D0475B20042081F /* VBObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverObject.m; sourceTree = "<group>"; };
 		E714FF661D0475B20042081F /* VBObserverStateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverStateObject.h; sourceTree = "<group>"; };
 		E714FF671D0475B20042081F /* VBObserverStateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverStateObject.m; sourceTree = "<group>"; };
+		E71E00041D071384006BAF04 /* VBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBUser.h; sourceTree = "<group>"; };
+		E71E00051D071384006BAF04 /* VBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBUser.m; sourceTree = "<group>"; };
 		E71FEC0C1CCD455C0009C204 /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		E7240F6E1D05ED2500540029 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		E7240F741D05EDA000540029 /* facebook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebook.jpg; sourceTree = "<group>"; };
@@ -350,17 +357,11 @@
 		E714FEE11D0471A80042081F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E714FEE21D0471A80042081F /* Models */,
+				E71E00011D071353006BAF04 /* Contexts */,
+				E71E00021D071353006BAF04 /* Models */,
 				E714FEE31D0471A80042081F /* UI */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		E714FEE21D0471A80042081F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E714FEE31D0471A80042081F /* UI */ = {
@@ -582,6 +583,32 @@
 				E714FF671D0475B20042081F /* VBObserverStateObject.m */,
 			);
 			path = VBPrivate;
+			sourceTree = "<group>";
+		};
+		E71E00011D071353006BAF04 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				E704825F1D07767600B7B1D7 /* VBUserContext.h */,
+				E70482601D07767600B7B1D7 /* VBUserContext.m */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		E71E00021D071353006BAF04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E71E00031D071366006BAF04 /* VBUser */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E71E00031D071366006BAF04 /* VBUser */ = {
+			isa = PBXGroup;
+			children = (
+				E71E00041D071384006BAF04 /* VBUser.h */,
+				E71E00051D071384006BAF04 /* VBUser.m */,
+			);
+			path = VBUser;
 			sourceTree = "<group>";
 		};
 		E7240F6D1D05ED2500540029 /* Resource */ = {
@@ -1132,6 +1159,7 @@
 				E714FF701D0475B20042081F /* NSFileManager+VBCategory.m in Sources */,
 				E714FF881D0475B20042081F /* VBAlphabet.m in Sources */,
 				E7CD85EA1D05FF6D00B5BC22 /* VBFriendDetailViewController.m in Sources */,
+				E71E00061D071384006BAF04 /* VBUser.m in Sources */,
 				E714FECD1D0471630042081F /* main.m in Sources */,
 				E714FF781D0475B20042081F /* UINib+VBCategory.m in Sources */,
 				E714FF7E1D0475B20042081F /* UIViewController+VBCategory.m in Sources */,
@@ -1140,7 +1168,9 @@
 				E7CD85D31D05F95600B5BC22 /* VBLoginView.m in Sources */,
 				E714FF861D0475B20042081F /* VBStringAlphabet.m in Sources */,
 				E714FF8C1D0475B20042081F /* VBObserver.m in Sources */,
+				E70482621D07768600B7B1D7 /* VBModel.m in Sources */,
 				E714FF8E1D0475B20042081F /* VBObserverArray.m in Sources */,
+				E70482611D07767600B7B1D7 /* VBUserContext.m in Sources */,
 				E7CD85E41D05FF3400B5BC22 /* VBFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
