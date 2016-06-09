@@ -9,7 +9,6 @@
 #import "VBTableViewCell.h"
 #import "VBStringModel.h"
 #import "VBImageView.h"
-#import "VBImageModel.h"
 
 @implementation VBTableViewCell
 

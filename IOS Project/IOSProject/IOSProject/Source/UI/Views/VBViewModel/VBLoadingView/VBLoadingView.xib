@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.10000000000000001" contentMode="scaleToFill" id="iN0-l3-epB" customClass="VBLoadingView">
+        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="iN0-l3-epB" customClass="VBLoadingView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -22,7 +22,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="zyZ-R4-bm0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="572-eV-jGN"/>
                 <constraint firstAttribute="bottom" secondItem="jyc-iS-P38" secondAttribute="bottom" constant="208" id="9oD-Nk-Mg8"/>

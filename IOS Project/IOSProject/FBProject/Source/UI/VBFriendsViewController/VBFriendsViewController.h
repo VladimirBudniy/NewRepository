@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class VBArrayModel;
+
 @interface VBFriendsViewController : UIViewController
+@property (nonatomic, strong) VBArrayModel *arrayModel;
 
 @end

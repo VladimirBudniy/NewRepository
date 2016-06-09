@@ -13,9 +13,14 @@
 #import "VBFriendsViewController.h"
 #import "VBLoginView.h"
 #import "VBUser.h"
+#import "VBLoginContext.h"
+#import "VBArrayModel.h"
+
+static NSString * const kVBReadPermissions = @"public_profile";
 
 @interface VBLoginViewController ()
-@property (nonatomic, readonly) VBLoginView  *rootView;
+@property (nonatomic, readonly) VBLoginView    *rootView;
+@property (nonatomic, strong)   VBLoginContext *context;
 
 @end
 
@@ -25,6 +30,24 @@
 #pragma mark Accessors
 
 VBRootViewAndReturnIfNilMacro(VBLoginView);
+
+- (void)setContext:(VBLoginContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(id object){
+            VBStrongSelfAndReturnNilMacroWithClass(VBLoginContext)
+            
+            // нужно хранить следующий по шагу контроллер
+            //в его проперти модели переписывать данные полученные от контекста
+            
+        } forState:kVBModelLoadedState
+                    object:self];
+        
+        [_context load];
+    }
+}
 
 #pragma mark -
 #pragma mark View LifeCycle
@@ -39,16 +62,18 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (IBAction)onClickLoginButton:(id)sender {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile"]
+    [login logInWithReadPermissions: @[kVBReadPermissions]
                  fromViewController:self
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error) {
                                     NSLog(@"Process error");
                                 } else if (result.isCancelled) {
-                                    NSLog(@"Cancelled");
                                     [self.navigationController popToRootViewControllerAnimated:YES];
                                 } else {
-                                    [self.navigationController pushViewController:[VBFriendsViewController new] animated:YES];
+                                    self.context = [[VBLoginContext alloc] initWithUserID:result.token.userID];
+                                    VBFriendsViewController * controller = [VBFriendsViewController new];
+                                    controller.arrayModel = [VBArrayModel new];
+                                    [self.navigationController pushViewController:controller animated:NO];
                                 }
                             }];
 }
