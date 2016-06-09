@@ -13,7 +13,7 @@
 #import "VBFriendsViewController.h"
 #import "VBLoginView.h"
 #import "VBUser.h"
-#import "VBLoginContext.h"
+#import "VBFriendsContext.h"
 #import "VBArrayModel.h"
 
 #define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
@@ -39,6 +39,16 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     self.navigationController.navigationBarHidden = YES;
 }
 
+- (void)setUser:(VBUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        VBFriendsViewController * controller = [VBFriendsViewController new];
+        controller.user = _user;
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
 #pragma mark -
 #pragma mark Handling Interface
 
@@ -50,10 +60,9 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
                                 if (error) {
                                     NSLog(@"Process error");
                                 } else if (result.isCancelled) {
-                                    [self.navigationController popToRootViewControllerAnimated:YES];
+                                    NSLog(@"isCancelled");
                                 } else {
-                                    VBFriendsViewController * controller = [VBFriendsViewController new];
-                                    [self.navigationController pushViewController:controller animated:NO];
+                                    self.user = [[VBUser alloc] initWithUserID:result.token.userID];
                                 }
                             }];
 }

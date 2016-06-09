@@ -13,6 +13,7 @@
 #import "VBFriendDetailViewController.h"
 
 #import "VBFriendsView.h"
+#import "VBUser.h"
 #import "VBUserContext.h"
 #import "VBArrayMOdel.h"
 #import "VBTableViewCell.h"

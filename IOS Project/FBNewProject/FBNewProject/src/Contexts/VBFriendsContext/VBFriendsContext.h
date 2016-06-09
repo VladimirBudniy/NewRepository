@@ -1,5 +1,5 @@
 //
-//  VBLoginContext.h
+//  VBFriendsContext.h
 //  IOSProject
 //
 //  Created by Vladimir Budniy on 08.06.16.
@@ -10,7 +10,7 @@
 
 @class VBArrayModel;
 
-@interface VBLoginContext : VBModel
+@interface VBFriendsContext : VBModel
 @property (nonatomic, strong) VBArrayModel *friendsArray;
 
 - (instancetype)initWithUserID:(NSString *)userID;

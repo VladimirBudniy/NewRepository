@@ -15,12 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FriendsControllerImage" translatesAutoresizingMaskIntoConstraints="NO" id="b2z-ya-idW">
+                <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FriendsControllerImage" translatesAutoresizingMaskIntoConstraints="NO" id="b2z-ya-idW">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="b2z-ya-idW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0ag-c8-4wM"/>
+                <constraint firstItem="b2z-ya-idW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5jM-BV-yFw"/>
+                <constraint firstAttribute="bottom" secondItem="b2z-ya-idW" secondAttribute="bottom" id="R08-S9-z2v"/>
+                <constraint firstAttribute="trailing" secondItem="b2z-ya-idW" secondAttribute="trailing" id="umw-l0-hPA"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="304" y="139"/>
         </view>

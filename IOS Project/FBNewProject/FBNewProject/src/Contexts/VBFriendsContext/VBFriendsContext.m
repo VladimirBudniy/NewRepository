@@ -1,5 +1,5 @@
 //
-//  VBLoginContext.m
+//  VBFriendsContext.m
 //  IOSProject
 //
 //  Created by Vladimir Budniy on 08.06.16.
@@ -9,11 +9,11 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-#import "VBLoginContext.h"
+#import "VBFriendsContext.h"
 
 static NSString * const kVBPermissionKey = @"https://facebook.com/%@?fields=id,name,last_name,location,email,user_friends"; // check path
 
-@interface VBLoginContext ()
+@interface VBFriendsContext ()
 @property (nonatomic, strong) FBSDKGraphRequest *request;
 @property (nonatomic, copy)   NSString          *userID;
 @property (nonatomic, copy)   NSString          *path;
@@ -22,7 +22,7 @@ static NSString * const kVBPermissionKey = @"https://facebook.com/%@?fields=id,n
 
 @end
 
-@implementation VBLoginContext
+@implementation VBFriendsContext
 
 #pragma mark -
 #pragma mark Initializations and Deallocatins
