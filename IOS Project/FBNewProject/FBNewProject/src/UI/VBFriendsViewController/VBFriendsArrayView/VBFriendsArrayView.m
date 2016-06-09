@@ -1,13 +1,13 @@
 //
-//  VBFriendsView.m
+//  VBFriendsArrayView.m
 //  IOSProject
 //
 //  Created by Vladimir Budniy on 08.06.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBFriendsView.h"
+#import "VBFriendsArrayView.h"
 
-@implementation VBFriendsView
+@implementation VBFriendsArrayView
 
 @end

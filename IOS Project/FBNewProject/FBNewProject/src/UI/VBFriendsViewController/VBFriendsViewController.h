@@ -13,6 +13,6 @@
 
 @interface VBFriendsViewController : UIViewController
 @property (nonatomic, strong) VBUser         *user;
-@property (nonatomic, strong) VBArrayModel *arrayModel;
+@property (nonatomic, strong) VBArrayModel   *arrayModel;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class VBImageView;
+@class VBUser;
 
 @interface VBTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UIView                  *backgroundCellView;
@@ -16,6 +17,6 @@
 
 @property (nonatomic, strong) IBOutlet VBImageView             *cellImage;
 
-- (void)fillWithModel:(id)theModel;
+- (void)fillWithModel:(VBUser *)user;
 
 @end

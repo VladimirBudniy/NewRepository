@@ -45,7 +45,6 @@
 		E7A173221D096C51007843FF /* VBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A173211D096C50007843FF /* VBAppDelegate.m */; };
 		E7A173391D096CBD007843FF /* VBFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A173251D096CBC007843FF /* VBFriendDetailViewController.m */; };
 		E7A1733A1D096CBD007843FF /* VBFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7A173261D096CBC007843FF /* VBFriendDetailViewController.xib */; };
-		E7A1733B1D096CBD007843FF /* VBFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A1732A1D096CBC007843FF /* VBFriendsView.m */; };
 		E7A1733C1D096CBD007843FF /* VBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A1732C1D096CBC007843FF /* VBFriendsViewController.m */; };
 		E7A1733D1D096CBD007843FF /* VBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7A1732D1D096CBC007843FF /* VBFriendsViewController.xib */; };
 		E7A1733E1D096CBD007843FF /* VBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A173301D096CBD007843FF /* VBTableViewCell.m */; };
@@ -70,6 +69,7 @@
 		E7A1737D1D09705D007843FF /* VBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A173771D09705D007843FF /* VBModel.m */; };
 		E7A1737E1D09705D007843FF /* VBStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A1737A1D09705D007843FF /* VBStateModel.m */; };
 		E7F930681D09821D00926CCD /* VBFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930671D09821D00926CCD /* VBFriendsContext.m */; };
+		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
 
@@ -142,8 +142,6 @@
 		E7A173241D096CBC007843FF /* VBFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailViewController.h; sourceTree = "<group>"; };
 		E7A173251D096CBC007843FF /* VBFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailViewController.m; sourceTree = "<group>"; };
 		E7A173261D096CBC007843FF /* VBFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBFriendDetailViewController.xib; sourceTree = "<group>"; };
-		E7A173291D096CBC007843FF /* VBFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsView.h; sourceTree = "<group>"; };
-		E7A1732A1D096CBC007843FF /* VBFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsView.m; sourceTree = "<group>"; };
 		E7A1732B1D096CBC007843FF /* VBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsViewController.h; sourceTree = "<group>"; };
 		E7A1732C1D096CBC007843FF /* VBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsViewController.m; sourceTree = "<group>"; };
 		E7A1732D1D096CBC007843FF /* VBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBFriendsViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +182,8 @@
 		E7A1737A1D09705D007843FF /* VBStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBStateModel.m; sourceTree = "<group>"; };
 		E7F930661D09821D00926CCD /* VBFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsContext.h; sourceTree = "<group>"; };
 		E7F930671D09821D00926CCD /* VBFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsContext.m; sourceTree = "<group>"; };
+		E7F930781D09A16800926CCD /* VBFriendsArrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsArrayView.h; sourceTree = "<group>"; };
+		E7F930791D09A16800926CCD /* VBFriendsArrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsArrayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,21 +563,12 @@
 			isa = PBXGroup;
 			children = (
 				E7A1732E1D096CBC007843FF /* VBTableViewCell */,
-				E7A173281D096CBC007843FF /* VBFriendsView */,
+				E7F930771D09A16800926CCD /* VBFriendsArrayView */,
 				E7A1732B1D096CBC007843FF /* VBFriendsViewController.h */,
 				E7A1732C1D096CBC007843FF /* VBFriendsViewController.m */,
 				E7A1732D1D096CBC007843FF /* VBFriendsViewController.xib */,
 			);
 			path = VBFriendsViewController;
-			sourceTree = "<group>";
-		};
-		E7A173281D096CBC007843FF /* VBFriendsView */ = {
-			isa = PBXGroup;
-			children = (
-				E7A173291D096CBC007843FF /* VBFriendsView.h */,
-				E7A1732A1D096CBC007843FF /* VBFriendsView.m */,
-			);
-			path = VBFriendsView;
 			sourceTree = "<group>";
 		};
 		E7A1732E1D096CBC007843FF /* VBTableViewCell */ = {
@@ -742,6 +733,15 @@
 			path = VBFriendsContext;
 			sourceTree = "<group>";
 		};
+		E7F930771D09A16800926CCD /* VBFriendsArrayView */ = {
+			isa = PBXGroup;
+			children = (
+				E7F930781D09A16800926CCD /* VBFriendsArrayView.h */,
+				E7F930791D09A16800926CCD /* VBFriendsArrayView.m */,
+			);
+			path = VBFriendsArrayView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -883,6 +883,7 @@
 				E7A173091D0967D5007843FF /* VBAlphabet.m in Sources */,
 				E7A1730E1D0967D5007843FF /* VBObserverStateObject.m in Sources */,
 				E7A173071D0967D5007843FF /* VBRangeAlphabet.m in Sources */,
+				E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */,
 				E7A173041D0967D5007843FF /* UIViewController+VBCategory.m in Sources */,
 				E7A173401D096CBD007843FF /* VBLoginView.m in Sources */,
 				E7A1730B1D0967D5007843FF /* VBObserver.m in Sources */,
@@ -901,7 +902,6 @@
 				E7A173021D0967D5007843FF /* UITableView+VBCategory.m in Sources */,
 				E7A173001D0967D5007843FF /* UIImage+VBCategory.m in Sources */,
 				E7A1734E1D096D6D007843FF /* VBUserContext.m in Sources */,
-				E7A1733B1D096CBD007843FF /* VBFriendsView.m in Sources */,
 				E7A173681D096FAA007843FF /* VBImageModel.m in Sources */,
 				E7A1737C1D09705D007843FF /* VBSaveArrayModel.m in Sources */,
 				E7A1736D1D096FAA007843FF /* VBViewModel.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  VBFriendsView.h
+//  VBFriendsArrayView.h
 //  IOSProject
 //
 //  Created by Vladimir Budniy on 08.06.16.
@@ -9,7 +9,7 @@
 #import "VBViewModel.h"
 #import "VBLoadingView.h"
 
-@interface VBFriendsView : VBViewModel
+@interface VBFriendsArrayView : VBViewModel
 @property (nonatomic, strong) IBOutlet UITableView  *tableView;
 
 @end

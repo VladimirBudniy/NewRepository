@@ -11,18 +11,21 @@
 
 #import "VBFriendsViewController.h"
 #import "VBFriendDetailViewController.h"
-
-#import "VBFriendsView.h"
+#import "VBFriendsArrayView.h"
 #import "VBUser.h"
-#import "VBUserContext.h"
+#import "VBFriendsContext.h"
 #import "VBArrayMOdel.h"
 #import "VBTableViewCell.h"
 #import "VBStateModel.h"
 
-@interface VBFriendsViewController ()
-@property (nonatomic, readonly) VBFriendsView  *rootView;
-@property (nonatomic, strong)   VBUserContext  *context;
+static NSString * const kVBBackButtonText     = @"Back to login";
+static NSString * const kVBNavigationItemText = @"Friends";
 
+@interface VBFriendsViewController ()
+@property (nonatomic, readonly) VBFriendsArrayView     *rootView;
+@property (nonatomic, strong)   VBFriendsContext       *context;
+
+- (void)performWithNavigationController;
 - (void)addHandlers;
 - (void)performLoad;
 
@@ -33,14 +36,37 @@
 #pragma mark -
 #pragma mark Accessors
 
-VBRootViewAndReturnIfNilMacro(VBFriendsView);
+VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)setArrayModel:(VBArrayModel *)arrayModel{
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
         [self addHandlers];
-        [self performLoad];
+    }
+}
+
+-(void)setUser:(VBUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        self.context = [[VBFriendsContext alloc] initWithUserID:_user.userID];
+    }
+}
+
+
+-(void)setContext:(VBFriendsContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(VBArrayModel *friends) {
+            VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
+            strongSelf.arrayModel = friends;
+        }forState:kVBModelLoadedState
+                      object:self];
+        
+        [_context load];
     }
 }
 
@@ -49,21 +75,27 @@ VBRootViewAndReturnIfNilMacro(VBFriendsView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.title = @"Friends";
-//    self.navigationController.navigationBar.topItem.title = @"Friends"; // имя кнопки назад
-//    self.navigationController.navigationBar.topItem.titleView     // вид кнопки назад
-    self.navigationController.navigationBarHidden = NO;
+    
+    [self performWithNavigationController];
+    [self performLoad];
 }
 
 #pragma mark -
 #pragma mark Private
+
+- (void)performWithNavigationController {
+    UINavigationController *controller = self.navigationController;
+    controller.navigationBarHidden = NO;
+    controller.navigationBar.backItem.title = kVBBackButtonText;
+    self.navigationItem.title = kVBNavigationItemText;
+}
 
 - (void)addHandlers {
     VBArrayModel *arrayModel = self.arrayModel;
     VBWeakSelfMacro;
     [arrayModel addHandler:^(VBStateModel *model){
         VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
-        VBFriendsView *rootView = strongSelf.rootView;
+        VBFriendsArrayView *rootView = strongSelf.rootView;
         [rootView removeLoadingViewAnimated:YES];
         [rootView.tableView reloadData];
         
@@ -72,7 +104,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsView);
 }
 
 - (void)performLoad {
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];  // не заходит в метод
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     [self.arrayModel load];
 }
 

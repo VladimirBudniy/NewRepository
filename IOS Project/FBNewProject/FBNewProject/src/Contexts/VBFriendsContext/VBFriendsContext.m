@@ -42,11 +42,10 @@ static NSString * const kVBPermissionKey = @"https://facebook.com/%@?fields=id,n
 - (void)setRequest:(FBSDKGraphRequest *)request {
     if (_request != request) {
         _request = request;
-        [_request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        [_request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
             if (!error) {
-                //  распаковать результат
-                //заливаем юзеров в массив юзеров friendsArray
-                //меняем состояние на loaded
+
+                
             }
         }];
     }

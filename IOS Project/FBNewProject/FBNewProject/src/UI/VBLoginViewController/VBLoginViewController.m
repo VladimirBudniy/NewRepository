@@ -36,7 +36,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)setUser:(VBUser *)user {
@@ -45,7 +45,8 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
         
         VBFriendsViewController * controller = [VBFriendsViewController new];
         controller.user = _user;
-        [self.navigationController pushViewController:controller animated:NO];
+        controller.arrayModel = [VBArrayModel new];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
