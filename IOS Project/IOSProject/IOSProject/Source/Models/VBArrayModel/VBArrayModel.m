@@ -8,7 +8,6 @@
 
 #import "VBArrayModel.h"
 #import "VBStateModel.h"
-#import "VBStringModel.h"
 
 static NSString * const kVBArrayCoderKey    = @"array";
 

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VBStringViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="rbP-6h-ATz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -80,6 +80,7 @@
                 <outlet property="reloadButton" destination="Qbq-QA-f8a" id="i5y-c4-ezF"/>
                 <outlet property="tableView" destination="tlK-jb-Rry" id="YgM-9i-J1x"/>
             </connections>
+            <point key="canvasLocation" x="233" y="161"/>
         </view>
     </objects>
     <resources>

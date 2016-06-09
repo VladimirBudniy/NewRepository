@@ -11,7 +11,7 @@
 
 static NSString * const kVBDefaultLodingText = @"... loading ...";
 static CGFloat    const kVBDefaultDuration   = 1.0;
-static CGFloat    const kVBLoadingAlpha      = 0.8;
+static CGFloat    const kVBLoadingAlpha      = 0.6;
 static CGFloat    const kVBRemovingAlpha     = 0.1;
 
 @interface VBViewModel ()
