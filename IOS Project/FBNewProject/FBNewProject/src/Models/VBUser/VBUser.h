@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *last_name;
 @property (nonatomic, copy) NSString *userID;
 @property (nonatomic, copy) NSString *userEmail;
+@property (nonatomic, copy) NSString *urlString;
 
 - (instancetype)initWithUserID:(NSString *)userID;
 

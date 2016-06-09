@@ -45,7 +45,6 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
         
         VBFriendsViewController * controller = [VBFriendsViewController new];
         controller.user = _user;
-        controller.arrayModel = [VBArrayModel new];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

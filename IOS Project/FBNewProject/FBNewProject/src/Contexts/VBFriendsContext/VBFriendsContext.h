@@ -11,7 +11,6 @@
 @class VBArrayModel;
 
 @interface VBFriendsContext : VBModel
-@property (nonatomic, strong) VBArrayModel *friendsArray;
 
 - (instancetype)initWithUserID:(NSString *)userID;
 

@@ -26,8 +26,7 @@ static NSString * const kVBNavigationItemText = @"Friends";
 @property (nonatomic, strong)   VBFriendsContext       *context;
 
 - (void)performWithNavigationController;
-- (void)addHandlers;
-- (void)performLoad;
+//- (void)addHandlers;
 
 @end
 
@@ -42,7 +41,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        [self addHandlers];
+        //[self addHandlers];
     }
 }
 
@@ -50,19 +49,23 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     if (_user != user) {
         _user = user;
         
+        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
         self.context = [[VBFriendsContext alloc] initWithUserID:_user.userID];
     }
 }
-
 
 -(void)setContext:(VBFriendsContext *)context {
     if (_context != context) {
         _context = context;
         
         VBWeakSelfMacro;
-        [_context addHandler:^(VBArrayModel *friends) {
+        [_context addHandler:^(NSArray *friends) {
             VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
-            strongSelf.arrayModel = friends;
+            strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:friends];
+            
+            VBFriendsArrayView *rootView = strongSelf.rootView;
+            [rootView removeLoadingViewAnimated:YES];
+            [rootView.tableView reloadData];
         }forState:kVBModelLoadedState
                       object:self];
         
@@ -77,7 +80,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     [super viewWillAppear:animated];
     
     [self performWithNavigationController];
-    [self performLoad];
 }
 
 #pragma mark -
@@ -88,24 +90,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     controller.navigationBarHidden = NO;
     controller.navigationBar.backItem.title = kVBBackButtonText;
     self.navigationItem.title = kVBNavigationItemText;
-}
-
-- (void)addHandlers {
-    VBArrayModel *arrayModel = self.arrayModel;
-    VBWeakSelfMacro;
-    [arrayModel addHandler:^(VBStateModel *model){
-        VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
-        VBFriendsArrayView *rootView = strongSelf.rootView;
-        [rootView removeLoadingViewAnimated:YES];
-        [rootView.tableView reloadData];
-        
-    }           forState:kVBModelLoadedState
-                    object:self];
-}
-
-- (void)performLoad {
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    [self.arrayModel load];
 }
 
 #pragma mark -

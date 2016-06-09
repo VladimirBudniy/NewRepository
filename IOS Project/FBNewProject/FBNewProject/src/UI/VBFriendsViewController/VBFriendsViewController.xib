@@ -20,7 +20,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-N2-l6M">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="M5j-kC-cV2"/>
@@ -30,14 +30,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="b2z-ya-idW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0ag-c8-4wM"/>
-                <constraint firstItem="b2z-ya-idW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5jM-BV-yFw"/>
-                <constraint firstAttribute="bottom" secondItem="oXe-N2-l6M" secondAttribute="bottom" id="Bou-ek-Qq9"/>
-                <constraint firstItem="oXe-N2-l6M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C1T-z8-FOD"/>
-                <constraint firstAttribute="bottom" secondItem="b2z-ya-idW" secondAttribute="bottom" id="R08-S9-z2v"/>
-                <constraint firstAttribute="trailing" secondItem="oXe-N2-l6M" secondAttribute="trailing" id="g4z-w9-gLF"/>
-                <constraint firstItem="oXe-N2-l6M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="riz-7s-HeZ"/>
-                <constraint firstAttribute="trailing" secondItem="b2z-ya-idW" secondAttribute="trailing" id="umw-l0-hPA"/>
+                <constraint firstItem="b2z-ya-idW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6SJ-6x-OX1"/>
+                <constraint firstAttribute="bottom" secondItem="oXe-N2-l6M" secondAttribute="bottom" id="DWZ-z8-GWW"/>
+                <constraint firstItem="oXe-N2-l6M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Dx8-Fe-NOT"/>
+                <constraint firstAttribute="bottom" secondItem="b2z-ya-idW" secondAttribute="bottom" id="WJX-K7-ieB"/>
+                <constraint firstAttribute="trailing" secondItem="b2z-ya-idW" secondAttribute="trailing" id="WSe-8p-v2F"/>
+                <constraint firstAttribute="trailing" secondItem="oXe-N2-l6M" secondAttribute="trailing" id="XsB-DQ-GtE"/>
+                <constraint firstItem="b2z-ya-idW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dC7-Zn-oQT"/>
+                <constraint firstItem="oXe-N2-l6M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qAb-Ie-yxv"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>

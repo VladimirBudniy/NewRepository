@@ -10,16 +10,15 @@
 #import "VBUser.h"
 #import "VBImageView.h"
 
-static NSString * const kVBLageImagePath = @"https://graph.facebook.com/%@/picture";
-
 @implementation VBTableViewCell
 
 #pragma mark -
 #pragma mark Public
 
 - (void)fillWithModel:(VBUser *)user {
-    self.cellLabel.text = user.name;
-    self.cellImage.URL = [NSURL URLWithString:[NSString stringWithFormat:kVBLageImagePath, user.userID]];
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user.name, user.last_name];
+    self.cellLabel.text = name;
+    self.cellImage.URL = [NSURL URLWithString:user.urlString];
 }
 
 @end

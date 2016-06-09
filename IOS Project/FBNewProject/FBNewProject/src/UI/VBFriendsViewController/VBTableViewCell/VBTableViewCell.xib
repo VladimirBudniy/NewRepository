@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYt-Aa-GV6" customClass="VBImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="1" y="1" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aYt-Aa-GV6" secondAttribute="height" multiplier="1:1" id="XrT-q1-Xd6"/>
@@ -44,13 +44,13 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NJl-JD-rtt" secondAttribute="trailing" constant="4" id="7yj-Fp-EaH"/>
                             <constraint firstAttribute="bottom" secondItem="NJl-JD-rtt" secondAttribute="bottom" constant="1" id="ASZ-YD-9G7"/>
-                            <constraint firstItem="wV4-tC-9ua" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="Omb-sr-pO8"/>
-                            <constraint firstAttribute="trailing" secondItem="wV4-tC-9ua" secondAttribute="trailing" constant="4" id="QhX-Sa-MBo"/>
-                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="WhB-UT-coy"/>
-                            <constraint firstItem="wV4-tC-9ua" firstAttribute="leading" secondItem="aYt-Aa-GV6" secondAttribute="trailing" constant="2" id="cM7-2T-yZ7"/>
-                            <constraint firstAttribute="bottom" secondItem="aYt-Aa-GV6" secondAttribute="bottom" id="cb0-cp-exd"/>
-                            <constraint firstAttribute="bottom" secondItem="wV4-tC-9ua" secondAttribute="bottom" id="cg4-jc-DOp"/>
-                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" id="xy2-EQ-4pe"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="leading" secondItem="NJl-JD-rtt" secondAttribute="leading" id="Avd-CY-XYn"/>
+                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" constant="1" id="Mxd-z1-szy"/>
+                            <constraint firstAttribute="bottom" secondItem="aYt-Aa-GV6" secondAttribute="bottom" constant="1" id="SiN-CR-B5J"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="WJK-8R-w9K"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="centerY" secondItem="aYt-Aa-GV6" secondAttribute="centerY" id="cpP-wl-x6N"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="trailing" secondItem="NJl-JD-rtt" secondAttribute="trailing" id="l0G-45-ZJd"/>
+                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" constant="1" id="rdY-HI-vse"/>
                             <constraint firstItem="NJl-JD-rtt" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" constant="52" id="ykN-tD-bcb"/>
                         </constraints>
                     </view>
@@ -72,7 +72,7 @@
                 <outlet property="cellLabel" destination="wV4-tC-9ua" id="etp-J4-qkg"/>
                 <outlet property="separatorView" destination="NJl-JD-rtt" id="A5e-4N-teW"/>
             </connections>
-            <point key="canvasLocation" x="433" y="-44"/>
+            <point key="canvasLocation" x="196" y="-189"/>
         </tableViewCell>
     </objects>
 </document>
