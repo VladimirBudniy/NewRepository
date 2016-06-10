@@ -71,6 +71,7 @@
 		E7F930681D09821D00926CCD /* VBFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930671D09821D00926CCD /* VBFriendsContext.m */; };
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
+		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,7 @@
 		E7F930791D09A16800926CCD /* VBFriendsArrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsArrayView.m; sourceTree = "<group>"; };
 		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
 		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
+		E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		E7A1728A1D096770007843FF = {
 			isa = PBXGroup;
 			children = (
+				E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */,
 				E7A172951D096770007843FF /* FBNewProject */,
 				E7A172AD1D0967D5007843FF /* Library */,
 				E7A172EC1D0967D5007843FF /* Resource */,
@@ -822,6 +825,7 @@
 				E7A1733F1D096CBD007843FF /* VBTableViewCell.xib in Resources */,
 				E7A173181D0967D5007843FF /* project.logo.58.png in Resources */,
 				E7A173151D0967D5007843FF /* folder.png in Resources */,
+				E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */,
 				E7A173171D0967D5007843FF /* project.logo.180.png in Resources */,
 				E7A173421D096CBD007843FF /* VBLoginViewController.xib in Resources */,
 				E7A1733A1D096CBD007843FF /* VBFriendDetailViewController.xib in Resources */,
