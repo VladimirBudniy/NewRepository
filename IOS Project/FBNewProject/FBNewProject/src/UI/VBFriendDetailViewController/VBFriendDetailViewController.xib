@@ -42,13 +42,9 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWY-jq-q1R" customClass="VBImageView">
-                    <rect key="frame" x="42" y="72" width="250" height="250"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWY-jq-q1R" customClass="VBImageView">
+                    <rect key="frame" x="35" y="72" width="250" height="250"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="250" id="29k-H0-kxE"/>
-                        <constraint firstAttribute="height" constant="250" id="LNe-ib-UAP"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -56,7 +52,6 @@
                 <constraint firstItem="cAG-7M-U9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="3h8-LI-O7p"/>
                 <constraint firstAttribute="bottom" secondItem="9kX-kw-pAh" secondAttribute="bottom" id="4gj-9g-np6"/>
                 <constraint firstAttribute="trailing" secondItem="9kX-kw-pAh" secondAttribute="trailing" id="Bp0-hO-4N7"/>
-                <constraint firstItem="QWY-jq-q1R" firstAttribute="leading" secondItem="9kX-kw-pAh" secondAttribute="trailing" constant="-278" id="EX0-d1-XyE"/>
                 <constraint firstAttribute="bottom" secondItem="lDl-vs-MhY" secondAttribute="bottom" constant="175" id="J9Z-YM-abg"/>
                 <constraint firstAttribute="trailing" secondItem="cAG-7M-U9p" secondAttribute="trailing" constant="35" id="Mfa-Qy-2JU"/>
                 <constraint firstItem="lDl-vs-MhY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="N2b-tu-N0y"/>
@@ -66,11 +61,6 @@
                 <constraint firstAttribute="trailing" secondItem="lDl-vs-MhY" secondAttribute="trailing" constant="100" id="c5G-rJ-oc4"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="EX0-d1-XyE"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="userGender" destination="lDl-vs-MhY" id="GOU-Hu-5E2"/>
                 <outlet property="userImage" destination="QWY-jq-q1R" id="dG1-vp-mga"/>
