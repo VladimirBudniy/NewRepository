@@ -26,7 +26,6 @@ static NSString * const kVBNavigationItemText = @"Friends";
 @property (nonatomic, strong)   VBFriendsContext       *context;
 
 - (void)performWithNavigationController;
-//- (void)addHandlers;
 
 @end
 
@@ -36,14 +35,6 @@ static NSString * const kVBNavigationItemText = @"Friends";
 #pragma mark Accessors
 
 VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
-
-- (void)setArrayModel:(VBArrayModel *)arrayModel{
-    if (_arrayModel != arrayModel) {
-        _arrayModel = arrayModel;
-        
-        //[self addHandlers];
-    }
-}
 
 -(void)setUser:(VBUser *)user {
     if (_user != user) {
@@ -62,7 +53,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
         [_context addHandler:^(NSArray *friends) {
             VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
             strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:friends];
-            
             VBFriendsArrayView *rootView = strongSelf.rootView;
             [rootView removeLoadingViewAnimated:YES];
             [rootView.tableView reloadData];
@@ -110,11 +100,9 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    self.context = [[VBUserContext alloc] initWithUserID:self.arrayModel[indexPath].userID];
-    
-    [self.navigationController pushViewController:[VBFriendDetailViewController new] animated:YES];
-    self.navigationController.navigationBar.hidden = NO;
-
+    VBFriendDetailViewController * controller = [VBFriendDetailViewController new];
+    controller.user = self.arrayModel[indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class VBUser;
+
 @interface VBFriendDetailViewController : UIViewController
+@property (nonatomic, strong) VBUser  *user;
 
 @end

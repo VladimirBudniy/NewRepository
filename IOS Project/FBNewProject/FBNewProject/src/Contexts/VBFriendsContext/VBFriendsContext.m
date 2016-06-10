@@ -15,10 +15,13 @@
 
 #define kVBRequestParameters @{@"fields": @"friends{first_name,last_name,picture,gender,email}"}
 
-static NSString * const kVBIDKey             = @"id";
-static NSString * const kVBFistNameKey       = @"first_name";
-static NSString * const kVBLastNameKey       = @"last_name";
-static NSString * const kVBPictureURLPathKey = @"picture.data.url";
+static NSString * const kVBIDKey                = @"id";
+static NSString * const kVBFistNameKey          = @"first_name";
+static NSString * const kVBLastNameKey          = @"last_name";
+static NSString * const kVBLastGenderKey        = @"gender";
+static NSString * const kVBPictureURLPathKey    = @"picture.data.url";
+static NSString * const kVBFriendsKeyPathKey    = @"friends.data";
+static NSString * const kVBHTTPMethod           = @"GET";
 
 @interface VBFriendsContext ()
 @property (nonatomic, copy)    NSString    *userID;
@@ -52,7 +55,9 @@ static NSString * const kVBPictureURLPathKey = @"picture.data.url";
         VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
         user.name = [dictionary valueForKey:kVBFistNameKey];
         user.last_name = [dictionary valueForKey:kVBLastNameKey];
+        user.userGender = [dictionary valueForKey:kVBLastGenderKey];
         user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
+        user.friendsCount = [NSNumber numberWithInteger:objects.count];
         
         [array addObject:user];
     }
@@ -67,11 +72,11 @@ static NSString * const kVBPictureURLPathKey = @"picture.data.url";
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.userID
                                   parameters:kVBRequestParameters
-                                  HTTPMethod:@"GET"];
+                                  HTTPMethod:kVBHTTPMethod];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           NSDictionary *result, NSError *error)
      {
-         NSArray *array = [result valueForKeyPath:@"friends.data"];
+         NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
          NSArray *friends = [NSArray arrayWithArray:[self performWorkWithObjects:array]];
          self.friends = friends;
          [self setState:kVBModelLoadedState withObject:friends];

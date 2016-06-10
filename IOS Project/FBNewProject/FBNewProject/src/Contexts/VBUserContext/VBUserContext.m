@@ -12,16 +12,18 @@
 #import "VBUserContext.h"
 #import "VBUser.h"
 
-static NSString * const kVBPermissionKey = @"%@?lields=id,name,last_name,location,email"; // check path
+#define kVBRequestParameters @{@"fields": @"friends{first_name,last_name,picture,gender,email}"}
+
+static NSString * const kVBIDKey             = @"id";
+static NSString * const kVBFistNameKey       = @"first_name";
+static NSString * const kVBLastNameKey       = @"last_name";
+static NSString * const kVBPictureURLPathKey = @"picture.data.url";
 
 @interface VBUserContext ()
-@property (nonatomic, strong) FBSDKGraphRequest *request;
-@property (nonatomic, copy)   NSString          *userID;
-@property (nonatomic, copy)   NSString          *path;
+@property (nonatomic, copy)    NSString    *userID;
+@property (nonatomic, strong)  NSArray     *friends;
 
-@property (nonatomic, strong) VBUser *user;
-
-- (NSString *)pathWithUserID:(NSString *)userID;
+- (NSArray *)performWorkWithObjects:(NSArray *)objects;
 
 @end
 
@@ -40,35 +42,39 @@ static NSString * const kVBPermissionKey = @"%@?lields=id,name,last_name,locatio
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setRequest:(FBSDKGraphRequest *)request {
-    if (_request != request) {
-        _request = request;
-        [_request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-            if (!error) {
-                //  распаковать результат
-                //заливаем юзера
-            }
-        }];
-    }
-}
-
-#pragma mark -
 #pragma mark Private
 
-- (NSString *)pathWithUserID:(NSString *)userID {
-    return [NSString stringWithFormat:kVBPermissionKey, self.userID];
+- (NSArray *)performWorkWithObjects:(NSArray *)objects {
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger index = 0; index < objects.count; index++) {
+        NSDictionary *dictionary = objects[index];
+        VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
+        user.name = [dictionary valueForKey:kVBFistNameKey];
+        user.last_name = [dictionary valueForKey:kVBLastNameKey];
+        user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
+        
+        [array addObject:user];
+    }
+    
+    return array;
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)setupLoad {
-    if ([FBSDKAccessToken currentAccessToken]) {
-        NSString *path = [self pathWithUserID:self.userID];
-        self.request = [[FBSDKGraphRequest alloc] initWithGraphPath:path parameters:nil];
-    }
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                  initWithGraphPath:self.userID
+                                  parameters:kVBRequestParameters
+                                  HTTPMethod:@"GET"];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                          NSDictionary *result, NSError *error)
+     {
+         NSArray *array = [result valueForKeyPath:@"friends.data"];
+         NSArray *friends = [NSArray arrayWithArray:[self performWorkWithObjects:array]];
+         self.friends = friends;
+         [self setState:kVBModelLoadedState withObject:friends];
+     }];
 }
 
 @end

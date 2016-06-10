@@ -11,11 +11,13 @@
 @class FBSDKAccessToken;
 
 @interface VBUser : NSObject
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *last_name;
-@property (nonatomic, copy) NSString *userID;
-@property (nonatomic, copy) NSString *userEmail;
-@property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, copy) NSString    *name;
+@property (nonatomic, copy) NSString    *last_name;
+@property (nonatomic, copy) NSString    *userID;
+@property (nonatomic, copy) NSString    *userEmail;
+@property (nonatomic, copy) NSString    *urlString;
+@property (nonatomic, copy) NSString    *userGender;
+@property (nonatomic, copy) NSNumber    *friendsCount;
 
 - (instancetype)initWithUserID:(NSString *)userID;
 

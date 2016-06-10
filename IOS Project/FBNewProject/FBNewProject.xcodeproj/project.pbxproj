@@ -70,6 +70,7 @@
 		E7A1737E1D09705D007843FF /* VBStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A1737A1D09705D007843FF /* VBStateModel.m */; };
 		E7F930681D09821D00926CCD /* VBFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930671D09821D00926CCD /* VBFriendsContext.m */; };
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
+		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,8 @@
 		E7F930671D09821D00926CCD /* VBFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsContext.m; sourceTree = "<group>"; };
 		E7F930781D09A16800926CCD /* VBFriendsArrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendsArrayView.h; sourceTree = "<group>"; };
 		E7F930791D09A16800926CCD /* VBFriendsArrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendsArrayView.m; sourceTree = "<group>"; };
+		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
+		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +555,7 @@
 		E7A173231D096CBC007843FF /* VBFriendDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E7F9307B1D0A214200926CCD /* VBFriendDetailView */,
 				E7A173241D096CBC007843FF /* VBFriendDetailViewController.h */,
 				E7A173251D096CBC007843FF /* VBFriendDetailViewController.m */,
 				E7A173261D096CBC007843FF /* VBFriendDetailViewController.xib */,
@@ -742,6 +746,15 @@
 			path = VBFriendsArrayView;
 			sourceTree = "<group>";
 		};
+		E7F9307B1D0A214200926CCD /* VBFriendDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */,
+				E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */,
+			);
+			path = VBFriendDetailView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -886,6 +899,7 @@
 				E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */,
 				E7A173041D0967D5007843FF /* UIViewController+VBCategory.m in Sources */,
 				E7A173401D096CBD007843FF /* VBLoginView.m in Sources */,
+				E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */,
 				E7A1730B1D0967D5007843FF /* VBObserver.m in Sources */,
 				E7A172FC1D0967D5007843FF /* NSBundle+VBCategory.m in Sources */,
 				E7A172981D096770007843FF /* main.m in Sources */,
