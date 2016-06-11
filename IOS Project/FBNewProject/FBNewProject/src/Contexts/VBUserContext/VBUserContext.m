@@ -12,18 +12,20 @@
 #import "VBUserContext.h"
 #import "VBUser.h"
 
-#define kVBRequestParameters @{@"fields": @"friends{first_name,last_name,picture,gender,email}"}
+#define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name"}
+
+static NSString *const  kVBLargeImageURL = @"https://graph.facebook.com/%@/picture?type=large";
 
 static NSString * const kVBIDKey             = @"id";
 static NSString * const kVBFistNameKey       = @"first_name";
 static NSString * const kVBLastNameKey       = @"last_name";
-static NSString * const kVBPictureURLPathKey = @"picture.data.url";
+static NSString * const kVBHTTPGetMethod     = @"GET";
+
 
 @interface VBUserContext ()
-@property (nonatomic, copy)    NSString    *userID;
-@property (nonatomic, strong)  NSArray     *friends;
+@property (nonatomic, strong)  VBUser  *user;
 
-- (NSArray *)performWorkWithObjects:(NSArray *)objects;
+- (VBUser *)performWorkWithObjects:(NSDictionary *)dictionary;
 
 @end
 
@@ -32,10 +34,10 @@ static NSString * const kVBPictureURLPathKey = @"picture.data.url";
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithUserID:(NSString *)userID {
+- (instancetype)initWithUserID:(VBUser *)user{
     self = [super init];
     if (self) {
-        self.userID = userID;
+        self.user = user;
     }
     
     return self;
@@ -44,19 +46,13 @@ static NSString * const kVBPictureURLPathKey = @"picture.data.url";
 #pragma mark -
 #pragma mark Private
 
-- (NSArray *)performWorkWithObjects:(NSArray *)objects {
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSUInteger index = 0; index < objects.count; index++) {
-        NSDictionary *dictionary = objects[index];
-        VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
-        user.name = [dictionary valueForKey:kVBFistNameKey];
-        user.last_name = [dictionary valueForKey:kVBLastNameKey];
-        user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
-        
-        [array addObject:user];
-    }
+- (VBUser *)performWorkWithObjects:(NSDictionary *)dictionary {
+    VBUser *user = self.user;
+    user.fist_name = [dictionary valueForKey:kVBFistNameKey];
+    user.last_name = [dictionary valueForKey:kVBLastNameKey];
+    user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.userID];
     
-    return array;
+    return user;
 }
 
 #pragma mark -
@@ -64,16 +60,13 @@ static NSString * const kVBPictureURLPathKey = @"picture.data.url";
 
 - (void)setupLoad {
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:self.userID
-                                  parameters:kVBRequestParameters
-                                  HTTPMethod:@"GET"];
+                                  initWithGraphPath:self.user.userID
+                                  parameters:kVBRequestUserParameters
+                                  HTTPMethod:kVBHTTPGetMethod];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           NSDictionary *result, NSError *error)
      {
-         NSArray *array = [result valueForKeyPath:@"friends.data"];
-         NSArray *friends = [NSArray arrayWithArray:[self performWorkWithObjects:array]];
-         self.friends = friends;
-         [self setState:kVBModelLoadedState withObject:friends];
+         [self setState:kVBModelLoadedState withObject:[self performWorkWithObjects:result]];
      }];
 }
 

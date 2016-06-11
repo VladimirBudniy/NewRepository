@@ -8,8 +8,10 @@
 
 #import "VBModel.h"
 
+@class VBUser;
+
 @interface VBUserContext : VBModel
 
-- (instancetype)initWithUserID:(NSString *)userID;
+- (instancetype)initWithUserID:(VBUser *)user;
 
 @end

@@ -11,21 +11,20 @@
 
 #import "VBFriendsContext.h"
 #import "VBUser.h"
-#import "VBArrayModel.h"
 
-#define kVBRequestParameters @{@"fields": @"friends{first_name,last_name,picture,gender,email}"}
+#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
+
+static NSString * const kVBFriendsKeyPathKey    = @"friends.data";
+static NSString * const kVBHTTPGetMethod        = @"GET";
 
 static NSString * const kVBIDKey                = @"id";
 static NSString * const kVBFistNameKey          = @"first_name";
 static NSString * const kVBLastNameKey          = @"last_name";
-static NSString * const kVBLastGenderKey        = @"gender";
 static NSString * const kVBPictureURLPathKey    = @"picture.data.url";
-static NSString * const kVBFriendsKeyPathKey    = @"friends.data";
-static NSString * const kVBHTTPMethod           = @"GET";
+
 
 @interface VBFriendsContext ()
-@property (nonatomic, copy)    NSString    *userID;
-@property (nonatomic, strong)  NSArray     *friends;
+@property (nonatomic, strong)  VBUser    *user;
 
 - (NSArray *)performWorkWithObjects:(NSArray *)objects;
 
@@ -36,10 +35,10 @@ static NSString * const kVBHTTPMethod           = @"GET";
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithUserID:(NSString *)userID {
+- (instancetype)initWithUserID:(VBUser *)user {
     self = [super init];
     if (self) {
-        self.userID = userID;
+        self.user = user;
     }
     
     return self;
@@ -53,11 +52,9 @@ static NSString * const kVBHTTPMethod           = @"GET";
     for (NSUInteger index = 0; index < objects.count; index++) {
         NSDictionary *dictionary = objects[index];
         VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
-        user.name = [dictionary valueForKey:kVBFistNameKey];
+        user.fist_name = [dictionary valueForKey:kVBFistNameKey];
         user.last_name = [dictionary valueForKey:kVBLastNameKey];
-        user.userGender = [dictionary valueForKey:kVBLastGenderKey];
         user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
-        user.friendsCount = [NSNumber numberWithInteger:objects.count];
         
         [array addObject:user];
     }
@@ -69,17 +66,18 @@ static NSString * const kVBHTTPMethod           = @"GET";
 #pragma mark Public
 
 - (void)setupLoad {
+    VBUser *user = self.user;
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:self.userID
-                                  parameters:kVBRequestParameters
-                                  HTTPMethod:kVBHTTPMethod];
+                                  initWithGraphPath:user.userID
+                                  parameters:kVBRequestFriendsParameters
+                                  HTTPMethod:kVBHTTPGetMethod];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           NSDictionary *result, NSError *error)
      {
          NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
          NSArray *friends = [NSArray arrayWithArray:[self performWorkWithObjects:array]];
-         self.friends = friends;
-         [self setState:kVBModelLoadedState withObject:friends];
+         user.friends = friends;
+         [self setState:kVBModelLoadedState withObject:user];
      }];
 }
 

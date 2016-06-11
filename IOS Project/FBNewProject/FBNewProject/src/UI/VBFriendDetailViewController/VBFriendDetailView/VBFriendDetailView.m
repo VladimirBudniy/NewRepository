@@ -10,15 +10,14 @@
 #import "VBUser.h"
 #import "VBImageView.h"
 
-static NSString *const kVBLargeImageURL = @"graph.facebook.com/%@/picture?type=large";
-
 @implementation VBFriendDetailView
 
 - (void)fillWithUser:(VBUser *)user {
-    NSString *name = [NSString stringWithFormat:@"%@ %@", user.name, user.last_name];
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user.fist_name, user.last_name];
     self.userName.text = name;
     self.userGender.text = user.userGender;
-    self.userImage.URL = [NSURL URLWithString:[NSString stringWithFormat:kVBLargeImageURL, user.userID]];
+    self.userImage.contentMode = UIViewContentModeCenter;
+    self.userImage.URL = [NSURL URLWithString:user.urlString];
 }
 
 @end

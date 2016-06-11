@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIImageView               *imageView;
 @property (nonatomic, strong) UIActivityIndicatorView   *spinner;
 @property (nonatomic, strong) VBImageModel              *model;
+@property (nonatomic, assign) UIViewContentMode         contentMode;
 
 - (void)performSpinnerAnimation;
 - (void)baseInit;
@@ -76,6 +77,14 @@
     }
 }
 
+- (void)setContentMode:(UIViewContentMode)contentMode {
+    if (_contentMode != contentMode) {
+        _contentMode = contentMode;
+        
+        self.imageView.contentMode = _contentMode;
+    }
+}
+
 - (void)setURL:(NSURL *)URL {
     if (_URL != URL) {
         _URL = URL;
@@ -83,6 +92,15 @@
         [self dump];
         [self load];
     }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = self.bounds;
+    self.spinner.center = self.imageView.center;
 }
 
 #pragma mark -
@@ -103,7 +121,7 @@
     spinner.color = [UIColor blackColor];
     UIImageView *imageView = self.imageView;
     [imageView addSubview:spinner];
-    spinner.center = imageView.center;
+    spinner.center = self.center;
     spinner.hidesWhenStopped = YES;
     self.spinner = spinner;
 }

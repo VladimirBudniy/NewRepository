@@ -35,9 +35,27 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     if (_user != user) {
         _user = user;
         
+        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+        self.context = [[VBUserContext alloc] initWithUserID:_user];
     }
 }
 
+- (void)setContext:(VBUserContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(VBUser *user) {
+            VBStrongSelfAndReturnNilMacroWithClass(VBFriendDetailViewController);
+            VBFriendDetailView *rootView = strongSelf.rootView;
+            [rootView fillWithUser:user];
+            [rootView removeLoadingViewAnimated:YES];
+        }forState:kVBModelLoadedState
+                      object:self];
+
+        [_context load];
+    }
+}
 
 #pragma mark -
 #pragma mark View LifeCycle
@@ -46,7 +64,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     [super viewWillAppear:animated];
     
     [self performWithNavigationController];
-    [self.rootView fillWithUser:self.user];
 }
 
 #pragma mark -

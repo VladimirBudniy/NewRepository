@@ -79,6 +79,7 @@
 		2BBC884253C02B597A548A78 /* Pods-FBNewProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBNewProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBNewProject/Pods-FBNewProject.debug.xcconfig"; sourceTree = "<group>"; };
 		665BDBA829FEF5BEF147A8DE /* Pods-FBNewProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBNewProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBNewProject/Pods-FBNewProject.release.xcconfig"; sourceTree = "<group>"; };
 		DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBNewProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E72452361D0C2BAF007426AA /* VBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBConstants.h; sourceTree = "<group>"; };
 		E7A172931D096770007843FF /* FBNewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBNewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A172971D096770007843FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7A172A21D096770007843FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 				E7A1731B1D0967E6007843FF /* src */,
 				E7A1731F1D0967E6007843FF /* VBAppDelegate */,
 				E7A172961D096770007843FF /* Supporting Files */,
+				E72452361D0C2BAF007426AA /* VBConstants.h */,
 			);
 			path = FBNewProject;
 			sourceTree = "<group>";

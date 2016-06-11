@@ -41,7 +41,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
         _user = user;
         
         [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-        self.context = [[VBFriendsContext alloc] initWithUserID:_user.userID];
+        self.context = [[VBFriendsContext alloc] initWithUserID:_user];
     }
 }
 
@@ -50,9 +50,9 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
         _context = context;
         
         VBWeakSelfMacro;
-        [_context addHandler:^(NSArray *friends) {
+        [_context addHandler:^(VBUser *user) {
             VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
-            strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:friends];
+            strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
             VBFriendsArrayView *rootView = strongSelf.rootView;
             [rootView removeLoadingViewAnimated:YES];
             [rootView.tableView reloadData];

@@ -8,10 +8,10 @@
 
 #import "VBModel.h"
 
-@class VBArrayModel;
+@class VBUser;
 
 @interface VBFriendsContext : VBModel
 
-- (instancetype)initWithUserID:(NSString *)userID;
+- (instancetype)initWithUserID:(VBUser *)user;
 
 @end
