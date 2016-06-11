@@ -11,21 +11,15 @@
 
 #import "VBUserContext.h"
 #import "VBUser.h"
+#import "VBConstants.h"
 
-#define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name"}
-
-static NSString *const  kVBLargeImageURL = @"https://graph.facebook.com/%@/picture?type=large";
-
-static NSString * const kVBIDKey             = @"id";
-static NSString * const kVBFistNameKey       = @"first_name";
-static NSString * const kVBLastNameKey       = @"last_name";
-static NSString * const kVBHTTPGetMethod     = @"GET";
-
+#define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
 
 @interface VBUserContext ()
 @property (nonatomic, strong)  VBUser  *user;
 
-- (VBUser *)performWorkWithObjects:(NSDictionary *)dictionary;
+- (NSArray *)fillWithObject:(NSDictionary *)objects;
+- (void)performWorkWithResult:(NSDictionary *)result;
 
 @end
 
@@ -46,13 +40,19 @@ static NSString * const kVBHTTPGetMethod     = @"GET";
 #pragma mark -
 #pragma mark Private
 
-- (VBUser *)performWorkWithObjects:(NSDictionary *)dictionary {
+- (VBUser *)fillWithObject:(NSDictionary *)dictionary {
     VBUser *user = self.user;
     user.fist_name = [dictionary valueForKey:kVBFistNameKey];
     user.last_name = [dictionary valueForKey:kVBLastNameKey];
+    user.userGender = [dictionary valueForKey:kVBLastGenderKey];
     user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.userID];
+    user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
     
     return user;
+}
+
+- (void)performWorkWithResult:(NSDictionary *)result {
+    [self setState:kVBModelLoadedState withObject:[self fillWithObject:result]];
 }
 
 #pragma mark -
@@ -66,7 +66,7 @@ static NSString * const kVBHTTPGetMethod     = @"GET";
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           NSDictionary *result, NSError *error)
      {
-         [self setState:kVBModelLoadedState withObject:[self performWorkWithObjects:result]];
+         [self performWorkWithResult:result];
      }];
 }
 

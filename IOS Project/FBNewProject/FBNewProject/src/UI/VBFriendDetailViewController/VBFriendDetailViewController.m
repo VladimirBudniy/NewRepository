@@ -20,7 +20,7 @@ static NSString * const kVBNavigationItemText = @"Friend";
 @property (nonatomic, readonly) VBFriendDetailView     *rootView;
 @property (nonatomic, strong)   VBUserContext          *context;
 
-- (void)performWithNavigationController;
+- (void)changeNavigationBar;
 
 @end
 
@@ -35,7 +35,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     if (_user != user) {
         _user = user;
         
-        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
         self.context = [[VBUserContext alloc] initWithUserID:_user];
     }
 }
@@ -60,16 +59,20 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 #pragma mark -
 #pragma mark View LifeCycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self performWithNavigationController];
+    [self changeNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performWithNavigationController {
+- (void)changeNavigationBar {
     UINavigationController *controller = self.navigationController;
     controller.navigationBarHidden = NO;
     self.navigationItem.title = kVBNavigationItemText;

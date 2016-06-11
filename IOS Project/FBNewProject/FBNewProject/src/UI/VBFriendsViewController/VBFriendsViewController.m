@@ -25,7 +25,7 @@ static NSString * const kVBNavigationItemText = @"Friends";
 @property (nonatomic, readonly) VBFriendsArrayView     *rootView;
 @property (nonatomic, strong)   VBFriendsContext       *context;
 
-- (void)performWithNavigationController;
+- (void)changeNavigationBar;
 
 @end
 
@@ -40,7 +40,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     if (_user != user) {
         _user = user;
         
-        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
         self.context = [[VBFriendsContext alloc] initWithUserID:_user];
     }
 }
@@ -66,16 +65,20 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 #pragma mark -
 #pragma mark View LifeCycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self performWithNavigationController];
+    [self changeNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performWithNavigationController {
+- (void)changeNavigationBar {
     UINavigationController *controller = self.navigationController;
     controller.navigationBarHidden = NO;
     controller.navigationBar.backItem.title = kVBBackButtonText;

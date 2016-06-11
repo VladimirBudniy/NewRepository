@@ -10,7 +10,7 @@
 
 @class FBSDKAccessToken;
 
-@interface VBUser : NSObject
+@interface VBUser : NSObject <NSCoding>
 @property (nonatomic, copy) NSString    *fist_name;
 @property (nonatomic, copy) NSString    *last_name;
 @property (nonatomic, copy) NSString    *userID;
@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString    *userGender;
 
 @property (nonatomic, strong) NSArray   *friends;
+@property (nonatomic, strong) NSNumber  *friendsCount;
 
 - (instancetype)initWithUserID:(NSString *)userID;
 

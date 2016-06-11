@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet VBImageView *userImage;
 @property (nonatomic, strong) IBOutlet UILabel     *userName;
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
+@property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;
 
 - (void)fillWithUser:(VBUser *)user;
 

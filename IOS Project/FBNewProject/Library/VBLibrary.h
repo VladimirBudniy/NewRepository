@@ -1,13 +1,13 @@
 //
-//  VBIOSProject-Prefix.pch
-//  IOSProject
+//  VBLibrary.h
+//  FBNewProject
 //
-//  Created by Vladimir Budniy on 22.04.16.
+//  Created by Vladimir Budniy on 12.06.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#ifndef VBIOSProject_Prefix_pch
-#define VBIOSProject_Prefix_pch
+#ifndef VBLibrary_h
+#define VBLibrary_h
 
 #import "VBDispatch.h"
 #import "NSObject+VBCategory.h"
@@ -24,4 +24,4 @@
 
 #import "NSString+VBCategory.h"
 
-#endif /* VBIOSProject_Prefix_pch */
+#endif /* VBLibrary_h */

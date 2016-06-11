@@ -11,22 +11,15 @@
 
 #import "VBFriendsContext.h"
 #import "VBUser.h"
+#import "VBConstants.h"
 
 #define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
-
-static NSString * const kVBFriendsKeyPathKey    = @"friends.data";
-static NSString * const kVBHTTPGetMethod        = @"GET";
-
-static NSString * const kVBIDKey                = @"id";
-static NSString * const kVBFistNameKey          = @"first_name";
-static NSString * const kVBLastNameKey          = @"last_name";
-static NSString * const kVBPictureURLPathKey    = @"picture.data.url";
-
 
 @interface VBFriendsContext ()
 @property (nonatomic, strong)  VBUser    *user;
 
-- (NSArray *)performWorkWithObjects:(NSArray *)objects;
+- (NSArray *)fillWithObject:(NSArray *)objects;
+- (void)performWorkWithResult:(NSDictionary *)result;
 
 @end
 
@@ -47,7 +40,7 @@ static NSString * const kVBPictureURLPathKey    = @"picture.data.url";
 #pragma mark -
 #pragma mark Private
 
-- (NSArray *)performWorkWithObjects:(NSArray *)objects {
+- (NSArray *)fillWithObject:(NSArray *)objects {
     NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger index = 0; index < objects.count; index++) {
         NSDictionary *dictionary = objects[index];
@@ -62,22 +55,26 @@ static NSString * const kVBPictureURLPathKey    = @"picture.data.url";
     return array;
 }
 
+- (void)performWorkWithResult:(NSDictionary *)result {
+    VBUser *user = self.user;
+    NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
+    NSArray *friends = [NSArray arrayWithArray:[self fillWithObject:array]];
+    user.friends = friends;
+    [self setState:kVBModelLoadedState withObject:user];
+}
+
 #pragma mark -
 #pragma mark Public
 
 - (void)setupLoad {
-    VBUser *user = self.user;
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:user.userID
+                                  initWithGraphPath:self.user.userID
                                   parameters:kVBRequestFriendsParameters
                                   HTTPMethod:kVBHTTPGetMethod];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           NSDictionary *result, NSError *error)
      {
-         NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
-         NSArray *friends = [NSArray arrayWithArray:[self performWorkWithObjects:array]];
-         user.friends = friends;
-         [self setState:kVBModelLoadedState withObject:user];
+         [self performWorkWithResult:result];
      }];
 }
 

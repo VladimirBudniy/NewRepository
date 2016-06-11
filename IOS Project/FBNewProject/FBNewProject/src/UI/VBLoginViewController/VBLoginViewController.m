@@ -12,15 +12,17 @@
 #import "VBLoginViewController.h"
 #import "VBFriendsViewController.h"
 #import "VBLoginView.h"
-#import "VBUser.h"
-#import "VBFriendsContext.h"
 #import "VBArrayModel.h"
+#import "VBUser.h"
+#import "VBUserContext.h"
+
 
 #define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
 
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView    *rootView;
 @property (nonatomic, strong)   VBUser         *user;
+@property (nonatomic, strong)   VBUserContext  *context;
 
 @end
 
@@ -43,14 +45,36 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     if (_user != user) {
         _user = user;
         
-        VBFriendsViewController * controller = [VBFriendsViewController new];
-        controller.user = _user;
-        [self.navigationController pushViewController:controller animated:YES];
+        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+        self.context = [[VBUserContext alloc] initWithUserID:_user];
+    }
+}
+
+- (void)setContext:(VBUserContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(VBUser *user) {
+            VBStrongSelfAndReturnNilMacroWithClass(VBLoginViewController);
+            VBLoginView *rootView = strongSelf.rootView;
+            [rootView fillWithUser:user];
+            [rootView removeLoadingViewAnimated:YES];
+        }forState:kVBModelLoadedState
+                      object:self];
+        
+        [_context load];
     }
 }
 
 #pragma mark -
 #pragma mark Handling Interface
+
+- (IBAction)onClickVriendsButton:(id)sender {
+    VBFriendsViewController * controller = [VBFriendsViewController new];
+    controller.user = self.user;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 - (IBAction)onClickLoginButton:(id)sender {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];

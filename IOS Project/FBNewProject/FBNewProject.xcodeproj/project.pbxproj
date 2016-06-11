@@ -72,6 +72,7 @@
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
 		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
+		E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +128,6 @@
 		E7A172E81D0967D5007843FF /* VBObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverObject.m; sourceTree = "<group>"; };
 		E7A172E91D0967D5007843FF /* VBObserverStateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverStateObject.h; sourceTree = "<group>"; };
 		E7A172EA1D0967D5007843FF /* VBObserverStateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverStateObject.m; sourceTree = "<group>"; };
-		E7A172EB1D0967D5007843FF /* VBIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBIOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		E7A172ED1D0967D5007843FF /* facebook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebook.jpg; sourceTree = "<group>"; };
 		E7A172EF1D0967D5007843FF /* facebook_logo.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_logo.120.png; sourceTree = "<group>"; };
 		E7A172F01D0967D5007843FF /* facebook_logo.180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_logo.180.png; sourceTree = "<group>"; };
@@ -190,6 +190,9 @@
 		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
 		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
 		E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_login.png; sourceTree = "<group>"; };
+		E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLibrary.h; sourceTree = "<group>"; };
+		E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBFBNewProject-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +271,7 @@
 				E7A172A41D096770007843FF /* LaunchScreen.storyboard */,
 				E7A172A71D096770007843FF /* Info.plist */,
 				E7A172971D096770007843FF /* main.m */,
+				E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,7 +284,7 @@
 				E7A172AE1D0967D5007843FF /* Category */,
 				E7A172D01D0967D5007843FF /* Macro */,
 				E7A172D21D0967D5007843FF /* ObjCLibrary */,
-				E7A172EB1D0967D5007843FF /* VBIOSProject-Prefix.pch */,
+				E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -479,6 +483,7 @@
 		E7A172EC1D0967D5007843FF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */,
 				E7A172ED1D0967D5007843FF /* facebook.jpg */,
 				E7A172EE1D0967D5007843FF /* facebook_logo */,
 				E7A172F41D0967D5007843FF /* folder.png */,
@@ -650,9 +655,9 @@
 		E7A173591D096FAA007843FF /* VBImageModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7A1735C1D096FAA007843FF /* VBObjectCache */,
 				E7A1735A1D096FAA007843FF /* VBImageModel.h */,
 				E7A1735B1D096FAA007843FF /* VBImageModel.m */,
-				E7A1735C1D096FAA007843FF /* VBObjectCache */,
 			);
 			path = VBImageModel;
 			sourceTree = "<group>";
@@ -824,6 +829,7 @@
 				E7A1730F1D0967D5007843FF /* facebook.jpg in Resources */,
 				E7A173161D0967D5007843FF /* project.logo.120.png in Resources */,
 				E7A1731A1D0967D5007843FF /* project.logo.87.png in Resources */,
+				E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */,
 				E7A1733F1D096CBD007843FF /* VBTableViewCell.xib in Resources */,
 				E7A173181D0967D5007843FF /* project.logo.58.png in Resources */,
 				E7A173151D0967D5007843FF /* folder.png in Resources */,
@@ -1045,7 +1051,7 @@
 			baseConfigurationReference = 2BBC884253C02B597A548A78 /* Pods-FBNewProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Library/VBIOSProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FBNewProject/VBFBNewProject-Prefix.pch";
 				INFOPLIST_FILE = FBNewProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1061,7 +1067,7 @@
 			baseConfigurationReference = 665BDBA829FEF5BEF147A8DE /* Pods-FBNewProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Library/VBIOSProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FBNewProject/VBFBNewProject-Prefix.pch";
 				INFOPLIST_FILE = FBNewProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

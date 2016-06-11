@@ -9,13 +9,18 @@
 #import "VBFriendDetailView.h"
 #import "VBUser.h"
 #import "VBImageView.h"
+#import "VBConstants.h"
 
 @implementation VBFriendDetailView
+
+#pragma mark -
+#pragma mark Public
 
 - (void)fillWithUser:(VBUser *)user {
     NSString *name = [NSString stringWithFormat:@"%@ %@", user.fist_name, user.last_name];
     self.userName.text = name;
-    self.userGender.text = user.userGender;
+    self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
+    self.userFriendsCount.text = [NSString stringWithFormat:kVBFriendCountLabelText, user.friendsCount];
     self.userImage.contentMode = UIViewContentModeCenter;
     self.userImage.URL = [NSURL URLWithString:user.urlString];
 }
