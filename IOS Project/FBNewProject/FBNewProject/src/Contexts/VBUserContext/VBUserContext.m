@@ -6,35 +6,15 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
 #import "VBUserContext.h"
-#import "VBUser.h"
-#import "VBConstants.h"
-
-#define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
-
-@interface VBUserContext ()
-@property (nonatomic, strong)  VBUser  *user;
-
-- (NSArray *)fillWithObject:(NSDictionary *)objects;
-- (void)performWorkWithResult:(NSDictionary *)result;
-
-@end
 
 @implementation VBUserContext
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
+#pragma mark Accessors
 
-- (instancetype)initWithUserID:(VBUser *)user{
-    self = [super init];
-    if (self) {
-        self.user = user;
-    }
-    
-    return self;
+- (NSDictionary *)requestParameters {
+    return kVBRequestUserParameters;
 }
 
 #pragma mark -
@@ -53,21 +33,6 @@
 
 - (void)performWorkWithResult:(NSDictionary *)result {
     [self setState:kVBModelLoadedState withObject:[self fillWithObject:result]];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)setupLoad {
-    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:self.user.userID
-                                  parameters:kVBRequestUserParameters
-                                  HTTPMethod:kVBHTTPGetMethod];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                          NSDictionary *result, NSError *error)
-     {
-         [self performWorkWithResult:result];
-     }];
 }
 
 @end

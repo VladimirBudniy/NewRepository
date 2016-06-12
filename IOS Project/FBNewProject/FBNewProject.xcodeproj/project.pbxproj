@@ -72,6 +72,7 @@
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
 		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
+		E7FBDD7C1D0D7D58001FBBA6 /* VBContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */; };
 		E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
@@ -190,6 +191,8 @@
 		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
 		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
 		E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E7FBDD7A1D0D7D58001FBBA6 /* VBContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBContext.h; sourceTree = "<group>"; };
+		E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBContext.m; sourceTree = "<group>"; };
 		E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_login.png; sourceTree = "<group>"; };
 		E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLibrary.h; sourceTree = "<group>"; };
 		E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBFBNewProject-Prefix.pch"; sourceTree = "<group>"; };
@@ -529,6 +532,7 @@
 		E7A1731C1D0967E6007843FF /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				E7FBDD791D0D7D3F001FBBA6 /* VBContext */,
 				E7F930651D09821D00926CCD /* VBFriendsContext */,
 				E7A1734A1D096D6D007843FF /* VBUserContext */,
 			);
@@ -765,6 +769,15 @@
 			path = VBFriendDetailView;
 			sourceTree = "<group>";
 		};
+		E7FBDD791D0D7D3F001FBBA6 /* VBContext */ = {
+			isa = PBXGroup;
+			children = (
+				E7FBDD7A1D0D7D58001FBBA6 /* VBContext.h */,
+				E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */,
+			);
+			path = VBContext;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -905,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A1730D1D0967D5007843FF /* VBObserverObject.m in Sources */,
+				E7FBDD7C1D0D7D58001FBBA6 /* VBContext.m in Sources */,
 				E7A173091D0967D5007843FF /* VBAlphabet.m in Sources */,
 				E7A1730E1D0967D5007843FF /* VBObserverStateObject.m in Sources */,
 				E7A173071D0967D5007843FF /* VBRangeAlphabet.m in Sources */,

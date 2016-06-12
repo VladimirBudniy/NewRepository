@@ -24,4 +24,8 @@ static NSString * const kVBLargeImageURL            = @"https://graph.facebook.c
 static NSString * const kVBGenderLabelText       = @"gender - %@";
 static NSString * const kVBFriendCountLabelText  = @"friends count  - %@";
 
+//context pequest parameters
+#define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
+#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
+
 #endif /* VBConstants_h */

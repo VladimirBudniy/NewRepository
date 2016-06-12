@@ -6,12 +6,10 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBModel.h"
+#import "VBContext.h"
 
 @class VBUser;
 
-@interface VBFriendsContext : VBModel
-
-- (instancetype)initWithUserID:(VBUser *)user;
+@interface VBFriendsContext : VBContext
 
 @end
