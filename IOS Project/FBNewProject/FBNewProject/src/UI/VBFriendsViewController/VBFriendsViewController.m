@@ -84,12 +84,12 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)didReceiveMemoryWarnin {
     [super didReceiveMemoryWarning];
-    [self.user save];
+    [self.user save];    //// test
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.user save];
+    [self.user save];    //// test
 }
 
 #pragma mark -
