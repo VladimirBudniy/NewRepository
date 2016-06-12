@@ -74,7 +74,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+//    [self.rootView showLoadingViewWithDefaultTextAnimated:YES]; //// need check place for spinner
 }
 
 - (void)viewWillAppear:(BOOL)animated {

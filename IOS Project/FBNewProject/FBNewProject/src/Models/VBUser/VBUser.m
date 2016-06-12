@@ -72,7 +72,7 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
-};
+}
 
 #pragma mark -
 #pragma mark NSCoding Protocol
