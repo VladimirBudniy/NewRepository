@@ -11,7 +11,7 @@
 @class FBSDKAccessToken;
 
 @interface VBUser : NSObject <NSCoding>
-@property (nonatomic, copy) NSString    *fist_name;
+@property (nonatomic, copy) NSString    *first_name;
 @property (nonatomic, copy) NSString    *last_name;
 @property (nonatomic, copy) NSString    *userID;
 @property (nonatomic, copy) NSString    *userEmail;
@@ -21,6 +21,11 @@
 @property (nonatomic, strong) NSArray   *friends;
 @property (nonatomic, strong) NSNumber  *friendsCount;
 
+@property (nonatomic, readonly, getter=isCached) BOOL cached;
+
++ (instancetype)user;
+
 - (instancetype)initWithUserID:(NSString *)userID;
+- (void)save;
 
 @end

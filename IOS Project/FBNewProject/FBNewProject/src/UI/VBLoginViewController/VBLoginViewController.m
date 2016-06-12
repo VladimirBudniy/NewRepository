@@ -41,12 +41,21 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     self.navigationController.navigationBarHidden = NO;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (void)setUser:(VBUser *)user {
     if (_user != user) {
         _user = user;
         
         [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-        self.context = [[VBUserContext alloc] initWithUserID:_user];
+        
+        if (_user.isCached) {
+            [self.rootView fillWithUser:_user];
+            [self.rootView removeLoadingViewAnimated:YES];
+        } else {
+           self.context = [[VBUserContext alloc] initWithUserID:_user];
+        }
     }
 }
 
@@ -72,23 +81,35 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (IBAction)onClickVriendsButton:(id)sender {
     VBFriendsViewController * controller = [VBFriendsViewController new];
-    controller.user = self.user;
+    
+    VBUser *user = [VBUser user];
+    if (user) {
+        controller.user = user;
+    } else {
+        controller.user = self.user;
+    }
+
     [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)onClickLoginButton:(id)sender {
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:kVBFacebookPermissions
-                 fromViewController:self
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                if (error) {
-                                    NSLog(@"Process error");
-                                } else if (result.isCancelled) {
-                                    NSLog(@"isCancelled");
-                                } else {
-                                    self.user = [[VBUser alloc] initWithUserID:result.token.userID];
-                                }
-                            }];
+    VBUser *user = [VBUser user];
+    if (user) {
+        self.user = user;
+    } else {
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        [login logInWithReadPermissions:kVBFacebookPermissions
+                     fromViewController:self
+                                handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                    if (error) {
+                                        NSLog(@"Process error");
+                                    } else if (result.isCancelled) {
+                                        NSLog(@"isCancelled");
+                                    } else {
+                                        self.user = [[VBUser alloc] initWithUserID:result.token.userID];
+                                    }
+                                }];
+    }
 }
 
 @end

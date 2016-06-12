@@ -40,7 +40,14 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     if (_user != user) {
         _user = user;
         
-        self.context = [[VBFriendsContext alloc] initWithUserID:_user];
+        if (_user.isCached) {
+            self.arrayModel = [VBArrayModel arrayModelWithArray:_user.friends];
+            VBFriendsArrayView *rootView = self.rootView;
+            [rootView removeLoadingViewAnimated:YES];
+            [rootView.tableView reloadData];
+        } else {
+            self.context = [[VBFriendsContext alloc] initWithUserID:_user];
+        }
     }
 }
 
@@ -67,12 +74,22 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+//    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self changeNavigationBar];
+}
+
+- (void)didReceiveMemoryWarnin {
+    [super didReceiveMemoryWarning];
+    [self.user save];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.user save];
 }
 
 #pragma mark -

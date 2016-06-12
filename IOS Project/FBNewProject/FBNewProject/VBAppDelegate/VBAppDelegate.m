@@ -10,6 +10,7 @@
 
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
+#import "VBUser.h"
 
 @implementation VBAppDelegate
 
@@ -47,7 +48,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -59,7 +60,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
+
 }
 
 @end

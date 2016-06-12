@@ -17,7 +17,7 @@
 #pragma mark Public
 
 - (void)fillWithUser:(VBUser *)user {
-    NSString *name = [NSString stringWithFormat:@"%@ %@", user.fist_name, user.last_name];
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.userName.text = name;
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
     self.userFriendsCount.text = [NSString stringWithFormat:kVBFriendCountLabelText, user.friendsCount];

@@ -22,7 +22,7 @@
 
 - (VBUser *)fillWithObject:(NSDictionary *)dictionary {
     VBUser *user = self.user;
-    user.fist_name = [dictionary valueForKey:kVBFistNameKey];
+    user.first_name = [dictionary valueForKey:kVBFistNameKey];
     user.last_name = [dictionary valueForKey:kVBLastNameKey];
     user.userGender = [dictionary valueForKey:kVBLastGenderKey];
     user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.userID];

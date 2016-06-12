@@ -25,7 +25,7 @@
     for (NSUInteger index = 0; index < object.count; index++) {
         NSDictionary *dictionary = object[index];
         VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
-        user.fist_name = [dictionary valueForKey:kVBFistNameKey];
+        user.first_name = [dictionary valueForKey:kVBFistNameKey];
         user.last_name = [dictionary valueForKey:kVBLastNameKey];
         user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
         

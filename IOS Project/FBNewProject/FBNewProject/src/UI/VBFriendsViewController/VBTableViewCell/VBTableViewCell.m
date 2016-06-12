@@ -16,7 +16,7 @@
 #pragma mark Public
 
 - (void)fillWithModel:(VBUser *)user {
-    NSString *name = [NSString stringWithFormat:@"%@ %@", user.fist_name, user.last_name];
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.cellLabel.text = name;
     self.cellImage.URL = [NSURL URLWithString:user.urlString];
 }

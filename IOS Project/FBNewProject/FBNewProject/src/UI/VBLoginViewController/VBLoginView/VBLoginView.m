@@ -25,13 +25,16 @@
 - (void)fillWithUser:(VBUser *)user {
     [self showUserData];
     
-    NSString *name = [NSString stringWithFormat:@"%@ %@", user.fist_name, user.last_name];
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.userName.text = name;
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
     self.userFriendsCount.text = [NSString stringWithFormat:kVBFriendCountLabelText, user.friendsCount];
     self.userImage.contentMode = UIViewContentModeCenter;
     
-    // if cached .... path from file or inet
+    if (user.isCached) {
+//        self.userImage.URL = user.;
+    }
+    
     self.userImage.URL = [NSURL URLWithString:user.urlString];
 }
 
