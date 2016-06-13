@@ -21,7 +21,8 @@
 #import "NSBundle+VBCategory.h"
 #import "UIImage+VBCategory.h"
 #import "NSFileManager+VBCategory.h"
-
 #import "NSString+VBCategory.h"
+
+#import "UIBarButtonItem+VBCategory.h"
 
 #endif /* VBLibrary_h */

@@ -6,11 +6,11 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VBViewController.h"
 
 @class VBUser;
 
-@interface VBLoginViewController : UIViewController
+@interface VBLoginViewController : VBViewController
 
 - (IBAction)onClickLoginButton:(id)sender;
 - (IBAction)onClickFriendsButton:(id)sender;

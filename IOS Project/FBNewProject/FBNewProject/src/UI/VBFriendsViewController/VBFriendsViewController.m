@@ -18,14 +18,13 @@
 #import "VBTableViewCell.h"
 #import "VBStateModel.h"
 
-static NSString * const kVBBackButtonText     = @"Back to login";
+static NSString * const kVBLeftButtonName     = @"left_arrow.png";
+static NSString * const kVBRightButtonName    = @"home.png";
 static NSString * const kVBNavigationItemText = @"Friends";
 
 @interface VBFriendsViewController ()
 @property (nonatomic, readonly) VBFriendsArrayView     *rootView;
 @property (nonatomic, strong)   VBFriendsContext       *context;
-
-- (void)changeNavigationBar;
 
 @end
 
@@ -35,6 +34,10 @@ static NSString * const kVBNavigationItemText = @"Friends";
 #pragma mark Accessors
 
 VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
+
+-(NSString *)barTitle {
+    return kVBNavigationItemText;
+}
 
 -(void)setUser:(VBUser *)user {
     if (_user != user) {
@@ -81,17 +84,14 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self changeNavigationBar];
+    [self navigationBarHidden:NO leftButton:kVBLeftButtonName rightButton:kVBRightButtonName];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)changeNavigationBar {
-    UINavigationController *controller = self.navigationController;
-    controller.navigationBarHidden = NO;
-    controller.navigationBar.backItem.title = kVBBackButtonText;
-    self.navigationItem.title = kVBNavigationItemText;
+- (void)rightButtonClick {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -113,13 +113,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     VBFriendDetailViewController * controller = [VBFriendDetailViewController new];
-    VBUser *user = self.user;
-    if (user.isCached) {
-        controller.user = user.friends[indexPath.row];
-    } else {
-       controller.user = self.arrayModel[indexPath.row];
-    }
-
+    controller.user = self.arrayModel[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

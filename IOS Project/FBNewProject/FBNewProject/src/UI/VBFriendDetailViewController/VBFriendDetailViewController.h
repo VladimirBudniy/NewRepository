@@ -6,11 +6,11 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VBViewController.h"
 
 @class VBUser;
 
-@interface VBFriendDetailViewController : UIViewController
+@interface VBFriendDetailViewController : VBViewController
 @property (nonatomic, strong) VBUser  *user;
 
 @end

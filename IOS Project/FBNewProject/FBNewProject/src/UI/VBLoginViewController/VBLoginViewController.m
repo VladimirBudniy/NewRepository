@@ -17,10 +17,15 @@
 #import "VBUserContext.h"
 #import "VBConstants.h"
 
+static NSString * const kVBLeftButtonName     = @"left_arrow.png";
+static NSString * const kVBRighttButtonName   = @"logout.png";
+static NSString * const kVBNavigationItemText = @"User profile";
+
 @interface VBLoginViewController ()
-@property (nonatomic, readonly) VBLoginView    *rootView;
-@property (nonatomic, strong)   VBUser         *user;
-@property (nonatomic, strong)   VBUserContext  *context;
+@property (nonatomic, readonly) VBLoginView        *rootView;
+@property (nonatomic, strong)   VBUser             *user;
+@property (nonatomic, strong)   VBUserContext      *context;
+@property (nonatomic, strong)   FBSDKLoginManager  *login;
 
 @end
 
@@ -36,17 +41,23 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    [self navigationBarHidden:YES leftButton:nil rightButton:nil];
+    self.navigationItem.leftBarButtonItem = 0;
 }
 
 #pragma mark -
 #pragma mark Accessors
+
+-(NSString *)barTitle {
+    return kVBNavigationItemText;
+}
 
 - (void)setUser:(VBUser *)user {
     if (_user != user) {
         _user = user;
         
         [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+        [self navigationBarHidden:NO leftButton:nil rightButton:kVBRighttButtonName];
         
         if (_user.isCached) {
             [self.rootView fillWithUser:_user];
@@ -96,6 +107,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
         self.user = user;
     } else {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        self.login = login;
         [login logInWithReadPermissions:kVBFacebookPermissions
                      fromViewController:self
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
@@ -110,6 +122,13 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
                                     }
                                 }];
     }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)rightButtonClick {
+    [self.login logOut];
 }
 
 @end

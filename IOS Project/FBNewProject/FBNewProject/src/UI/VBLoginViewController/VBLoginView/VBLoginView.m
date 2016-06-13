@@ -30,11 +30,6 @@
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
     self.userFriendsCount.text = [NSString stringWithFormat:kVBFriendCountLabelText, user.friendsCount];
     self.userImage.contentMode = UIViewContentModeCenter;
-    
-    if (user.isCached) {
-//        self.userImage.URL = user.;
-    }
-    
     self.userImage.URL = [NSURL URLWithString:user.urlString];
 }
 

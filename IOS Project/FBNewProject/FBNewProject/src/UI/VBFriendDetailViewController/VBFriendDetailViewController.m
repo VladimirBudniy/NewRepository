@@ -14,13 +14,12 @@
 #import "VBUserContext.h"
 #import "VBUser.h"
 
+static NSString * const kVBLeftButtonName     = @"left_arrow.png";
+static NSString * const kVBRightButtonName    = @"home.png";
 static NSString * const kVBNavigationItemText = @"Friend";
 
 @interface VBFriendDetailViewController ()
 @property (nonatomic, readonly) VBFriendDetailView     *rootView;
-@property (nonatomic, strong)   VBUserContext          *context;
-
-- (void)changeNavigationBar;
 
 @end
 
@@ -31,36 +30,8 @@ static NSString * const kVBNavigationItemText = @"Friend";
 
 VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 
--(void)setUser:(VBUser *)user {
-    if (_user != user) {
-        _user = user;
-        
-//        if (_user.isCached) {
-//            [self.rootView fillWithUser:_user];
-//            [self.rootView removeLoadingViewAnimated:YES];
-//        } else {
-//            self.context = [[VBUserContext alloc] initWithUser:_user];
-//        }
-        
-        self.context = [[VBUserContext alloc] initWithUser:_user];
-    }
-}
-
-- (void)setContext:(VBUserContext *)context {
-    if (_context != context) {
-        _context = context;
-        
-        VBWeakSelfMacro;
-        [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacroWithClass(VBFriendDetailViewController);
-            VBFriendDetailView *rootView = strongSelf.rootView;
-            [rootView fillWithUser:user];
-            [rootView removeLoadingViewAnimated:NO];
-        }forState:kVBModelLoadedState
-                      object:self];
-
-        [_context load];
-    }
+-(NSString *)barTitle {
+    return kVBNavigationItemText;
 }
 
 #pragma mark -
@@ -73,16 +44,17 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self changeNavigationBar];
+    [self navigationBarHidden:NO leftButton:kVBLeftButtonName rightButton:kVBRightButtonName];
+    VBFriendDetailView *rootView = self.rootView;
+    [rootView fillWithUser:self.user];
+    [rootView removeLoadingViewAnimated:NO];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)changeNavigationBar {
-    UINavigationController *controller = self.navigationController;
-    controller.navigationBarHidden = NO;
-    self.navigationItem.title = kVBNavigationItemText;
+- (void)rightButtonClick {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

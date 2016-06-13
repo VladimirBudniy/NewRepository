@@ -74,6 +74,12 @@
 		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
 		E7FBDD7C1D0D7D58001FBBA6 /* VBContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */; };
 		E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */; };
+		E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99A91D0F2C7700B5734D /* VBViewController.m */; };
+		E7FE99AE1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */; };
+		E7FE99BB1D0F46F700B5734D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99B71D0F46F700B5734D /* home.png */; };
+		E7FE99BC1D0F46F700B5734D /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99B81D0F46F700B5734D /* left_arrow.png */; };
+		E7FE99BD1D0F46F700B5734D /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99B91D0F46F700B5734D /* logout.png */; };
+		E7FE99BE1D0F46F700B5734D /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99BA1D0F46F700B5734D /* right_arrow.png */; };
 		E9B131295102E82B76B09D1D /* libPods-FBNewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +202,14 @@
 		E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_login.png; sourceTree = "<group>"; };
 		E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLibrary.h; sourceTree = "<group>"; };
 		E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBFBNewProject-Prefix.pch"; sourceTree = "<group>"; };
+		E7FE99A81D0F2C7700B5734D /* VBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBViewController.h; sourceTree = "<group>"; };
+		E7FE99A91D0F2C7700B5734D /* VBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBViewController.m; sourceTree = "<group>"; };
+		E7FE99AC1D0F34D000B5734D /* UIBarButtonItem+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+VBCategory.h"; sourceTree = "<group>"; };
+		E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+VBCategory.m"; sourceTree = "<group>"; };
+		E7FE99B71D0F46F700B5734D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		E7FE99B81D0F46F700B5734D /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		E7FE99B91D0F46F700B5734D /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		E7FE99BA1D0F46F700B5734D /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +309,7 @@
 		E7A172AE1D0967D5007843FF /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E7FE99AB1D0F34A200B5734D /* UIBarButtonItem+VBCategory */,
 				E7A172AF1D0967D5007843FF /* CGGeometry+VBCategory */,
 				E7A172B21D0967D5007843FF /* NSBundle+VBCategory */,
 				E7A172B51D0967D5007843FF /* NSFileManager+VBCategory */,
@@ -486,6 +501,10 @@
 		E7A172EC1D0967D5007843FF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E7FE99B71D0F46F700B5734D /* home.png */,
+				E7FE99B81D0F46F700B5734D /* left_arrow.png */,
+				E7FE99B91D0F46F700B5734D /* logout.png */,
+				E7FE99BA1D0F46F700B5734D /* right_arrow.png */,
 				E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */,
 				E7A172ED1D0967D5007843FF /* facebook.jpg */,
 				E7A172EE1D0967D5007843FF /* facebook_logo */,
@@ -550,6 +569,7 @@
 		E7A1731E1D0967E6007843FF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E7FE99A71D0F2C4D00B5734D /* VBViewController */,
 				E7A173231D096CBC007843FF /* VBFriendDetailViewController */,
 				E7A173271D096CBC007843FF /* VBFriendsViewController */,
 				E7A173321D096CBD007843FF /* VBLoginViewController */,
@@ -778,6 +798,24 @@
 			path = VBContext;
 			sourceTree = "<group>";
 		};
+		E7FE99A71D0F2C4D00B5734D /* VBViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE99A81D0F2C7700B5734D /* VBViewController.h */,
+				E7FE99A91D0F2C7700B5734D /* VBViewController.m */,
+			);
+			path = VBViewController;
+			sourceTree = "<group>";
+		};
+		E7FE99AB1D0F34A200B5734D /* UIBarButtonItem+VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE99AC1D0F34D000B5734D /* UIBarButtonItem+VBCategory.h */,
+				E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */,
+			);
+			path = "UIBarButtonItem+VBCategory";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -840,6 +878,7 @@
 			files = (
 				E7A173111D0967D5007843FF /* facebook_logo.180.png in Resources */,
 				E7A1730F1D0967D5007843FF /* facebook.jpg in Resources */,
+				E7FE99BB1D0F46F700B5734D /* home.png in Resources */,
 				E7A173161D0967D5007843FF /* project.logo.120.png in Resources */,
 				E7A1731A1D0967D5007843FF /* project.logo.87.png in Resources */,
 				E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */,
@@ -849,16 +888,19 @@
 				E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */,
 				E7A173171D0967D5007843FF /* project.logo.180.png in Resources */,
 				E7A173421D096CBD007843FF /* VBLoginViewController.xib in Resources */,
+				E7FE99BC1D0F46F700B5734D /* left_arrow.png in Resources */,
 				E7A1733A1D096CBD007843FF /* VBFriendDetailViewController.xib in Resources */,
 				E7A173121D0967D5007843FF /* facebook_logo.58.png in Resources */,
 				E7A173191D0967D5007843FF /* project.logo.80.png in Resources */,
 				E7A173131D0967D5007843FF /* facebook_logo.80.png in Resources */,
 				E7A172A61D096770007843FF /* LaunchScreen.storyboard in Resources */,
+				E7FE99BE1D0F46F700B5734D /* right_arrow.png in Resources */,
 				E7A172A31D096770007843FF /* Assets.xcassets in Resources */,
 				E7A173141D0967D5007843FF /* facebook_logo.87.png in Resources */,
 				E7A1736C1D096FAA007843FF /* VBLoadingView.xib in Resources */,
 				E7A1733D1D096CBD007843FF /* VBFriendsViewController.xib in Resources */,
 				E7A173101D0967D5007843FF /* facebook_logo.120.png in Resources */,
+				E7FE99BD1D0F46F700B5734D /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +973,7 @@
 				E7A172981D096770007843FF /* main.m in Sources */,
 				E7A173691D096FAA007843FF /* VBObjectCache.m in Sources */,
 				E7A1736A1D096FAA007843FF /* VBImageView.m in Sources */,
+				E7FE99AE1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m in Sources */,
 				E7A173461D096D63007843FF /* VBUser.m in Sources */,
 				E7A173221D096C51007843FF /* VBAppDelegate.m in Sources */,
 				E7A172FD1D0967D5007843FF /* NSFileManager+VBCategory.m in Sources */,
@@ -943,6 +986,7 @@
 				E7A173001D0967D5007843FF /* UIImage+VBCategory.m in Sources */,
 				E7A1734E1D096D6D007843FF /* VBUserContext.m in Sources */,
 				E7A173681D096FAA007843FF /* VBImageModel.m in Sources */,
+				E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */,
 				E7A1737C1D09705D007843FF /* VBSaveArrayModel.m in Sources */,
 				E7A1736D1D096FAA007843FF /* VBViewModel.m in Sources */,
 				E7A173011D0967D5007843FF /* UINib+VBCategory.m in Sources */,

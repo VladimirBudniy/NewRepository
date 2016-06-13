@@ -6,12 +6,12 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VBViewController.h"
 
 @class VBArrayModel;
 @class VBUser;
 
-@interface VBFriendsViewController : UIViewController
+@interface VBFriendsViewController : VBViewController
 @property (nonatomic, strong) VBUser         *user;
 @property (nonatomic, strong) VBArrayModel   *arrayModel;
 
