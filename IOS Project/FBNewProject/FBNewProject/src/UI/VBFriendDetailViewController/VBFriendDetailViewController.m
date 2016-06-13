@@ -35,7 +35,14 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     if (_user != user) {
         _user = user;
         
-        self.context = [[VBUserContext alloc] initWithUserID:_user];
+//        if (_user.isCached) {
+//            [self.rootView fillWithUser:_user];
+//            [self.rootView removeLoadingViewAnimated:YES];
+//        } else {
+//            self.context = [[VBUserContext alloc] initWithUser:_user];
+//        }
+        
+        self.context = [[VBUserContext alloc] initWithUser:_user];
     }
 }
 
@@ -48,7 +55,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
             VBStrongSelfAndReturnNilMacroWithClass(VBFriendDetailViewController);
             VBFriendDetailView *rootView = strongSelf.rootView;
             [rootView fillWithUser:user];
-            [rootView removeLoadingViewAnimated:YES];
+            [rootView removeLoadingViewAnimated:NO];
         }forState:kVBModelLoadedState
                       object:self];
 

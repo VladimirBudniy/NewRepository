@@ -46,7 +46,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
             [rootView removeLoadingViewAnimated:YES];
             [rootView.tableView reloadData];
         } else {
-            self.context = [[VBFriendsContext alloc] initWithUserID:_user];
+            self.context = [[VBFriendsContext alloc] initWithUser:_user];
         }
     }
 }
@@ -74,22 +74,14 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.rootView showLoadingViewWithDefaultTextAnimated:YES]; //// need check place for spinner
+    if (!self.user.isCached) {
+        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self changeNavigationBar];
-}
-
-- (void)didReceiveMemoryWarnin {
-    [super didReceiveMemoryWarning];
-    [self.user save];    //// test
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.user save];    //// test
 }
 
 #pragma mark -
@@ -121,7 +113,13 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     VBFriendDetailViewController * controller = [VBFriendDetailViewController new];
-    controller.user = self.arrayModel[indexPath.row];
+    VBUser *user = self.user;
+    if (user.isCached) {
+        controller.user = user.friends[indexPath.row];
+    } else {
+       controller.user = self.arrayModel[indexPath.row];
+    }
+
     [self.navigationController pushViewController:controller animated:YES];
 }
 

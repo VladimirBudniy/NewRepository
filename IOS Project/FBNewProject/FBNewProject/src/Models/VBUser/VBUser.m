@@ -7,7 +7,6 @@
 //
 
 #import "VBUser.h"
-
 static NSString * const kVBUerIDCoderKey                = @"userID";
 static NSString * const kVBUerFriendsCoderKey           = @"userFriends";
 static NSString * const kVBUserFirst_nameCoderKey       = @"userFirst_name";
@@ -21,12 +20,17 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
 @property (nonatomic, readonly)                  NSString        *path;
 @property (nonatomic, readonly)                  NSArray         *keys;
 
+- (void)addObserversWithKeys:(NSArray *)keys;
+- (void)removeObserversWithKeys:(NSArray *)keys;
+- (void)save;
+
 @end
 
 @implementation VBUser
 
 @dynamic cached;
 @dynamic path;
+@dynamic keys;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -43,10 +47,16 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
+- (void)dealloc {
+    [self removeObserversWithKeys:self.keys];
+}
+
 - (instancetype)initWithUserID:(NSString *)userID {
     self = [super init];
     if (self) {
         self.userID = userID;
+        self.wasLogged = NO;
+        [self addObserversWithKeys:self.keys];
     }
     
     return self;
@@ -70,8 +80,29 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
 #pragma mark -
 #pragma mark Private
 
+- (void)addObserversWithKeys:(NSArray *)keys {
+    for (NSString *key in self.keys) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:key
+                                                   object:nil];
+    }
+}
+
+- (void)removeObserversWithKeys:(NSArray *)keys {
+    for (NSString *key in self.keys) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:key
+                                                      object:nil];
+    }
+}
+
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
+    if (self.wasLogged) {
+        [NSKeyedArchiver archiveRootObject:self toFile:self.path];
+    }
+    
+    return;
 }
 
 #pragma mark -

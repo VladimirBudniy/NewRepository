@@ -13,9 +13,9 @@
 @class VBUser;
 
 @interface VBContext : VBModel
-@property (nonatomic, strong)   VBUser       *user;
-@property (nonatomic, readonly) NSDictionary *requestParameters;
+@property (nonatomic, strong)   VBUser         *user;
+@property (nonatomic, readonly) NSDictionary   *requestParameters;
 
-- (instancetype)initWithUserID:(VBUser *)user;
+- (instancetype)initWithUser:(VBUser *)user;
 
 @end

@@ -10,12 +10,11 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "VBContext.h"
-#import "VBUser.h"
 #import "VBConstants.h"
 
 @interface VBContext ()
 
-- (NSArray *)fillWithObject:(id)object;
+- (id)fillWithObject:(id)object;
 - (void)performWorkWithResult:(id)result;
 
 @end
@@ -27,7 +26,7 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithUserID:(VBUser *)user{
+- (instancetype)initWithUser:(VBUser *)user{
     self = [super init];
     if (self) {
         self.user = user;

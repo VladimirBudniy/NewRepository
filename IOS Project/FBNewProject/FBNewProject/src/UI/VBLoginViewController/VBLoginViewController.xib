@@ -73,7 +73,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <state key="normal" title="show friends"/>
                     <connections>
-                        <action selector="onClickVriendsButton:" destination="-1" eventType="touchUpInside" id="1ev-gb-Gum"/>
+                        <action selector="onClickFriendsButton:" destination="-1" eventType="touchUpInside" id="dW9-TQ-dRn"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you are registered..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-g2-nst">

@@ -28,6 +28,8 @@
         user.first_name = [dictionary valueForKey:kVBFistNameKey];
         user.last_name = [dictionary valueForKey:kVBLastNameKey];
         user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
+        user.userGender = [dictionary valueForKey:kVBLastGenderKey];
+        user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
         
         [array addObject:user];
     }

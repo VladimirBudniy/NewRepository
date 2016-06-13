@@ -21,11 +21,11 @@
 @property (nonatomic, strong) NSArray   *friends;
 @property (nonatomic, strong) NSNumber  *friendsCount;
 
+@property (nonatomic, assign)                    BOOL wasLogged;
 @property (nonatomic, readonly, getter=isCached) BOOL cached;
 
 + (instancetype)user;
 
 - (instancetype)initWithUserID:(NSString *)userID;
-- (void)save;
 
 @end

@@ -15,9 +15,7 @@
 #import "VBArrayModel.h"
 #import "VBUser.h"
 #import "VBUserContext.h"
-
-
-#define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
+#import "VBConstants.h"
 
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView    *rootView;
@@ -54,7 +52,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
             [self.rootView fillWithUser:_user];
             [self.rootView removeLoadingViewAnimated:YES];
         } else {
-           self.context = [[VBUserContext alloc] initWithUserID:_user];
+           self.context = [[VBUserContext alloc] initWithUser:_user];
         }
     }
 }
@@ -79,7 +77,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 #pragma mark -
 #pragma mark Handling Interface
 
-- (IBAction)onClickVriendsButton:(id)sender {
+- (IBAction)onClickFriendsButton:(id)sender {
     VBFriendsViewController * controller = [VBFriendsViewController new];
     
     VBUser *user = [VBUser user];
@@ -106,7 +104,9 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
                                     } else if (result.isCancelled) {
                                         NSLog(@"isCancelled");
                                     } else {
-                                        self.user = [[VBUser alloc] initWithUserID:result.token.userID];
+                                        VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
+                                        user.wasLogged = YES;
+                                        self.user = user;
                                     }
                                 }];
     }

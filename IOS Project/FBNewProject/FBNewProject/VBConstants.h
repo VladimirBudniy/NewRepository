@@ -14,6 +14,13 @@ static NSString * const kVBIDKey                    = @"id";
 static NSString * const kVBFistNameKey              = @"first_name";
 static NSString * const kVBLastNameKey              = @"last_name";
 static NSString * const kVBLastGenderKey            = @"gender";
+static NSString * const kVBFriendsKey               = @"friends";
+static NSString * const kVBDataKey                  = @"data";
+static NSString * const kVBPictureKey               = @"picture";
+static NSString * const kVBURLKey                   = @"url";
+static NSString * const kVBSummaryKey               = @"summary";
+static NSString * const kVBTotal_countKey           = @"total_count";
+
 static NSString * const kVBHTTPGetMethod            = @"GET";
 static NSString * const kVBPictureURLPathKey        = @"picture.data.url";
 static NSString * const kVBFriendsKeyPathKey        = @"friends.data";
@@ -26,6 +33,8 @@ static NSString * const kVBFriendCountLabelText  = @"friends count  - %@";
 
 //context pequest parameters
 #define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
-#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
+#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture,gender,friends}"}
+
+#define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
 
 #endif /* VBConstants_h */
