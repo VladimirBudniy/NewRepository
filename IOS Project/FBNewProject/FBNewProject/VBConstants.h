@@ -33,7 +33,8 @@ static NSString * const kVBFriendCountLabelText  = @"friends count  - %@";
 
 //context pequest parameters
 #define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
-#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture,gender,friends}"}
+#define kVBRequestFriendParameters @{@"fields": @"gender,friends"}
+#define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
 
 #define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
 

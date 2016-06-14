@@ -22,7 +22,7 @@
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
     self.userFriendsCount.text = [NSString stringWithFormat:kVBFriendCountLabelText, user.friendsCount];
     self.userImage.contentMode = UIViewContentModeCenter;
-    self.userImage.URL = [NSURL URLWithString:[NSString stringWithFormat:kVBLargeImageURL, user.userID]];  
+    self.userImage.URL = [NSURL URLWithString:user.urlString];
 }
 
 @end

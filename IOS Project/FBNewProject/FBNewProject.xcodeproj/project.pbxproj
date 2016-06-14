@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E776370B1D107B6F009B8ACC /* VBFriendContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E776370A1D107B6E009B8ACC /* VBFriendContext.m */; };
 		E7A172981D096770007843FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A172971D096770007843FF /* main.m */; };
 		E7A172A31D096770007843FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A172A21D096770007843FF /* Assets.xcassets */; };
 		E7A172A61D096770007843FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A172A41D096770007843FF /* LaunchScreen.storyboard */; };
@@ -88,6 +89,8 @@
 		665BDBA829FEF5BEF147A8DE /* Pods-FBNewProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBNewProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBNewProject/Pods-FBNewProject.release.xcconfig"; sourceTree = "<group>"; };
 		DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBNewProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72452361D0C2BAF007426AA /* VBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBConstants.h; sourceTree = "<group>"; };
+		E77637091D107B6E009B8ACC /* VBFriendContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendContext.h; sourceTree = "<group>"; };
+		E776370A1D107B6E009B8ACC /* VBFriendContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendContext.m; sourceTree = "<group>"; };
 		E7A172931D096770007843FF /* FBNewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBNewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A172971D096770007843FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7A172A21D096770007843FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,6 +250,15 @@
 				DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E77637081D107B3E009B8ACC /* VBFriendContext */ = {
+			isa = PBXGroup;
+			children = (
+				E77637091D107B6E009B8ACC /* VBFriendContext.h */,
+				E776370A1D107B6E009B8ACC /* VBFriendContext.m */,
+			);
+			path = VBFriendContext;
 			sourceTree = "<group>";
 		};
 		E7A1728A1D096770007843FF = {
@@ -552,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				E7FBDD791D0D7D3F001FBBA6 /* VBContext */,
+				E77637081D107B3E009B8ACC /* VBFriendContext */,
 				E7F930651D09821D00926CCD /* VBFriendsContext */,
 				E7A1734A1D096D6D007843FF /* VBUserContext */,
 			);
@@ -1003,6 +1016,7 @@
 				E7A173051D0967D5007843FF /* UIWindow+VBCategory.m in Sources */,
 				E7A1737B1D09705D007843FF /* VBArrayModel.m in Sources */,
 				E7A1733C1D096CBD007843FF /* VBFriendsViewController.m in Sources */,
+				E776370B1D107B6F009B8ACC /* VBFriendContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

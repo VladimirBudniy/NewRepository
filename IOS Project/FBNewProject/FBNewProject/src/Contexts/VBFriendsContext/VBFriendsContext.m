@@ -18,20 +18,22 @@
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (NSArray *)fillWithObject:(NSArray *)object {
     NSMutableArray *array = [NSMutableArray array];
-    for (NSUInteger index = 0; index < object.count; index++) {
-        NSDictionary *dictionary = object[index];
-        VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
-        user.first_name = [dictionary valueForKey:kVBFistNameKey];
-        user.last_name = [dictionary valueForKey:kVBLastNameKey];
-        user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
-        user.userGender = [dictionary valueForKey:kVBLastGenderKey];
-        user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
-        
-        [array addObject:user];
+    if (self.user.friends.count != object.count) {
+        for (NSDictionary *dictionary in object) {
+            VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
+            user.first_name = [dictionary valueForKey:kVBFistNameKey];
+            user.last_name = [dictionary valueForKey:kVBLastNameKey];
+            user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
+            [array addObject:user];
+        }
+    } else {
+        for (VBUser *user in self.user.friends) {
+            [array addObject:user];
+        }
     }
     
     return array;

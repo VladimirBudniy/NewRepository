@@ -9,6 +9,9 @@
 #import "VBViewController.h"
 #import "VBConstants.h"
 
+static NSString * const kVBLeftButtonName     = @"left_arrow.png";
+static NSString * const kVBRightButtonName    = @"home.png";
+
 @interface VBViewController ()
 
 - (void)leftButtonClick;
@@ -22,6 +25,8 @@
 @implementation VBViewController
 
 @dynamic barTitle;
+@dynamic leftButtonName;
+@dynamic rightButtonName;
 
 #pragma mark -
 #pragma mark Accessors
@@ -30,23 +35,30 @@
     return nil;
 }
 
+- (NSString *)leftButtonName {
+    return kVBLeftButtonName;
+}
+
+- (NSString *)rightButtonName {
+    return kVBRightButtonName;
+}
+
 #pragma mark -
 #pragma mark Public
 
-- (void)navigationBarHidden:(BOOL)hidden leftButton:(NSString *)leftName rightButton:(NSString *)rightName {
-    self.navigationController.navigationBarHidden = hidden;
+- (void)hideNavigationBar {
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)showNavigationBar {
+    self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = self.barTitle;
-    
-    [self nameLeftButton:leftName rightButton:rightName];
+    [self leftButtonWithImageName:self.leftButtonName];
+    [self rightButtonWithImageName:self.rightButtonName];
 }
 
 #pragma mark -
 #pragma mark Private
-
-- (void)nameLeftButton:(NSString *)leftName rightButton:(NSString *)rightName {
-    [self leftButtonWithImageName:leftName];
-    [self rightButtonWithImageName:rightName];
-}
 
 - (void)leftButtonWithImageName:(NSString *)name {
     UIImage *leftImage = [UIImage imageNamed:name];
@@ -69,7 +81,7 @@
 }
 
 - (void)rightButtonClick {
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

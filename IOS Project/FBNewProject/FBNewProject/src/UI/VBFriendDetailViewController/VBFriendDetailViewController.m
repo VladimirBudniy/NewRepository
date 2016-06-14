@@ -11,15 +11,14 @@
 
 #import "VBFriendDetailViewController.h"
 #import "VBFriendDetailView.h"
-#import "VBUserContext.h"
+#import "VBFriendContext.h"
 #import "VBUser.h"
 
-static NSString * const kVBLeftButtonName     = @"left_arrow.png";
-static NSString * const kVBRightButtonName    = @"home.png";
 static NSString * const kVBNavigationItemText = @"Friend";
 
 @interface VBFriendDetailViewController ()
 @property (nonatomic, readonly) VBFriendDetailView     *rootView;
+@property (nonatomic, strong)   VBFriendContext        *context;
 
 @end
 
@@ -34,6 +33,31 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     return kVBNavigationItemText;
 }
 
+-(void)setUser:(VBUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        self.context = [[VBFriendContext alloc] initWithUser:_user];
+    }
+}
+
+-(void)setContext:(VBFriendContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(VBUser *user) {
+            VBStrongSelfAndReturnNilMacroWithClass(VBFriendDetailViewController);
+            VBFriendDetailView *rootView = strongSelf.rootView;
+            [rootView fillWithUser:user];
+            [rootView removeLoadingViewAnimated:NO];
+        } forState:kVBModelLoadedState
+                      object:self];
+        
+        [_context load];
+    }
+}
+
 #pragma mark -
 #pragma mark View LifeCycle
 
@@ -44,17 +68,13 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self navigationBarHidden:NO leftButton:kVBLeftButtonName rightButton:kVBRightButtonName];
-    VBFriendDetailView *rootView = self.rootView;
-    [rootView fillWithUser:self.user];
-    [rootView removeLoadingViewAnimated:NO];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)rightButtonClick {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self showNavigationBar];
+    
+    if (self.user.isCached) {
+        VBFriendDetailView *rootView = self.rootView;   ///// dont like it!!!
+        [rootView fillWithUser:self.user];
+        [rootView removeLoadingViewAnimated:NO];
+    }
 }
 
 @end

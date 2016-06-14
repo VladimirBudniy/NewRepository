@@ -17,5 +17,10 @@
 @property (nonatomic, readonly) NSDictionary   *requestParameters;
 
 - (instancetype)initWithUser:(VBUser *)user;
+- (void)cancel;
+
+//must be changed in subclass
+- (id)fillWithObject:(id)object;
+- (void)performWorkWithResult:(id)result;
 
 @end

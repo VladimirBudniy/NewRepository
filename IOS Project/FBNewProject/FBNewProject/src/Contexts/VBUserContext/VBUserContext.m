@@ -18,7 +18,7 @@
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (VBUser *)fillWithObject:(NSDictionary *)dictionary {
     VBUser *user = self.user;

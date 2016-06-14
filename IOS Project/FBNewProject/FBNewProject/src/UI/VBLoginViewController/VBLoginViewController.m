@@ -17,10 +17,6 @@
 #import "VBUserContext.h"
 #import "VBConstants.h"
 
-static NSString * const kVBLeftButtonName     = @"left_arrow.png";
-static NSString * const kVBRighttButtonName   = @"logout.png";
-static NSString * const kVBNavigationItemText = @"User profile";
-
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
 @property (nonatomic, strong)   VBUser             *user;
@@ -41,27 +37,22 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self navigationBarHidden:YES leftButton:nil rightButton:nil];
-    self.navigationItem.leftBarButtonItem = 0;
+    [super hideNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Accessors
-
--(NSString *)barTitle {
-    return kVBNavigationItemText;
-}
 
 - (void)setUser:(VBUser *)user {
     if (_user != user) {
         _user = user;
         
         [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-        [self navigationBarHidden:NO leftButton:nil rightButton:kVBRighttButtonName];
         
         if (_user.isCached) {
-            [self.rootView fillWithUser:_user];
-            [self.rootView removeLoadingViewAnimated:YES];
+            VBLoginView *rootView = self.rootView;
+            [rootView fillWithUser:_user];
+            [rootView removeLoadingViewAnimated:YES];
         } else {
            self.context = [[VBUserContext alloc] initWithUser:_user];
         }
@@ -78,7 +69,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
             VBLoginView *rootView = strongSelf.rootView;
             [rootView fillWithUser:user];
             [rootView removeLoadingViewAnimated:YES];
-        }forState:kVBModelLoadedState
+        } forState:kVBModelLoadedState
                       object:self];
         
         [_context load];
@@ -111,11 +102,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
         [login logInWithReadPermissions:kVBFacebookPermissions
                      fromViewController:self
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                    if (error) {
-                                        NSLog(@"Process error");
-                                    } else if (result.isCancelled) {
-                                        NSLog(@"isCancelled");
-                                    } else {
+                                    if (!error && !result.isCancelled) {
                                         VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
                                         user.wasLogged = YES;
                                         self.user = user;

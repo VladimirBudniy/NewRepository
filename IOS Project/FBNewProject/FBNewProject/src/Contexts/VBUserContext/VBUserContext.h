@@ -8,8 +8,6 @@
 
 #import "VBContext.h"
 
-@class VBUser;
-
 @interface VBUserContext : VBContext
 
 @end

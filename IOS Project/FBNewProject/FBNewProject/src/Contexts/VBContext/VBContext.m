@@ -13,9 +13,7 @@
 #import "VBConstants.h"
 
 @interface VBContext ()
-
-- (id)fillWithObject:(id)object;
-- (void)performWorkWithResult:(id)result;
+@property (nonatomic, strong) FBSDKGraphRequestConnection   *connection;
 
 @end
 
@@ -43,7 +41,7 @@
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (VBUser *)fillWithObject:(NSDictionary *)dictionary {
     VBUser *user = self.user;
@@ -63,11 +61,17 @@
                                   initWithGraphPath:self.user.userID
                                   parameters:self.requestParameters
                                   HTTPMethod:kVBHTTPGetMethod];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                          NSDictionary *result, NSError *error)
-     {
-         [self performWorkWithResult:result];
-     }];
+    self.connection = [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                            NSDictionary *result, NSError *error)
+                       {
+                           if (!error) {
+                               [self performWorkWithResult:result];
+                           }
+                       }];
+}
+
+- (void)cancel {
+    [self.connection cancel];
 }
 
 @end

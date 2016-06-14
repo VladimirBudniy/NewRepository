@@ -10,7 +10,10 @@
 
 @interface VBViewController : UIViewController
 @property (nonatomic, readonly) NSString * barTitle;
+@property (nonatomic, readonly) NSString * leftButtonName;
+@property (nonatomic, readonly) NSString * rightButtonName;
 
-- (void)navigationBarHidden:(BOOL)hidden leftButton:(NSString *)leftName rightButton:(NSString *)rightName;
+- (void)showNavigationBar;
+- (void)hideNavigationBar;
 
 @end

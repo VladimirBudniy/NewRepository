@@ -45,27 +45,32 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
         
         if (_user.isCached) {
             self.arrayModel = [VBArrayModel arrayModelWithArray:_user.friends];
-            VBFriendsArrayView *rootView = self.rootView;
-            [rootView removeLoadingViewAnimated:YES];
-            [rootView.tableView reloadData];
         } else {
             self.context = [[VBFriendsContext alloc] initWithUser:_user];
         }
     }
 }
 
+- (void)setArrayModel:(VBArrayModel *)arrayModel {
+    if (_arrayModel != arrayModel) {
+        _arrayModel = arrayModel;
+        
+        VBFriendsArrayView *rootView = self.rootView;
+        [rootView removeLoadingViewAnimated:YES];
+        [rootView.tableView reloadData];
+    }
+}
+
 -(void)setContext:(VBFriendsContext *)context {
     if (_context != context) {
+        [_context cancel];
         _context = context;
         
         VBWeakSelfMacro;
         [_context addHandler:^(VBUser *user) {
             VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
             strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
-            VBFriendsArrayView *rootView = strongSelf.rootView;
-            [rootView removeLoadingViewAnimated:YES];
-            [rootView.tableView reloadData];
-        }forState:kVBModelLoadedState
+        } forState:kVBModelLoadedState
                       object:self];
         
         [_context load];
@@ -84,14 +89,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self navigationBarHidden:NO leftButton:kVBLeftButtonName rightButton:kVBRightButtonName];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)rightButtonClick {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self showNavigationBar];
 }
 
 #pragma mark -
