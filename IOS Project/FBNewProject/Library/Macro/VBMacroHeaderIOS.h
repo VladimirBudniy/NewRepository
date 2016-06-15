@@ -11,26 +11,24 @@
 
 
 #define VBWeakSelfMacro \
-    __weak id weakSelf = self \
+    __weak __typeof(self) weakSelf = self \
 
 
 #define VBStrongSelfAndReturnNilMacro \
-    __strong id strongSelf = weakSelf; \
+    __strong __typeof(self) strongSelf = weakSelf; \
         if (!strongSelf) { \
             return; \
         }
 
-
-#define VBWeakSelfMacroWithClass(theClass) \
-    __weak theClass *weakSelf = self; \
-
-
-#define VBStrongSelfAndReturnNilMacroWithClass(theClass) \
-    __strong theClass *strongSelf = weakSelf; \
-        if (!strongSelf) { \
-            return; \
-        }
-
+//#define VBWeakSelfMacroWithClass(theClass) \
+//    __weak theClass *weakSelf = self; \
+//
+//
+//#define VBStrongSelfAndReturnNilMacroWithClass(theClass) \
+//    __strong theClass *strongSelf = weakSelf; \
+//        if (!strongSelf) { \
+//            return; \
+//        }
 
 #define VBRootViewAndReturnIfNilMacro(theClass) \
     - (theClass *)rootView { \

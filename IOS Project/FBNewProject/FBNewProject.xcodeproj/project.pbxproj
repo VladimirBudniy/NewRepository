@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E73EC7321D1144650064F791 /* libActiveRecordKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EC7311D1144650064F791 /* libActiveRecordKit.a */; };
+		E73EC7341D11446A0064F791 /* libCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EC7331D11446A0064F791 /* libCommonKit.a */; };
+		E73EC7361D11446E0064F791 /* libDataKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EC7351D11446E0064F791 /* libDataKit.a */; };
+		E73EC7381D1144730064F791 /* libUIKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73EC7371D1144730064F791 /* libUIKit.a */; };
 		E776370B1D107B6F009B8ACC /* VBFriendContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E776370A1D107B6E009B8ACC /* VBFriendContext.m */; };
 		E7A172981D096770007843FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A172971D096770007843FF /* main.m */; };
 		E7A172A31D096770007843FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A172A21D096770007843FF /* Assets.xcassets */; };
@@ -89,6 +93,10 @@
 		665BDBA829FEF5BEF147A8DE /* Pods-FBNewProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBNewProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBNewProject/Pods-FBNewProject.release.xcconfig"; sourceTree = "<group>"; };
 		DEFE78271BEFDDCAE7BC3AE2 /* libPods-FBNewProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBNewProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72452361D0C2BAF007426AA /* VBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBConstants.h; sourceTree = "<group>"; };
+		E73EC7311D1144650064F791 /* libActiveRecordKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libActiveRecordKit.a; path = "Pods/../build/Debug-iphoneos/ActiveRecordKit/libActiveRecordKit.a"; sourceTree = "<group>"; };
+		E73EC7331D11446A0064F791 /* libCommonKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommonKit.a; path = "Pods/../build/Debug-iphoneos/CommonKit/libCommonKit.a"; sourceTree = "<group>"; };
+		E73EC7351D11446E0064F791 /* libDataKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDataKit.a; path = "Pods/../build/Debug-iphoneos/DataKit/libDataKit.a"; sourceTree = "<group>"; };
+		E73EC7371D1144730064F791 /* libUIKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIKit.a; path = "Pods/../build/Debug-iphoneos/UIKit/libUIKit.a"; sourceTree = "<group>"; };
 		E77637091D107B6E009B8ACC /* VBFriendContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendContext.h; sourceTree = "<group>"; };
 		E776370A1D107B6E009B8ACC /* VBFriendContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendContext.m; sourceTree = "<group>"; };
 		E7A172931D096770007843FF /* FBNewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBNewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +228,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73EC7381D1144730064F791 /* libUIKit.a in Frameworks */,
+				E73EC7361D11446E0064F791 /* libDataKit.a in Frameworks */,
+				E73EC7341D11446A0064F791 /* libCommonKit.a in Frameworks */,
+				E73EC7321D1144650064F791 /* libActiveRecordKit.a in Frameworks */,
 				E7A173561D096EE7007843FF /* libFBSDKShareKit.a in Frameworks */,
 				E7A173541D096EE2007843FF /* libFBSDKLoginKit.a in Frameworks */,
 				E7A173521D096EDD007843FF /* libFBSDKCoreKit.a in Frameworks */,
@@ -243,6 +255,10 @@
 		C3E10446DD05B0699B84B28D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E73EC7371D1144730064F791 /* libUIKit.a */,
+				E73EC7351D11446E0064F791 /* libDataKit.a */,
+				E73EC7331D11446A0064F791 /* libCommonKit.a */,
+				E73EC7311D1144650064F791 /* libActiveRecordKit.a */,
 				E7A173551D096EE7007843FF /* libFBSDKShareKit.a */,
 				E7A173531D096EE2007843FF /* libFBSDKLoginKit.a */,
 				E7A173511D096EDD007843FF /* libFBSDKCoreKit.a */,
@@ -1143,7 +1159,13 @@
 				INFOPLIST_FILE = FBNewProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ActiveRecordKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/CommonKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/DataKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/UIKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = VB.FBNewProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

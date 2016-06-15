@@ -47,7 +47,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
         
         VBWeakSelfMacro;
         [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacroWithClass(VBFriendDetailViewController);
+            VBStrongSelfAndReturnNilMacro;
             VBFriendDetailView *rootView = strongSelf.rootView;
             [rootView fillWithUser:user];
             [rootView removeLoadingViewAnimated:NO];

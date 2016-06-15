@@ -10,10 +10,11 @@
 #define VBConstants_h
 
 // context keys
+static NSString * const kVBPoint                    = @".";
 static NSString * const kVBIDKey                    = @"id";
 static NSString * const kVBFistNameKey              = @"first_name";
 static NSString * const kVBLastNameKey              = @"last_name";
-static NSString * const kVBLastGenderKey            = @"gender";
+static NSString * const kVBGenderKey                = @"gender";
 static NSString * const kVBFriendsKey               = @"friends";
 static NSString * const kVBDataKey                  = @"data";
 static NSString * const kVBPictureKey               = @"picture";
@@ -24,6 +25,7 @@ static NSString * const kVBTotal_countKey           = @"total_count";
 static NSString * const kVBHTTPGetMethod            = @"GET";
 static NSString * const kVBPictureURLPathKey        = @"picture.data.url";
 static NSString * const kVBFriendsKeyPathKey        = @"friends.data";
+
 static NSString * const kVBFriendsCountKeyPathKey   = @"friends.summary.total_count";
 static NSString * const kVBLargeImageURL            = @"https://graph.facebook.com/%@/picture?type=large";
 

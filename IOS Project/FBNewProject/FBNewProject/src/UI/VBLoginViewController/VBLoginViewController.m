@@ -65,7 +65,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
         
         VBWeakSelfMacro;
         [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacroWithClass(VBLoginViewController);
+            VBStrongSelfAndReturnNilMacro;
             VBLoginView *rootView = strongSelf.rootView;
             [rootView fillWithUser:user];
             [rootView removeLoadingViewAnimated:YES];

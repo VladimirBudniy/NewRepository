@@ -160,7 +160,7 @@
 - (void)completionLoad {
     VBWeakSelfMacro;
     VBDispatchAsyncOnMainThread(^{
-        VBStrongSelfAndReturnNilMacroWithClass(VBImageModel);
+        VBStrongSelfAndReturnNilMacro;
         NSUInteger state = strongSelf.image ? kVBModelLoadedState : kVBModelFailedState;
         [strongSelf setState:state withObject:strongSelf.image];
     });

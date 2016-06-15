@@ -68,7 +68,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
         
         VBWeakSelfMacro;
         [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacroWithClass(VBFriendsViewController);
+            VBStrongSelfAndReturnNilMacro;
             strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
         } forState:kVBModelLoadedState
                       object:self];

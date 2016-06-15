@@ -49,7 +49,7 @@
     
     VBWeakSelfMacro;
     VBDispatchAsyncInBackground(^{
-        VBStrongSelfAndReturnNilMacroWithClass(VBModel)
+        VBStrongSelfAndReturnNilMacro
         [strongSelf prepareToLoad];
         VBDispatchAsyncOnMainThread(^{
             [strongSelf finishLoad];

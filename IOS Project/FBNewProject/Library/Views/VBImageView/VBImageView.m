@@ -63,14 +63,14 @@
         
         VBWeakSelfMacro;
         [_model addHandler:^(UIImage *image){
-            VBStrongSelfAndReturnNilMacroWithClass(VBImageView)
+            VBStrongSelfAndReturnNilMacro
             strongSelf.imageView.image = image;
             [strongSelf.spinner stopAnimating];
         } forState:kVBModelLoadedState
                     object:self];
         
         [_model addHandler:^(UIImage *image){
-            VBStrongSelfAndReturnNilMacroWithClass(VBImageView)
+            VBStrongSelfAndReturnNilMacro
             strongSelf.model.URL = strongSelf.URL;
         } forState:kVBModelFailedState
                     object:self];
