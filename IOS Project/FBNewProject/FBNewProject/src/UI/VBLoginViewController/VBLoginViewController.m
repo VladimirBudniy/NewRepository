@@ -17,6 +17,8 @@
 #import "VBUserContext.h"
 #import "VBConstants.h"
 
+#import "VBDataUser.h"
+
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
 
@@ -95,6 +97,14 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
                      fromViewController:self
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                     if (!error && !result.isCancelled) {
+                                        
+//                                        VBDataUser *user = [VBDataUser managedObject];
+//                                        if (user ......) {
+//                                            user.wasLogged = YES;
+//                                            self.user = user;
+//                                        }
+
+                                        
                                         VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
                                         user.token = result.token;
                                         user.wasLogged = YES;

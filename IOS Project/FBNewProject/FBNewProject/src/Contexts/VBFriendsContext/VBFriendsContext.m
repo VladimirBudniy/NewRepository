@@ -21,19 +21,21 @@
 #pragma mark Public
 
 - (NSArray *)fillWithObject:(NSArray *)object {
+    VBUser *user = self.user;
     NSMutableArray *array = [NSMutableArray array];
-    if (self.user.friends.count != object.count) {
-        for (NSDictionary *dictionary in object) {
-            VBUser *user = [[VBUser alloc] initWithUserID:[dictionary valueForKey:kVBIDKey]];
-            user.first_name = [dictionary valueForKey:kVBFistNameKey];
-            user.last_name = [dictionary valueForKey:kVBLastNameKey];
-            user.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
-            [array addObject:user];
+    for (NSDictionary *dictionary in object) {
+        NSString *IDKey = [dictionary valueForKey:kVBIDKey];
+        VBUser *friend = nil;
+        if ([user containsFriendWithID:IDKey]) {
+            friend = [user friendWithID:IDKey];
+        } else {
+            friend = [[VBUser alloc] initWithUserID:IDKey];
         }
-    } else {
-        for (VBUser *user in self.user.friends) {
-            [array addObject:user];
-        }
+        friend.first_name = [dictionary valueForKey:kVBFistNameKey];
+        friend.last_name = [dictionary valueForKey:kVBLastNameKey];
+        friend.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
+        
+        [array addObject:friend];
     }
     
     return array;

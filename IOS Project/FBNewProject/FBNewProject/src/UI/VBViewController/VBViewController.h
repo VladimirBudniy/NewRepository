@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IDPActiveRecordKit.h"
 
 @class VBContext;
 @class VBUser;
+//@class VBDataUser;
 
 @interface VBViewController : UIViewController
 @property (nonatomic, readonly) NSString * barTitle;
@@ -18,6 +20,7 @@
 
 @property (nonatomic, strong)   VBContext   *context;
 @property (nonatomic, strong)   VBUser      *user;
+//@property (nonatomic, strong)   VBDataUser  *user;
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;

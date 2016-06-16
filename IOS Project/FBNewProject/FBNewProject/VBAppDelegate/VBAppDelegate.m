@@ -7,16 +7,21 @@
 //
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "IDPActiveRecordKit.h"
 
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
 #import "VBUser.h"
+
+#import "VBDataUser.h"
 
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
+    [IDPCoreDataManager sharedManagerWithMomName:@"FBProjectCoreData"];
     
     UIWindow *window = [UIWindow window];
     self.window = window;

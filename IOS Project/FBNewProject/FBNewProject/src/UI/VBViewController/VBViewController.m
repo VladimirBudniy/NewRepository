@@ -10,6 +10,8 @@
 #import "VBConstants.h"
 #import "VBContext.h"
 
+//#import "VBDataUser.h"
+
 static NSString * const kVBLeftButtonName     = @"left_arrow.png";
 static NSString * const kVBRightButtonName    = @"home.png";
 
@@ -48,6 +50,7 @@ static NSString * const kVBRightButtonName    = @"home.png";
     if (_user != user) {
         _user = user;
         
+//        [_user saveMangedObject];
     }
 }
 

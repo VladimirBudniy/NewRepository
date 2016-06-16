@@ -80,6 +80,32 @@ static NSString * const kVBTokinKey                     = @"tokin";
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (BOOL)containsFriendWithID:(NSString *)userID {
+    for (VBUser *user in self.friends) {
+        if ([user.userID isEqualToString:userID]) {
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (VBUser *)friendWithID:(NSString *)userID {
+    for (VBUser *user in self.friends) {
+        if ([user containsFriendWithID:userID]) {
+            
+            return user;
+        }
+    }
+
+    return nil;
+}
+
+
+#pragma mark -
 #pragma mark Private
 
 - (void)addObserversWithKeys:(NSArray *)keys {
