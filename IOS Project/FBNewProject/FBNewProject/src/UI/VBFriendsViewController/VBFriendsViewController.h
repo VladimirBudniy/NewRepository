@@ -12,7 +12,6 @@
 @class VBUser;
 
 @interface VBFriendsViewController : VBViewController
-@property (nonatomic, strong) VBUser         *user;
 @property (nonatomic, strong) VBArrayModel   *arrayModel;
 
 @end

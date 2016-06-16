@@ -19,9 +19,6 @@
 
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
-@property (nonatomic, strong)   VBUser             *user;
-@property (nonatomic, strong)   VBUserContext      *context;
-@property (nonatomic, strong)   FBSDKLoginManager  *login;
 
 @end
 
@@ -44,36 +41,27 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 #pragma mark Accessors
 
 - (void)setUser:(VBUser *)user {
-    if (_user != user) {
-        _user = user;
-        
-        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-        
-        if (_user.isCached) {
-            VBLoginView *rootView = self.rootView;
-            [rootView fillWithUser:_user];
-            [rootView removeLoadingViewAnimated:YES];
-        } else {
-           self.context = [[VBUserContext alloc] initWithUser:_user];
-        }
+    [super setUser:user];
+    
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    
+    if (self.user.isCached) {
+        VBUser *user = self.user;
+        VBLoginView *rootView = self.rootView;
+        [rootView fillWithUser:user];
+        [rootView removeLoadingViewAnimated:YES];
+    } else {
+        self.context = [[VBUserContext alloc] initWithUser:user];
     }
 }
 
-- (void)setContext:(VBUserContext *)context {
-    if (_context != context) {
-        _context = context;
-        
-        VBWeakSelfMacro;
-        [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacro;
-            VBLoginView *rootView = strongSelf.rootView;
-            [rootView fillWithUser:user];
-            [rootView removeLoadingViewAnimated:YES];
-        } forState:kVBModelLoadedState
-                      object:self];
-        
-        [_context load];
-    }
+#pragma mark -
+#pragma mark Public
+
+- (void)successLoadObject:(VBUser *)object {
+    VBLoginView *rootView = self.rootView;
+    [rootView fillWithUser:object];
+    [rootView removeLoadingViewAnimated:YES];
 }
 
 #pragma mark -
@@ -92,30 +80,28 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (IBAction)onClickLogoutButton:(id)sender {
+     self.user.token = nil;
+    [self.rootView showLoginView];
+}
+
 - (IBAction)onClickLoginButton:(id)sender {
     VBUser *user = [VBUser user];
-    if (user) {
+    if (user && user.token) {
         self.user = user;
     } else {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-        self.login = login;
         [login logInWithReadPermissions:kVBFacebookPermissions
                      fromViewController:self
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                     if (!error && !result.isCancelled) {
                                         VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
+                                        user.token = result.token;
                                         user.wasLogged = YES;
                                         self.user = user;
                                     }
                                 }];
     }
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)rightButtonClick {
-    [self.login logOut];
 }
 
 @end

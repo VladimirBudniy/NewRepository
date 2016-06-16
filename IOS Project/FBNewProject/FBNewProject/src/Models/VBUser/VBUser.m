@@ -7,6 +7,7 @@
 //
 
 #import "VBUser.h"
+
 static NSString * const kVBUerIDCoderKey                = @"userID";
 static NSString * const kVBUerFriendsCoderKey           = @"userFriends";
 static NSString * const kVBUserFirst_nameCoderKey       = @"userFirst_name";
@@ -15,10 +16,11 @@ static NSString * const kVBUserGenderCoderKey           = @"userGender";
 static NSString * const kVBUserFriendsCountCoderKey     = @"userFriendsCount";
 static NSString * const kVBUserURLCountCoderKey         = @"userURL";
 static NSString * const kVBFileAdress                   = @"tmp.plist";
+static NSString * const kVBTokinKey                     = @"tokin";
 
 @interface VBUser ()
-@property (nonatomic, readonly)                  NSString        *path;
-@property (nonatomic, readonly)                  NSArray         *keys;
+@property (nonatomic, readonly)   NSString   *path;
+@property (nonatomic, readonly)   NSArray    *keys;
 
 - (void)addObserversWithKeys:(NSArray *)keys;
 - (void)removeObserversWithKeys:(NSArray *)keys;
@@ -116,6 +118,7 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
     [aCoder encodeObject:self.friends forKey:kVBUerFriendsCoderKey];
     [aCoder encodeObject:self.friendsCount forKey:kVBUserFriendsCountCoderKey];
     [aCoder encodeObject:self.urlString forKey:kVBUserURLCountCoderKey];
+    [aCoder encodeObject:self.token forKey:kVBTokinKey];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -128,6 +131,7 @@ static NSString * const kVBFileAdress                   = @"tmp.plist";
         self.friends = [aDecoder decodeObjectForKey:kVBUerFriendsCoderKey];
         self.friendsCount = [aDecoder decodeObjectForKey:kVBUserFriendsCountCoderKey];
         self.urlString = [aDecoder decodeObjectForKey:kVBUserURLCountCoderKey];
+        self.token = [aDecoder decodeObjectForKey:kVBTokinKey];
     }
     
     return self;

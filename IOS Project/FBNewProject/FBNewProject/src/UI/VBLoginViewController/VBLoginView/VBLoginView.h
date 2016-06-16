@@ -13,15 +13,17 @@
 @class VBImageView;
 
 @interface VBLoginView : VBViewModel
-@property (nonatomic, strong) IBOutlet UIButton *loginButton;
-@property (nonatomic, strong) IBOutlet UIButton *friendsButton;
+@property (nonatomic, strong) IBOutlet UIButton  *loginButton;
+@property (nonatomic, strong) IBOutlet UIButton  *friendsButton;
+@property (nonatomic, strong) IBOutlet UIButton  *logoutButton;
 
 @property (nonatomic, strong) IBOutlet VBImageView *userImage;
+@property (nonatomic, strong) IBOutlet UIImageView *loginImage;
 @property (nonatomic, strong) IBOutlet UILabel     *userName;
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
 @property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;
-@property (nonatomic, strong) IBOutlet UILabel     *userRegistered;
 
 - (void)fillWithUser:(VBUser *)user;
+- (void)showLoginView;
 
 @end

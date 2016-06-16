@@ -24,7 +24,6 @@ static NSString * const kVBNavigationItemText = @"Friends";
 
 @interface VBFriendsViewController ()
 @property (nonatomic, readonly) VBFriendsArrayView     *rootView;
-@property (nonatomic, strong)   VBFriendsContext       *context;
 
 @end
 
@@ -40,14 +39,12 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 }
 
 -(void)setUser:(VBUser *)user {
-    if (_user != user) {
-        _user = user;
-        
-        if (_user.isCached) {
-            self.arrayModel = [VBArrayModel arrayModelWithArray:_user.friends];
-        } else {
-            self.context = [[VBFriendsContext alloc] initWithUser:_user];
-        }
+    [super setUser:user];
+    
+    if (self.user.isCached) {
+        self.arrayModel = [VBArrayModel arrayModelWithArray:self.user.friends];
+    } else {
+        self.context = [[VBFriendsContext alloc] initWithUser:self.user];
     }
 }
 
@@ -61,22 +58,6 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     }
 }
 
--(void)setContext:(VBFriendsContext *)context {
-    if (_context != context) {
-        [_context cancel];
-        _context = context;
-        
-        VBWeakSelfMacro;
-        [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacro;
-            strongSelf.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
-        } forState:kVBModelLoadedState
-                      object:self];
-        
-        [_context load];
-    }
-}
-
 #pragma mark -
 #pragma mark View LifeCycle
 
@@ -87,9 +68,11 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self showNavigationBar];
+#pragma mark - 
+#pragma mark Public
+
+- (void)successLoadObject:(VBUser *)object {
+    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends];
 }
 
 #pragma mark -

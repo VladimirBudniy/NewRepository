@@ -18,7 +18,6 @@ static NSString * const kVBNavigationItemText = @"Friend";
 
 @interface VBFriendDetailViewController ()
 @property (nonatomic, readonly) VBFriendDetailView     *rootView;
-@property (nonatomic, strong)   VBFriendContext        *context;
 
 @end
 
@@ -34,28 +33,9 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 }
 
 -(void)setUser:(VBUser *)user {
-    if (_user != user) {
-        _user = user;
-        
-        self.context = [[VBFriendContext alloc] initWithUser:_user];
-    }
-}
-
--(void)setContext:(VBFriendContext *)context {
-    if (_context != context) {
-        _context = context;
-        
-        VBWeakSelfMacro;
-        [_context addHandler:^(VBUser *user) {
-            VBStrongSelfAndReturnNilMacro;
-            VBFriendDetailView *rootView = strongSelf.rootView;
-            [rootView fillWithUser:user];
-            [rootView removeLoadingViewAnimated:NO];
-        } forState:kVBModelLoadedState
-                      object:self];
-        
-        [_context load];
-    }
+    [super setUser:user];
+    
+    self.context = [[VBFriendContext alloc] initWithUser:self.user];
 }
 
 #pragma mark -
@@ -68,13 +48,21 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self showNavigationBar];
     
     if (self.user.isCached) {
         VBFriendDetailView *rootView = self.rootView;   ///// dont like it!!!
         [rootView fillWithUser:self.user];
         [rootView removeLoadingViewAnimated:NO];
     }
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)successLoadObject:(VBUser *)object {
+    VBFriendDetailView *rootView = self.rootView;
+    [rootView fillWithUser:object];
+    [rootView removeLoadingViewAnimated:NO];
 }
 
 @end

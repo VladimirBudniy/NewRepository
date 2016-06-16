@@ -13,6 +13,7 @@
 @interface VBLoginViewController : VBViewController
 
 - (IBAction)onClickLoginButton:(id)sender;
+- (IBAction)onClickLogoutButton:(id)sender;
 - (IBAction)onClickFriendsButton:(id)sender;
 
 @end

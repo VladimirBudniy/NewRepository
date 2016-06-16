@@ -24,6 +24,8 @@
 @property (nonatomic, assign)                    BOOL wasLogged;
 @property (nonatomic, readonly, getter=isCached) BOOL cached;
 
+@property (nonatomic, strong)  FBSDKAccessToken  *token;
+
 + (instancetype)user;
 
 - (instancetype)initWithUserID:(NSString *)userID;

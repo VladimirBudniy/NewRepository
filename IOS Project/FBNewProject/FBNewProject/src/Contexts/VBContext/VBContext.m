@@ -67,6 +67,10 @@
                            if (!error) {
                                [self performWorkWithResult:result];
                            }
+                           
+                           if (error) {
+                               [self setState:kVBModelFailedState withObject:self.user];
+                           }
                        }];
 }
 

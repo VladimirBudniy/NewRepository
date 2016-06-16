@@ -76,18 +76,25 @@
                         <action selector="onClickFriendsButton:" destination="-1" eventType="touchUpInside" id="dW9-TQ-dRn"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you are registered..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-g2-nst">
-                    <rect key="frame" x="31" y="477" width="258" height="39"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_login" translatesAutoresizingMaskIntoConstraints="NO" id="hmP-Qm-D99">
+                    <rect key="frame" x="35" y="65" width="250" height="250"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="258" id="Bw4-Tv-qB9"/>
-                        <constraint firstAttribute="height" constant="39" id="iNU-MD-lVz"/>
+                        <constraint firstAttribute="height" constant="250" id="9x2-9a-hpc"/>
+                        <constraint firstAttribute="width" constant="250" id="qt4-Xu-VNh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NX-Mk-uZc" customClass="VBImageView">
+                </imageView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fk-Dj-GU6">
+                    <rect key="frame" x="85" y="469" width="150" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="DGB-bX-Pof"/>
+                        <constraint firstAttribute="width" constant="150" id="f7r-g7-6NM"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="LogoutButtonImage"/>
+                    <connections>
+                        <action selector="onClickLogoutButton:" destination="-1" eventType="touchUpInside" id="MSZ-7m-Qjx"/>
+                    </connections>
+                </button>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NX-Mk-uZc" customClass="VBImageView">
                     <rect key="frame" x="35" y="65" width="250" height="250"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -99,30 +106,31 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="1AY-E8-ke0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0tb-1H-VTa"/>
-                <constraint firstItem="Equ-g2-nst" firstAttribute="bottom" secondItem="eYM-uk-cAw" secondAttribute="bottom" id="8XG-SJ-c6R"/>
                 <constraint firstAttribute="trailing" secondItem="7NX-Mk-uZc" secondAttribute="trailing" constant="35" id="9zy-R2-S9s"/>
                 <constraint firstItem="ZyP-ID-hge" firstAttribute="top" secondItem="J9a-6Q-7iM" secondAttribute="bottom" constant="8" id="AJf-5i-AJT"/>
+                <constraint firstItem="1Fk-Dj-GU6" firstAttribute="centerY" secondItem="eYM-uk-cAw" secondAttribute="centerY" id="BA6-3R-Dhg"/>
                 <constraint firstItem="ZyP-ID-hge" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Eks-Cq-2Y0"/>
                 <constraint firstAttribute="trailing" secondItem="J9a-6Q-7iM" secondAttribute="trailing" constant="35" id="GRa-y7-aYG"/>
                 <constraint firstItem="eYM-uk-cAw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JSl-d0-t7d"/>
                 <constraint firstItem="J9a-6Q-7iM" firstAttribute="top" secondItem="7NX-Mk-uZc" secondAttribute="bottom" constant="8" id="LCV-Pa-OwE"/>
+                <constraint firstItem="hmP-Qm-D99" firstAttribute="centerY" secondItem="7NX-Mk-uZc" secondAttribute="centerY" id="NQR-0L-rzr"/>
                 <constraint firstItem="uge-S3-aLc" firstAttribute="top" secondItem="ZyP-ID-hge" secondAttribute="bottom" constant="8" id="OIb-aL-g94"/>
                 <constraint firstItem="J9a-6Q-7iM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="OXw-Wh-XTr"/>
                 <constraint firstItem="ZyP-ID-hge" firstAttribute="top" secondItem="J9a-6Q-7iM" secondAttribute="bottom" constant="8" id="Ocu-fY-ZHc"/>
                 <constraint firstItem="1AY-E8-ke0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R2H-It-K1a"/>
+                <constraint firstItem="hmP-Qm-D99" firstAttribute="centerX" secondItem="7NX-Mk-uZc" secondAttribute="centerX" id="SE2-7B-yGh"/>
                 <constraint firstAttribute="bottom" secondItem="1AY-E8-ke0" secondAttribute="bottom" id="SHf-wP-1zO"/>
                 <constraint firstItem="O4Y-ZA-f7a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Sii-Gq-IH7"/>
                 <constraint firstItem="O4Y-ZA-f7a" firstAttribute="top" secondItem="uge-S3-aLc" secondAttribute="bottom" constant="8" id="V97-Zu-eIw"/>
                 <constraint firstItem="7NX-Mk-uZc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="Xg1-eI-A5d"/>
                 <constraint firstAttribute="trailing" secondItem="O4Y-ZA-f7a" secondAttribute="trailing" constant="100" id="amw-Ar-bDO"/>
                 <constraint firstAttribute="trailing" secondItem="ZyP-ID-hge" secondAttribute="trailing" constant="100" id="dfA-Bt-sJe"/>
-                <constraint firstItem="Equ-g2-nst" firstAttribute="leading" secondItem="eYM-uk-cAw" secondAttribute="leading" id="dyP-5V-ajU"/>
-                <constraint firstItem="Equ-g2-nst" firstAttribute="top" secondItem="eYM-uk-cAw" secondAttribute="top" id="eBE-QS-6Nx"/>
                 <constraint firstItem="uge-S3-aLc" firstAttribute="top" secondItem="ZyP-ID-hge" secondAttribute="bottom" constant="8" id="hOc-Rw-R1T"/>
                 <constraint firstAttribute="trailing" secondItem="uge-S3-aLc" secondAttribute="trailing" constant="100" id="hS7-Al-b6X"/>
                 <constraint firstAttribute="trailing" secondItem="1AY-E8-ke0" secondAttribute="trailing" id="rrT-0M-6VL"/>
                 <constraint firstItem="J9a-6Q-7iM" firstAttribute="top" secondItem="7NX-Mk-uZc" secondAttribute="bottom" constant="8" id="sKE-Qg-5ja"/>
                 <constraint firstItem="7NX-Mk-uZc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="szx-k1-RxA"/>
+                <constraint firstItem="1Fk-Dj-GU6" firstAttribute="centerX" secondItem="eYM-uk-cAw" secondAttribute="centerX" id="uAe-Jd-1db"/>
                 <constraint firstAttribute="bottom" secondItem="eYM-uk-cAw" secondAttribute="bottom" constant="52" id="w3w-eH-CK9"/>
                 <constraint firstItem="uge-S3-aLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="z4c-hi-AtP"/>
             </constraints>
@@ -130,11 +138,12 @@
             <connections>
                 <outlet property="friendsButton" destination="O4Y-ZA-f7a" id="FdP-Ut-fxI"/>
                 <outlet property="loginButton" destination="eYM-uk-cAw" id="eSO-Wt-Yx9"/>
+                <outlet property="loginImage" destination="hmP-Qm-D99" id="zeW-np-eEk"/>
+                <outlet property="logoutButton" destination="1Fk-Dj-GU6" id="VbU-OK-25H"/>
                 <outlet property="userFriendsCount" destination="uge-S3-aLc" id="t2T-0B-GsU"/>
                 <outlet property="userGender" destination="ZyP-ID-hge" id="4CN-bG-mQD"/>
                 <outlet property="userImage" destination="7NX-Mk-uZc" id="zDK-JE-Vdx"/>
                 <outlet property="userName" destination="J9a-6Q-7iM" id="NhA-st-1BO"/>
-                <outlet property="userRegistered" destination="Equ-g2-nst" id="S1Z-ju-wdW"/>
             </connections>
             <point key="canvasLocation" x="268" y="26"/>
         </view>
@@ -142,5 +151,7 @@
     <resources>
         <image name="FriendsControllerImage" width="375" height="667"/>
         <image name="LoginButtonImage" width="383" height="59"/>
+        <image name="LogoutButtonImage" width="150" height="67"/>
+        <image name="user_login" width="250" height="250"/>
     </resources>
 </document>

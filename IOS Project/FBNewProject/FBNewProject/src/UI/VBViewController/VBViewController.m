@@ -8,6 +8,7 @@
 
 #import "VBViewController.h"
 #import "VBConstants.h"
+#import "VBContext.h"
 
 static NSString * const kVBLeftButtonName     = @"left_arrow.png";
 static NSString * const kVBRightButtonName    = @"home.png";
@@ -43,6 +44,42 @@ static NSString * const kVBRightButtonName    = @"home.png";
     return kVBRightButtonName;
 }
 
+- (void)setUser:(VBUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+    }
+}
+
+- (void)setContext:(VBContext *)context {
+    if (_context != context) {
+        _context = context;
+        
+        VBWeakSelfMacro;
+        [_context addHandler:^(id object) {
+            VBStrongSelfAndReturnNilMacro;
+            [strongSelf successLoadObject:object];
+        } forState:kVBModelLoadedState
+                      object:self];
+
+        [_context addHandler:^(id object) {
+            VBStrongSelfAndReturnNilMacro;
+            [strongSelf faildLoadObject:object];
+        } forState:kVBModelFailedState
+                      object:self];
+        
+        [_context load];
+    }
+}
+
+#pragma mark -
+#pragma mark View LifeCycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showNavigationBar];
+}
+
 #pragma mark -
 #pragma mark Public
 
@@ -55,6 +92,14 @@ static NSString * const kVBRightButtonName    = @"home.png";
     self.navigationItem.title = self.barTitle;
     [self leftButtonWithImageName:self.leftButtonName];
     [self rightButtonWithImageName:self.rightButtonName];
+}
+
+- (void)successLoadObject:(id)object {
+    
+}
+
+- (void)faildLoadObject:(id)object {
+    
 }
 
 #pragma mark -

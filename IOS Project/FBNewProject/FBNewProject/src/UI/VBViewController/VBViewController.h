@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class VBContext;
+@class VBUser;
+
 @interface VBViewController : UIViewController
 @property (nonatomic, readonly) NSString * barTitle;
 @property (nonatomic, readonly) NSString * leftButtonName;
 @property (nonatomic, readonly) NSString * rightButtonName;
 
+@property (nonatomic, strong)   VBContext   *context;
+@property (nonatomic, strong)   VBUser      *user;
+
 - (void)showNavigationBar;
 - (void)hideNavigationBar;
+
+- (void)successLoadObject:(id)object;
+- (void)faildLoadObject:(id)object;
 
 @end

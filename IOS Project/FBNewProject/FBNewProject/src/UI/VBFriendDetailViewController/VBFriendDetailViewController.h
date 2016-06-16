@@ -11,6 +11,5 @@
 @class VBUser;
 
 @interface VBFriendDetailViewController : VBViewController
-@property (nonatomic, strong) VBUser  *user;
 
 @end
