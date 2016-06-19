@@ -7,7 +7,7 @@
 //
 
 #import "VBTableViewCell.h"
-#import "VBUser.h"
+#import "VBDataUser.h"
 #import "VBImageView.h"
 
 @implementation VBTableViewCell
@@ -15,7 +15,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)fillWithModel:(VBUser *)user {
+- (void)fillWithModel:(VBDataUser *)user {
     NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.cellLabel.text = name;
     self.cellImage.URL = [NSURL URLWithString:user.urlString];

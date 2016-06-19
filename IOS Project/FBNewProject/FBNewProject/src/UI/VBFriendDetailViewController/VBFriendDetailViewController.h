@@ -8,8 +8,6 @@
 
 #import "VBViewController.h"
 
-@class VBUser;
-
 @interface VBFriendDetailViewController : VBViewController
 
 @end

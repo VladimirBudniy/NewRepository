@@ -8,8 +8,6 @@
 
 #import "VBViewController.h"
 
-@class VBUser;
-
 @interface VBLoginViewController : VBViewController
 
 - (IBAction)onClickLoginButton:(id)sender;

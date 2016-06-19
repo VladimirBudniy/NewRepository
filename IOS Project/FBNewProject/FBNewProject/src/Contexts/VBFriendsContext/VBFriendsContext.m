@@ -7,6 +7,7 @@
 //
 
 #import "VBFriendsContext.h"
+#import "VBDataUser.h"
 
 @implementation VBFriendsContext
 
@@ -21,16 +22,10 @@
 #pragma mark Public
 
 - (NSArray *)fillWithObject:(NSArray *)object {
-    VBUser *user = self.user;
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dictionary in object) {
         NSString *IDKey = [dictionary valueForKey:kVBIDKey];
-        VBUser *friend = nil;
-        if ([user containsFriendWithID:IDKey]) {
-            friend = [user friendWithID:IDKey];
-        } else {
-            friend = [[VBUser alloc] initWithUserID:IDKey];
-        }
+        VBDataUser *friend = [VBDataUser objectWithID:IDKey];
         friend.first_name = [dictionary valueForKey:kVBFistNameKey];
         friend.last_name = [dictionary valueForKey:kVBLastNameKey];
         friend.urlString = [dictionary valueForKeyPath:kVBPictureURLPathKey];
@@ -42,10 +37,10 @@
 }
 
 - (void)performWorkWithResult:(NSDictionary *)result {
-    VBUser *user = self.user;
+    VBDataUser *user = self.user;
     NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
     NSArray *friends = [NSArray arrayWithArray:[self fillWithObject:array]];
-    user.friends = friends;
+    [user addFriendsArray:friends];
     [self setState:kVBModelLoadedState withObject:user];
 }
 

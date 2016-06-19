@@ -7,16 +7,16 @@
 //
 
 #import "VBModel.h"
-#import "VBUser.h"
+#import "VBDataUser.h"
 #import "VBConstants.h"
 
-@class VBUser;
+@class VBDataUser;
 
 @interface VBContext : VBModel
-@property (nonatomic, strong)   VBUser         *user;
+@property (nonatomic, strong)   VBDataUser     *user;
 @property (nonatomic, readonly) NSDictionary   *requestParameters;
 
-- (instancetype)initWithUser:(VBUser *)user;
+- (instancetype)initWithUser:(VBDataUser *)user;
 - (void)cancel;
 
 //must be changed in subclass

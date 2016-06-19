@@ -7,7 +7,7 @@
 //
 
 #import "VBLoginView.h"
-#import "VBUser.h"
+#import "VBDataUser.h"
 #import "VBImageView.h"
 #import "VBConstants.h"
 
@@ -26,7 +26,7 @@ static NSString * const kVBCountText  = @"friends count";
 #pragma mark -
 #pragma mark Public
 
-- (void)fillWithUser:(VBUser *)user {
+- (void)fillWithUser:(VBDataUser *)user {
     [self showUserData];
     
     NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];

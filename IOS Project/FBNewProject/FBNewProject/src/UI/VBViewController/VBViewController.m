@@ -9,8 +9,7 @@
 #import "VBViewController.h"
 #import "VBConstants.h"
 #import "VBContext.h"
-
-//#import "VBDataUser.h"
+#import "VBDataUser.h"
 
 static NSString * const kVBLeftButtonName     = @"left_arrow.png";
 static NSString * const kVBRightButtonName    = @"home.png";
@@ -48,7 +47,7 @@ static NSString * const kVBRightButtonName    = @"home.png";
     return kVBRightButtonName;
 }
 
-- (void)setUser:(VBUser *)user {
+- (void)setUser:(VBDataUser *)user {
     if (_user != user) {
         _user = user;
     }

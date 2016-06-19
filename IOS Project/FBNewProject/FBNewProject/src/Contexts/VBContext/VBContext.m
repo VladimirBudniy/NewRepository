@@ -24,7 +24,7 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithUser:(VBUser *)user{
+- (instancetype)initWithUser:(VBDataUser *)user{
     self = [super init];
     if (self) {
         self.user = user;
@@ -43,8 +43,8 @@
 #pragma mark -
 #pragma mark Public
 
-- (VBUser *)fillWithObject:(NSDictionary *)dictionary {
-    VBUser *user = self.user;
+- (VBDataUser *)fillWithObject:(NSDictionary *)dictionary {
+    VBDataUser *user = self.user;
     
     return user;
 }
@@ -58,7 +58,7 @@
 
 - (void)setupLoad {
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:self.user.userID
+                                  initWithGraphPath:self.user.ID
                                   parameters:self.requestParameters
                                   HTTPMethod:kVBHTTPGetMethod];
     self.connection = [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,

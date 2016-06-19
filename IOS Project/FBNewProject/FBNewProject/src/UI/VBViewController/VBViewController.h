@@ -10,8 +10,7 @@
 #import "IDPActiveRecordKit.h"
 
 @class VBContext;
-@class VBUser;
-//@class VBDataUser;
+@class VBDataUser;
 
 @interface VBViewController : UIViewController
 @property (nonatomic, readonly) NSString * barTitle;
@@ -19,8 +18,7 @@
 @property (nonatomic, readonly) NSString * rightButtonName;
 
 @property (nonatomic, strong)   VBContext   *context;
-@property (nonatomic, strong)   VBUser      *user;
-//@property (nonatomic, strong)   VBDataUser  *user;
+@property (nonatomic, strong)   VBDataUser  *user;
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;

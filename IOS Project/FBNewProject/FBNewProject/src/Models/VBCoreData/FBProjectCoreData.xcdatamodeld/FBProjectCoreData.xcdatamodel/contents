@@ -4,16 +4,15 @@
         <attribute name="cached" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="friendsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userGender" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wasLogged" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBDataUser" inverseName="friends" inverseEntity="VBDataUser" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBDataUser" inverseName="friends" inverseEntity="VBDataUser" syncable="YES"/>
     </entity>
     <elements>
-        <element name="VBDataUser" positionX="-54" positionY="-9" width="128" height="210"/>
+        <element name="VBDataUser" positionX="-5735" positionY="-1485" width="245" height="195"/>
     </elements>
 </model>

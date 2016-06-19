@@ -77,10 +77,11 @@
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
 		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
+		E7F948021D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7F947F81D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld */; };
+		E7F948031D16E40C0013D774 /* VBDataUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F947FC1D16E40C0013D774 /* VBDataUser+CoreDataProperties.m */; };
+		E7F948041D16E40C0013D774 /* VBDataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F947FE1D16E40C0013D774 /* VBDataUser.m */; };
+		E7F948051D16E40C0013D774 /* VBManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F948011D16E40C0013D774 /* VBManagedObject.m */; };
 		E7FBDD7C1D0D7D58001FBBA6 /* VBContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */; };
-		E7FC901C1D13265400470252 /* FBProjectCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7FC901A1D13265400470252 /* FBProjectCoreData.xcdatamodeld */; };
-		E7FC90341D132DD200470252 /* VBDataUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FC90311D132DD200470252 /* VBDataUser+CoreDataProperties.m */; };
-		E7FC90351D132DD200470252 /* VBDataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FC90331D132DD200470252 /* VBDataUser.m */; };
 		E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */; };
 		E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99A91D0F2C7700B5734D /* VBViewController.m */; };
 		E7FE99AE1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */; };
@@ -211,13 +212,15 @@
 		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
 		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
 		E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E7F947F91D16E40C0013D774 /* FBProjectCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBProjectCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E7F947FB1D16E40C0013D774 /* VBDataUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBDataUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E7F947FC1D16E40C0013D774 /* VBDataUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBDataUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E7F947FD1D16E40C0013D774 /* VBDataUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDataUser.h; sourceTree = "<group>"; };
+		E7F947FE1D16E40C0013D774 /* VBDataUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDataUser.m; sourceTree = "<group>"; };
+		E7F948001D16E40C0013D774 /* VBManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBManagedObject.h; sourceTree = "<group>"; };
+		E7F948011D16E40C0013D774 /* VBManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBManagedObject.m; sourceTree = "<group>"; };
 		E7FBDD7A1D0D7D58001FBBA6 /* VBContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBContext.h; sourceTree = "<group>"; };
 		E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBContext.m; sourceTree = "<group>"; };
-		E7FC901B1D13265400470252 /* FBProjectCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBProjectCoreData.xcdatamodel; sourceTree = "<group>"; };
-		E7FC90301D132DD200470252 /* VBDataUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBDataUser+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E7FC90311D132DD200470252 /* VBDataUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBDataUser+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E7FC90321D132DD200470252 /* VBDataUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDataUser.h; sourceTree = "<group>"; };
-		E7FC90331D132DD200470252 /* VBDataUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDataUser.m; sourceTree = "<group>"; };
 		E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_login.png; sourceTree = "<group>"; };
 		E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLibrary.h; sourceTree = "<group>"; };
 		E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBFBNewProject-Prefix.pch"; sourceTree = "<group>"; };
@@ -577,7 +580,6 @@
 		E7A1731B1D0967E6007843FF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				E7FC90161D13250E00470252 /* VBCoreData */,
 				E7A1731C1D0967E6007843FF /* Contexts */,
 				E7A1731D1D0967E6007843FF /* Models */,
 				E7A1731E1D0967E6007843FF /* UI */,
@@ -599,6 +601,7 @@
 		E7A1731D1D0967E6007843FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E7F947F71D16E40C0013D774 /* VBCoreData */,
 				E7A173431D096D63007843FF /* VBUser */,
 			);
 			path = Models;
@@ -827,6 +830,36 @@
 			path = VBFriendDetailView;
 			sourceTree = "<group>";
 		};
+		E7F947F71D16E40C0013D774 /* VBCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E7F947F81D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld */,
+				E7F947FA1D16E40C0013D774 /* VBDataUser */,
+				E7F947FF1D16E40C0013D774 /* VBManagedObject */,
+			);
+			path = VBCoreData;
+			sourceTree = "<group>";
+		};
+		E7F947FA1D16E40C0013D774 /* VBDataUser */ = {
+			isa = PBXGroup;
+			children = (
+				E7F947FB1D16E40C0013D774 /* VBDataUser+CoreDataProperties.h */,
+				E7F947FC1D16E40C0013D774 /* VBDataUser+CoreDataProperties.m */,
+				E7F947FD1D16E40C0013D774 /* VBDataUser.h */,
+				E7F947FE1D16E40C0013D774 /* VBDataUser.m */,
+			);
+			path = VBDataUser;
+			sourceTree = "<group>";
+		};
+		E7F947FF1D16E40C0013D774 /* VBManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				E7F948001D16E40C0013D774 /* VBManagedObject.h */,
+				E7F948011D16E40C0013D774 /* VBManagedObject.m */,
+			);
+			path = VBManagedObject;
+			sourceTree = "<group>";
+		};
 		E7FBDD791D0D7D3F001FBBA6 /* VBContext */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,26 +867,6 @@
 				E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */,
 			);
 			path = VBContext;
-			sourceTree = "<group>";
-		};
-		E7FC90161D13250E00470252 /* VBCoreData */ = {
-			isa = PBXGroup;
-			children = (
-				E7FC901A1D13265400470252 /* FBProjectCoreData.xcdatamodeld */,
-				E7FC90291D132D9900470252 /* VBDataUser */,
-			);
-			path = VBCoreData;
-			sourceTree = "<group>";
-		};
-		E7FC90291D132D9900470252 /* VBDataUser */ = {
-			isa = PBXGroup;
-			children = (
-				E7FC90301D132DD200470252 /* VBDataUser+CoreDataProperties.h */,
-				E7FC90311D132DD200470252 /* VBDataUser+CoreDataProperties.m */,
-				E7FC90321D132DD200470252 /* VBDataUser.h */,
-				E7FC90331D132DD200470252 /* VBDataUser.m */,
-			);
-			path = VBDataUser;
 			sourceTree = "<group>";
 		};
 		E7FE99A71D0F2C4D00B5734D /* VBViewController */ = {
@@ -1028,12 +1041,13 @@
 				E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */,
 				E7A1730B1D0967D5007843FF /* VBObserver.m in Sources */,
 				E7A172FC1D0967D5007843FF /* NSBundle+VBCategory.m in Sources */,
+				E7F948051D16E40C0013D774 /* VBManagedObject.m in Sources */,
 				E7A172981D096770007843FF /* main.m in Sources */,
 				E7A173691D096FAA007843FF /* VBObjectCache.m in Sources */,
 				E7A1736A1D096FAA007843FF /* VBImageView.m in Sources */,
 				E7FE99AE1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m in Sources */,
 				E7A173461D096D63007843FF /* VBUser.m in Sources */,
-				E7FC901C1D13265400470252 /* FBProjectCoreData.xcdatamodeld in Sources */,
+				E7F948021D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld in Sources */,
 				E7A173221D096C51007843FF /* VBAppDelegate.m in Sources */,
 				E7A172FD1D0967D5007843FF /* NSFileManager+VBCategory.m in Sources */,
 				E7A172FF1D0967D5007843FF /* NSString+VBCategory.m in Sources */,
@@ -1041,13 +1055,13 @@
 				E7A173031D0967D5007843FF /* UIView+VBCategory.m in Sources */,
 				E7A1730A1D0967D5007843FF /* VBDispatch.m in Sources */,
 				E7A173081D0967D5007843FF /* VBStringAlphabet.m in Sources */,
-				E7FC90351D132DD200470252 /* VBDataUser.m in Sources */,
+				E7F948041D16E40C0013D774 /* VBDataUser.m in Sources */,
 				E7A173021D0967D5007843FF /* UITableView+VBCategory.m in Sources */,
 				E7A173001D0967D5007843FF /* UIImage+VBCategory.m in Sources */,
 				E7A1734E1D096D6D007843FF /* VBUserContext.m in Sources */,
 				E7A173681D096FAA007843FF /* VBImageModel.m in Sources */,
 				E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */,
-				E7FC90341D132DD200470252 /* VBDataUser+CoreDataProperties.m in Sources */,
+				E7F948031D16E40C0013D774 /* VBDataUser+CoreDataProperties.m in Sources */,
 				E7A1737C1D09705D007843FF /* VBSaveArrayModel.m in Sources */,
 				E7A1736D1D096FAA007843FF /* VBViewModel.m in Sources */,
 				E7A173011D0967D5007843FF /* UINib+VBCategory.m in Sources */,
@@ -1228,12 +1242,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E7FC901A1D13265400470252 /* FBProjectCoreData.xcdatamodeld */ = {
+		E7F947F81D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E7FC901B1D13265400470252 /* FBProjectCoreData.xcdatamodel */,
+				E7F947F91D16E40C0013D774 /* FBProjectCoreData.xcdatamodel */,
 			);
-			currentVersion = E7FC901B1D13265400470252 /* FBProjectCoreData.xcdatamodel */;
+			currentVersion = E7F947F91D16E40C0013D774 /* FBProjectCoreData.xcdatamodel */;
 			path = FBProjectCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -11,9 +11,9 @@
 
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
-#import "VBUser.h"
-
 #import "VBDataUser.h"
+
+static NSString * const kVBCoraDataName = @"FBProjectCoreData";
 
 @implementation VBAppDelegate
 
@@ -21,7 +21,7 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
-    [IDPCoreDataManager sharedManagerWithMomName:@"FBProjectCoreData"];
+    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
     
     UIWindow *window = [UIWindow window];
     self.window = window;

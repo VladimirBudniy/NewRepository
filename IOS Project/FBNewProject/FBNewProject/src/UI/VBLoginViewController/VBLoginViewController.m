@@ -13,11 +13,10 @@
 #import "VBFriendsViewController.h"
 #import "VBLoginView.h"
 #import "VBArrayModel.h"
-#import "VBUser.h"
 #import "VBUserContext.h"
 #import "VBConstants.h"
 
-//#import "VBDataUser.h"
+#import "VBDataUser.h"
 
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
@@ -42,28 +41,28 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUser:(VBUser *)user {
+- (void)setUser:(VBDataUser *)user {
     [super setUser:user];
     
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    
-    if (user.isCached) {
-        VBLoginView *rootView = self.rootView;
-        [rootView fillWithUser:user];
-        [rootView removeLoadingViewAnimated:YES];
-    } else {
-        self.context = [[VBUserContext alloc] initWithUser:user];
-    }
+    self.context = [[VBUserContext alloc] initWithUser:user];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)successLoadObject:(VBUser *)object {
+- (void)successLoadObject:(VBDataUser *)object {
+    VBLoginView *rootView = self.rootView;
+    [rootView fillWithUser:object];
+    object.cached = YES;
+    [object saveManagedObject];
+    [rootView removeLoadingViewAnimated:YES];
+}
+
+- (void)faildLoadObject:(VBDataUser *)object {
     VBLoginView *rootView = self.rootView;
     [rootView fillWithUser:object];
     [rootView removeLoadingViewAnimated:YES];
-     //        [object saveMangedObject];
 }
 
 #pragma mark -
@@ -72,40 +71,38 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 - (IBAction)onClickFriendsButton:(id)sender {
     VBFriendsViewController * controller = [VBFriendsViewController new];
     
-    VBUser *user = [VBUser user];
+    VBDataUser *user = [VBDataUser findObjectWithID:self.user.ID];
     controller.user = user ? user : self.user;
     
     [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)onClickLogoutButton:(id)sender {
-     self.user.token = nil;
+    self.user.wasLogged = NO;
     [self.rootView showLoginView];
 }
 
 - (IBAction)onClickLoginButton:(id)sender {
-    VBUser *user = [VBUser user];
-    if (user && user.token) {
+    VBDataUser *user = [VBDataUser findObjectLogged:YES];
+    if (user) {
         self.user = user;
     } else {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
         [login logInWithReadPermissions:kVBFacebookPermissions
                      fromViewController:self
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                    if (!error && !result.isCancelled) {
-                                        
-//                                        VBDataUser *user = [VBDataUser managedObject];
-//                                        if (user ......) {
-//                                            user.wasLogged = YES;
-//                                            self.user = user;
-//                                        } else {
-//                                            self.user = user
-//                                        }
-
-                                        VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
-                                        user.token = result.token;
-                                        user.wasLogged = YES;
-                                        self.user = user;
+                                    if (error) {
+                                        NSLog(@"Process error");
+                                    } else if (result.isCancelled) {
+                                        NSLog(@"Cancelled");
+                                    } else {
+                                        NSLog(@"Logged in");
+                                        FBSDKAccessToken *token = result.token;
+                                        VBDataUser *user = [VBDataUser objectWithID:token.userID];
+                                        if (user) {
+                                            user.wasLogged = YES;
+                                            self.user = user;
+                                        }
                                     }
                                 }];
     }

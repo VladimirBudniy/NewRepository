@@ -20,10 +20,10 @@
 #pragma mark -
 #pragma mark Public
 
-- (VBUser *)fillWithObject:(NSDictionary *)dictionary {
-    VBUser *user = self.user;
+- (VBDataUser *)fillWithObject:(NSDictionary *)dictionary {
+    VBDataUser *user = self.user;
     user.userGender = [dictionary valueForKey:kVBGenderKey];
-    user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.userID];
+    user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.ID];
     user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
     
     return user;

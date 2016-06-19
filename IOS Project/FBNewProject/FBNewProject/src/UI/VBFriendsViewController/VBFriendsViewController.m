@@ -12,7 +12,6 @@
 #import "VBFriendsViewController.h"
 #import "VBFriendDetailViewController.h"
 #import "VBFriendsArrayView.h"
-#import "VBUser.h"
 #import "VBFriendsContext.h"
 #import "VBArrayMOdel.h"
 #import "VBTableViewCell.h"
@@ -38,14 +37,10 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
     return kVBNavigationItemText;
 }
 
--(void)setUser:(VBUser *)user {
+-(void)setUser:(VBDataUser *)user {
     [super setUser:user];
     
-    if (user.isCached) {
-        self.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
-    } else {
-        self.context = [[VBFriendsContext alloc] initWithUser:user];
-    }
+    self.context = [[VBFriendsContext alloc] initWithUser:user];
 }
 
 - (void)setArrayModel:(VBArrayModel *)arrayModel {
@@ -71,9 +66,13 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 #pragma mark - 
 #pragma mark Public
 
-- (void)successLoadObject:(VBUser *)object {
-    //        [object saveMangedObject];
-    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends];
+- (void)successLoadObject:(VBDataUser *)object {
+    [object saveManagedObject];
+    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends.allObjects];
+}
+
+- (void)faildLoadObject:(VBDataUser *)object {
+    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends.allObjects];
 }
 
 #pragma mark -

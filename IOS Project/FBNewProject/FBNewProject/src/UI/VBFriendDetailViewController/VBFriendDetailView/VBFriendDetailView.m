@@ -7,7 +7,7 @@
 //
 
 #import "VBFriendDetailView.h"
-#import "VBUser.h"
+#import "VBDataUser.h"
 #import "VBImageView.h"
 #import "VBConstants.h"
 
@@ -16,7 +16,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)fillWithUser:(VBUser *)user {
+- (void)fillWithUser:(VBDataUser *)user {
     NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.userName.text = name;
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];

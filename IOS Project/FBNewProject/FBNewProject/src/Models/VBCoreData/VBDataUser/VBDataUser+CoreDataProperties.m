@@ -2,7 +2,7 @@
 //  VBDataUser+CoreDataProperties.m
 //  FBNewProject
 //
-//  Created by Vladimir Budniy on 16.06.16.
+//  Created by Vladimir Budniy on 19.06.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,15 +14,11 @@
 @implementation VBDataUser (CoreDataProperties)
 
 @dynamic first_name;
-@dynamic last_name;
-@dynamic userID;
-@dynamic urlString;
-@dynamic userGender;
 @dynamic friendsCount;
-@dynamic wasLogged;
+@dynamic last_name;
+@dynamic urlString;
 @dynamic userEmail;
-@dynamic id;
-@dynamic cached;
+@dynamic userGender;
 @dynamic friends;
 
 @end

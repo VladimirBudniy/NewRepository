@@ -9,7 +9,7 @@
 #import "VBViewModel.h"
 #import "VBLoadingView.h"
 
-@class VBUser;
+@class VBDataUser;
 @class VBImageView;
 
 @interface VBLoginView : VBViewModel
@@ -23,7 +23,7 @@
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
 @property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;
 
-- (void)fillWithUser:(VBUser *)user;
+- (void)fillWithUser:(VBDataUser *)user;
 - (void)showLoginView;
 
 @end

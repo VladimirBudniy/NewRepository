@@ -12,7 +12,7 @@
 #import "VBFriendDetailViewController.h"
 #import "VBFriendDetailView.h"
 #import "VBFriendContext.h"
-#import "VBUser.h"
+#import "VBDataUser.h"
 
 static NSString * const kVBNavigationItemText = @"Friend";
 
@@ -32,7 +32,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     return kVBNavigationItemText;
 }
 
--(void)setUser:(VBUser *)user {
+-(void)setUser:(VBDataUser *)user {
     [super setUser:user];
     
     self.context = [[VBFriendContext alloc] initWithUser:user];
@@ -46,21 +46,17 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (self.user.isCached) {
-        VBFriendDetailView *rootView = self.rootView;   ///// dont like it!!!
-        [rootView fillWithUser:self.user];
-        [rootView removeLoadingViewAnimated:NO];
-    }
-}
-
 #pragma mark -
 #pragma mark Public
 
-- (void)successLoadObject:(VBUser *)object {
-    //        [object saveMangedObject];
+- (void)successLoadObject:(VBDataUser *)object {
+    [object saveManagedObject];
+    VBFriendDetailView *rootView = self.rootView;
+    [rootView fillWithUser:object];
+    [rootView removeLoadingViewAnimated:NO];
+}
+
+- (void)faildLoadObject:(VBDataUser *)object {
     VBFriendDetailView *rootView = self.rootView;
     [rootView fillWithUser:object];
     [rootView removeLoadingViewAnimated:NO];

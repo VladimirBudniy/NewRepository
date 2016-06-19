@@ -9,7 +9,6 @@
 #import "VBViewController.h"
 
 @class VBArrayModel;
-@class VBUser;
 
 @interface VBFriendsViewController : VBViewController
 @property (nonatomic, strong) VBArrayModel   *arrayModel;
