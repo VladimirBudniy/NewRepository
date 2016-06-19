@@ -14,7 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VBDataUser (CoreDataProperties)
-
 @property (nonatomic, strong) NSString *first_name;
 @property (nonatomic, strong) NSString *last_name;
 @property (nonatomic, strong) NSString *urlString;

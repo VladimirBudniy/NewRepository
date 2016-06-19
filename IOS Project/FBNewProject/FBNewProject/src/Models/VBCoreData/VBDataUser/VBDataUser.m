@@ -10,7 +10,6 @@
 
 static NSString * const kVBWasLoggedKey = @"wasLogged";
 static NSString * const kVBCachedKey    = @"cached";
-
 static NSString * const kVBFriendsKey   = @"friends";
 static NSString * const kVBNameSort     = @"first_name";
 
