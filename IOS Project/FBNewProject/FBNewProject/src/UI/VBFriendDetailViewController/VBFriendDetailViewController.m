@@ -35,7 +35,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 -(void)setUser:(VBUser *)user {
     [super setUser:user];
     
-    self.context = [[VBFriendContext alloc] initWithUser:self.user];
+    self.context = [[VBFriendContext alloc] initWithUser:user];
 }
 
 #pragma mark -
@@ -60,6 +60,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 #pragma mark Public
 
 - (void)successLoadObject:(VBUser *)object {
+    //        [object saveMangedObject];
     VBFriendDetailView *rootView = self.rootView;
     [rootView fillWithUser:object];
     [rootView removeLoadingViewAnimated:NO];

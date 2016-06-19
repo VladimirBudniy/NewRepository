@@ -95,7 +95,7 @@ static NSString * const kVBTokinKey                     = @"tokin";
 
 - (VBUser *)friendWithID:(NSString *)userID {
     for (VBUser *user in self.friends) {
-        if ([user containsFriendWithID:userID]) {
+        if ([user.userID isEqualToString:userID]) {
             
             return user;
         }

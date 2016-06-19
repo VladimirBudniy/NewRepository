@@ -17,7 +17,7 @@
 #import "VBUserContext.h"
 #import "VBConstants.h"
 
-#import "VBDataUser.h"
+//#import "VBDataUser.h"
 
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
@@ -47,8 +47,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     
-    if (self.user.isCached) {
-        VBUser *user = self.user;
+    if (user.isCached) {
         VBLoginView *rootView = self.rootView;
         [rootView fillWithUser:user];
         [rootView removeLoadingViewAnimated:YES];
@@ -64,6 +63,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     VBLoginView *rootView = self.rootView;
     [rootView fillWithUser:object];
     [rootView removeLoadingViewAnimated:YES];
+     //        [object saveMangedObject];
 }
 
 #pragma mark -
@@ -73,12 +73,8 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
     VBFriendsViewController * controller = [VBFriendsViewController new];
     
     VBUser *user = [VBUser user];
-    if (user) {
-        controller.user = user;
-    } else {
-        controller.user = self.user;
-    }
-
+    controller.user = user ? user : self.user;
+    
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -102,9 +98,10 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 //                                        if (user ......) {
 //                                            user.wasLogged = YES;
 //                                            self.user = user;
+//                                        } else {
+//                                            self.user = user
 //                                        }
 
-                                        
                                         VBUser *user = [[VBUser alloc] initWithUserID:result.token.userID];
                                         user.token = result.token;
                                         user.wasLogged = YES;

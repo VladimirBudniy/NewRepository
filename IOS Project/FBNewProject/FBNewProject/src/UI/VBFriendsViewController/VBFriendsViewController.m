@@ -41,10 +41,10 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 -(void)setUser:(VBUser *)user {
     [super setUser:user];
     
-    if (self.user.isCached) {
-        self.arrayModel = [VBArrayModel arrayModelWithArray:self.user.friends];
+    if (user.isCached) {
+        self.arrayModel = [VBArrayModel arrayModelWithArray:user.friends];
     } else {
-        self.context = [[VBFriendsContext alloc] initWithUser:self.user];
+        self.context = [[VBFriendsContext alloc] initWithUser:user];
     }
 }
 
@@ -72,6 +72,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 #pragma mark Public
 
 - (void)successLoadObject:(VBUser *)object {
+    //        [object saveMangedObject];
     self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends];
 }
 

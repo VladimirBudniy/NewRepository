@@ -23,6 +23,8 @@ static NSString * const kVBRightButtonName    = @"home.png";
 - (void)leftButtonWithImageName:(NSString *)name;
 - (void)rightButtonWithImageName:(NSString *)name;
 
+- (void)addHandlers;
+
 @end
 
 @implementation VBViewController
@@ -49,29 +51,18 @@ static NSString * const kVBRightButtonName    = @"home.png";
 - (void)setUser:(VBUser *)user {
     if (_user != user) {
         _user = user;
-        
-//        [_user saveMangedObject];
     }
 }
 
 - (void)setContext:(VBContext *)context {
     if (_context != context) {
+        [_context cancel];
         _context = context;
         
-        VBWeakSelfMacro;
-        [_context addHandler:^(id object) {
-            VBStrongSelfAndReturnNilMacro;
-            [strongSelf successLoadObject:object];
-        } forState:kVBModelLoadedState
-                      object:self];
-
-        [_context addHandler:^(id object) {
-            VBStrongSelfAndReturnNilMacro;
-            [strongSelf faildLoadObject:object];
-        } forState:kVBModelFailedState
-                      object:self];
-        
-        [_context load];
+        if (_context) {
+            [self addHandlers];
+            [_context load];
+        }
     }
 }
 
@@ -107,6 +98,21 @@ static NSString * const kVBRightButtonName    = @"home.png";
 
 #pragma mark -
 #pragma mark Private
+
+- (void)addHandlers {
+    VBWeakSelfMacro;
+    [_context addHandler:^(id object) {
+        VBStrongSelfAndReturnNilMacro;
+        [strongSelf successLoadObject:object];
+    } forState:kVBModelLoadedState
+                  object:self];
+    
+    [_context addHandler:^(id object) {
+        VBStrongSelfAndReturnNilMacro;
+        [strongSelf faildLoadObject:object];
+    } forState:kVBModelFailedState
+                  object:self];
+}
 
 - (void)leftButtonWithImageName:(NSString *)name {
     UIImage *leftImage = [UIImage imageNamed:name];
