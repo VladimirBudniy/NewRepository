@@ -14,8 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VBDataUser : VBManagedObject
-@property (nonatomic, assign, getter=isCached) BOOL    cached;
-@property (nonatomic, assign)                  BOOL    wasLogged;
+@property (nonatomic, assign, getter=isCached) BOOL     cached;
+@property (nonatomic, assign)                  BOOL     wasLogged;
+@property (nonatomic, strong)                  NSArray  *friendsArray;
 
 + (instancetype)findObjectLogged:(BOOL)logged;
 

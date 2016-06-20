@@ -11,12 +11,13 @@
 static NSString * const kVBWasLoggedKey = @"wasLogged";
 static NSString * const kVBCachedKey    = @"cached";
 static NSString * const kVBFriendsKey   = @"friends";
-static NSString * const kVBNameSort     = @"first_name";
+static NSString * const kVBFirstNameKey = @"first_name";
 
 @implementation VBDataUser
 
 @dynamic cached;
 @dynamic wasLogged;
+@dynamic friendsArray;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -29,6 +30,13 @@ static NSString * const kVBNameSort     = @"first_name";
 
 #pragma mark -
 #pragma mark Accessors
+
+- (NSArray *)friendsArray {
+    NSArray *array = self.friends.allObjects;
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:kVBFirstNameKey ascending:YES];
+    
+    return [array sortedArrayUsingDescriptors:@[sort]];
+}
 
 - (void)setWasLogged:(BOOL)wasLogged {
     NSNumber *number = [NSNumber numberWithBool:wasLogged];

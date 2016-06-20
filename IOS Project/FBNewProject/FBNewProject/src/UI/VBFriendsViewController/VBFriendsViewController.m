@@ -68,11 +68,11 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)successLoadObject:(VBDataUser *)object {
     [object saveManagedObject];
-    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends.allObjects];
+    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friendsArray];
 }
 
 - (void)faildLoadObject:(VBDataUser *)object {
-    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friends.allObjects];
+    self.arrayModel = [VBArrayModel arrayModelWithArray:object.friendsArray];
 }
 
 #pragma mark -
