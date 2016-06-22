@@ -77,13 +77,21 @@
 		E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F930791D09A16800926CCD /* VBFriendsArrayView.m */; };
 		E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */; };
 		E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */; };
+		E7F931AF1D1952B400F07514 /* VBImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F931AD1D1952B400F07514 /* VBImagesViewController.m */; };
+		E7F931B01D1952B400F07514 /* VBImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7F931AE1D1952B400F07514 /* VBImagesViewController.xib */; };
+		E7F931B41D19531400F07514 /* VBImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F931B31D19531400F07514 /* VBImagesView.m */; };
+		E7F931C01D1954B000F07514 /* VBDataImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F931BD1D1954B000F07514 /* VBDataImage+CoreDataProperties.m */; };
+		E7F931C11D1954B000F07514 /* VBDataImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F931BF1D1954B000F07514 /* VBDataImage.m */; };
+		E7F931C61D19632F00F07514 /* VBImagesContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F931C51D19632F00F07514 /* VBImagesContext.m */; };
 		E7F948021D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7F947F81D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld */; };
 		E7F948031D16E40C0013D774 /* VBDataUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F947FC1D16E40C0013D774 /* VBDataUser+CoreDataProperties.m */; };
 		E7F948041D16E40C0013D774 /* VBDataUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F947FE1D16E40C0013D774 /* VBDataUser.m */; };
 		E7F948051D16E40C0013D774 /* VBManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F948011D16E40C0013D774 /* VBManagedObject.m */; };
 		E7FBDD7C1D0D7D58001FBBA6 /* VBContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */; };
+		E7FDDD0E1D1AF0060079CC5C /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FDDD0D1D1AF0060079CC5C /* VBViewController.m */; };
+		E7FDDD191D1AF2F00079CC5C /* VBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FDDD171D1AF2F00079CC5C /* VBCollectionViewCell.m */; };
+		E7FDDD1A1D1AF2F00079CC5C /* VBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7FDDD181D1AF2F00079CC5C /* VBCollectionViewCell.xib */; };
 		E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */; };
-		E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99A91D0F2C7700B5734D /* VBViewController.m */; };
 		E7FE99AE1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */; };
 		E7FE99BB1D0F46F700B5734D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99B71D0F46F700B5734D /* home.png */; };
 		E7FE99BC1D0F46F700B5734D /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E7FE99B81D0F46F700B5734D /* left_arrow.png */; };
@@ -212,6 +220,17 @@
 		E7F9307C1D0A215600926CCD /* VBFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendDetailView.h; sourceTree = "<group>"; };
 		E7F9307D1D0A215600926CCD /* VBFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendDetailView.m; sourceTree = "<group>"; };
 		E7F9307F1D0A8AFE00926CCD /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E7F931AC1D1952B400F07514 /* VBImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBImagesViewController.h; sourceTree = "<group>"; };
+		E7F931AD1D1952B400F07514 /* VBImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBImagesViewController.m; sourceTree = "<group>"; };
+		E7F931AE1D1952B400F07514 /* VBImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBImagesViewController.xib; sourceTree = "<group>"; };
+		E7F931B21D19531400F07514 /* VBImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBImagesView.h; sourceTree = "<group>"; };
+		E7F931B31D19531400F07514 /* VBImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBImagesView.m; sourceTree = "<group>"; };
+		E7F931BC1D1954B000F07514 /* VBDataImage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBDataImage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E7F931BD1D1954B000F07514 /* VBDataImage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBDataImage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E7F931BE1D1954B000F07514 /* VBDataImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDataImage.h; sourceTree = "<group>"; };
+		E7F931BF1D1954B000F07514 /* VBDataImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDataImage.m; sourceTree = "<group>"; };
+		E7F931C41D19632F00F07514 /* VBImagesContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBImagesContext.h; sourceTree = "<group>"; };
+		E7F931C51D19632F00F07514 /* VBImagesContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBImagesContext.m; sourceTree = "<group>"; };
 		E7F947F91D16E40C0013D774 /* FBProjectCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBProjectCoreData.xcdatamodel; sourceTree = "<group>"; };
 		E7F947FB1D16E40C0013D774 /* VBDataUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBDataUser+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E7F947FC1D16E40C0013D774 /* VBDataUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBDataUser+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -221,11 +240,14 @@
 		E7F948011D16E40C0013D774 /* VBManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBManagedObject.m; sourceTree = "<group>"; };
 		E7FBDD7A1D0D7D58001FBBA6 /* VBContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBContext.h; sourceTree = "<group>"; };
 		E7FBDD7B1D0D7D58001FBBA6 /* VBContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBContext.m; sourceTree = "<group>"; };
+		E7FDDD0C1D1AF0060079CC5C /* VBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBViewController.h; sourceTree = "<group>"; };
+		E7FDDD0D1D1AF0060079CC5C /* VBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBViewController.m; sourceTree = "<group>"; };
+		E7FDDD161D1AF2F00079CC5C /* VBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCollectionViewCell.h; sourceTree = "<group>"; };
+		E7FDDD171D1AF2F00079CC5C /* VBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCollectionViewCell.m; sourceTree = "<group>"; };
+		E7FDDD181D1AF2F00079CC5C /* VBCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBCollectionViewCell.xib; sourceTree = "<group>"; };
 		E7FE1FBE1D0CA8DB002D59F2 /* user_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_login.png; sourceTree = "<group>"; };
 		E7FE1FC11D0CB43E002D59F2 /* VBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLibrary.h; sourceTree = "<group>"; };
 		E7FE1FC31D0CB4FA002D59F2 /* VBFBNewProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBFBNewProject-Prefix.pch"; sourceTree = "<group>"; };
-		E7FE99A81D0F2C7700B5734D /* VBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBViewController.h; sourceTree = "<group>"; };
-		E7FE99A91D0F2C7700B5734D /* VBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBViewController.m; sourceTree = "<group>"; };
 		E7FE99AC1D0F34D000B5734D /* UIBarButtonItem+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+VBCategory.h"; sourceTree = "<group>"; };
 		E7FE99AD1D0F34D000B5734D /* UIBarButtonItem+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+VBCategory.m"; sourceTree = "<group>"; };
 		E7FE99B71D0F46F700B5734D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -591,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				E7FBDD791D0D7D3F001FBBA6 /* VBContext */,
+				E7F931C31D19630300F07514 /* VBImagesContext */,
 				E77637081D107B3E009B8ACC /* VBFriendContext */,
 				E7F930651D09821D00926CCD /* VBFriendsContext */,
 				E7A1734A1D096D6D007843FF /* VBUserContext */,
@@ -610,7 +633,8 @@
 		E7A1731E1D0967E6007843FF /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E7FE99A71D0F2C4D00B5734D /* VBViewController */,
+				E7FDDD0B1D1AF0060079CC5C /* VBViewController */,
+				E7F931AB1D19528B00F07514 /* VBImagesViewController */,
 				E7A173231D096CBC007843FF /* VBFriendDetailViewController */,
 				E7A173271D096CBC007843FF /* VBFriendsViewController */,
 				E7A173321D096CBD007843FF /* VBLoginViewController */,
@@ -830,10 +854,52 @@
 			path = VBFriendDetailView;
 			sourceTree = "<group>";
 		};
+		E7F931AB1D19528B00F07514 /* VBImagesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDDD151D1AF2D90079CC5C /* VBCollectionViewCell */,
+				E7F931B11D1952CD00F07514 /* VBImagesView */,
+				E7F931AC1D1952B400F07514 /* VBImagesViewController.h */,
+				E7F931AD1D1952B400F07514 /* VBImagesViewController.m */,
+				E7F931AE1D1952B400F07514 /* VBImagesViewController.xib */,
+			);
+			path = VBImagesViewController;
+			sourceTree = "<group>";
+		};
+		E7F931B11D1952CD00F07514 /* VBImagesView */ = {
+			isa = PBXGroup;
+			children = (
+				E7F931B21D19531400F07514 /* VBImagesView.h */,
+				E7F931B31D19531400F07514 /* VBImagesView.m */,
+			);
+			path = VBImagesView;
+			sourceTree = "<group>";
+		};
+		E7F931B51D19535100F07514 /* VBDataImage */ = {
+			isa = PBXGroup;
+			children = (
+				E7F931BC1D1954B000F07514 /* VBDataImage+CoreDataProperties.h */,
+				E7F931BD1D1954B000F07514 /* VBDataImage+CoreDataProperties.m */,
+				E7F931BE1D1954B000F07514 /* VBDataImage.h */,
+				E7F931BF1D1954B000F07514 /* VBDataImage.m */,
+			);
+			path = VBDataImage;
+			sourceTree = "<group>";
+		};
+		E7F931C31D19630300F07514 /* VBImagesContext */ = {
+			isa = PBXGroup;
+			children = (
+				E7F931C41D19632F00F07514 /* VBImagesContext.h */,
+				E7F931C51D19632F00F07514 /* VBImagesContext.m */,
+			);
+			path = VBImagesContext;
+			sourceTree = "<group>";
+		};
 		E7F947F71D16E40C0013D774 /* VBCoreData */ = {
 			isa = PBXGroup;
 			children = (
 				E7F947F81D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld */,
+				E7F931B51D19535100F07514 /* VBDataImage */,
 				E7F947FA1D16E40C0013D774 /* VBDataUser */,
 				E7F947FF1D16E40C0013D774 /* VBManagedObject */,
 			);
@@ -869,13 +935,23 @@
 			path = VBContext;
 			sourceTree = "<group>";
 		};
-		E7FE99A71D0F2C4D00B5734D /* VBViewController */ = {
+		E7FDDD0B1D1AF0060079CC5C /* VBViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E7FE99A81D0F2C7700B5734D /* VBViewController.h */,
-				E7FE99A91D0F2C7700B5734D /* VBViewController.m */,
+				E7FDDD0C1D1AF0060079CC5C /* VBViewController.h */,
+				E7FDDD0D1D1AF0060079CC5C /* VBViewController.m */,
 			);
 			path = VBViewController;
+			sourceTree = "<group>";
+		};
+		E7FDDD151D1AF2D90079CC5C /* VBCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDDD161D1AF2F00079CC5C /* VBCollectionViewCell.h */,
+				E7FDDD171D1AF2F00079CC5C /* VBCollectionViewCell.m */,
+				E7FDDD181D1AF2F00079CC5C /* VBCollectionViewCell.xib */,
+			);
+			path = VBCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		E7FE99AB1D0F34A200B5734D /* UIBarButtonItem+VBCategory */ = {
@@ -955,12 +1031,14 @@
 				E7FE1FBF1D0CA8DB002D59F2 /* user_login.png in Resources */,
 				E7A1733F1D096CBD007843FF /* VBTableViewCell.xib in Resources */,
 				E7A173181D0967D5007843FF /* project.logo.58.png in Resources */,
+				E7FDDD1A1D1AF2F00079CC5C /* VBCollectionViewCell.xib in Resources */,
 				E7A173151D0967D5007843FF /* folder.png in Resources */,
 				E7F930801D0A8AFE00926CCD /* iOS Study Plan.txt in Resources */,
 				E7A173171D0967D5007843FF /* project.logo.180.png in Resources */,
 				E7A173421D096CBD007843FF /* VBLoginViewController.xib in Resources */,
 				E7FE99BC1D0F46F700B5734D /* left_arrow.png in Resources */,
 				E7A1733A1D096CBD007843FF /* VBFriendDetailViewController.xib in Resources */,
+				E7F931B01D1952B400F07514 /* VBImagesViewController.xib in Resources */,
 				E7A173121D0967D5007843FF /* facebook_logo.58.png in Resources */,
 				E7A173191D0967D5007843FF /* project.logo.80.png in Resources */,
 				E7A173131D0967D5007843FF /* facebook_logo.80.png in Resources */,
@@ -1036,6 +1114,7 @@
 				E7A1730E1D0967D5007843FF /* VBObserverStateObject.m in Sources */,
 				E7A173071D0967D5007843FF /* VBRangeAlphabet.m in Sources */,
 				E7F9307A1D09A16800926CCD /* VBFriendsArrayView.m in Sources */,
+				E7F931C01D1954B000F07514 /* VBDataImage+CoreDataProperties.m in Sources */,
 				E7A173041D0967D5007843FF /* UIViewController+VBCategory.m in Sources */,
 				E7A173401D096CBD007843FF /* VBLoginView.m in Sources */,
 				E7F9307E1D0A215600926CCD /* VBFriendDetailView.m in Sources */,
@@ -1050,6 +1129,7 @@
 				E7F948021D16E40C0013D774 /* FBProjectCoreData.xcdatamodeld in Sources */,
 				E7A173221D096C51007843FF /* VBAppDelegate.m in Sources */,
 				E7A172FD1D0967D5007843FF /* NSFileManager+VBCategory.m in Sources */,
+				E7F931AF1D1952B400F07514 /* VBImagesViewController.m in Sources */,
 				E7A172FF1D0967D5007843FF /* NSString+VBCategory.m in Sources */,
 				E7A1733E1D096CBD007843FF /* VBTableViewCell.m in Sources */,
 				E7A173031D0967D5007843FF /* UIView+VBCategory.m in Sources */,
@@ -1060,21 +1140,25 @@
 				E7A173001D0967D5007843FF /* UIImage+VBCategory.m in Sources */,
 				E7A1734E1D096D6D007843FF /* VBUserContext.m in Sources */,
 				E7A173681D096FAA007843FF /* VBImageModel.m in Sources */,
-				E7FE99AA1D0F2C7700B5734D /* VBViewController.m in Sources */,
 				E7F948031D16E40C0013D774 /* VBDataUser+CoreDataProperties.m in Sources */,
 				E7A1737C1D09705D007843FF /* VBSaveArrayModel.m in Sources */,
+				E7F931C61D19632F00F07514 /* VBImagesContext.m in Sources */,
 				E7A1736D1D096FAA007843FF /* VBViewModel.m in Sources */,
 				E7A173011D0967D5007843FF /* UINib+VBCategory.m in Sources */,
 				E7A173061D0967D5007843FF /* VBArrayAlphabet.m in Sources */,
 				E7A172FB1D0967D5007843FF /* CGGeometry+VBCategory.m in Sources */,
 				E7F930681D09821D00926CCD /* VBFriendsContext.m in Sources */,
+				E7FDDD0E1D1AF0060079CC5C /* VBViewController.m in Sources */,
 				E7A173411D096CBD007843FF /* VBLoginViewController.m in Sources */,
 				E7A1737D1D09705D007843FF /* VBModel.m in Sources */,
 				E7A172FE1D0967D5007843FF /* NSObject+VBCategory.m in Sources */,
+				E7F931B41D19531400F07514 /* VBImagesView.m in Sources */,
+				E7FDDD191D1AF2F00079CC5C /* VBCollectionViewCell.m in Sources */,
 				E7A1730C1D0967D5007843FF /* VBObserverArray.m in Sources */,
 				E7A173391D096CBD007843FF /* VBFriendDetailViewController.m in Sources */,
 				E7A1737E1D09705D007843FF /* VBStateModel.m in Sources */,
 				E7A1736B1D096FAA007843FF /* VBLoadingView.m in Sources */,
+				E7F931C11D1954B000F07514 /* VBDataImage.m in Sources */,
 				E7A173051D0967D5007843FF /* UIWindow+VBCategory.m in Sources */,
 				E7A1737B1D09705D007843FF /* VBArrayModel.m in Sources */,
 				E7A1733C1D096CBD007843FF /* VBFriendsViewController.m in Sources */,

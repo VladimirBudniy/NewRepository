@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
 @property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;
 
+@property (nonatomic, strong) IBOutlet UIButton    *userPhotos;
+
 - (void)fillWithUser:(VBDataUser *)user;
 
 @end

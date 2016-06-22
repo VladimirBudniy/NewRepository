@@ -58,16 +58,13 @@ VBRootViewAndReturnIfNilMacro(VBFriendsArrayView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (!self.user.isCached) {
-        [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    }
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Public
 
 - (void)successLoadObject:(VBDataUser *)object {
-    [object saveManagedObject];
     self.arrayModel = [VBArrayModel arrayModelWithArray:object.friendsArray];
 }
 

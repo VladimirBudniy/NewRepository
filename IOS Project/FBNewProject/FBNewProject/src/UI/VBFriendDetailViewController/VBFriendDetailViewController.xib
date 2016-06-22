@@ -55,6 +55,16 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKm-Jd-KXP">
+                    <rect key="frame" x="70" y="475" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Q8H-1B-T38"/>
+                    </constraints>
+                    <state key="normal" title="User's photos"/>
+                    <connections>
+                        <action selector="onClickPhotosButton:" destination="-1" eventType="touchUpInside" id="yfr-Lf-YGj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -62,6 +72,8 @@
                 <constraint firstAttribute="bottom" secondItem="9kX-kw-pAh" secondAttribute="bottom" id="7KU-4r-GYN"/>
                 <constraint firstItem="QWY-jq-q1R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="AEn-76-jbZ"/>
                 <constraint firstAttribute="trailing" secondItem="9kX-kw-pAh" secondAttribute="trailing" id="Btf-jW-g1R"/>
+                <constraint firstAttribute="bottom" secondItem="TKm-Jd-KXP" secondAttribute="bottom" constant="63" id="DZo-Ge-ki6"/>
+                <constraint firstAttribute="trailing" secondItem="TKm-Jd-KXP" secondAttribute="trailing" constant="70" id="Dsm-x9-ELF"/>
                 <constraint firstItem="lDl-vs-MhY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="QA4-rh-aIL"/>
                 <constraint firstItem="R9f-GN-z2Z" firstAttribute="top" secondItem="lDl-vs-MhY" secondAttribute="bottom" constant="8" id="RVi-Rp-zB1"/>
                 <constraint firstItem="QWY-jq-q1R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="aoe-Uu-MOD"/>
@@ -73,6 +85,7 @@
                 <constraint firstItem="lDl-vs-MhY" firstAttribute="top" secondItem="cAG-7M-U9p" secondAttribute="bottom" constant="8" id="qQn-AB-dWU"/>
                 <constraint firstItem="9kX-kw-pAh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s1b-wo-li8"/>
                 <constraint firstItem="cAG-7M-U9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tjm-2L-iju"/>
+                <constraint firstItem="TKm-Jd-KXP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="yOH-jJ-eRF"/>
                 <constraint firstAttribute="trailing" secondItem="R9f-GN-z2Z" secondAttribute="trailing" constant="8" id="yTc-vf-xK9"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -81,6 +94,7 @@
                 <outlet property="userGender" destination="lDl-vs-MhY" id="GOU-Hu-5E2"/>
                 <outlet property="userImage" destination="QWY-jq-q1R" id="dG1-vp-mga"/>
                 <outlet property="userName" destination="cAG-7M-U9p" id="e5F-Sg-V0f"/>
+                <outlet property="userPhotos" destination="TKm-Jd-KXP" id="DVo-G2-LWT"/>
             </connections>
             <point key="canvasLocation" x="278" y="167"/>
         </view>

@@ -21,6 +21,8 @@
 @interface VBLoginViewController ()
 @property (nonatomic, readonly) VBLoginView        *rootView;
 
+- (void)showViewWithUserData:(VBDataUser *)user;
+
 @end
 
 @implementation VBLoginViewController
@@ -52,16 +54,19 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 #pragma mark Public
 
 - (void)successLoadObject:(VBDataUser *)object {
-    VBLoginView *rootView = self.rootView;
-    [rootView fillWithUser:object];
-    object.cached = YES;
-    [object saveManagedObject];
-    [rootView removeLoadingViewAnimated:YES];
+    [self showViewWithUserData:object];
 }
 
 - (void)faildLoadObject:(VBDataUser *)object {
+    [self showViewWithUserData:object];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)showViewWithUserData:(VBDataUser *)user {
     VBLoginView *rootView = self.rootView;
-    [rootView fillWithUser:object];
+    [rootView fillWithUser:user];
     [rootView removeLoadingViewAnimated:YES];
 }
 
@@ -70,9 +75,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 
 - (IBAction)onClickFriendsButton:(id)sender {
     VBFriendsViewController * controller = [VBFriendsViewController new];
-    
-    VBDataUser *user = [VBDataUser findObjectWithID:self.user.ID];
-    controller.user = user ? user : self.user;
+    controller.user = self.user;
     
     [self.navigationController pushViewController:controller animated:YES];
 }
@@ -83,7 +86,7 @@ VBRootViewAndReturnIfNilMacro(VBLoginView);
 }
 
 - (IBAction)onClickLoginButton:(id)sender {
-    VBDataUser *user = [VBDataUser findObjectLogged:YES];
+    VBDataUser *user = [VBDataUser findLoggedObject];
     if (user) {
         self.user = user;
     } else {

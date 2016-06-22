@@ -8,22 +8,22 @@
 
 #import "VBDataUser.h"
 
-static NSString * const kVBWasLoggedKey = @"wasLogged";
-static NSString * const kVBCachedKey    = @"cached";
-static NSString * const kVBFriendsKey   = @"friends";
-static NSString * const kVBFirstNameKey = @"first_name";
+static NSString * const kVBWasLoggedKey    = @"wasLogged";
+static NSString * const kVBCachedKey       = @"cached";
+static NSString * const kVBFriendsKey      = @"friends";
+static NSString * const kVBFirstNameKey    = @"first_name";
 
 @implementation VBDataUser
 
-@dynamic cached;
 @dynamic wasLogged;
 @dynamic friendsArray;
+@dynamic imagesArray;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)findObjectLogged:(BOOL)logged {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %lu", kVBWasLoggedKey, logged];
++ (instancetype)findLoggedObject {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = YES", kVBWasLoggedKey];
     
     return [[[self class] fetchEntityWithSortDescriptors:nil predicate:predicate prefetchPaths:nil] firstObject];
 }
@@ -38,6 +38,10 @@ static NSString * const kVBFirstNameKey = @"first_name";
     return [array sortedArrayUsingDescriptors:@[sort]];
 }
 
+- (NSArray *)imagesArray {
+    return self.images.allObjects;
+}
+
 - (void)setWasLogged:(BOOL)wasLogged {
     NSNumber *number = [NSNumber numberWithBool:wasLogged];
     
@@ -46,18 +50,6 @@ static NSString * const kVBFirstNameKey = @"first_name";
 
 - (BOOL)wasLogged {
     NSNumber *number = [self customValueForKey:kVBWasLoggedKey];
-    
-    return [number boolValue];
-}
-
-- (void)setCached:(BOOL)cached {
-    NSNumber *number = [NSNumber numberWithBool:cached];
-    
-    [self setCustomValue:number forKey:kVBCachedKey];
-}
-
-- (BOOL)isCached {
-    NSNumber *number = [self customValueForKey:kVBCachedKey];
     
     return [number boolValue];
 }

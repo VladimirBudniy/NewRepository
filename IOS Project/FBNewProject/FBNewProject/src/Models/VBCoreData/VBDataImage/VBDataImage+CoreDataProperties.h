@@ -1,5 +1,5 @@
 //
-//  VBDataUser+CoreDataProperties.m
+//  VBDataImage+CoreDataProperties.h
 //  FBNewProject
 //
 //  Created by Vladimir Budniy on 21.06.16.
@@ -9,17 +9,15 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "VBDataUser+CoreDataProperties.h"
+#import "VBDataImage.h"
 
-@implementation VBDataUser (CoreDataProperties)
+NS_ASSUME_NONNULL_BEGIN
 
-@dynamic first_name;
-@dynamic friendsCount;
-@dynamic last_name;
-@dynamic urlString;
-@dynamic userEmail;
-@dynamic userGender;
-@dynamic friends;
-@dynamic images;
+@interface VBDataImage (CoreDataProperties)
+
+@property (nonatomic, strong) NSString   *urlString;
+@property (nonatomic, strong) VBDataUser *user;
 
 @end
+
+NS_ASSUME_NONNULL_END

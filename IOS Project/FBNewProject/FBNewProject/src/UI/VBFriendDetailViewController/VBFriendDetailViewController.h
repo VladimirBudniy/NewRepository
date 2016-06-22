@@ -10,4 +10,6 @@
 
 @interface VBFriendDetailViewController : VBViewController
 
+- (IBAction)onClickPhotosButton:(id)sender;
+
 @end

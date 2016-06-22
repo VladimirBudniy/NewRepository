@@ -28,6 +28,7 @@
     user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.ID];
     user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
     
+    [user saveManagedObject];
     return user;
 }
 

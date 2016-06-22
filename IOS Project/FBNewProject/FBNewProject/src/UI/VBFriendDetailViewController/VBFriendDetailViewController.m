@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "VBFriendDetailViewController.h"
+#import "VBImagesViewController.h"
 #import "VBFriendDetailView.h"
 #import "VBFriendContext.h"
 #import "VBDataUser.h"
@@ -18,6 +19,8 @@ static NSString * const kVBNavigationItemText = @"Friend";
 
 @interface VBFriendDetailViewController ()
 @property (nonatomic, readonly) VBFriendDetailView     *rootView;
+
+- (void)showViewWithUserData:(VBDataUser *)user;
 
 @end
 
@@ -50,16 +53,30 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 #pragma mark Public
 
 - (void)successLoadObject:(VBDataUser *)object {
-    [object saveManagedObject];
-    VBFriendDetailView *rootView = self.rootView;
-    [rootView fillWithUser:object];
-    [rootView removeLoadingViewAnimated:NO];
+    [self showViewWithUserData:object];
 }
 
 - (void)faildLoadObject:(VBDataUser *)object {
+    [self showViewWithUserData:object];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)showViewWithUserData:(VBDataUser *)user {
     VBFriendDetailView *rootView = self.rootView;
-    [rootView fillWithUser:object];
+    [rootView fillWithUser:user];
     [rootView removeLoadingViewAnimated:NO];
+}
+
+#pragma mark -
+#pragma mark Handling Interface
+
+- (IBAction)onClickPhotosButton:(id)sender {
+    VBImagesViewController * controller = [VBImagesViewController new];
+    controller.user = self.user;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

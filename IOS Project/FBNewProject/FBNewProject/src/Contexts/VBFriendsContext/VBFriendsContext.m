@@ -41,6 +41,7 @@
     NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
     NSArray *friends = [NSArray arrayWithArray:[self fillWithObject:array]];
     [user addFriendsArray:friends];
+    [user saveManagedObject];
     [self setState:kVBModelLoadedState withObject:user];
 }
 

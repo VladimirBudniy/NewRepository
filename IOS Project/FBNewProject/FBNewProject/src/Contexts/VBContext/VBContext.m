@@ -43,7 +43,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (VBDataUser *)fillWithObject:(NSDictionary *)dictionary {
+- (VBDataUser *)fillWithObject:(id)object {
     VBDataUser *user = self.user;
     
     return user;

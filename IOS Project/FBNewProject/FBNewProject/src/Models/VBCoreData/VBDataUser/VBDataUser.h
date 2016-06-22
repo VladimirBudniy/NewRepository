@@ -14,11 +14,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VBDataUser : VBManagedObject
-@property (nonatomic, assign, getter=isCached) BOOL     cached;
-@property (nonatomic, assign)                  BOOL     wasLogged;
-@property (nonatomic, strong)                  NSArray  *friendsArray;
+@property (nonatomic, assign) BOOL     wasLogged;
+@property (nonatomic, strong) NSArray  *friendsArray;
+@property (nonatomic, strong) NSArray  *imagesArray;
 
-+ (instancetype)findObjectLogged:(BOOL)logged;
++ (instancetype)findLoggedObject;
 
 - (void)addFriendsArray:(NSArray *)friends;
 - (void)removeFriendsArray:(NSArray *)friends;
