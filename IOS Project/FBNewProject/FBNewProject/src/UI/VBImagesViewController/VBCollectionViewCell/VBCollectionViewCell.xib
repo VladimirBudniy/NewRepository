@@ -13,21 +13,28 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHR-3l-5GV" customClass="VBImageView">
+                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="8dI-8o-0hB">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHR-3l-5GV" customClass="VBImageView">
+                                <rect key="frame" x="5" y="5" width="140" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="XHR-3l-5GV" secondAttribute="trailing" id="1Xo-9V-Zh3"/>
-                <constraint firstItem="XHR-3l-5GV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DzH-Vf-apT"/>
-                <constraint firstItem="XHR-3l-5GV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IWf-UQ-ikQ"/>
-                <constraint firstAttribute="bottom" secondItem="XHR-3l-5GV" secondAttribute="bottom" id="K2w-qi-kdP"/>
+                <constraint firstItem="8dI-8o-0hB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UB3-4C-1Hh"/>
+                <constraint firstItem="8dI-8o-0hB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gbH-48-HMd"/>
+                <constraint firstAttribute="trailing" secondItem="8dI-8o-0hB" secondAttribute="trailing" id="nvl-9h-3xT"/>
+                <constraint firstAttribute="bottom" secondItem="8dI-8o-0hB" secondAttribute="bottom" id="rHa-A2-hY2"/>
             </constraints>
             <connections>
                 <outlet property="cellImage" destination="XHR-3l-5GV" id="qHl-9p-Ixz"/>
+                <outlet property="cellView" destination="8dI-8o-0hB" id="sMb-Ey-97I"/>
             </connections>
             <point key="canvasLocation" x="228" y="231"/>
         </collectionViewCell>

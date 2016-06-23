@@ -47,7 +47,9 @@ static NSString * const kVBCountText  = @"friends count";
     self.userFriendsCount.textColor = [UIColor lightGrayColor];
     self.userFriendsCount.text = kVBCountText;
     self.friendsButton.alpha = 0;
+    self.loginView.alpha = 1;
     self.loginButton.alpha = 1;
+    self.logoutView.alpha = 0;
     self.logoutButton.alpha = 0;
 }
 
@@ -62,7 +64,9 @@ static NSString * const kVBCountText  = @"friends count";
     self.userFriendsCount.textColor = [UIColor blackColor];
     self.friendsButton.alpha = 1;
     [self.friendsButton roundCornerRadius:5 borderColor:[UIColor blueColor] borderWidth:0.7];
+    self.loginView.alpha = 0;
     self.loginButton.alpha = 0;
+    self.logoutView.alpha = 1;
     self.logoutButton.alpha = 1;
 }
 

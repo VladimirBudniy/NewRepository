@@ -10,7 +10,7 @@
 
 @class VBArrayModel;
 
-@interface VBImagesViewController : VBViewController
+@interface VBImagesViewController : VBViewController <UICollectionViewDelegate>
 @property (nonatomic, strong) VBArrayModel   *arrayModel;
 
 @end

@@ -56,10 +56,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKm-Jd-KXP">
-                    <rect key="frame" x="70" y="475" width="180" height="30"/>
+                    <rect key="frame" x="91" y="500" width="138" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Q8H-1B-T38"/>
+                        <constraint firstAttribute="height" constant="20" id="Q8H-1B-T38"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="User's photos"/>
                     <connections>
                         <action selector="onClickPhotosButton:" destination="-1" eventType="touchUpInside" id="yfr-Lf-YGj"/>
@@ -72,10 +73,11 @@
                 <constraint firstAttribute="bottom" secondItem="9kX-kw-pAh" secondAttribute="bottom" id="7KU-4r-GYN"/>
                 <constraint firstItem="QWY-jq-q1R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="AEn-76-jbZ"/>
                 <constraint firstAttribute="trailing" secondItem="9kX-kw-pAh" secondAttribute="trailing" id="Btf-jW-g1R"/>
-                <constraint firstAttribute="bottom" secondItem="TKm-Jd-KXP" secondAttribute="bottom" constant="63" id="DZo-Ge-ki6"/>
-                <constraint firstAttribute="trailing" secondItem="TKm-Jd-KXP" secondAttribute="trailing" constant="70" id="Dsm-x9-ELF"/>
+                <constraint firstItem="TKm-Jd-KXP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="91" id="JVz-tR-qdk"/>
+                <constraint firstAttribute="trailing" secondItem="TKm-Jd-KXP" secondAttribute="trailing" constant="91" id="Jkw-rR-eLO"/>
                 <constraint firstItem="lDl-vs-MhY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="QA4-rh-aIL"/>
                 <constraint firstItem="R9f-GN-z2Z" firstAttribute="top" secondItem="lDl-vs-MhY" secondAttribute="bottom" constant="8" id="RVi-Rp-zB1"/>
+                <constraint firstAttribute="bottom" secondItem="TKm-Jd-KXP" secondAttribute="bottom" constant="48" id="ZLc-Pz-VIH"/>
                 <constraint firstItem="QWY-jq-q1R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="aoe-Uu-MOD"/>
                 <constraint firstItem="R9f-GN-z2Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="cxJ-YU-suC"/>
                 <constraint firstItem="cAG-7M-U9p" firstAttribute="top" secondItem="QWY-jq-q1R" secondAttribute="bottom" constant="8" id="iCG-Un-NZz"/>
@@ -85,7 +87,6 @@
                 <constraint firstItem="lDl-vs-MhY" firstAttribute="top" secondItem="cAG-7M-U9p" secondAttribute="bottom" constant="8" id="qQn-AB-dWU"/>
                 <constraint firstItem="9kX-kw-pAh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s1b-wo-li8"/>
                 <constraint firstItem="cAG-7M-U9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tjm-2L-iju"/>
-                <constraint firstItem="TKm-Jd-KXP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="yOH-jJ-eRF"/>
                 <constraint firstAttribute="trailing" secondItem="R9f-GN-z2Z" secondAttribute="trailing" constant="8" id="yTc-vf-xK9"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

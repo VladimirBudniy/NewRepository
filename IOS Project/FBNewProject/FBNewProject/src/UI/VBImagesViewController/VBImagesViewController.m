@@ -53,9 +53,9 @@ VBRootViewAndReturnIfNilMacro(VBImagesView);
     [super viewDidLoad];
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     
-    [self.rootView.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([VBCollectionViewCell class])
-                                                             bundle:nil]
-                   forCellWithReuseIdentifier:NSStringFromClass([VBCollectionViewCell class])];
+    NSString *className = NSStringFromClass([VBCollectionViewCell class]);
+    [self.rootView.collectionView registerNib:[UINib nibWithNibName:className bundle:nil]
+                   forCellWithReuseIdentifier:className];
 }
 
 #pragma mark - 
@@ -70,7 +70,7 @@ VBRootViewAndReturnIfNilMacro(VBImagesView);
 }
 
 #pragma mark -
-#pragma mark UICollectionView Data Source
+#pragma mark UICollectionViewDelegate Protocol
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
@@ -81,10 +81,16 @@ VBRootViewAndReturnIfNilMacro(VBImagesView);
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    VBCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([VBCollectionViewCell class]) forIndexPath:indexPath];
+    NSString *className = NSStringFromClass([VBCollectionViewCell class]);
+    VBCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:className
+                                                                           forIndexPath:indexPath];
     [cell fillWithModel:self.arrayModel[indexPath.row]];
     
     return cell;
 }
+
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
 
 @end

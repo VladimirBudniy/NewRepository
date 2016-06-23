@@ -46,6 +46,7 @@ VBRootViewAndReturnIfNilMacro(VBFriendDetailView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 

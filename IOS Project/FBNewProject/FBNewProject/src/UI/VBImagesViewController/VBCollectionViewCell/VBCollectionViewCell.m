@@ -16,6 +16,7 @@
 #pragma mark Public
 
 - (void)fillWithModel:(VBDataUser *)user {
+    [self.cellView roundCornerRadius:2 borderColor:[UIColor blackColor] borderWidth:0.5];
     self.cellImage.URL = [NSURL URLWithString:user.urlString];
 }
 

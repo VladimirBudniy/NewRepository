@@ -18,10 +18,14 @@
 @property (nonatomic, strong) IBOutlet UIButton  *logoutButton;
 
 @property (nonatomic, strong) IBOutlet VBImageView *userImage;
-@property (nonatomic, strong) IBOutlet VBImageView *loginImage;
+@property (nonatomic, strong) IBOutlet UIImageView *loginImage;
 @property (nonatomic, strong) IBOutlet UILabel     *userName;
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
 @property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;
+
+@property (nonatomic, strong) IBOutlet UIView *loginView;
+@property (nonatomic, strong) IBOutlet UIView *logoutView;
+
 
 - (void)fillWithUser:(VBDataUser *)user;
 - (void)showLoginView;

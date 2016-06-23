@@ -17,6 +17,7 @@
 #pragma mark Public
 
 - (void)fillWithUser:(VBDataUser *)user {
+    [self.userPhotos roundCornerRadius:5 borderColor:[UIColor blueColor] borderWidth:0.7];
     NSString *name = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
     self.userName.text = name;
     self.userGender.text = [NSString stringWithFormat:kVBGenderLabelText, user.userGender];
