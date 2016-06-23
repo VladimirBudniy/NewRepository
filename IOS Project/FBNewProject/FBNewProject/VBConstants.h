@@ -24,22 +24,24 @@ static NSString * const kVBTotal_countKey           = @"total_count";
 
 static NSString * const kVBHTTPGetMethod            = @"GET";
 static NSString * const kVBPictureURLPathKey        = @"picture.data.url";
-static NSString * const kVBFriendsKeyPathKey        = @"friends.data";
+static NSString * const kVBFriendsKeyPath           = @"friends.data";
+static NSString * const kVBFriendsCountKeyPath      = @"friends.summary.total_count";
 
-static NSString * const kVBFriendsCountKeyPathKey   = @"friends.summary.total_count";
+static NSString * const kVBUserAlbumsKeyPath        = @"albums.data";
+static NSString * const kVBUserPhotosKeyPath        = @"photos.data";
+
 static NSString * const kVBLargeImageURL            = @"https://graph.facebook.com/%@/picture?type=large";
 
 //user details view constans
 static NSString * const kVBGenderLabelText       = @"gender - %@";
 static NSString * const kVBFriendCountLabelText  = @"friends count  - %@";
 
-//context pequest parameters
+//context request parameters
 #define kVBRequestUserParameters @{@"fields": @"id,first_name,last_name,gender,friends"}
 #define kVBRequestFriendParameters @{@"fields": @"gender,friends"}
 #define kVBRequestFriendsParameters @{@"fields": @"friends{id,first_name,last_name,picture}"}
+#define kVBRequestImagesParameters @{@"fields": @"albums{photo_count,photos{picture}}"}
 
-#define kVBRequestImagesParameters @{@"fields": @"albums"}
-
-#define kVBFacebookPermissions @[@"public_profile", @"user_friends"]
+#define kVBFacebookPermissions @[@"public_profile", @"user_friends", @"user_photos"]
 
 #endif /* VBConstants_h */

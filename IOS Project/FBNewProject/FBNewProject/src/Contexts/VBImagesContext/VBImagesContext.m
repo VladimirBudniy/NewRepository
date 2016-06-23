@@ -7,6 +7,7 @@
 //
 
 #import "VBImagesContext.h"
+#import "VBDataImage.h"
 
 @implementation VBImagesContext
 
@@ -20,21 +21,26 @@
 #pragma mark -
 #pragma mark Public
 
-- (NSArray *)fillWithObject:(NSDictionary *)dictionary {
-    NSMutableArray *array = [NSMutableArray array];
-
+- (NSArray *)fillWithObject:(NSArray *)arrayDictionary {
+    NSMutableArray *images = [NSMutableArray array];
+    for (NSDictionary *album in arrayDictionary) {
+        NSArray *photos = [album valueForKeyPath:kVBUserPhotosKeyPath];
+        for (NSDictionary *photoDictionary in photos) {
+            NSString *ID = [photoDictionary valueForKey:kVBIDKey];
+            VBDataImage *dataImage = [VBDataImage objectWithID:ID];
+            dataImage.urlString = [photoDictionary valueForKey:kVBPictureKey];
+            
+            [images addObject:dataImage];
+        }
+    }
     
-    
-    return array;
+     return images;
 }
 
 - (void)performWorkWithResult:(NSDictionary *)result {
     VBDataUser *user = self.user;
-//    NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];  ????? key !!!!!!
-//    NSArray *friends = [NSArray arrayWithArray:[self fillWithObject:array]];
-//    [user addFriendsArray:friends];
-//    [user saveManagedObject];
-    
+    NSArray *array = [result valueForKeyPath:kVBUserAlbumsKeyPath];
+    user.images = [NSSet setWithArray:[self fillWithObject:array]];
     [self setState:kVBModelLoadedState withObject:user];
 }
 

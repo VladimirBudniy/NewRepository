@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *userEmail;
 @property (nonatomic, strong) NSString *userGender;
 
-@property (nonatomic, strong) NSNumber            *friendsCount;
-@property (nonatomic, strong) NSSet<VBDataUser *> *friends;
+@property (nonatomic, strong) NSNumber             *friendsCount;
+@property (nonatomic, strong) NSSet<VBDataUser *>  *friends;
 @property (nonatomic, strong) NSSet<VBDataImage *> *images;
 
 @end

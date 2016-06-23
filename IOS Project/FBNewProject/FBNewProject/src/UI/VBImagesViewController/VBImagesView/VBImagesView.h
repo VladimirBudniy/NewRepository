@@ -11,7 +11,7 @@
 @class VBDataUser;
 
 @interface VBImagesView : VBViewModel
-@property (nonatomic, strong) IBOutlet UICollectionView *collection;
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 
 - (void)fillWithUser:(VBDataUser *)user;
 

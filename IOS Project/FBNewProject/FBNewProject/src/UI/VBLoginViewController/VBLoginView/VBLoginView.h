@@ -18,7 +18,7 @@
 @property (nonatomic, strong) IBOutlet UIButton  *logoutButton;
 
 @property (nonatomic, strong) IBOutlet VBImageView *userImage;
-@property (nonatomic, strong) IBOutlet UIImageView *loginImage;
+@property (nonatomic, strong) IBOutlet VBImageView *loginImage;
 @property (nonatomic, strong) IBOutlet UILabel     *userName;
 @property (nonatomic, strong) IBOutlet UILabel     *userGender;
 @property (nonatomic, strong) IBOutlet UILabel     *userFriendsCount;

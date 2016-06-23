@@ -36,15 +36,26 @@ VBRootViewAndReturnIfNilMacro(VBImagesView);
     self.context = [[VBImagesContext alloc] initWithUser:user];
 }
 
+- (void)setArrayModel:(VBArrayModel *)arrayModel {
+    if (_arrayModel != arrayModel) {
+        _arrayModel = arrayModel;
+        
+        VBImagesView *rootView = self.rootView;
+        [rootView removeLoadingViewAnimated:YES];
+        [rootView.collectionView reloadData];
+    }
+}
+
 #pragma mark -
 #pragma mark View LifeCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    
+    [self.rootView.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([VBCollectionViewCell class])
+                                                             bundle:nil]
+                   forCellWithReuseIdentifier:NSStringFromClass([VBCollectionViewCell class])];
 }
 
 #pragma mark - 
@@ -61,13 +72,15 @@ VBRootViewAndReturnIfNilMacro(VBImagesView);
 #pragma mark -
 #pragma mark UICollectionView Data Source
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
-    return self.arrayModel.count;;
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section
+{
+    return self.arrayModel.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     VBCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([VBCollectionViewCell class]) forIndexPath:indexPath];
     [cell fillWithModel:self.arrayModel[indexPath.row]];
     

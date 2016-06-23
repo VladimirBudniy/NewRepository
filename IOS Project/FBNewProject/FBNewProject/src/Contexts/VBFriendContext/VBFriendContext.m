@@ -24,7 +24,7 @@
     VBDataUser *user = self.user;
     user.userGender = [dictionary valueForKey:kVBGenderKey];
     user.urlString = [NSString stringWithFormat:kVBLargeImageURL, user.ID];
-    user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPathKey];
+    user.friendsCount = [dictionary valueForKeyPath:kVBFriendsCountKeyPath];
     
     [user saveManagedObject];
     return user;

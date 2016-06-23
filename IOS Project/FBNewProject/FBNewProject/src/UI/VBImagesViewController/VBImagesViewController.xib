@@ -18,27 +18,35 @@
                 <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FriendsControllerImage" translatesAutoresizingMaskIntoConstraints="NO" id="gbo-jR-Hrg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-sm-EOA">
-                    <rect key="frame" x="8" y="64" width="304" height="458"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="8nf-fq-mzs">
-                        <size key="itemSize" width="150" height="150"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-sm-EOA">
+                    <rect key="frame" x="8" y="64" width="304" height="496"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8nf-fq-mzs">
+                        <size key="itemSize" width="130" height="130"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Izn-nx-4RI"/>
+                        <outlet property="delegate" destination="-1" id="2ji-0h-KyI"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="kZU-sm-EOA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="BUZ-bc-aA7"/>
+                <constraint firstAttribute="trailing" secondItem="kZU-sm-EOA" secondAttribute="trailing" constant="8" id="Cqc-xh-15Y"/>
                 <constraint firstItem="gbo-jR-Hrg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DTY-aT-6R5"/>
+                <constraint firstItem="kZU-sm-EOA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="GwF-tC-L8Z"/>
                 <constraint firstAttribute="bottom" secondItem="gbo-jR-Hrg" secondAttribute="bottom" id="RrG-iM-WlC"/>
                 <constraint firstItem="gbo-jR-Hrg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aOl-hd-0aX"/>
+                <constraint firstAttribute="bottom" secondItem="kZU-sm-EOA" secondAttribute="bottom" constant="8" id="dsb-a6-ouO"/>
                 <constraint firstAttribute="trailing" secondItem="gbo-jR-Hrg" secondAttribute="trailing" id="x8F-4r-vhb"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="collection" destination="kZU-sm-EOA" id="ovb-lK-681"/>
+                <outlet property="collectionView" destination="kZU-sm-EOA" id="gfI-QH-nfN"/>
             </connections>
             <point key="canvasLocation" x="348" y="341"/>
         </view>

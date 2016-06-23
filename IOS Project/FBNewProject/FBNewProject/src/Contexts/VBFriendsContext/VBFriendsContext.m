@@ -38,7 +38,7 @@
 
 - (void)performWorkWithResult:(NSDictionary *)result {
     VBDataUser *user = self.user;
-    NSArray *array = [result valueForKeyPath:kVBFriendsKeyPathKey];
+    NSArray *array = [result valueForKeyPath:kVBFriendsKeyPath];
     NSArray *friends = [NSArray arrayWithArray:[self fillWithObject:array]];
     [user addFriendsArray:friends];
     [user saveManagedObject];
