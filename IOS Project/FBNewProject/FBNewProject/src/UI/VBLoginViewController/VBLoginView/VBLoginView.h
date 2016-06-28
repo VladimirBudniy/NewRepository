@@ -26,7 +26,6 @@
 @property (nonatomic, strong) IBOutlet UIView *loginView;
 @property (nonatomic, strong) IBOutlet UIView *logoutView;
 
-
 - (void)fillWithUser:(VBDataUser *)user;
 - (void)showLoginView;
 
