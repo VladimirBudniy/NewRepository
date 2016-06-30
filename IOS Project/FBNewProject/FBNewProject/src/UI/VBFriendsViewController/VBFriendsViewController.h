@@ -10,7 +10,7 @@
 
 @class VBArrayModel;
 
-@interface VBFriendsViewController : VBViewController
+@interface VBFriendsViewController : VBViewController 
 @property (nonatomic, strong) VBArrayModel   *arrayModel;
 
 @end

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VBDataImage : VBManagedObject
 
-
 @end
 
 NS_ASSUME_NONNULL_END
