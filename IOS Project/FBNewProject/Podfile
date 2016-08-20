@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'FBNewProject' do
+	pod ‘FBSDKCoreKit’
+	pod ‘FBSDKLoginKit’
+	pod ‘FBSDKShareKit’
+	pod 'CommonKit', :git => 'https://github.com/idapgroup/CommonKit.git'
+	pod 'DataKit', :git => 'https://github.com/idapgroup/DataKit.git'
+	pod 'UIKit', :git => 'https://github.com/idapgroup/UIKit.git'
+	pod 'ActiveRecordKit', :git => 'https://github.com/idapgroup/ActiveRecordKit.git'
+
+end

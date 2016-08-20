@@ -1,0 +1,1186 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C67E7B88DBCBFC07FAA72C3 /* libPods-C project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6731ACB33D9730735DA3E2AB /* libPods-C project.a */; };
+		4865C0E6EDB60A4E7DC2D3D9 /* libPods-ObjC project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A635B80D29A46D5DACE3B3 /* libPods-ObjC project.a */; };
+		E70231621CB6B97B0043D142 /* VBDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E70231611CB6B97B0043D142 /* VBDispatcher.m */; };
+		E70231631CB6B97B0043D142 /* VBDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E70231611CB6B97B0043D142 /* VBDispatcher.m */; };
+		E707D0201C3330F500EAE890 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D01F1C3330F500EAE890 /* main.c */; };
+		E707D0371C3332DF00EAE890 /* FirstStructTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0341C3332DF00EAE890 /* FirstStructTest.c */; };
+		E707D0511C33346500EAE890 /* VBPrintTypeSizeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0491C33346500EAE890 /* VBPrintTypeSizeTest.c */; };
+		E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D04C1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c */; };
+		E707D0531C33346500EAE890 /* VBPrintValueTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D04F1C33346500EAE890 /* VBPrintValueTest.c */; };
+		E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D0981C39DADB00EAE890 /* VBBitStepTask.c */; };
+		E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */; };
+		E7134FC31C59229200E30CAF /* VBArray.c in Sources */ = {isa = PBXBuildFile; fileRef = E7134FC11C59229200E30CAF /* VBArray.c */; };
+		E73E93431C5116650045ED28 /* VBHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E933E1C5116650045ED28 /* VBHuman.c */; };
+		E73E93441C5116650045ED28 /* VBObject.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93411C5116650045ED28 /* VBObject.c */; };
+		E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E93461C51166F0045ED28 /* VBHumanTest.c */; };
+		E73E934C1C5270700045ED28 /* VBString.c in Sources */ = {isa = PBXBuildFile; fileRef = E73E934A1C52706F0045ED28 /* VBString.c */; };
+		E76FB87B1C8648FD0066E7A0 /* VBStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E76FB87A1C8648FC0066E7A0 /* VBStringAlphabet.m */; };
+		E76FB87C1C8651A40066E7A0 /* VBStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E76FB87A1C8648FC0066E7A0 /* VBStringAlphabet.m */; };
+		E76FB87F1C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E76FB87E1C86E99E0066E7A0 /* VBArrayAlphabet.m */; };
+		E76FB8801C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E76FB87E1C86E99E0066E7A0 /* VBArrayAlphabet.m */; };
+		E7785AE51CBEE1C4006A3362 /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7785AE41CBEE1C3006A3362 /* VBObserverStateObject.m */; };
+		E7785AE61CBEE1C4006A3362 /* VBObserverStateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7785AE41CBEE1C3006A3362 /* VBObserverStateObject.m */; };
+		E77B8F231C84EA430042F472 /* VBAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F221C84EA430042F472 /* VBAlphabet.m */; };
+		E77B8F271C84EA820042F472 /* VBRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F261C84EA820042F472 /* VBRangeAlphabet.m */; };
+		E77B8F2A1C84F5B30042F472 /* NSString+VBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F291C84F5B30042F472 /* NSString+VBExtension.m */; };
+		E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F291C84F5B30042F472 /* NSString+VBExtension.m */; };
+		E77B8F2C1C84F5C20042F472 /* VBAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F221C84EA430042F472 /* VBAlphabet.m */; };
+		E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E77B8F261C84EA820042F472 /* VBRangeAlphabet.m */; };
+		E78D20ED1C751870004AA9CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
+		E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
+		E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D210B1C7B982A004AA9CB /* VBMale.m */; };
+		E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21121C7B9889004AA9CB /* VBFemale.m */; };
+		E7BB58431CBD6188006AE361 /* VBObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74A91CB287D4003AF847 /* VBObserver.m */; };
+		E7BB58461CBD6A99006AE361 /* VBObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BB58451CBD6A99006AE361 /* VBObserverArray.m */; };
+		E7BB58471CBD6A99006AE361 /* VBObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BB58451CBD6A99006AE361 /* VBObserverArray.m */; };
+		E7BB584A1CBD6B42006AE361 /* VBObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BB58491CBD6B42006AE361 /* VBObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E7BB584B1CBD6B42006AE361 /* VBObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BB58491CBD6B42006AE361 /* VBObserverObject.m */; };
+		E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104101C669D7500E0CE62 /* VBLinkedList.c */; };
+		E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */; };
+		E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */; };
+		E7C5646D1CC55E88004DEE3A /* VBDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C5646C1CC55E88004DEE3A /* VBDispatch.m */; };
+		E7C5646E1CC55E8E004DEE3A /* VBDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C5646C1CC55E88004DEE3A /* VBDispatch.m */; };
+		E7ED74AC1CB287D4003AF847 /* VBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74941CB287D4003AF847 /* VBCar.m */; };
+		E7ED74AD1CB287D4003AF847 /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74971CB287D4003AF847 /* VBEmployee.m */; };
+		E7ED74B11CB287D4003AF847 /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74A31CB287D4003AF847 /* VBEnterprise.m */; };
+		E7ED74B21CB287D4003AF847 /* VBObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74A91CB287D4003AF847 /* VBObserver.m */; };
+		E7ED74B61CB287F7003AF847 /* VBEssence.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74B51CB287F7003AF847 /* VBEssence.m */; };
+		E7ED74B91CB2886A003AF847 /* VBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74B81CB2886A003AF847 /* VBQueue.m */; };
+		E7ED74BA1CB2886E003AF847 /* VBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74B81CB2886A003AF847 /* VBQueue.m */; };
+		E7ED74C41CB28CEC003AF847 /* VBAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74BD1CB28CEC003AF847 /* VBAccountant.m */; };
+		E7ED74C51CB28CEC003AF847 /* VBCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C01CB28CEC003AF847 /* VBCarWasher.m */; };
+		E7ED74C61CB28CEC003AF847 /* VBDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C31CB28CEC003AF847 /* VBDirector.m */; };
+		E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */; };
+		E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
+		E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */; };
+		E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21121C7B9889004AA9CB /* VBFemale.m */; };
+		E7EF6DD11C824960000BE913 /* VBMale.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D210B1C7B982A004AA9CB /* VBMale.m */; };
+		E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */; };
+		E7EF6DD51C82496F000BE913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D20EC1C751870004AA9CB /* main.m */; };
+		E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E78D21001C773724004AA9CB /* VBEssenceTest.m */; };
+		E7F206891CB2E517005BB56D /* VBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74971CB287D4003AF847 /* VBEmployee.m */; };
+		E7F2068A1CB2E51B005BB56D /* VBEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74A31CB287D4003AF847 /* VBEnterprise.m */; };
+		E7F2068B1CB2E520005BB56D /* VBAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74BD1CB28CEC003AF847 /* VBAccountant.m */; };
+		E7F2068C1CB2E523005BB56D /* VBDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C31CB28CEC003AF847 /* VBDirector.m */; };
+		E7F2068D1CB2E527005BB56D /* VBCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ED74C01CB28CEC003AF847 /* VBCarWasher.m */; };
+		E7F3F1941C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
+		E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */; };
+		E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */; };
+		E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E707D01A1C3330F500EAE890 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		E78D20E81C751870004AA9CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		036ED6DA8425F3E678EF4FFE /* Pods-ObjC project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC project/Pods-ObjC project.debug.xcconfig"; sourceTree = "<group>"; };
+		11F6946A633704CE55E1EEE1 /* Pods-ObjC project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC project.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC project/Pods-ObjC project.release.xcconfig"; sourceTree = "<group>"; };
+		35A635B80D29A46D5DACE3B3 /* libPods-ObjC project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjC project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6731ACB33D9730735DA3E2AB /* libPods-C project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-C project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D28F10E91E057FDCE6646C15 /* Pods-C project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C project.release.xcconfig"; path = "Pods/Target Support Files/Pods-C project/Pods-C project.release.xcconfig"; sourceTree = "<group>"; };
+		E70231601CB6B97B0043D142 /* VBDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDispatcher.h; sourceTree = "<group>"; };
+		E70231611CB6B97B0043D142 /* VBDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDispatcher.m; sourceTree = "<group>"; };
+		E707D01C1C3330F500EAE890 /* C project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C project"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E707D01F1C3330F500EAE890 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		E707D0311C3332DF00EAE890 /* VBFirstStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFirstStruct.h; sourceTree = "<group>"; };
+		E707D0341C3332DF00EAE890 /* FirstStructTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FirstStructTest.c; sourceTree = "<group>"; };
+		E707D0351C3332DF00EAE890 /* FirstStructTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstStructTest.h; sourceTree = "<group>"; };
+		E707D0491C33346500EAE890 /* VBPrintTypeSizeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintTypeSizeTest.c; sourceTree = "<group>"; };
+		E707D04A1C33346500EAE890 /* VBPrintTypeSizeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintTypeSizeTest.h; sourceTree = "<group>"; };
+		E707D04C1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueAccordingQualifierTest.c; sourceTree = "<group>"; };
+		E707D04D1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueAccordingQualifierTest.h; sourceTree = "<group>"; };
+		E707D04F1C33346500EAE890 /* VBPrintValueTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBPrintValueTest.c; sourceTree = "<group>"; };
+		E707D0501C33346500EAE890 /* VBPrintValueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPrintValueTest.h; sourceTree = "<group>"; };
+		E707D0981C39DADB00EAE890 /* VBBitStepTask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBBitStepTask.c; sourceTree = "<group>"; };
+		E707D0991C39DADB00EAE890 /* VBBitStepTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBitStepTask.h; sourceTree = "<group>"; };
+		E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBBitStepTaskTest.c; sourceTree = "<group>"; };
+		E707D09C1C39DAFE00EAE890 /* VBBitStepTaskTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBitStepTaskTest.h; sourceTree = "<group>"; };
+		E7134FC11C59229200E30CAF /* VBArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBArray.c; sourceTree = "<group>"; };
+		E7134FC21C59229200E30CAF /* VBArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArray.h; sourceTree = "<group>"; };
+		E73E933E1C5116650045ED28 /* VBHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBHuman.c; sourceTree = "<group>"; };
+		E73E933F1C5116650045ED28 /* VBHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHuman.h; sourceTree = "<group>"; };
+		E73E93411C5116650045ED28 /* VBObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBObject.c; sourceTree = "<group>"; };
+		E73E93421C5116650045ED28 /* VBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObject.h; sourceTree = "<group>"; };
+		E73E93461C51166F0045ED28 /* VBHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBHumanTest.c; sourceTree = "<group>"; };
+		E73E93471C51166F0045ED28 /* VBHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHumanTest.h; sourceTree = "<group>"; };
+		E73E934A1C52706F0045ED28 /* VBString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBString.c; sourceTree = "<group>"; };
+		E73E934B1C52706F0045ED28 /* VBString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBString.h; sourceTree = "<group>"; };
+		E76FB8791C8648FC0066E7A0 /* VBStringAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBStringAlphabet.h; sourceTree = "<group>"; };
+		E76FB87A1C8648FC0066E7A0 /* VBStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBStringAlphabet.m; sourceTree = "<group>"; };
+		E76FB87D1C86E99E0066E7A0 /* VBArrayAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArrayAlphabet.h; sourceTree = "<group>"; };
+		E76FB87E1C86E99E0066E7A0 /* VBArrayAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBArrayAlphabet.m; sourceTree = "<group>"; };
+		E7785AE31CBEE1C3006A3362 /* VBObserverStateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverStateObject.h; sourceTree = "<group>"; };
+		E7785AE41CBEE1C3006A3362 /* VBObserverStateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverStateObject.m; sourceTree = "<group>"; };
+		E77B8F211C84EA430042F472 /* VBAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAlphabet.h; sourceTree = "<group>"; };
+		E77B8F221C84EA430042F472 /* VBAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAlphabet.m; sourceTree = "<group>"; };
+		E77B8F251C84EA820042F472 /* VBRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRangeAlphabet.h; sourceTree = "<group>"; };
+		E77B8F261C84EA820042F472 /* VBRangeAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBRangeAlphabet.m; sourceTree = "<group>"; };
+		E77B8F281C84F5B30042F472 /* NSString+VBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VBExtension.h"; sourceTree = "<group>"; };
+		E77B8F291C84F5B30042F472 /* NSString+VBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VBExtension.m"; sourceTree = "<group>"; };
+		E78D20EA1C751870004AA9CB /* ObjC project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ObjC project"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E78D20EC1C751870004AA9CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E78D20FF1C773724004AA9CB /* VBEssenceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssenceTest.h; sourceTree = "<group>"; };
+		E78D21001C773724004AA9CB /* VBEssenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssenceTest.m; sourceTree = "<group>"; };
+		E78D210A1C7B982A004AA9CB /* VBMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMale.h; sourceTree = "<group>"; };
+		E78D210B1C7B982A004AA9CB /* VBMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBMale.m; sourceTree = "<group>"; };
+		E78D21111C7B9889004AA9CB /* VBFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFemale.h; sourceTree = "<group>"; };
+		E78D21121C7B9889004AA9CB /* VBFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFemale.m; sourceTree = "<group>"; };
+		E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../iOS Study Plan.txt"; sourceTree = "<group>"; };
+		E78E48D81C40406F00D17F8C /* VBMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VBMacroHeader.h; path = SRC/VBMacroHeader.h; sourceTree = "<group>"; };
+		E7BB58441CBD6A99006AE361 /* VBObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverArray.h; sourceTree = "<group>"; };
+		E7BB58451CBD6A99006AE361 /* VBObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverArray.m; sourceTree = "<group>"; };
+		E7BB58481CBD6B42006AE361 /* VBObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserverObject.h; sourceTree = "<group>"; };
+		E7BB58491CBD6B42006AE361 /* VBObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserverObject.m; sourceTree = "<group>"; };
+		E7C104101C669D7500E0CE62 /* VBLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedList.c; sourceTree = "<group>"; };
+		E7C104111C669D7500E0CE62 /* VBLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedList.h; sourceTree = "<group>"; };
+		E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListNode.c; sourceTree = "<group>"; };
+		E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListNode.h; sourceTree = "<group>"; };
+		E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListTest.c; sourceTree = "<group>"; };
+		E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListTest.h; sourceTree = "<group>"; };
+		E7C5646B1CC55E88004DEE3A /* VBDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDispatch.h; sourceTree = "<group>"; };
+		E7C5646C1CC55E88004DEE3A /* VBDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDispatch.m; sourceTree = "<group>"; };
+		E7D77B9A1CC3A8EC00A36680 /* VBMacroHeaderObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderObjC.h; sourceTree = "<group>"; };
+		E7ED74931CB287D4003AF847 /* VBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCar.h; sourceTree = "<group>"; };
+		E7ED74941CB287D4003AF847 /* VBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCar.m; sourceTree = "<group>"; };
+		E7ED74961CB287D4003AF847 /* VBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEmployee.h; sourceTree = "<group>"; };
+		E7ED74971CB287D4003AF847 /* VBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEmployee.m; sourceTree = "<group>"; };
+		E7ED74A21CB287D4003AF847 /* VBEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEnterprise.h; sourceTree = "<group>"; };
+		E7ED74A31CB287D4003AF847 /* VBEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEnterprise.m; sourceTree = "<group>"; };
+		E7ED74A51CB287D4003AF847 /* VBMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMoneyProtocol.h; sourceTree = "<group>"; };
+		E7ED74A61CB287D4003AF847 /* VBWokerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBWokerProtocol.h; sourceTree = "<group>"; };
+		E7ED74A81CB287D4003AF847 /* VBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBObserver.h; sourceTree = "<group>"; };
+		E7ED74A91CB287D4003AF847 /* VBObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBObserver.m; sourceTree = "<group>"; };
+		E7ED74B41CB287F7003AF847 /* VBEssence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBEssence.h; sourceTree = "<group>"; };
+		E7ED74B51CB287F7003AF847 /* VBEssence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBEssence.m; sourceTree = "<group>"; };
+		E7ED74B71CB2886A003AF847 /* VBQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBQueue.h; sourceTree = "<group>"; };
+		E7ED74B81CB2886A003AF847 /* VBQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBQueue.m; sourceTree = "<group>"; };
+		E7ED74BC1CB28CEC003AF847 /* VBAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAccountant.h; sourceTree = "<group>"; };
+		E7ED74BD1CB28CEC003AF847 /* VBAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAccountant.m; sourceTree = "<group>"; };
+		E7ED74BF1CB28CEC003AF847 /* VBCarWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCarWasher.h; sourceTree = "<group>"; };
+		E7ED74C01CB28CEC003AF847 /* VBCarWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCarWasher.m; sourceTree = "<group>"; };
+		E7ED74C21CB28CEC003AF847 /* VBDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDirector.h; sourceTree = "<group>"; };
+		E7ED74C31CB28CEC003AF847 /* VBDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDirector.m; sourceTree = "<group>"; };
+		E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VBLinkedListEnumerator.c; sourceTree = "<group>"; };
+		E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumerator.h; sourceTree = "<group>"; };
+		E7EF16EB1C6CEBCF00355F76 /* VBLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListPrivate.h; sourceTree = "<group>"; };
+		E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		E7EF6DA51C7F74AD000BE913 /* VBObjCproject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBObjCproject-Prefix.pch"; sourceTree = "<group>"; };
+		E7EF6DAF1C7F77A5000BE913 /* NSObject+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VBCategory.h"; sourceTree = "<group>"; };
+		E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VBCategory.m"; sourceTree = "<group>"; };
+		E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBObjCTests.m; sourceTree = "<group>"; };
+		E7EF6DCC1C82493E000BE913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7F3F1921C90D05600DDCEA4 /* VBDelegatingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegatingObject.h; sourceTree = "<group>"; };
+		E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDelegatingObject.m; sourceTree = "<group>"; };
+		E7F3F1971C90D10F00DDCEA4 /* VBDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDelegateTest.h; sourceTree = "<group>"; };
+		E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDelegateTest.m; sourceTree = "<group>"; };
+		F1FC7DB5AC3EA7431198E2E8 /* Pods-C project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-C project/Pods-C project.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E707D0191C3330F500EAE890 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C67E7B88DBCBFC07FAA72C3 /* libPods-C project.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E78D20E71C751870004AA9CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4865C0E6EDB60A4E7DC2D3D9 /* libPods-ObjC project.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7EF6DC51C82493D000BE913 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C333F19B13C25AE487FE0631 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6731ACB33D9730735DA3E2AB /* libPods-C project.a */,
+				35A635B80D29A46D5DACE3B3 /* libPods-ObjC project.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D98063C00A5F93B89CA6C6B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC7DB5AC3EA7431198E2E8 /* Pods-C project.debug.xcconfig */,
+				D28F10E91E057FDCE6646C15 /* Pods-C project.release.xcconfig */,
+				036ED6DA8425F3E678EF4FFE /* Pods-ObjC project.debug.xcconfig */,
+				11F6946A633704CE55E1EEE1 /* Pods-ObjC project.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E702315F1CB6B9680043D142 /* VBDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				E70231601CB6B97B0043D142 /* VBDispatcher.h */,
+				E70231611CB6B97B0043D142 /* VBDispatcher.m */,
+			);
+			path = VBDispatcher;
+			sourceTree = "<group>";
+		};
+		E707D0131C3330F400EAE890 = {
+			isa = PBXGroup;
+			children = (
+				E78D211B1C7C73A1004AA9CB /* iOS Study Plan.txt */,
+				E707D01E1C3330F500EAE890 /* C project */,
+				E78D20EB1C751870004AA9CB /* ObjC project */,
+				E7EF6DC91C82493E000BE913 /* VBObjCTests */,
+				E707D01D1C3330F500EAE890 /* Products */,
+				D98063C00A5F93B89CA6C6B6 /* Pods */,
+				C333F19B13C25AE487FE0631 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E707D01D1C3330F500EAE890 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E707D01C1C3330F500EAE890 /* C project */,
+				E78D20EA1C751870004AA9CB /* ObjC project */,
+				E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E707D01E1C3330F500EAE890 /* C project */ = {
+			isa = PBXGroup;
+			children = (
+				E707D02E1C3332DF00EAE890 /* SRC */,
+				E78E48D81C40406F00D17F8C /* VBMacroHeader.h */,
+				E707D0321C3332DF00EAE890 /* Test */,
+				E707D01F1C3330F500EAE890 /* main.c */,
+			);
+			path = "C project";
+			sourceTree = "<group>";
+		};
+		E707D02E1C3332DF00EAE890 /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				E7C1040F1C669D5F00E0CE62 /* VBLinkedList */,
+				E7134FC01C59227E00E30CAF /* VBArray */,
+				E73E93401C5116650045ED28 /* VBObject */,
+				E73E93491C5270580045ED28 /* VBString */,
+				E73E933D1C5116650045ED28 /* VBHuman */,
+				E707D02F1C3332DF00EAE890 /* FirstStruct */,
+				E707D0961C39DAAC00EAE890 /* BitStepTask */,
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
+		E707D02F1C3332DF00EAE890 /* FirstStruct */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0311C3332DF00EAE890 /* VBFirstStruct.h */,
+			);
+			path = FirstStruct;
+			sourceTree = "<group>";
+		};
+		E707D0321C3332DF00EAE890 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E7C104171C66B31100E0CE62 /* VBLinkedListTest */,
+				E73E93451C51166F0045ED28 /* VBHumanTest */,
+				E707D0971C39DAB800EAE890 /* BitStepTaskTest */,
+				E707D0481C33346500EAE890 /* MacroTestTask1.1 */,
+				E707D04B1C33346500EAE890 /* MacroTestTask1.2 */,
+				E707D04E1C33346500EAE890 /* MacroTestTask1.3 */,
+				E707D0331C3332DF00EAE890 /* FirstStructTest */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		E707D0331C3332DF00EAE890 /* FirstStructTest */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0341C3332DF00EAE890 /* FirstStructTest.c */,
+				E707D0351C3332DF00EAE890 /* FirstStructTest.h */,
+			);
+			path = FirstStructTest;
+			sourceTree = "<group>";
+		};
+		E707D0481C33346500EAE890 /* MacroTestTask1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0491C33346500EAE890 /* VBPrintTypeSizeTest.c */,
+				E707D04A1C33346500EAE890 /* VBPrintTypeSizeTest.h */,
+			);
+			path = MacroTestTask1.1;
+			sourceTree = "<group>";
+		};
+		E707D04B1C33346500EAE890 /* MacroTestTask1.2 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D04C1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c */,
+				E707D04D1C33346500EAE890 /* VBPrintValueAccordingQualifierTest.h */,
+			);
+			path = MacroTestTask1.2;
+			sourceTree = "<group>";
+		};
+		E707D04E1C33346500EAE890 /* MacroTestTask1.3 */ = {
+			isa = PBXGroup;
+			children = (
+				E707D04F1C33346500EAE890 /* VBPrintValueTest.c */,
+				E707D0501C33346500EAE890 /* VBPrintValueTest.h */,
+			);
+			path = MacroTestTask1.3;
+			sourceTree = "<group>";
+		};
+		E707D0961C39DAAC00EAE890 /* BitStepTask */ = {
+			isa = PBXGroup;
+			children = (
+				E707D0981C39DADB00EAE890 /* VBBitStepTask.c */,
+				E707D0991C39DADB00EAE890 /* VBBitStepTask.h */,
+			);
+			path = BitStepTask;
+			sourceTree = "<group>";
+		};
+		E707D0971C39DAB800EAE890 /* BitStepTaskTest */ = {
+			isa = PBXGroup;
+			children = (
+				E707D09B1C39DAFE00EAE890 /* VBBitStepTaskTest.c */,
+				E707D09C1C39DAFE00EAE890 /* VBBitStepTaskTest.h */,
+			);
+			path = BitStepTaskTest;
+			sourceTree = "<group>";
+		};
+		E7134FC01C59227E00E30CAF /* VBArray */ = {
+			isa = PBXGroup;
+			children = (
+				E7134FC11C59229200E30CAF /* VBArray.c */,
+				E7134FC21C59229200E30CAF /* VBArray.h */,
+			);
+			path = VBArray;
+			sourceTree = "<group>";
+		};
+		E73E933D1C5116650045ED28 /* VBHuman */ = {
+			isa = PBXGroup;
+			children = (
+				E73E933E1C5116650045ED28 /* VBHuman.c */,
+				E73E933F1C5116650045ED28 /* VBHuman.h */,
+			);
+			path = VBHuman;
+			sourceTree = "<group>";
+		};
+		E73E93401C5116650045ED28 /* VBObject */ = {
+			isa = PBXGroup;
+			children = (
+				E73E93411C5116650045ED28 /* VBObject.c */,
+				E73E93421C5116650045ED28 /* VBObject.h */,
+			);
+			path = VBObject;
+			sourceTree = "<group>";
+		};
+		E73E93451C51166F0045ED28 /* VBHumanTest */ = {
+			isa = PBXGroup;
+			children = (
+				E73E93461C51166F0045ED28 /* VBHumanTest.c */,
+				E73E93471C51166F0045ED28 /* VBHumanTest.h */,
+			);
+			path = VBHumanTest;
+			sourceTree = "<group>";
+		};
+		E73E93491C5270580045ED28 /* VBString */ = {
+			isa = PBXGroup;
+			children = (
+				E73E934A1C52706F0045ED28 /* VBString.c */,
+				E73E934B1C52706F0045ED28 /* VBString.h */,
+			);
+			path = VBString;
+			sourceTree = "<group>";
+		};
+		E77B8F1D1C84E8C40042F472 /* NSString+VBExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E77B8F241C84EA580042F472 /* PrivateMethods */,
+				E77B8F211C84EA430042F472 /* VBAlphabet.h */,
+				E77B8F221C84EA430042F472 /* VBAlphabet.m */,
+				E77B8F281C84F5B30042F472 /* NSString+VBExtension.h */,
+				E77B8F291C84F5B30042F472 /* NSString+VBExtension.m */,
+			);
+			path = "NSString+VBExtension";
+			sourceTree = "<group>";
+		};
+		E77B8F241C84EA580042F472 /* PrivateMethods */ = {
+			isa = PBXGroup;
+			children = (
+				E77B8F251C84EA820042F472 /* VBRangeAlphabet.h */,
+				E77B8F261C84EA820042F472 /* VBRangeAlphabet.m */,
+				E76FB8791C8648FC0066E7A0 /* VBStringAlphabet.h */,
+				E76FB87A1C8648FC0066E7A0 /* VBStringAlphabet.m */,
+				E76FB87D1C86E99E0066E7A0 /* VBArrayAlphabet.h */,
+				E76FB87E1C86E99E0066E7A0 /* VBArrayAlphabet.m */,
+			);
+			path = PrivateMethods;
+			sourceTree = "<group>";
+		};
+		E78D20EB1C751870004AA9CB /* ObjC project */ = {
+			isa = PBXGroup;
+			children = (
+				E78D20FB1C7731ED004AA9CB /* SRC */,
+				E78D20F41C75EC95004AA9CB /* Test */,
+				E7EF6DA41C7F74AD000BE913 /* Supporting Files */,
+				E78D20EC1C751870004AA9CB /* main.m */,
+			);
+			path = "ObjC project";
+			sourceTree = "<group>";
+		};
+		E78D20F41C75EC95004AA9CB /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E78D20FF1C773724004AA9CB /* VBEssenceTest.h */,
+				E78D21001C773724004AA9CB /* VBEssenceTest.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		E78D20FB1C7731ED004AA9CB /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74911CB287D4003AF847 /* Enterprise Project */,
+				E7F3F1901C90D05600DDCEA4 /* VBDelegate */,
+				E7EF6DAE1C7F77A5000BE913 /* VBCategory */,
+				E78D21101C7B9889004AA9CB /* VBFemale */,
+				E78D21091C7B982A004AA9CB /* VBMale */,
+				E7ED74B31CB287F7003AF847 /* VBEssence */,
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
+		E78D21091C7B982A004AA9CB /* VBMale */ = {
+			isa = PBXGroup;
+			children = (
+				E78D210A1C7B982A004AA9CB /* VBMale.h */,
+				E78D210B1C7B982A004AA9CB /* VBMale.m */,
+			);
+			path = VBMale;
+			sourceTree = "<group>";
+		};
+		E78D21101C7B9889004AA9CB /* VBFemale */ = {
+			isa = PBXGroup;
+			children = (
+				E78D21111C7B9889004AA9CB /* VBFemale.h */,
+				E78D21121C7B9889004AA9CB /* VBFemale.m */,
+			);
+			path = VBFemale;
+			sourceTree = "<group>";
+		};
+		E7BB583A1CBD596B006AE361 /* VBPrivate */ = {
+			isa = PBXGroup;
+			children = (
+				E7BB58441CBD6A99006AE361 /* VBObserverArray.h */,
+				E7BB58451CBD6A99006AE361 /* VBObserverArray.m */,
+				E7BB58481CBD6B42006AE361 /* VBObserverObject.h */,
+				E7BB58491CBD6B42006AE361 /* VBObserverObject.m */,
+				E7785AE31CBEE1C3006A3362 /* VBObserverStateObject.h */,
+				E7785AE41CBEE1C3006A3362 /* VBObserverStateObject.m */,
+			);
+			path = VBPrivate;
+			sourceTree = "<group>";
+		};
+		E7C1040F1C669D5F00E0CE62 /* VBLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */,
+				E7C104131C669F8600E0CE62 /* VBLinkedListNode */,
+				E7C104101C669D7500E0CE62 /* VBLinkedList.c */,
+				E7C104111C669D7500E0CE62 /* VBLinkedList.h */,
+				E7EF16EB1C6CEBCF00355F76 /* VBLinkedListPrivate.h */,
+			);
+			path = VBLinkedList;
+			sourceTree = "<group>";
+		};
+		E7C104131C669F8600E0CE62 /* VBLinkedListNode */ = {
+			isa = PBXGroup;
+			children = (
+				E7C104141C669F9700E0CE62 /* VBLinkedListNode.c */,
+				E7C104151C669F9700E0CE62 /* VBLinkedListNode.h */,
+			);
+			path = VBLinkedListNode;
+			sourceTree = "<group>";
+		};
+		E7C104171C66B31100E0CE62 /* VBLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				E7C104181C66B32400E0CE62 /* VBLinkedListTest.c */,
+				E7C104191C66B32400E0CE62 /* VBLinkedListTest.h */,
+			);
+			path = VBLinkedListTest;
+			sourceTree = "<group>";
+		};
+		E7C5646A1CC55E88004DEE3A /* VBDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				E7C5646B1CC55E88004DEE3A /* VBDispatch.h */,
+				E7C5646C1CC55E88004DEE3A /* VBDispatch.m */,
+			);
+			path = VBDispatch;
+			sourceTree = "<group>";
+		};
+		E7ED74911CB287D4003AF847 /* Enterprise Project */ = {
+			isa = PBXGroup;
+			children = (
+				E7C5646A1CC55E88004DEE3A /* VBDispatch */,
+				E702315F1CB6B9680043D142 /* VBDispatcher */,
+				E7ED74AB1CB287D4003AF847 /* VBQueue */,
+				E7ED74A71CB287D4003AF847 /* VBObserver */,
+				E7ED74A11CB287D4003AF847 /* VBEnterprise */,
+				E7ED74951CB287D4003AF847 /* VBEmployee */,
+				E7ED74A41CB287D4003AF847 /* VBEnterpriseProtocols */,
+				E7ED74921CB287D4003AF847 /* VBCar */,
+			);
+			path = "Enterprise Project";
+			sourceTree = "<group>";
+		};
+		E7ED74921CB287D4003AF847 /* VBCar */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74931CB287D4003AF847 /* VBCar.h */,
+				E7ED74941CB287D4003AF847 /* VBCar.m */,
+			);
+			path = VBCar;
+			sourceTree = "<group>";
+		};
+		E7ED74951CB287D4003AF847 /* VBEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74961CB287D4003AF847 /* VBEmployee.h */,
+				E7ED74971CB287D4003AF847 /* VBEmployee.m */,
+				E7ED74BE1CB28CEC003AF847 /* VBCarWasher */,
+				E7ED74BB1CB28CEC003AF847 /* VBAccountant */,
+				E7ED74C11CB28CEC003AF847 /* VBDirector */,
+			);
+			path = VBEmployee;
+			sourceTree = "<group>";
+		};
+		E7ED74A11CB287D4003AF847 /* VBEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74A21CB287D4003AF847 /* VBEnterprise.h */,
+				E7ED74A31CB287D4003AF847 /* VBEnterprise.m */,
+			);
+			path = VBEnterprise;
+			sourceTree = "<group>";
+		};
+		E7ED74A41CB287D4003AF847 /* VBEnterpriseProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74A51CB287D4003AF847 /* VBMoneyProtocol.h */,
+				E7ED74A61CB287D4003AF847 /* VBWokerProtocol.h */,
+			);
+			path = VBEnterpriseProtocols;
+			sourceTree = "<group>";
+		};
+		E7ED74A71CB287D4003AF847 /* VBObserver */ = {
+			isa = PBXGroup;
+			children = (
+				E7BB583A1CBD596B006AE361 /* VBPrivate */,
+				E7ED74A81CB287D4003AF847 /* VBObserver.h */,
+				E7ED74A91CB287D4003AF847 /* VBObserver.m */,
+			);
+			path = VBObserver;
+			sourceTree = "<group>";
+		};
+		E7ED74AB1CB287D4003AF847 /* VBQueue */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74B71CB2886A003AF847 /* VBQueue.h */,
+				E7ED74B81CB2886A003AF847 /* VBQueue.m */,
+			);
+			path = VBQueue;
+			sourceTree = "<group>";
+		};
+		E7ED74B31CB287F7003AF847 /* VBEssence */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74B41CB287F7003AF847 /* VBEssence.h */,
+				E7ED74B51CB287F7003AF847 /* VBEssence.m */,
+			);
+			path = VBEssence;
+			sourceTree = "<group>";
+		};
+		E7ED74BB1CB28CEC003AF847 /* VBAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74BC1CB28CEC003AF847 /* VBAccountant.h */,
+				E7ED74BD1CB28CEC003AF847 /* VBAccountant.m */,
+			);
+			path = VBAccountant;
+			sourceTree = "<group>";
+		};
+		E7ED74BE1CB28CEC003AF847 /* VBCarWasher */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74BF1CB28CEC003AF847 /* VBCarWasher.h */,
+				E7ED74C01CB28CEC003AF847 /* VBCarWasher.m */,
+			);
+			path = VBCarWasher;
+			sourceTree = "<group>";
+		};
+		E7ED74C11CB28CEC003AF847 /* VBDirector */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED74C21CB28CEC003AF847 /* VBDirector.h */,
+				E7ED74C31CB28CEC003AF847 /* VBDirector.m */,
+			);
+			path = VBDirector;
+			sourceTree = "<group>";
+		};
+		E7EF16E61C6A4E6B00355F76 /* VBLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF16E71C6A4E6B00355F76 /* VBLinkedListEnumerator.c */,
+				E7EF16E81C6A4E6B00355F76 /* VBLinkedListEnumerator.h */,
+				E7EF16EC1C6CEBE400355F76 /* VBLinkedListEnumeratorPrivate.h */,
+			);
+			path = VBLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		E7EF6DA41C7F74AD000BE913 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF6DA51C7F74AD000BE913 /* VBObjCproject-Prefix.pch */,
+				E7D77B9A1CC3A8EC00A36680 /* VBMacroHeaderObjC.h */,
+			);
+			name = "Supporting Files";
+			path = "SRC/Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7EF6DAE1C7F77A5000BE913 /* VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E77B8F1D1C84E8C40042F472 /* NSString+VBExtension */,
+				E7EF6DAF1C7F77A5000BE913 /* NSObject+VBCategory.h */,
+				E7EF6DB01C7F77A5000BE913 /* NSObject+VBCategory.m */,
+			);
+			path = VBCategory;
+			sourceTree = "<group>";
+		};
+		E7EF6DC91C82493E000BE913 /* VBObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF6DCA1C82493E000BE913 /* VBObjCTests.m */,
+				E7EF6DCC1C82493E000BE913 /* Info.plist */,
+			);
+			path = VBObjCTests;
+			sourceTree = "<group>";
+		};
+		E7F3F1901C90D05600DDCEA4 /* VBDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F1961C90D0F400DDCEA4 /* VBDelegateTest */,
+				E7F3F1911C90D05600DDCEA4 /* VBDelegatingObject */,
+			);
+			path = VBDelegate;
+			sourceTree = "<group>";
+		};
+		E7F3F1911C90D05600DDCEA4 /* VBDelegatingObject */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F1921C90D05600DDCEA4 /* VBDelegatingObject.h */,
+				E7F3F1931C90D05600DDCEA4 /* VBDelegatingObject.m */,
+			);
+			path = VBDelegatingObject;
+			sourceTree = "<group>";
+		};
+		E7F3F1961C90D0F400DDCEA4 /* VBDelegateTest */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3F1971C90D10F00DDCEA4 /* VBDelegateTest.h */,
+				E7F3F1981C90D10F00DDCEA4 /* VBDelegateTest.m */,
+			);
+			path = VBDelegateTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E707D01B1C3330F500EAE890 /* C project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E707D0231C3330F500EAE890 /* Build configuration list for PBXNativeTarget "C project" */;
+			buildPhases = (
+				24BC7F6ED23F0C3C9CE80616 /* [CP] Check Pods Manifest.lock */,
+				E707D0181C3330F500EAE890 /* Sources */,
+				E707D0191C3330F500EAE890 /* Frameworks */,
+				E707D01A1C3330F500EAE890 /* CopyFiles */,
+				DE2FA064CCA16D8475E9B790 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "C project";
+			productName = "C project";
+			productReference = E707D01C1C3330F500EAE890 /* C project */;
+			productType = "com.apple.product-type.tool";
+		};
+		E78D20E91C751870004AA9CB /* ObjC project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E78D20F01C751870004AA9CB /* Build configuration list for PBXNativeTarget "ObjC project" */;
+			buildPhases = (
+				51E83D59ECA2F6F4564C85FE /* [CP] Check Pods Manifest.lock */,
+				E78D20E61C751870004AA9CB /* Sources */,
+				E78D20E71C751870004AA9CB /* Frameworks */,
+				E78D20E81C751870004AA9CB /* CopyFiles */,
+				F3E063B540940081782F4975 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjC project";
+			productName = "ObjC project";
+			productReference = E78D20EA1C751870004AA9CB /* ObjC project */;
+			productType = "com.apple.product-type.tool";
+		};
+		E7EF6DC71C82493D000BE913 /* VBObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7EF6DCF1C82493E000BE913 /* Build configuration list for PBXNativeTarget "VBObjCTests" */;
+			buildPhases = (
+				E7EF6DC41C82493D000BE913 /* Sources */,
+				E7EF6DC51C82493D000BE913 /* Frameworks */,
+				E7EF6DC61C82493D000BE913 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VBObjCTests;
+			productName = VBObjCTests;
+			productReference = E7EF6DC81C82493D000BE913 /* VBObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E707D0141C3330F400EAE890 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Vladimir Budniy";
+				TargetAttributes = {
+					E707D01B1C3330F500EAE890 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					E78D20E91C751870004AA9CB = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					E7EF6DC71C82493D000BE913 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = E707D0171C3330F400EAE890 /* Build configuration list for PBXProject "C project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E707D0131C3330F400EAE890;
+			productRefGroup = E707D01D1C3330F500EAE890 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E707D01B1C3330F500EAE890 /* C project */,
+				E78D20E91C751870004AA9CB /* ObjC project */,
+				E7EF6DC71C82493D000BE913 /* VBObjCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7EF6DC61C82493D000BE913 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24BC7F6ED23F0C3C9CE80616 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		51E83D59ECA2F6F4564C85FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE2FA064CCA16D8475E9B790 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-C project/Pods-C project-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3E063B540940081782F4975 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjC project/Pods-ObjC project-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E707D0181C3330F500EAE890 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E707D0511C33346500EAE890 /* VBPrintTypeSizeTest.c in Sources */,
+				E707D0201C3330F500EAE890 /* main.c in Sources */,
+				E707D09D1C39DAFE00EAE890 /* VBBitStepTaskTest.c in Sources */,
+				E73E934C1C5270700045ED28 /* VBString.c in Sources */,
+				E73E93431C5116650045ED28 /* VBHuman.c in Sources */,
+				E707D09A1C39DADB00EAE890 /* VBBitStepTask.c in Sources */,
+				E7EF16E91C6A4E6B00355F76 /* VBLinkedListEnumerator.c in Sources */,
+				E707D0521C33346500EAE890 /* VBPrintValueAccordingQualifierTest.c in Sources */,
+				E7C1041A1C66B32400E0CE62 /* VBLinkedListTest.c in Sources */,
+				E73E93441C5116650045ED28 /* VBObject.c in Sources */,
+				E7C104161C669F9700E0CE62 /* VBLinkedListNode.c in Sources */,
+				E73E93481C51166F0045ED28 /* VBHumanTest.c in Sources */,
+				E7134FC31C59229200E30CAF /* VBArray.c in Sources */,
+				E707D0531C33346500EAE890 /* VBPrintValueTest.c in Sources */,
+				E7C104121C669D7500E0CE62 /* VBLinkedList.c in Sources */,
+				E707D0371C3332DF00EAE890 /* FirstStructTest.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E78D20E61C751870004AA9CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70231621CB6B97B0043D142 /* VBDispatcher.m in Sources */,
+				E7C5646D1CC55E88004DEE3A /* VBDispatch.m in Sources */,
+				E77B8F231C84EA430042F472 /* VBAlphabet.m in Sources */,
+				E78D21011C773724004AA9CB /* VBEssenceTest.m in Sources */,
+				E7ED74AC1CB287D4003AF847 /* VBCar.m in Sources */,
+				E7ED74AD1CB287D4003AF847 /* VBEmployee.m in Sources */,
+				E7BB584A1CBD6B42006AE361 /* VBObserverObject.m in Sources */,
+				E7ED74C51CB28CEC003AF847 /* VBCarWasher.m in Sources */,
+				E7F3F1991C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
+				E7ED74B21CB287D4003AF847 /* VBObserver.m in Sources */,
+				E76FB87F1C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
+				E78D21131C7B9889004AA9CB /* VBFemale.m in Sources */,
+				E7EF6DB11C7F77A5000BE913 /* NSObject+VBCategory.m in Sources */,
+				E78D210C1C7B982A004AA9CB /* VBMale.m in Sources */,
+				E7ED74C61CB28CEC003AF847 /* VBDirector.m in Sources */,
+				E7ED74B11CB287D4003AF847 /* VBEnterprise.m in Sources */,
+				E77B8F2A1C84F5B30042F472 /* NSString+VBExtension.m in Sources */,
+				E7BB58461CBD6A99006AE361 /* VBObserverArray.m in Sources */,
+				E76FB87B1C8648FD0066E7A0 /* VBStringAlphabet.m in Sources */,
+				E7ED74B61CB287F7003AF847 /* VBEssence.m in Sources */,
+				E7F3F1941C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */,
+				E7ED74B91CB2886A003AF847 /* VBQueue.m in Sources */,
+				E78D20ED1C751870004AA9CB /* main.m in Sources */,
+				E7ED74C41CB28CEC003AF847 /* VBAccountant.m in Sources */,
+				E7785AE51CBEE1C4006A3362 /* VBObserverStateObject.m in Sources */,
+				E77B8F271C84EA820042F472 /* VBRangeAlphabet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7EF6DC41C82493D000BE913 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70231631CB6B97B0043D142 /* VBDispatcher.m in Sources */,
+				E76FB8801C86E99E0066E7A0 /* VBArrayAlphabet.m in Sources */,
+				E77B8F2D1C84F5C70042F472 /* VBRangeAlphabet.m in Sources */,
+				E7F2068A1CB2E51B005BB56D /* VBEnterprise.m in Sources */,
+				E7BB58431CBD6188006AE361 /* VBObserver.m in Sources */,
+				E7EF6DD61C824982000BE913 /* VBEssenceTest.m in Sources */,
+				E77B8F2B1C84F5BF0042F472 /* NSString+VBExtension.m in Sources */,
+				E7F3F19A1C90D10F00DDCEA4 /* VBDelegateTest.m in Sources */,
+				E77B8F2C1C84F5C20042F472 /* VBAlphabet.m in Sources */,
+				E7BB58471CBD6A99006AE361 /* VBObserverArray.m in Sources */,
+				E7F206891CB2E517005BB56D /* VBEmployee.m in Sources */,
+				E7785AE61CBEE1C4006A3362 /* VBObserverStateObject.m in Sources */,
+				E7BB584B1CBD6B42006AE361 /* VBObserverObject.m in Sources */,
+				E7EF6DD11C824960000BE913 /* VBMale.m in Sources */,
+				E76FB87C1C8651A40066E7A0 /* VBStringAlphabet.m in Sources */,
+				E7F3F1951C90D05600DDCEA4 /* VBDelegatingObject.m in Sources */,
+				E7C5646E1CC55E8E004DEE3A /* VBDispatch.m in Sources */,
+				E7F2068B1CB2E520005BB56D /* VBAccountant.m in Sources */,
+				E7EF6DD41C824968000BE913 /* NSObject+VBCategory.m in Sources */,
+				E7EF6DCB1C82493E000BE913 /* VBObjCTests.m in Sources */,
+				E7F2068D1CB2E527005BB56D /* VBCarWasher.m in Sources */,
+				E7ED74BA1CB2886E003AF847 /* VBQueue.m in Sources */,
+				E7EF6DD51C82496F000BE913 /* main.m in Sources */,
+				E7EF6DD01C82495C000BE913 /* VBFemale.m in Sources */,
+				E7F2068C1CB2E523005BB56D /* VBDirector.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E707D0211C3330F500EAE890 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E707D0221C3330F500EAE890 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E707D0241C3330F500EAE890 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1FC7DB5AC3EA7431198E2E8 /* Pods-C project.debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E707D0251C3330F500EAE890 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D28F10E91E057FDCE6646C15 /* Pods-C project.release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E78D20EE1C751870004AA9CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 036ED6DA8425F3E678EF4FFE /* Pods-ObjC project.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E78D20EF1C751870004AA9CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11F6946A633704CE55E1EEE1 /* Pods-ObjC project.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E7EF6DCD1C82493E000BE913 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				INFOPLIST_FILE = VBObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E7EF6DCE1C82493E000BE913 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC project/SRC/Supporting Files/VBObjCproject-Prefix.pch";
+				INFOPLIST_FILE = VBObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VB.VBObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E707D0171C3330F400EAE890 /* Build configuration list for PBXProject "C project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E707D0211C3330F500EAE890 /* Debug */,
+				E707D0221C3330F500EAE890 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E707D0231C3330F500EAE890 /* Build configuration list for PBXNativeTarget "C project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E707D0241C3330F500EAE890 /* Debug */,
+				E707D0251C3330F500EAE890 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E78D20F01C751870004AA9CB /* Build configuration list for PBXNativeTarget "ObjC project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E78D20EE1C751870004AA9CB /* Debug */,
+				E78D20EF1C751870004AA9CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7EF6DCF1C82493E000BE913 /* Build configuration list for PBXNativeTarget "VBObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7EF6DCD1C82493E000BE913 /* Debug */,
+				E7EF6DCE1C82493E000BE913 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E707D0141C3330F400EAE890 /* Project object */;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="VBDataImage" representedClassName="VBDataImage" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBDataUser" inverseName="images" inverseEntity="VBDataUser" syncable="YES"/>
+    </entity>
+    <entity name="VBDataUser" representedClassName="VBDataUser" syncable="YES">
+        <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="friendsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userGender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wasLogged" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBDataUser" inverseName="friends" inverseEntity="VBDataUser" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBDataImage" inverseName="user" inverseEntity="VBDataImage" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="VBDataUser" positionX="-5967" positionY="-1602" width="245" height="193"/>
+        <element name="VBDataImage" positionX="-5663" positionY="-1602" width="128" height="88"/>
+    </elements>
+</model>
