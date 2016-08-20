@@ -32,22 +32,19 @@
 
 VBRootViewAndReturnIfNilMacro(VBLoginView);
 
+- (void)setUser:(VBDataUser *)user {
+    [super setUser:user];
+    
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    self.context = [[VBUserContext alloc] initWithUser:user];
+}
+
 #pragma mark -
 #pragma mark View LifeCycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [super hideNavigationBar];
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setUser:(VBDataUser *)user {
-    [super setUser:user];
-    
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    self.context = [[VBUserContext alloc] initWithUser:user];
 }
 
 #pragma mark -
