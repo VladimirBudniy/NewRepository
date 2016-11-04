@@ -61,9 +61,7 @@
                                   initWithGraphPath:self.user.ID
                                   parameters:self.requestParameters
                                   HTTPMethod:kVBHTTPGetMethod];
-    self.connection = [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                                            NSDictionary *result, NSError *error)
-                       {
+    self.connection = [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
                            if (!error) {
                                [self performWorkWithResult:result];
                            }

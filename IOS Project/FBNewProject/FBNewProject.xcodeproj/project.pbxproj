@@ -109,6 +109,7 @@
 		E73EC7331D11446A0064F791 /* libCommonKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommonKit.a; path = "Pods/../build/Debug-iphoneos/CommonKit/libCommonKit.a"; sourceTree = "<group>"; };
 		E73EC7351D11446E0064F791 /* libDataKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDataKit.a; path = "Pods/../build/Debug-iphoneos/DataKit/libDataKit.a"; sourceTree = "<group>"; };
 		E73EC7371D1144730064F791 /* libUIKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIKit.a; path = "Pods/../build/Debug-iphoneos/UIKit/libUIKit.a"; sourceTree = "<group>"; };
+		E74F31911DCA041D00889EFB /* FBNewProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FBNewProject.entitlements; sourceTree = "<group>"; };
 		E77637091D107B6E009B8ACC /* VBFriendContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFriendContext.h; sourceTree = "<group>"; };
 		E776370A1D107B6E009B8ACC /* VBFriendContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFriendContext.m; sourceTree = "<group>"; };
 		E7A172931D096770007843FF /* FBNewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBNewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +335,7 @@
 		E7A172951D096770007843FF /* FBNewProject */ = {
 			isa = PBXGroup;
 			children = (
+				E74F31911DCA041D00889EFB /* FBNewProject.entitlements */,
 				E7A1731B1D0967E6007843FF /* src */,
 				E7A1731F1D0967E6007843FF /* VBAppDelegate */,
 				E7A172961D096770007843FF /* Supporting Files */,
@@ -992,11 +994,17 @@
 		E7A1728B1D096770007843FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Vladimir Budniy";
 				TargetAttributes = {
 					E7A172921D096770007843FF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5K3KLF8BV2;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1194,8 +1202,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1239,8 +1249,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1269,6 +1281,8 @@
 			baseConfigurationReference = 2BBC884253C02B597A548A78 /* Pods-FBNewProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBNewProject/FBNewProject.entitlements;
+				DEVELOPMENT_TEAM = 5K3KLF8BV2;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FBNewProject/VBFBNewProject-Prefix.pch";
 				INFOPLIST_FILE = FBNewProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -1285,6 +1299,8 @@
 			baseConfigurationReference = 665BDBA829FEF5BEF147A8DE /* Pods-FBNewProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBNewProject/FBNewProject.entitlements;
+				DEVELOPMENT_TEAM = 5K3KLF8BV2;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FBNewProject/VBFBNewProject-Prefix.pch";
 				INFOPLIST_FILE = FBNewProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;

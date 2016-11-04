@@ -35,7 +35,6 @@
     return self;
 }
 
-
 #pragma mark -
 #pragma mark Accessors
 

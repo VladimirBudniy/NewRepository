@@ -11,7 +11,7 @@
 
 #import "VBAppDelegate.h"
 #import "VBLoginViewController.h"
-#import "VBDataUser.h"
+//#import "VBDataUser.h"
 
 static NSString * const kVBCoraDataName = @"FBProjectCoreData";
 
@@ -19,14 +19,19 @@ static NSString * const kVBCoraDataName = @"FBProjectCoreData";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
+                             didFinishLaunchingWithOptions:launchOptions]; // FB SDK
     
-    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
+    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];   // core data
     
     UIWindow *window = [UIWindow window];
+    
+//    [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
+    
     self.window = window;
     
     VBLoginViewController *viewController = [VBLoginViewController new];
+//    [self controllerFromNibWithName:NSStringFromClass([self class])]
+    
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     

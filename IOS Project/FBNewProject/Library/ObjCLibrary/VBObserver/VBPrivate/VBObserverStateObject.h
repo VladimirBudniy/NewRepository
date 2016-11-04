@@ -13,8 +13,8 @@
 @class VBObserverArray;
 
 @interface VBObserverStateObject : NSObject
-@property (nonatomic, assign) NSUInteger    state;
-@property (nonatomic, readonly) NSArray     *handlers;
+@property (nonatomic, assign)   NSUInteger    state;
+@property (nonatomic, readonly) NSArray       *handlers;
 
 + (VBObserverStateObject *)objectWithState:(NSUInteger)state;
 
